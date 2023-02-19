@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from "react";
+import React, {useState, useCallback, useId} from "react";
 
 const defaultQuestions = {
     question1 : [
@@ -64,10 +64,14 @@ const validate = useCallback(() => {
   return (
     <div>
         {
-            Object.keys(questions).map(key => <div>
+            Object.keys(questions).map(key =>{
+                const keyId=useId();
+                return <div key={keyId}>
             <h2>{key}</h2>
-            {questions[key].map(({text, selected}) => <button onClick={() => handleClick(key, text)} style={selected ? selectedStyle : defaultStyle}>{text}</button>)}
-            </div>)
+            {questions[key].map(({text, selected}) => {
+                const keyIdBis = useId();
+                return <button key={keyIdBis} onClick={() => handleClick(key, text)} style={selected ? selectedStyle : defaultStyle}>{text}</button>})}
+            </div>})
         }
         <button onClick={validate}>Continuer</button>
     </div>
