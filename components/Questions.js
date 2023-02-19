@@ -40,7 +40,7 @@ const defaultStyle = {
     color: "inherit"
 }
 
-function App() {
+function Questions() {
     const [questions, setQuestions] = useState(defaultQuestions);
 
     const handleClick = useCallback((question, value) => {
@@ -53,6 +53,14 @@ function App() {
         }))
     }, []);
 
+const validate = useCallback(() => {
+    const selectedAnswers = Object.keys(questions).map(key => questions[key].find(value => value.selected));
+    if(!selectedAnswers.includes(undefined)) {
+        console.log(selectedAnswers.map(({text})=> text));
+        setQuestions(defaultQuestions);
+    }
+}, [questions])
+
   return (
     <div>
         {
@@ -61,8 +69,9 @@ function App() {
             {questions[key].map(({text, selected}) => <button onClick={() => handleClick(key, text)} style={selected ? selectedStyle : defaultStyle}>{text}</button>)}
             </div>)
         }
+        <button onClick={validate}>Continuer</button>
     </div>
   );
 }
 
-export default App;
+export default Questions;
