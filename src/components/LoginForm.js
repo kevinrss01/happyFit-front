@@ -41,7 +41,7 @@ function LoginForm() {
     <form onSubmit={handleSubmit} className="login-form">
       <h2>Connexion</h2>
       <span style={{ marginBottom: 5, fontFamily: "Rubik" }}>
-        Vous n'avez pas encore de compte ?{" "}
+        Vous n&lsquo;avez pas encore de compte ?{" "}
         <Link href="/">
           <a style={{ fontFamily: "Rubik", color: "#3e8bd0" }}>
             Inscrivez-vous
