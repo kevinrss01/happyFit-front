@@ -6,6 +6,8 @@
 
 // COMPONENTS -> Blocs indépendants comme les boutons ou un loader.
 @import 'components/leNomDuFichier';
+@import 'components/LoginForm.scss';
+@import 'components/ProfileForm.scss';
 
 // LAYOUTS -> Ce qui est réutilisable comme le footer ou le header ou une navbar.
 @import 'layouts/leNomDuFichier';
@@ -14,4 +16,43 @@
 // Par exemple, le style d'une page d'inscription ou de connexion.
 @import 'pages/leNomDuFichier';
 
+
 //N'oublie pas que quand tu créer les fichiers tu dois ajouter '_' avant le nom du fichier pour que le fichier soit pris en compte par le compilateur.
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.column-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    width: 20px;
+}
+
+i {
+    color: black;
+}
+
+h2, input {
+    font-family: "Rubik";
+}
+
+.title-inscription-form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
