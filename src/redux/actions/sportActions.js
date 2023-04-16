@@ -1,3 +1,4 @@
+import ProgramAPI from "../../service/ProgramAPI";
 import {
   GET_SPORT_ERROR,
   GET_SPORT_REQUEST,
@@ -12,8 +13,11 @@ const getProgramSuccess = (data) => ({
 const getProgramError = (err) => ({ type: GET_SPORT_ERROR, payload: err });
 
 export const getProgram = () => async (dispatch) => {
-  //dispatch getProgramRequest()
-  //endpoint call with axios stored in a variable
-  // value dispatched in getProgramSuccess
-  //catch error and dispatch it in getProgramError
+  dispatch(getProgramRequest());
+  try {
+    const res = await ProgramAPI.findSportProgram();
+    dispatch(getProgramSuccess(res.data));
+  } catch (err) {
+    dispatch(getProgramError(err));
+  }
 };

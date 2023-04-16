@@ -2,39 +2,56 @@ import {
   GET_USER_ERROR,
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
+  LOGIN_ERROR,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  REGISTER_ERROR,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
 } from "../actions/actions";
 import { generateReducer } from "./reducer";
 
 export const initialUserState = {
   isFetching: false,
-  email: "",
-  firstName: "",
-  id: "",
-  age: 0,
-  sexe: "",
-  weightInKilos: 0,
+  userInfo: {},
+  error: "",
 };
 
-export const userComputer = {
-  [GET_USER_REQUEST]: (state, data = undefined) => ({
+const loginComputer = {
+  [LOGIN_REQUEST]: (state, payload = undefined) => ({
     ...state,
     isFetching: true,
   }),
-  [GET_USER_SUCCESS]: (state, data) => {
-    const { email, firstName, age, sexe, weightInKilos, id } = data;
-    return {
-      ...state,
-      isFetching: false,
-      email,
-      firstName,
-      age,
-      sexe,
-      weightInKilos,
-      id,
-    };
-  },
-  [GET_USER_ERROR]: (state, err) => ({
+  [LOGIN_SUCCESS]: (state, payload) => ({
     ...state,
     isFetching: false,
+    userInfo: payload,
   }),
+  [LOGIN_ERROR]: (state, error) => ({
+    ...state,
+    isFetching: false,
+    error,
+  }),
+};
+
+const registerComputer = {
+  [REGISTER_REQUEST]: (state, payload = undefined) => ({
+    ...state,
+    isFetching: true,
+  }),
+  [REGISTER_SUCCESS]: (state, payload) => ({
+    ...state,
+    isFetching: false,
+    userInfo: payload,
+  }),
+  [REGISTER_ERROR]: (state, error) => ({
+    ...state,
+    isFetching: false,
+    error,
+  }),
+};
+
+export const userComputer = {
+  ...loginComputer,
+  ...registerComputer,
 };

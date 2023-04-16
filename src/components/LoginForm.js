@@ -1,8 +1,11 @@
 import Link from "next/link";
 import React, { useState, useMemo, useCallback } from "react";
+import Axios from "../service/axios";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../redux/actions/userActions";
 
 const defaultFormValue = {
-  mail: "",
+  email: "",
   password: "",
   visible: false,
 };
@@ -11,8 +14,8 @@ const style = { width: 20, height: "auto" };
 
 function LoginForm() {
   const [formValue, setFormValue] = useState(defaultFormValue);
-
-  const { mail, password, visible } = useMemo(() => formValue, [formValue]);
+  const dispatch = useDispatch();
+  const { email, password, visible } = useMemo(() => formValue, [formValue]);
 
   const handleChange = useCallback(({ target }) => {
     const { value, id, checked, type } = target;
@@ -32,6 +35,8 @@ function LoginForm() {
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
+      const { visible, ...data } = formValue;
+      dispatch(userLogin(data));
       setFormValue(defaultFormValue);
     },
     [formValue]
@@ -42,7 +47,7 @@ function LoginForm() {
       <h2>Connexion</h2>
       <span style={{ marginBottom: 5, fontFamily: "Rubik" }}>
         Vous n&lsquo;avez pas encore de compte ?{" "}
-        <Link href="/">
+        <Link href="/inscription">
           <a style={{ fontFamily: "Rubik", color: "#3e8bd0" }}>
             Inscrivez-vous
           </a>
@@ -65,10 +70,10 @@ function LoginForm() {
 
         <input
           onChange={handleChange}
-          id="mail"
+          id="email"
           type="mail"
           placeholder="E-mail"
-          value={mail}
+          value={email}
         />
       </div>
 

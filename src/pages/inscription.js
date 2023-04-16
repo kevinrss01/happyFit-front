@@ -3,6 +3,9 @@ import ParamsForm from "../components/ParamsForm";
 import ProfileForm from "../components/ProfileForm";
 import Questions from "../components/Questions";
 import Axios from "../service/axios";
+import { useDispatch } from "react-redux";
+import { userRegister } from "../redux/actions/userActions";
+import { useRouter } from "next/router";
 
 const defaultValidations = {
   personal: false,
@@ -29,6 +32,9 @@ const defaultData = {
 export default function Inscription() {
   const [validations, setValidations] = useState(defaultValidations);
   const [data, setData] = useState(defaultData);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { isFetching } = useSelector((state) => state.user);
   const { personal, metrics, params } = useMemo(
     () => validations,
     [validations]
@@ -37,10 +43,14 @@ export default function Inscription() {
   const updateData = (validatedStep, updatingData) => {
     if (Object.keys(updatingData).every((key) => !!updatingData[key])) {
       if (validatedStep === "params") {
-        Axios.post("http://localhost:4000/auth/register", {
-          ...data,
-          ...updatingData,
-        }).then(({ data }) => console.log("the data has been sent ! ", data));
+        const registerData = { ...data, ...updatingData };
+        dispatch(userRegister(registerData)).then(() => {
+          /* toaster d'annonce avant la redirection,
+           indiquant que l'inscription a été réussie 
+          indiquant qu'il faut se connecter
+          */
+          router.push("/connexion");
+        });
       }
       setData((prevData) => ({
         ...prevData,
@@ -87,6 +97,9 @@ export default function Inscription() {
   const PartieParams = () => (
     <ParamsForm goBack={goBackToMetricsStep} validate={updateData} />
   );
+
+  // priorité mineure donc j'ai mis un text en attendant de mettre un vrai loader
+  if (isFetching) return <>Loading...</>;
 
   return (
     <div style={{ color: "white" }}>

@@ -1,26 +1,28 @@
 import axios from "axios";
 
-class Axios {
-  static headers = { headers: { apiKey: process.env.API_KEY } };
+const backendServer = "http://localhost:4000";
+const formatUrl = (url) => `${backendServer}/${url}`;
+const headers = { headers: { apiKey: process.env.API_KEY } };
 
+class Axios {
   static get(url) {
-    return axios.get("http://localhost:4000/program/sport", this.headers);
+    return axios.get(formatUrl(url), headers);
   }
 
   static post(url, data) {
-    return axios.post(url, data, this.headers);
+    return axios.post(formatUrl(url), data, headers);
   }
 
   static delete(url) {
-    return axios.delete(url, this.headers);
+    return axios.delete(formatUrl(url), headers);
   }
 
   static put(url, data) {
-    return axios.put(url, data, this.headers);
+    return axios.put(formatUrl(url), data, headers);
   }
 
   static patch(url, data) {
-    return axios.patch(url, data, this.headers);
+    return axios.patch(formatUrl(url), data, headers);
   }
 }
 
