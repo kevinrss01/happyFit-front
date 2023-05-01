@@ -3,7 +3,7 @@ import ParamsForm from "../components/ParamsForm";
 import ProfileForm from "../components/ProfileForm";
 import Questions from "../components/Questions";
 import Axios from "../service/axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../redux/actions/userActions";
 import { useRouter } from "next/router";
 
