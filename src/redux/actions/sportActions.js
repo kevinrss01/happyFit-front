@@ -6,7 +6,7 @@ import {
 } from "./actions";
 
 const getProgramRequest = () => ({ type: GET_SPORT_REQUEST });
-const getProgramSuccess = (data) => ({
+export const getProgramSuccess = (data) => ({
   type: GET_SPORT_SUCCESS,
   payload: data,
 });
