@@ -100,9 +100,6 @@ function Questions({ validate, goBack }) {
     }
   }, [questions]);
 
-  const keyId = useId();
-  const keyIdBis = useId();
-
   return (
     <div className="column-container">
       <TopBarLogo />

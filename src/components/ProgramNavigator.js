@@ -14,28 +14,20 @@ export default function ProgramNavigator({
   );
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        color: "white",
-        marginBottom: 20,
-      }}
-    >
-      <i
-        style={{ color: "white" }}
-        className={`${faIconBase}left`}
-        onClick={validateCallback(index > 1, goBackward)}
-      ></i>
-      <span>
-        Semaine {index} du {creationDate.replaceAll(/-/g, "/")}
-      </span>
-      <i
-        style={{ color: "white" }}
-        className={`${faIconBase}right`}
-        onClick={validateCallback(index < limit, goForward)}
-      ></i>
+    <div className="top-bar-navigation-container">
+      <div className="top-bar-navigation">
+        <i
+          className={`${faIconBase}left`}
+          onClick={validateCallback(index > 1, goBackward)}
+        ></i>
+        <span>
+          Semaine {index} du {creationDate.replaceAll(/-/g, "/")}
+        </span>
+        <i
+          className={`${faIconBase}right`}
+          onClick={validateCallback(index < limit, goForward)}
+        ></i>
+      </div>
     </div>
   );
 }

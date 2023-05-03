@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useCallback, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TopBarLogo from "../components/TopBarLogo";
 
 const defaultFormValue = {
@@ -43,10 +42,10 @@ function ProfileForm({ validate }) {
   /*
     function written in case we decide to handle the number type on our own to parse data (html number type accepts - and + which can be problematic depending on the format when want to save)
      */
-  const numIsInRightFormat = useCallback((num) => {
-    const regex = /[`!@#$%^&*()_\-=\[\]{};':"\\|,.<>\/?~]| [a-z]|[A-Z]/;
-    return !regex.test(num);
-  }, []);
+  // const numIsInRightFormat = useCallback((num) => {
+  //   const regex = /[`!@#$%^&*()_\-=\[\]{};':"\\|,.<>\/?~]| [a-z]|[A-Z]/;
+  //   return !regex.test(num);
+  // }, []);
 
   const GenderLogo = useCallback(() => {
     switch (sexe) {

@@ -5,15 +5,12 @@ import { userLogin } from "../redux/actions/userActions";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FcLock } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import TopBarLogo from "./TopBarLogo";
 
 const defaultFormValue = {
   email: "",
   password: "",
   visible: false,
 };
-
-const style = { width: 20, height: "auto" };
 
 function LoginForm() {
   const [formValue, setFormValue] = useState(defaultFormValue);
