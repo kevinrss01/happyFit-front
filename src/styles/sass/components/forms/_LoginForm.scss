@@ -1,0 +1,123 @@
+.login-form-container{
+    background-image: $gradient-background-right;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    .login-form-and-image-container{
+        display: flex;
+
+        .login-form-image-container-1,
+        .login-form-image-container-2,
+        .login-form-image-container-3,
+        .login-form-image-container-4 {
+            width: 640px;
+            height: 540px;
+            background-position: center;
+            background-size: cover;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .login-form-image-container-1{
+            background-image: url("../../../../public/images/login-image.png");
+        }
+
+        .login-form-image-container-2{
+            background-image: url("../../../../public/images/login-image-2.png");
+        }
+
+        .login-form-image-container-3{
+            background-image: url("../../../../public/images/login-image-3.png");
+        }
+
+
+
+
+    }
+
+}
+
+$gradient-background-left: linear-gradient(to left, #1d1e27, #111111);
+.login-form {
+    @include flex-col;
+    justify-content: center;
+    background-image: $gradient-background-right;
+    gap: 20px;
+    color: white;
+    width: 600px;
+    padding: 20px;
+    margin: auto;
+    height: 500px;
+    border-radius: 10px 0 0 10px;
+    background-color: white;
+
+
+
+    .icon{
+        cursor: pointer;
+    }
+
+    .no-account {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 540px;
+
+        span{
+            opacity: 60%;
+        }
+    }
+
+}
+
+//Also for register form
+.input-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 350px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 15px auto;
+    transform: scale(1.5);
+
+    svg {
+        width: 18px;
+        color: #222222;
+    }
+    input {
+        border: none;
+        width: 100%;
+        color: #222222;
+        background-color: inherit;
+    }
+    select {
+        outline: none;
+        height: 100%;
+        border: none;
+        width: 100%;
+    }
+    input:focus {
+        outline: none;
+    }
+
+    i{
+        font-size: 15px;
+    }
+
+}
+
+.input-form:focus {
+    outline:none;
+}
+
+
+
+

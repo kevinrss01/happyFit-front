@@ -1,14 +1,18 @@
 // UTILS -> Variables, fonctions, mixins.
 @import 'utils/utils';
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/animations';
 
 // BASE -> Fondations du site, polices de caractère, normes, box-sizing, etc...
 @import 'base/base';
 
 // COMPONENTS -> Blocs indépendants comme les boutons ou un loader.
-@import 'components/leNomDuFichier';
-@import 'components/LoginForm.scss';
-@import 'components/ProfileForm.scss';
+@import 'components/forms/LoginForm';
+@import 'components/forms/ProfileForm';
 @import 'components/Opener.scss';
+@import 'components/topBar.scss';
+@import 'components/boutons.scss';
 
 // LAYOUTS -> Ce qui est réutilisable comme le footer ou le header ou une navbar.
 @import 'layouts/leNomDuFichier';
@@ -21,39 +25,3 @@
 //N'oublie pas que quand tu créer les fichiers tu dois ajouter '_' avant le nom du fichier pour que le fichier soit pris en compte par le compilateur.
 
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.gap-10 {
-    gap: 10px;
-}
-
-.column-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.logo {
-    width: 20px;
-}
-
-i {
-    color: black;
-}
-
-h2, input {
-    font-family: "Rubik";
-}
-
-.title-inscription-form {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}

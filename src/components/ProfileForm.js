@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TopBarLogo from "../components/TopBarLogo";
 
 const defaultFormValue = {
   firstName: "",
@@ -54,7 +55,7 @@ function ProfileForm({ validate }) {
       case "woman":
         return <i className="fa fa-venus"></i>;
       default:
-        return <i class="fa fa-venus-mars"></i>;
+        return <i className="fa fa-venus-mars"></i>;
     }
   }, [formValue]);
 
@@ -73,6 +74,7 @@ function ProfileForm({ validate }) {
 
   return (
     <form className="profile-form" onSubmit={handleSubmit}>
+      <TopBarLogo />
       <h2>Mon profil</h2>
       <div className="input-form">
         <input
@@ -123,7 +125,7 @@ function ProfileForm({ validate }) {
           <option value="woman">Femme</option>
         </select>
       </div>
-      <div class="input-form">
+      <div className="input-form">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -153,7 +155,7 @@ function ProfileForm({ validate }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 logo"
+            className="w-6 h-6 logo visible"
           >
             <path
               strokeLinecap="round"
@@ -176,7 +178,7 @@ function ProfileForm({ validate }) {
             strokeWidth={1.5}
             stroke="currentColor"
             // style={style}
-            className="w-6 h-6"
+            className="w-6 h-6 visible"
           >
             <path
               strokeLinecap="round"
