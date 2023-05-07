@@ -35,33 +35,34 @@ export default function Home() {
   if (tempState.programs.length == 0) return <>Loading...</>;
 
   return (
-    <div className="program-navigator-container">
-      <Navbar />
-      <ProgramNavigator
-        limit={tempState.programs.length}
-        index={weekIndex}
-        goBackward={goBackward}
-        goForward={goForward}
-        creationDate={tempState.programs[weekIndex - 1].creationDate}
-      />
-      {tempState.programs[weekIndex - 1].weekSportStructure.map((val) => (
-        <Opener message={`Jour ${val.jour} : ${val.typeEntrainement}`}>
-          <Link
-            href={`/programs/${tempState.programs[weekIndex - 1].id}/${
-              val.jour
-            }/échauffement`}
-          >
-            <button className="button-opener">Échauffements</button>
-          </Link>
-          <Link
-            href={`/programs/${tempState.programs[weekIndex - 1].id}/${
-              val.jour
-            }/exercice`}
-          >
-            <button className="button-opener">Exercices</button>
-          </Link>
-        </Opener>
-      ))}
-    </div>
+    <Navbar>
+      <div className="program-navigator-container">
+        <ProgramNavigator
+          limit={tempState.programs.length}
+          index={weekIndex}
+          goBackward={goBackward}
+          goForward={goForward}
+          creationDate={tempState.programs[weekIndex - 1].creationDate}
+        />
+        {tempState.programs[weekIndex - 1].weekSportStructure.map((val) => (
+          <Opener message={`Jour ${val.jour} : ${val.typeEntrainement}`}>
+            <Link
+              href={`/programs/${tempState.programs[weekIndex - 1].id}/${
+                val.jour
+              }/échauffement`}
+            >
+              <button className="button-opener">Échauffements</button>
+            </Link>
+            <Link
+              href={`/programs/${tempState.programs[weekIndex - 1].id}/${
+                val.jour
+              }/exercice`}
+            >
+              <button className="button-opener">Exercices</button>
+            </Link>
+          </Opener>
+        ))}
+      </div>
+    </Navbar>
   );
 }

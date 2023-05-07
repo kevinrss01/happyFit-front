@@ -2,7 +2,7 @@ import axios from "axios";
 
 const backendServer = "http://localhost:4000";
 const formatUrl = (url) => `${backendServer}/${url}`;
-const headers = { headers: { apiKey: process.env.API_KEY } };
+const headers = { headers: { apiKey: "process.env.API_KEY" } };
 
 class Axios {
   static get(url) {

@@ -11,17 +11,16 @@
 @import 'components/forms/LoginForm';
 @import 'components/forms/ProfileForm';
 @import 'components/Opener.scss';
-@import 'components/topBar.scss';
 @import 'components/boutons.scss';
 @import 'components/homepage/topBarNavigation.scss';
-@import "components/navbar.scss";
 
 // LAYOUTS -> Ce qui est réutilisable comme le footer ou le header ou une navbar.
-@import 'layouts/leNomDuFichier';
+@import 'layouts/topBar';
+@import "layouts/navbar";
 
 // PAGES -> Blocs de code qui ne s'applique qu'a une seule page. Les règles spécifiques à une seule page.
 // Par exemple, le style d'une page d'inscription ou de connexion.
-@import 'pages/leNomDuFichier';
+@import 'pages/boxingPage';
 
 
 //N'oublie pas que quand tu créer les fichiers tu dois ajouter '_' avant le nom du fichier pour que le fichier soit pris en compte par le compilateur.

@@ -122,6 +122,7 @@ function ProfileForm({ validate }) {
           )}
           <option value="man">Homme</option>
           <option value="woman">Femme</option>
+          defaultValue={"Genre"}
         </select>
       </div>
       <div className="input-form">

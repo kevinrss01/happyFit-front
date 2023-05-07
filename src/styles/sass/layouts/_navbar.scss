@@ -1,0 +1,72 @@
+.navbar-container{
+  background: $gradient-background-right;
+  height: 100%;
+  width: 200px;
+  color: white;
+  @include flex-centre;
+
+  .link-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60%;
+
+    .icon-container{
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      opacity: 0.6;
+
+      .custom-btn {
+        width: 50px;
+        height: 20px;
+        color: #fff;
+        border-radius: 5px;
+        font-family: 'Lato', sans-serif;
+        font-size: 9px;
+        font-weight: 900;
+        font-style: normal;
+        text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+        text-decoration: none;
+        background: transparent;
+        cursor: pointer;
+        right: 30px;
+        display: inline-block;
+        box-shadow: inset 0px 1px 0px rgba(255,255,255,1),0px 1px 3px rgba(0,0,0,0.3);
+        outline: none;
+        border: 1px solid #ba6;
+      }
+
+      .btn-3{
+        background: -webkit-gradient(linear, left top, left bottom, from(#a95), to(#fea));
+      }
+
+      &:hover{
+        color: $bleu;
+        opacity: 1;
+      }
+
+      :first-child{
+        font-size: 30px;
+      }
+
+      span{
+        width: 70%;
+        font-size: 17px;
+      }
+    }
+
+    .icon-container-selected{
+      color: $bleu;
+      opacity: 1;
+    }
+  }
+
+
+}
+
