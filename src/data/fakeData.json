@@ -1,805 +1,875 @@
 {
-    "email": "RobertGreene29@example.com",
-    "id": "HWSxqAY0uFMvhj9kYqfdGLwPoTm1",
-    "firstName": "Robert",
-    "age": 33,
-    "weightInKilos": 75,
-    "heightInCentimeters": 180,
-    "sexe": "man",
-    "fitnessGoal": "gain muscle",
-    "sportExperienceInYears": 1,
-    "trainingPlace": "gym",
-    "numberOfSessionPerWeek": 5,
-    "availableTimePerSessionInMinutes": 50,
-    "programs": [
-      {
-        "id": "ce5bc769-c4b7-415a-a56b-62e1ef6c8674",
-        "weeklyProgramNumber": 1,
-        "tokenUtilisation": 5118,
-        "creationDate": "2023-03-24",
-        "priceRequest": "0.010236$",
-        "weekSportStructure": [
-          { "jour": 1, "typeEntrainement": "Full-body" },
-          { "jour": 2, "typeEntrainement": "Haut du corps" },
-          { "jour": 3, "typeEntrainement": "Bas du corps" },
-          { "jour": 4, "typeEntrainement": "Cardio" },
-          { "jour": 5, "typeEntrainement": "Full-body" }
-        ],
-        "nutritionPrograms": [],
-        "sportPrograms": [
-          {
-            "numeroJour": 1,
-            "nombreExercices": 6,
-            "echauffements": [
-              {
-                "reposEntreLesSeriesEnSecondes": 30,
-                "nombreDeSeries": 3,
-                "numeroExercice": 1,
-                "nomExercice": "Squats",
-                "nombreDeRepetitions": 12,
-                "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et descendez jusqu'à ce que vos cuisses soient parallèles au sol. Revenez à la position de départ."
-              },
-              {
-                "numeroExercice": 2,
-                "instructions": "Placez vos mains à la largeur des épaules, descendez jusqu'à ce que votre poitrine touche le sol, puis poussez pour revenir à la position de départ.",
-                "nombreDeRepetitions": 10,
-                "nomExercice": "Pompes",
-                "nombreDeSeries": 3,
-                "reposEntreLesSeriesEnSecondes": 30
-              },
-              {
-                "nomExercice": "Tirage horizontal",
-                "reposEntreLesSeriesEnSecondes": 30,
-                "numeroExercice": 3,
-                "nombreDeSeries": 3,
-                "nombreDeRepetitions": 12,
-                "instructions": "Placez-vous face à la machine, saisissez la barre avec une prise en pronation, tirez la barre vers votre torse en gardant les coudes près du corps, puis relâchez lentement."
-              }
-            ],
-            "exercices": [
-              {
-                "nomExercice": "Squats",
-                "nombreDeSeries": 4,
-                "instructions": "Gardez le dos droit et descendez jusqu'à ce que vos cuisses soient parallèles au sol.",
-                "groupeMusculaire": "Jambes",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 30,
-                    "repetition": 12
-                  },
-                  {
-                    "numeroDeLaSerie": 2,
-                    "poidsEnKilos": 35,
-                    "reposEnSeconde": 60,
-                    "repetition": 10
-                  },
-                  {
-                    "reposEnSeconde": 60,
-                    "repetition": 8,
-                    "numeroDeLaSerie": 3,
-                    "poidsEnKilos": 40
-                  },
-                  {
-                    "poidsEnKilos": 45,
-                    "repetition": 6,
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 4
-                  }
-                ]
-              },
-              {
-                "nomExercice": "Développé couché",
-                "nombreDeSeries": 4,
-                "instructions": "Gardez les coudes près du corps et descendez la barre jusqu'à toucher la poitrine.",
-                "groupeMusculaire": "Pectoraux",
-                "series": [
-                  {
-                    "repetition": 12,
-                    "numeroDeLaSerie": 1,
-                    "poidsEnKilos": 30,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "repetition": 10,
-                    "numeroDeLaSerie": 2,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 35
-                  },
-                  {
-                    "repetition": 8,
-                    "numeroDeLaSerie": 3,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 40
-                  },
-                  {
-                    "numeroDeLaSerie": 4,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 45,
-                    "repetition": 6
-                  }
-                ]
-              },
-              {
-                "instructions": "Tirez la barre vers votre poitrine en gardant le dos droit.",
-                "groupeMusculaire": "Dos",
-                "nombreDeSeries": 4,
-                "nomExercice": "Tirage horizontal",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "poidsEnKilos": 30,
-                    "repetition": 12,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "numeroDeLaSerie": 2,
-                    "repetition": 10,
-                    "poidsEnKilos": 35,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "repetition": 8,
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 3,
-                    "poidsEnKilos": 40
-                  },
-                  {
-                    "repetition": 6,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 45,
-                    "numeroDeLaSerie": 4
-                  }
-                ]
-              },
-              {
-                "instructions": "Gardez le dos droit et soulevez la barre jusqu'à la hauteur des hanches.",
-                "nombreDeSeries": 4,
-                "groupeMusculaire": "Dos et jambes",
-                "nomExercice": "Soulevé de terre",
-                "series": [
-                  {
-                    "poidsEnKilos": 30,
-                    "numeroDeLaSerie": 1,
-                    "reposEnSeconde": 60,
-                    "repetition": 12
-                  },
-                  {
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 2,
-                    "poidsEnKilos": 35,
-                    "repetition": 10
-                  },
-                  {
-                    "numeroDeLaSerie": 3,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 40,
-                    "repetition": 8
-                  },
-                  {
-                    "poidsEnKilos": 45,
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 4,
-                    "repetition": 6
-                  }
-                ]
-              },
-              {
-                "nomExercice": "Curl biceps",
-                "groupeMusculaire": "Biceps",
-                "nombreDeSeries": 4,
-                "instructions": "Gardez les coudes près du corps et montez la barre jusqu'à la hauteur des épaules.",
-                "series": [
-                  {
-                    "poidsEnKilos": 10,
-                    "reposEnSeconde": 60,
-                    "repetition": 12,
-                    "numeroDeLaSerie": 1
-                  },
-                  {
-                    "numeroDeLaSerie": 2,
-                    "poidsEnKilos": 12.5,
-                    "repetition": 10,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "repetition": 8,
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 3,
-                    "poidsEnKilos": 15
-                  },
-                  {
-                    "numeroDeLaSerie": 4,
-                    "repetition": 6,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 17.5
-                  }
-                ]
-              },
-              {
-                "nombreDeSeries": 4,
-                "nomExercice": "Extension triceps",
-                "instructions": "Gardez les coudes près de la tête et descendez la barre derrière la nuque.",
-                "groupeMusculaire": "Triceps",
-                "series": [
-                  {
-                    "poidsEnKilos": 10,
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 1,
-                    "repetition": 12
-                  },
-                  {
-                    "poidsEnKilos": 12.5,
-                    "repetition": 10,
-                    "numeroDeLaSerie": 2,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "poidsEnKilos": 15,
-                    "repetition": 8,
-                    "numeroDeLaSerie": 3,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "numeroDeLaSerie": 4,
-                    "repetition": 6,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": 17.5
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "echauffements": [
-              {
-                "numeroExercice": 1,
-                "instructions": "Placez vos mains à plat sur le sol, légèrement plus larges que la largeur des épaules. Descendez votre corps jusqu'à ce que votre poitrine touche presque le sol, puis poussez-vous vers le haut jusqu'à ce que vos bras soient tendus.",
-                "nomExercice": "Pompes",
-                "reposEntreLesSeriesEnSecondes": 30,
-                "nombreDeSeries": 3,
-                "nombreDeRepetitions": 10
-              },
-              {
-                "nomExercice": "Tirage horizontal",
-                "numeroExercice": 2,
-                "reposEntreLesSeriesEnSecondes": 30,
-                "nombreDeSeries": 3,
-                "nombreDeRepetitions": 12,
-                "instructions": "Placez-vous face à la machine de tirage horizontal. Saisissez la barre avec une prise en pronation. Tirez la barre vers votre corps en gardant les coudes près du corps. "
-              },
-              {
-                "nombreDeSeries": 3,
-                "nomExercice": "Développé couché",
-                "nombreDeRepetitions": 8,
-                "instructions": "Allongez-vous sur le banc de développé couché. Saisissez la barre avec une prise en pronation. Abaissez la barre jusqu'à ce qu'elle touche votre poitrine, puis poussez-la vers le haut jusqu'à ce que vos bras soient tendus.",
-                "reposEntreLesSeriesEnSecondes": 30,
-                "numeroExercice": 3
-              }
-            ],
-            "numeroJour": 2,
-            "exercices": [
-              {
-                "series": [
-                  {
-                    "poidsEnKilos": "50",
-                    "reposEnSeconde": 60,
-                    "repetition": 12,
-                    "numeroDeLaSerie": 1
-                  },
-                  {
-                    "repetition": 10,
-                    "numeroDeLaSerie": 2,
-                    "poidsEnKilos": "60",
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "poidsEnKilos": "70",
-                    "repetition": 8,
-                    "reposEnSeconde": 90,
-                    "numeroDeLaSerie": 3
-                  },
-                  {
-                    "repetition": 6,
-                    "numeroDeLaSerie": 4,
-                    "reposEnSeconde": 120,
-                    "poidsEnKilos": "80"
-                  }
-                ],
-                "instructions": "Allongé sur le dos, descendre la barre jusqu'à toucher la poitrine puis la remonter en expirant.",
-                "groupeMusculaire": "Pectoraux",
-                "nombreDeSeries": 4,
-                "nomExercice": "Développé couché"
-              },
-              {
-                "nombreDeSeries": 4,
-                "groupeMusculaire": "Dos",
-                "nomExercice": "Tirage horizontal",
-                "instructions": "Assis sur la machine, tirer la barre vers soi en inspirant puis la relâcher en expirant.",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "repetition": 12,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "50"
-                  },
-                  {
-                    "poidsEnKilos": "60",
-                    "repetition": 10,
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 2
-                  },
-                  {
-                    "repetition": 8,
-                    "numeroDeLaSerie": 3,
-                    "reposEnSeconde": 90,
-                    "poidsEnKilos": "70"
-                  },
-                  {
-                    "reposEnSeconde": 120,
-                    "repetition": 6,
-                    "poidsEnKilos": "80",
-                    "numeroDeLaSerie": 4
-                  }
-                ]
-              },
-              {
-                "nombreDeSeries": 4,
-                "instructions": "Debout, lever les haltères au-dessus de la tête en inspirant puis les redescendre en expirant.",
-                "groupeMusculaire": "Epaules",
-                "nomExercice": "Développé militaire",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "repetition": 12,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "10"
-                  },
-                  {
-                    "repetition": 10,
-                    "numeroDeLaSerie": 2,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "12.5"
-                  },
-                  {
-                    "repetition": 8,
-                    "poidsEnKilos": "15",
-                    "reposEnSeconde": 90,
-                    "numeroDeLaSerie": 3
-                  },
-                  {
-                    "repetition": 6,
-                    "poidsEnKilos": "17.5",
-                    "reposEnSeconde": 120,
-                    "numeroDeLaSerie": 4
-                  }
-                ]
-              },
-              {
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "poidsEnKilos": "10",
-                    "repetition": 12,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "poidsEnKilos": "12.5",
-                    "repetition": 10,
-                    "numeroDeLaSerie": 2,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "repetition": 8,
-                    "reposEnSeconde": 90,
-                    "numeroDeLaSerie": 3,
-                    "poidsEnKilos": "15"
-                  },
-                  {
-                    "poidsEnKilos": "17.5",
-                    "repetition": 6,
-                    "numeroDeLaSerie": 4,
-                    "reposEnSeconde": 120
-                  }
-                ],
-                "instructions": "Assis sur la machine, lever les haltères en inspirant puis les redescendre en expirant.",
-                "nombreDeSeries": 4,
-                "nomExercice": "Curl biceps",
-                "groupeMusculaire": "Biceps"
-              }
-            ],
-            "nombreExercices": 4
-          },
-          {
-            "exercices": [
-              {
-                "series": [
-                  {
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 1,
-                    "poidsEnKilos": "40",
-                    "repetition": 12
-                  },
-                  {
-                    "numeroDeLaSerie": 2,
-                    "poidsEnKilos": "50",
-                    "reposEnSeconde": 60,
-                    "repetition": 10
-                  },
-                  {
-                    "reposEnSeconde": 60,
-                    "repetition": 8,
-                    "poidsEnKilos": "60",
-                    "numeroDeLaSerie": 3
-                  },
-                  {
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "70",
-                    "numeroDeLaSerie": 4,
-                    "repetition": 6
-                  }
-                ],
-                "nombreDeSeries": 4,
-                "nomExercice": "Squats",
-                "groupeMusculaire": "Jambes",
-                "instructions": "Gardez le dos droit et les genoux alignés avec les orteils."
-              },
-              {
-                "nomExercice": "Fentes",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "reposEnSeconde": 60,
-                    "repetition": 12,
-                    "poidsEnKilos": "20"
-                  },
-                  {
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "25",
-                    "numeroDeLaSerie": 2,
-                    "repetition": 10
-                  },
-                  {
-                    "poidsEnKilos": "30",
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 3,
-                    "repetition": 8
-                  }
-                ],
-                "groupeMusculaire": "Jambes",
-                "instructions": "Gardez le dos droit et les genoux alignés avec les orteils.",
-                "nombreDeSeries": 3
-              },
-              {
-                "groupeMusculaire": "Dos et jambes",
-                "nomExercice": "Soulevé de terre",
-                "nombreDeSeries": 3,
-                "series": [
-                  {
-                    "repetition": 10,
-                    "poidsEnKilos": "50",
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 1
-                  },
-                  {
-                    "poidsEnKilos": "60",
-                    "numeroDeLaSerie": 2,
-                    "repetition": 8,
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "poidsEnKilos": "70",
-                    "repetition": 6,
-                    "numeroDeLaSerie": 3,
-                    "reposEnSeconde": 60
-                  }
-                ],
-                "instructions": "Gardez le dos droit et les jambes tendues."
-              }
-            ],
-            "echauffements": [
-              {
-                "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et descendez jusqu'à ce que vos cuisses soient parallèles au sol. Revenez à la position de départ.",
-                "nombreDeSeries": 3,
-                "nomExercice": "Squats",
-                "numeroExercice": 1,
-                "nombreDeRepetitions": 12,
-                "reposEntreLesSeriesEnSecondes": 30
-              },
-              {
-                "reposEntreLesSeriesEnSecondes": 30,
-                "instructions": "Placez un pied devant l'autre, fléchissez les genoux et descendez jusqu'à ce que votre genou arrière touche presque le sol. Revenez à la position de départ et alternez avec l'autre jambe.",
-                "nombreDeRepetitions": 12,
-                "nombreDeSeries": 3,
-                "nomExercice": "Fentes",
-                "numeroExercice": 2
-              },
-              {
-                "numeroExercice": 3,
-                "reposEntreLesSeriesEnSecondes": 30,
-                "nomExercice": "Extensions de jambes",
-                "nombreDeSeries": 3,
-                "instructions": "Asseyez-vous sur une machine d'extension de jambes, placez vos pieds sous le coussin et étendez vos jambes jusqu'à ce qu'elles soient droites. Revenez à la position de départ.",
-                "nombreDeRepetitions": 12
-              }
-            ],
-            "numeroJour": 3,
-            "nombreExercices": 3
-          },
-          {
-            "exercices": [
-              {
-                "nomExercice": "Sprint sur tapis roulant",
-                "tempsExerciceTotal": 10,
-                "instructions": "Courir à une vitesse élevée pendant 30 secondes, puis récupérer pendant 30 secondes. Répéter 10 fois."
-              },
-              {
-                "nomExercice": "Rameur",
-                "tempsExerciceTotal": 10,
-                "instructions": "Ramer à une intensité élevée pendant 30 secondes, puis récupérer pendant 30 secondes. Répéter 10 fois."
-              },
-              {
-                "instructions": "Pédaler à une intensité élevée pendant 30 secondes, puis récupérer pendant 30 secondes. Répéter 10 fois.",
-                "tempsExerciceTotal": 10,
-                "nomExercice": "Vélo elliptique"
-              }
-            ],
-            "numeroJour": 4,
-            "nombreExercices": 3,
-            "echauffements": [
-              {
-                "nombreDeSeries": 3,
-                "nombreDeRepetitions": 20,
-                "reposEntreLesSeriesEnSecondes": 15,
-                "instructions": "Commencez debout, les bras le long du corps. Sautez en écartant les jambes et en levant les bras au-dessus de la tête. Revenez à la position de départ et répétez.",
-                "numeroExercice": 1,
-                "nomExercice": "Jumping Jacks"
-              },
-              {
-                "nomExercice": "Burpees",
-                "nombreDeRepetitions": 10,
-                "reposEntreLesSeriesEnSecondes": 20,
-                "instructions": "Commencez debout, puis descendez en position de planche. Faites une pompe, puis ramenez les pieds vers les mains et sautez en l'air. Revenez à la position de départ et répétez.",
-                "nombreDeSeries": 3,
-                "numeroExercice": 2
-              },
-              {
-                "reposEntreLesSeriesEnSecondes": 10,
-                "nombreDeRepetitions": 30,
-                "numeroExercice": 3,
-                "nomExercice": "Mountain Climbers",
-                "instructions": "Commencez en position de planche. Ramenez un genou vers la poitrine, puis alternez avec l'autre jambe. Gardez le dos droit et les abdominaux contractés.",
-                "nombreDeSeries": 3
-              }
-            ]
-          },
-          {
-            "exercices": [
-              {
-                "nomExercice": "Squats",
-                "nombreDeSeries": 4,
-                "instructions": "Gardez le dos droit et descendez jusqu'à ce que vos cuisses soient parallèles au sol.",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "20",
-                    "repetition": 12
-                  },
-                  {
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "25",
-                    "repetition": 10,
-                    "numeroDeLaSerie": 2
-                  },
-                  {
-                    "numeroDeLaSerie": 3,
-                    "repetition": 8,
-                    "poidsEnKilos": "30",
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "poidsEnKilos": "35",
-                    "repetition": 6,
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 4
-                  }
-                ],
-                "groupeMusculaire": "Jambes"
-              },
-              {
-                "groupeMusculaire": "Pectoraux",
-                "nomExercice": "Développé couché",
-                "instructions": "Gardez les coudes près du corps et descendez la barre jusqu'à toucher la poitrine.",
-                "nombreDeSeries": 4,
-                "series": [
-                  {
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 1,
-                    "poidsEnKilos": "30",
-                    "repetition": 12
-                  },
-                  {
-                    "repetition": 10,
-                    "poidsEnKilos": "35",
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 2
-                  },
-                  {
-                    "repetition": 8,
-                    "poidsEnKilos": "40",
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 3
-                  },
-                  {
-                    "numeroDeLaSerie": 4,
-                    "poidsEnKilos": "45",
-                    "repetition": 6,
-                    "reposEnSeconde": 60
-                  }
-                ]
-              },
-              {
-                "instructions": "Tirez la barre vers votre poitrine en gardant le dos droit.",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "reposEnSeconde": 60,
-                    "repetition": 12,
-                    "poidsEnKilos": "30"
-                  },
-                  {
-                    "repetition": 10,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "35",
-                    "numeroDeLaSerie": 2
-                  },
-                  {
-                    "poidsEnKilos": "40",
-                    "reposEnSeconde": 60,
-                    "repetition": 8,
-                    "numeroDeLaSerie": 3
-                  },
-                  {
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 4,
-                    "repetition": 6,
-                    "poidsEnKilos": "45"
-                  }
-                ],
-                "nomExercice": "Tirage horizontal",
-                "groupeMusculaire": "Dos",
-                "nombreDeSeries": 4
-              },
-              {
-                "instructions": "Gardez le dos droit et soulevez la barre jusqu'à la hauteur des hanches.",
-                "nomExercice": "Soulevé de terre",
-                "nombreDeSeries": 4,
-                "series": [
-                  {
-                    "poidsEnKilos": "30",
-                    "numeroDeLaSerie": 1,
-                    "reposEnSeconde": 60,
-                    "repetition": 12
-                  },
-                  {
-                    "numeroDeLaSerie": 2,
-                    "repetition": 10,
-                    "poidsEnKilos": "35",
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "numeroDeLaSerie": 3,
-                    "repetition": 8,
-                    "poidsEnKilos": "40",
-                    "reposEnSeconde": 60
-                  },
-                  {
-                    "repetition": 6,
-                    "poidsEnKilos": "45",
-                    "numeroDeLaSerie": 4,
-                    "reposEnSeconde": 60
-                  }
-                ],
-                "groupeMusculaire": "Dos et jambes"
-              },
-              {
-                "nomExercice": "Curl biceps",
-                "nombreDeSeries": 4,
-                "groupeMusculaire": "Biceps",
-                "series": [
-                  {
-                    "numeroDeLaSerie": 1,
-                    "repetition": 12,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "10"
-                  },
-                  {
-                    "repetition": 10,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "12.5",
-                    "numeroDeLaSerie": 2
-                  },
-                  {
-                    "numeroDeLaSerie": 3,
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "15",
-                    "repetition": 8
-                  },
-                  {
-                    "poidsEnKilos": "17.5",
-                    "reposEnSeconde": 60,
-                    "repetition": 6,
-                    "numeroDeLaSerie": 4
-                  }
-                ],
-                "instructions": "Gardez les coudes près du corps et montez la barre jusqu'à la hauteur des épaules."
-              },
-              {
-                "series": [
-                  {
-                    "reposEnSeconde": 60,
-                    "poidsEnKilos": "10",
-                    "numeroDeLaSerie": 1,
-                    "repetition": 12
-                  },
-                  {
-                    "numeroDeLaSerie": 2,
-                    "poidsEnKilos": "12.5",
-                    "reposEnSeconde": 60,
-                    "repetition": 10
-                  },
-                  {
-                    "poidsEnKilos": "15",
-                    "reposEnSeconde": 60,
-                    "numeroDeLaSerie": 3,
-                    "repetition": 8
-                  },
-                  {
-                    "poidsEnKilos": "17.5",
-                    "numeroDeLaSerie": 4,
-                    "repetition": 6,
-                    "reposEnSeconde": 60
-                  }
-                ],
-                "instructions": "Gardez les coudes près de la tête et descendez la barre derrière la nuque.",
-                "nomExercice": "Extension triceps",
-                "nombreDeSeries": 4,
-                "groupeMusculaire": "Triceps"
-              }
-            ],
-            "echauffements": [
-              {
-                "nombreDeSeries": 3,
-                "nombreDeRepetitions": 12,
-                "numeroExercice": 1,
-                "nomExercice": "Squats",
-                "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et descendez jusqu'à ce que vos cuisses soient parallèles au sol. Revenez à la position de départ.",
-                "reposEntreLesSeriesEnSecondes": 30
-              },
-              {
-                "nombreDeRepetitions": 10,
-                "reposEntreLesSeriesEnSecondes": 30,
-                "numeroExercice": 2,
-                "nomExercice": "Pompes",
-                "nombreDeSeries": 3,
-                "instructions": "Placez vos mains à la largeur des épaules, descendez jusqu'à ce que votre poitrine touche le sol, puis poussez pour revenir à la position de départ."
-              },
-              {
-                "nombreDeRepetitions": 12,
-                "reposEntreLesSeriesEnSecondes": 30,
-                "instructions": "Placez-vous face à la machine, saisissez la barre avec une prise en pronation, tirez la barre vers votre poitrine en gardant les coudes près du corps, puis relâchez lentement.",
-                "nomExercice": "Tirage horizontal",
-                "numeroExercice": 3,
-                "nombreDeSeries": 3
-              }
-            ],
-            "nombreExercices": 6,
-            "numeroJour": 5
-          }
-        ]
-      }
-    ]
+  "sportExperienceInYears": 2,
+  "birthday": "2001-07-22",
+  "age": 22,
+  "programs": [
+    {
+      "id": "a64a02a0-e2c7-4726-b99b-d752e746dc00",
+      "sportPrograms": [
+        {
+          "exercises": [
+            {
+              "exerciseName": "Squats",
+              "muscleGroup": "Jambes",
+              "instructions": "Gardez le dos droit et descendez jusqu'à ce que vos cuisses soient parallèles au sol.",
+              "series": [
+                {
+                  "seriesNumber": 1,
+                  "rest": 60,
+                  "repetition": 12,
+                  "weight": "50"
+                },
+                {
+                  "rest": 60,
+                  "seriesNumber": 2,
+                  "weight": "60",
+                  "repetition": 10
+                },
+                {
+                  "seriesNumber": 3,
+                  "weight": "70",
+                  "repetition": 8,
+                  "rest": 60
+                },
+                {
+                  "seriesNumber": 4,
+                  "weight": "80",
+                  "rest": 60,
+                  "repetition": 6
+                }
+              ],
+              "numberOfSeries": 4
+            },
+            {
+              "instructions": "Gardez les coudes près du corps et descendez la barre jusqu'à toucher la poitrine.",
+              "numberOfSeries": 4,
+              "muscleGroup": "Pectoraux",
+              "series": [
+                {
+                  "weight": "40",
+                  "seriesNumber": 1,
+                  "rest": 60,
+                  "repetition": 12
+                },
+                {
+                  "rest": 60,
+                  "repetition": 10,
+                  "weight": "50",
+                  "seriesNumber": 2
+                },
+                {
+                  "seriesNumber": 3,
+                  "weight": "60",
+                  "rest": 60,
+                  "repetition": 8
+                },
+                {
+                  "rest": 60,
+                  "seriesNumber": 4,
+                  "repetition": 6,
+                  "weight": "70"
+                }
+              ],
+              "exerciseName": "Développé couché"
+            },
+            {
+              "series": [
+                {
+                  "seriesNumber": 1,
+                  "repetition": 12,
+                  "weight": "40",
+                  "rest": 60
+                },
+                {
+                  "seriesNumber": 2,
+                  "weight": "50",
+                  "repetition": 10,
+                  "rest": 60
+                },
+                {
+                  "repetition": 8,
+                  "weight": "60",
+                  "rest": 60,
+                  "seriesNumber": 3
+                },
+                {
+                  "seriesNumber": 4,
+                  "weight": "70",
+                  "repetition": 6,
+                  "rest": 60
+                }
+              ],
+              "muscleGroup": "Dos",
+              "numberOfSeries": 4,
+              "instructions": "Tirez la barre vers votre poitrine en gardant les coudes près du corps.",
+              "exerciseName": "Tirage horizontal"
+            },
+            {
+              "series": [
+                {
+                  "repetition": 12,
+                  "rest": 60,
+                  "weight": "50",
+                  "seriesNumber": 1
+                },
+                {
+                  "repetition": 10,
+                  "weight": "60",
+                  "seriesNumber": 2,
+                  "rest": 60
+                },
+                {
+                  "seriesNumber": 3,
+                  "weight": "70",
+                  "rest": 60,
+                  "repetition": 8
+                },
+                {
+                  "repetition": 6,
+                  "weight": "80",
+                  "rest": 60,
+                  "seriesNumber": 4
+                }
+              ],
+              "numberOfSeries": 4,
+              "muscleGroup": "Dos et jambes",
+              "instructions": "Gardez le dos droit et soulevez la barre jusqu'à ce que vous soyez debout.",
+              "exerciseName": "Soulevé de terre"
+            },
+            {
+              "numberOfSeries": 4,
+              "instructions": "Gardez les coudes près du corps et montez la barre jusqu'à vos épaules.",
+              "muscleGroup": "Biceps",
+              "series": [
+                {
+                  "weight": "20",
+                  "seriesNumber": 1,
+                  "rest": 60,
+                  "repetition": 12
+                },
+                {
+                  "repetition": 10,
+                  "weight": "25",
+                  "rest": 60,
+                  "seriesNumber": 2
+                },
+                {
+                  "seriesNumber": 3,
+                  "repetition": 8,
+                  "rest": 60,
+                  "weight": "30"
+                },
+                {
+                  "repetition": 6,
+                  "weight": "35",
+                  "seriesNumber": 4,
+                  "rest": 60
+                }
+              ],
+              "exerciseName": "Curl biceps"
+            },
+            {
+              "series": [
+                {
+                  "rest": 60,
+                  "seriesNumber": 1,
+                  "weight": "20",
+                  "repetition": 12
+                },
+                {
+                  "rest": 60,
+                  "weight": "25",
+                  "repetition": 10,
+                  "seriesNumber": 2
+                },
+                {
+                  "seriesNumber": 3,
+                  "weight": "30",
+                  "repetition": 8,
+                  "rest": 60
+                },
+                {
+                  "weight": "35",
+                  "rest": 60,
+                  "seriesNumber": 4,
+                  "repetition": 6
+                }
+              ],
+              "instructions": "Gardez les coudes près de la tête et descendez la barre derrière votre tête.",
+              "muscleGroup": "Triceps",
+              "numberOfSeries": 4,
+              "exerciseName": "Extension triceps"
+            }
+          ],
+          "trainingType": "full-body",
+          "dayNumber": 1,
+          "warmUp": [
+            {
+              "repetition": 12,
+              "exerciseNumber": 1,
+              "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et descendez jusqu'à ce que vos cuisses soient parallèles au sol. Revenez à la position de départ.",
+              "numberOfSeries": 3,
+              "rest": 30,
+              "exerciseName": "Squats"
+            },
+            {
+              "exerciseName": "Développé couché",
+              "numberOfSeries": 3,
+              "rest": 30,
+              "repetition": 10,
+              "instructions": "Allongez-vous sur le dos, prenez la barre avec une prise légèrement plus large que la largeur des épaules. Abaissez la barre jusqu'à ce qu'elle touche votre poitrine, puis poussez-la vers le haut jusqu'à ce que vos bras soient tendus.",
+              "exerciseNumber": 2
+            },
+            {
+              "repetition": 12,
+              "exerciseNumber": 3,
+              "exerciseName": "Tirage horizontal",
+              "instructions": "Asseyez-vous sur la machine de tirage horizontal, saisissez la barre avec une prise en pronation. Tirez la barre vers votre poitrine en gardant vos coudes près de votre corps, puis relâchez lentement.",
+              "numberOfSeries": 3,
+              "rest": 30
+            },
+            {
+              "rest": 30,
+              "exerciseNumber": 4,
+              "repetition": 8,
+              "exerciseName": "Soulevé de terre",
+              "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et saisissez la barre avec une prise en pronation. Levez la barre jusqu'à ce que vous soyez debout, puis redescendez lentement.",
+              "numberOfSeries": 3
+            },
+            {
+              "rest": 30,
+              "repetition": 1,
+              "exerciseNumber": 5,
+              "exerciseName": "Planche",
+              "numberOfSeries": 3,
+              "instructions": "Placez-vous en position de planche, en gardant votre corps droit et vos coudes pliés à 90 degrés. Maintenez cette position pendant 30 secondes."
+            }
+          ],
+          "warmUpType": "full-body"
+        },
+        {
+          "warmUpType": "haut du corps",
+          "trainingType": "haut du corps",
+          "dayNumber": 2,
+          "warmUp": [
+            {
+              "repetition": 8,
+              "exerciseNumber": 1,
+              "numberOfSeries": 3,
+              "rest": 60,
+              "exerciseName": "Développé couché",
+              "instructions": "Allongez-vous sur le banc, prenez la barre avec une prise légèrement plus large que la largeur des épaules, abaissez la barre jusqu'à toucher la poitrine, puis poussez la barre vers le haut jusqu'à ce que les bras soient tendus. Gardez les coudes près du corps tout au long de l'exercice."
+            },
+            {
+              "exerciseNumber": 2,
+              "numberOfSeries": 3,
+              "instructions": "Asseyez-vous sur la machine, saisissez les poignées avec une prise en pronation, tirez les poignées vers vous en gardant les coudes près du corps, puis relâchez lentement.",
+              "rest": 45,
+              "repetition": 10,
+              "exerciseName": "Tirage horizontal"
+            },
+            {
+              "exerciseName": "Curl biceps",
+              "exerciseNumber": 3,
+              "numberOfSeries": 3,
+              "repetition": 12,
+              "rest": 30,
+              "instructions": "Tenez une barre avec une prise en supination, gardez les coudes près du corps, pliez les bras pour amener la barre vers les épaules, puis redescendez lentement."
+            }
+          ],
+          "exercises": [
+            {
+              "instructions": "Descendre la barre jusqu'à toucher la poitrine puis la remonter en expirant.",
+              "series": [
+                {
+                  "rest": 60,
+                  "seriesNumber": 1,
+                  "repetition": 12,
+                  "weight": "60"
+                },
+                {
+                  "seriesNumber": 2,
+                  "repetition": 10,
+                  "weight": "70",
+                  "rest": 60
+                },
+                {
+                  "weight": "80",
+                  "repetition": 8,
+                  "seriesNumber": 3,
+                  "rest": 90
+                },
+                {
+                  "rest": 120,
+                  "seriesNumber": 4,
+                  "repetition": 6,
+                  "weight": "90"
+                }
+              ],
+              "muscleGroup": "Pectoraux",
+              "numberOfSeries": 4,
+              "exerciseName": "Développé couché"
+            },
+            {
+              "instructions": "Tirer le corps vers la barre en inspirant puis redescendre en expirant.",
+              "muscleGroup": "Dos",
+              "exerciseName": "Tractions",
+              "series": [
+                {
+                  "repetition": 10,
+                  "rest": 60,
+                  "weight": "0",
+                  "seriesNumber": 1
+                },
+                {
+                  "repetition": 8,
+                  "rest": 60,
+                  "weight": "0",
+                  "seriesNumber": 2
+                },
+                {
+                  "weight": "0",
+                  "seriesNumber": 3,
+                  "rest": 90,
+                  "repetition": 6
+                },
+                {
+                  "seriesNumber": 4,
+                  "repetition": 4,
+                  "rest": 120,
+                  "weight": "0"
+                }
+              ],
+              "numberOfSeries": 4
+            },
+            {
+              "instructions": "Monter la barre au-dessus de la tête en inspirant puis redescendre en expirant.",
+              "muscleGroup": "Epaules",
+              "series": [
+                {
+                  "rest": 60,
+                  "seriesNumber": 1,
+                  "repetition": 12,
+                  "weight": "30"
+                },
+                {
+                  "seriesNumber": 2,
+                  "rest": 60,
+                  "weight": "35",
+                  "repetition": 10
+                },
+                {
+                  "weight": "40",
+                  "rest": 90,
+                  "seriesNumber": 3,
+                  "repetition": 8
+                },
+                {
+                  "seriesNumber": 4,
+                  "weight": "45",
+                  "rest": 120,
+                  "repetition": 6
+                }
+              ],
+              "exerciseName": "Développé militaire",
+              "numberOfSeries": 4
+            },
+            {
+              "numberOfSeries": 4,
+              "muscleGroup": "Biceps",
+              "series": [
+                {
+                  "seriesNumber": 1,
+                  "weight": "12",
+                  "rest": 60,
+                  "repetition": 12
+                },
+                {
+                  "rest": 60,
+                  "repetition": 10,
+                  "weight": "14",
+                  "seriesNumber": 2
+                },
+                {
+                  "rest": 90,
+                  "repetition": 8,
+                  "weight": "16",
+                  "seriesNumber": 3
+                },
+                {
+                  "seriesNumber": 4,
+                  "repetition": 6,
+                  "weight": "18",
+                  "rest": 120
+                }
+              ],
+              "instructions": "Monter les haltères en inspirant puis redescendre en expirant.",
+              "exerciseName": "Curl biceps"
+            },
+            {
+              "muscleGroup": "Triceps",
+              "series": [
+                {
+                  "weight": "0",
+                  "rest": 60,
+                  "seriesNumber": 1,
+                  "repetition": 12
+                },
+                {
+                  "weight": "0",
+                  "seriesNumber": 2,
+                  "repetition": 10,
+                  "rest": 60
+                },
+                {
+                  "weight": "0",
+                  "repetition": 8,
+                  "rest": 90,
+                  "seriesNumber": 3
+                },
+                {
+                  "seriesNumber": 4,
+                  "rest": 120,
+                  "repetition": 6,
+                  "weight": "0"
+                }
+              ],
+              "instructions": "Descendre le corps en fléchissant les bras puis remonter en les tendant.",
+              "exerciseName": "Dips",
+              "numberOfSeries": 4
+            }
+          ]
+        },
+        {
+          "warmUp": [
+            {
+              "numberOfSeries": 3,
+              "exerciseName": "Squats",
+              "exerciseNumber": 1,
+              "repetition": 12,
+              "rest": 30,
+              "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et descendez jusqu'à ce que vos cuisses soient parallèles au sol. Revenez à la position de départ."
+            },
+            {
+              "exerciseName": "Fentes",
+              "numberOfSeries": 3,
+              "instructions": "Placez un pied en avant et fléchissez les deux genoux jusqu'à ce que le genou arrière touche presque le sol. Revenez à la position de départ et changez de jambe.",
+              "repetition": 12,
+              "rest": 30,
+              "exerciseNumber": 2
+            },
+            {
+              "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et saisissez la barre avec une prise en pronation. Levez la barre jusqu'à ce que vous soyez debout, puis redescendez-la lentement.",
+              "numberOfSeries": 3,
+              "exerciseNumber": 3,
+              "repetition": 8,
+              "exerciseName": "Soulevé de terre",
+              "rest": 30
+            }
+          ],
+          "trainingType": "bas du corps",
+          "exercises": [
+            {
+              "numberOfSeries": 4,
+              "muscleGroup": "Quadriceps",
+              "exerciseName": "Squats",
+              "series": [
+                {
+                  "weight": "50",
+                  "seriesNumber": 1,
+                  "repetition": 12,
+                  "rest": 60
+                },
+                {
+                  "seriesNumber": 2,
+                  "rest": 60,
+                  "weight": "60",
+                  "repetition": 10
+                },
+                {
+                  "rest": 90,
+                  "weight": "70",
+                  "seriesNumber": 3,
+                  "repetition": 8
+                },
+                {
+                  "seriesNumber": 4,
+                  "weight": "80",
+                  "rest": 120,
+                  "repetition": 6
+                }
+              ],
+              "instructions": "Gardez le dos droit et descendez jusqu'à ce que vos cuisses soient parallèles au sol."
+            },
+            {
+              "series": [
+                {
+                  "repetition": 12,
+                  "weight": "30",
+                  "rest": 60,
+                  "seriesNumber": 1
+                },
+                {
+                  "seriesNumber": 2,
+                  "repetition": 10,
+                  "rest": 90,
+                  "weight": "40"
+                },
+                {
+                  "rest": 120,
+                  "weight": "50",
+                  "repetition": 8,
+                  "seriesNumber": 3
+                }
+              ],
+              "muscleGroup": "Quadriceps",
+              "exerciseName": "Fentes",
+              "numberOfSeries": 3,
+              "instructions": "Gardez le dos droit et descendez jusqu'à ce que votre genou arrière touche presque le sol."
+            },
+            {
+              "muscleGroup": "Ischio-jambiers et lombaires",
+              "exerciseName": "Soulevé de terre",
+              "instructions": "Gardez le dos droit et soulevez la barre jusqu'à ce que vous soyez debout.",
+              "series": [
+                {
+                  "rest": 60,
+                  "seriesNumber": 1,
+                  "weight": "60",
+                  "repetition": 12
+                },
+                {
+                  "weight": "70",
+                  "repetition": 10,
+                  "rest": 60,
+                  "seriesNumber": 2
+                },
+                {
+                  "repetition": 8,
+                  "rest": 90,
+                  "weight": "80",
+                  "seriesNumber": 3
+                },
+                {
+                  "weight": "90",
+                  "repetition": 6,
+                  "rest": 120,
+                  "seriesNumber": 4
+                }
+              ],
+              "numberOfSeries": 4
+            }
+          ],
+          "dayNumber": 3,
+          "warmUpType": "bas du corps"
+        },
+        {
+          "exercises": [
+            {
+              "exerciseName": "Burpees",
+              "instructions": "Effectuer 5 séries de 10 répétitions avec 30 secondes de repos entre chaque série.",
+              "totalTime": 300
+            },
+            {
+              "exerciseName": "Sauts groupés",
+              "instructions": "Effectuer 5 séries de 10 répétitions avec 30 secondes de repos entre chaque série.",
+              "totalTime": 300
+            },
+            {
+              "totalTime": 300,
+              "exerciseName": "Sprints sur tapis de course",
+              "instructions": "Effectuer 5 séries de 30 secondes de sprint avec 30 secondes de repos entre chaque série. Choisir une vitesse adaptée à son niveau."
+            }
+          ],
+          "trainingType": "cardio",
+          "warmUp": [
+            {
+              "numberOfSeries": 3,
+              "exerciseNumber": 1,
+              "exerciseName": "Corde à sauter",
+              "rest": 30,
+              "repetition": 30,
+              "instructions": "Sauter à une cadence régulière en gardant les poignées dans les mains et en gardant les coudes près du corps."
+            },
+            {
+              "instructions": "Commencer en position debout, descendre en position de planche, faire une pompe, revenir en position debout et sauter en l'air.",
+              "repetition": 10,
+              "exerciseNumber": 2,
+              "rest": 30,
+              "numberOfSeries": 3,
+              "exerciseName": "Burpees"
+            },
+            {
+              "rest": 30,
+              "exerciseNumber": 3,
+              "exerciseName": "Sprints sur tapis",
+              "instructions": "Courir à une vitesse élevée sur un tapis de course pendant 30 secondes, puis récupérer pendant 30 secondes.",
+              "repetition": 1,
+              "numberOfSeries": 3
+            }
+          ],
+          "warmUpType": "cardio",
+          "dayNumber": 4
+        },
+        {
+          "dayNumber": 5,
+          "exercises": [
+            {
+              "series": [
+                {
+                  "weight": "50",
+                  "seriesNumber": 1,
+                  "repetition": 12,
+                  "rest": 60
+                },
+                {
+                  "rest": 60,
+                  "seriesNumber": 2,
+                  "weight": "60",
+                  "repetition": 10
+                },
+                {
+                  "seriesNumber": 3,
+                  "repetition": 8,
+                  "rest": 60,
+                  "weight": "70"
+                },
+                {
+                  "weight": "80",
+                  "seriesNumber": 4,
+                  "rest": 60,
+                  "repetition": 6
+                }
+              ],
+              "instructions": "Gardez le dos droit et descendez jusqu'à ce que vos cuisses soient parallèles au sol.",
+              "muscleGroup": "Jambes",
+              "exerciseName": "Squats",
+              "numberOfSeries": 4
+            },
+            {
+              "numberOfSeries": 4,
+              "exerciseName": "Développé couché",
+              "muscleGroup": "Pectoraux",
+              "instructions": "Gardez les coudes près du corps et descendez la barre jusqu'à toucher la poitrine.",
+              "series": [
+                {
+                  "rest": 60,
+                  "repetition": 12,
+                  "weight": "40",
+                  "seriesNumber": 1
+                },
+                {
+                  "weight": "50",
+                  "rest": 60,
+                  "seriesNumber": 2,
+                  "repetition": 10
+                },
+                {
+                  "repetition": 8,
+                  "rest": 60,
+                  "weight": "60",
+                  "seriesNumber": 3
+                },
+                {
+                  "repetition": 6,
+                  "rest": 60,
+                  "weight": "70",
+                  "seriesNumber": 4
+                }
+              ]
+            },
+            {
+              "muscleGroup": "Dos",
+              "series": [
+                {
+                  "weight": "40",
+                  "seriesNumber": 1,
+                  "repetition": 12,
+                  "rest": 60
+                },
+                {
+                  "seriesNumber": 2,
+                  "rest": 60,
+                  "repetition": 10,
+                  "weight": "50"
+                },
+                {
+                  "weight": "60",
+                  "seriesNumber": 3,
+                  "rest": 60,
+                  "repetition": 8
+                },
+                {
+                  "seriesNumber": 4,
+                  "weight": "70",
+                  "repetition": 6,
+                  "rest": 60
+                }
+              ],
+              "exerciseName": "Tirage horizontal",
+              "instructions": "Tirez la barre vers votre poitrine en gardant le dos droit.",
+              "numberOfSeries": 4
+            },
+            {
+              "muscleGroup": "Dos et jambes",
+              "numberOfSeries": 4,
+              "instructions": "Gardez le dos droit et soulevez la barre jusqu'à la hauteur des hanches.",
+              "series": [
+                {
+                  "repetition": 12,
+                  "rest": 60,
+                  "seriesNumber": 1,
+                  "weight": "50"
+                },
+                {
+                  "seriesNumber": 2,
+                  "weight": "60",
+                  "rest": 60,
+                  "repetition": 10
+                },
+                {
+                  "seriesNumber": 3,
+                  "weight": "70",
+                  "rest": 60,
+                  "repetition": 8
+                },
+                {
+                  "weight": "80",
+                  "seriesNumber": 4,
+                  "rest": 60,
+                  "repetition": 6
+                }
+              ],
+              "exerciseName": "Soulevé de terre"
+            },
+            {
+              "instructions": "Gardez les coudes près du corps et montez la barre jusqu'à vos épaules.",
+              "series": [
+                {
+                  "rest": 60,
+                  "weight": "20",
+                  "seriesNumber": 1,
+                  "repetition": 12
+                },
+                {
+                  "seriesNumber": 2,
+                  "repetition": 10,
+                  "weight": "25",
+                  "rest": 60
+                },
+                {
+                  "rest": 60,
+                  "weight": "30",
+                  "seriesNumber": 3,
+                  "repetition": 8
+                },
+                {
+                  "rest": 60,
+                  "repetition": 6,
+                  "seriesNumber": 4,
+                  "weight": "35"
+                }
+              ],
+              "muscleGroup": "Biceps",
+              "exerciseName": "Curl biceps",
+              "numberOfSeries": 4
+            },
+            {
+              "muscleGroup": "Triceps",
+              "series": [
+                {
+                  "rest": 60,
+                  "weight": "20",
+                  "seriesNumber": 1,
+                  "repetition": 12
+                },
+                {
+                  "seriesNumber": 2,
+                  "repetition": 10,
+                  "weight": "25",
+                  "rest": 60
+                },
+                {
+                  "rest": 60,
+                  "repetition": 8,
+                  "weight": "30",
+                  "seriesNumber": 3
+                },
+                {
+                  "repetition": 6,
+                  "rest": 60,
+                  "seriesNumber": 4,
+                  "weight": "35"
+                }
+              ],
+              "instructions": "Gardez les coudes près de la tête et descendez la barre derrière votre tête.",
+              "numberOfSeries": 4,
+              "exerciseName": "Extension triceps"
+            }
+          ],
+          "trainingType": "full-body",
+          "warmUp": [
+            {
+              "numberOfSeries": 3,
+              "exerciseName": "Squats",
+              "rest": 30,
+              "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et descendez jusqu'à ce que vos cuisses soient parallèles au sol. Revenez à la position de départ.",
+              "exerciseNumber": 1,
+              "repetition": 12
+            },
+            {
+              "repetition": 10,
+              "instructions": "Allongez-vous sur le dos, prenez la barre avec une prise légèrement plus large que la largeur des épaules. Abaissez la barre jusqu'à ce qu'elle touche votre poitrine, puis poussez-la vers le haut jusqu'à ce que vos bras soient tendus.",
+              "exerciseNumber": 2,
+              "numberOfSeries": 3,
+              "rest": 30,
+              "exerciseName": "Développé couché"
+            },
+            {
+              "exerciseNumber": 3,
+              "numberOfSeries": 3,
+              "repetition": 12,
+              "rest": 30,
+              "instructions": "Asseyez-vous sur la machine de tirage horizontal, saisissez la barre avec une prise en pronation. Tirez la barre vers votre poitrine en gardant vos coudes près de votre corps, puis relâchez lentement.",
+              "exerciseName": "Tirage horizontal"
+            },
+            {
+              "numberOfSeries": 3,
+              "rest": 30,
+              "exerciseName": "Soulevé de terre",
+              "instructions": "Placez vos pieds à la largeur des épaules, fléchissez les genoux et saisissez la barre avec une prise en pronation. Levez la barre jusqu'à ce que vous soyez debout, puis redescendez lentement.",
+              "exerciseNumber": 4,
+              "repetition": 8
+            },
+            {
+              "instructions": "Placez-vous en position de planche, en gardant votre corps droit et vos coudes pliés à 90 degrés. Maintenez cette position pendant 30 secondes.",
+              "rest": 30,
+              "numberOfSeries": 3,
+              "repetition": 1,
+              "exerciseName": "Planche",
+              "exerciseNumber": 5
+            }
+          ],
+          "warmUpType": "full-body"
+        }
+      ],
+      "weekNumber": 1,
+      "creationDate": "2023-04-08"
+    }
+  ],
+  "id": "uZ5hpNzgzDh9AI3Omv3FI6t2AqJ2",
+  "trainingPlace": "gym",
+  "weightInKilos": 77,
+  "fitnessGoal": "gain muscle",
+  "availableTimePerSessionInMinutes": 60,
+  "heightInCentimeters": 180,
+  "lastName": "Greene",
+  "numberOfSessionPerWeek": 5,
+  "firstName": "Robert",
+  "sexe": "man",
+  "email": "test48@example.com",
+  "tokens": {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Q0OEBleGFtcGxlLmNvbSIsInN1YiI6InVaNWhwTnpnekRoOUFJM09tdjNGSTZ0MkFxSjIiLCJpYXQiOjE2ODM0NjkyNjMsImV4cCI6MTY4MzQ3Mjg2M30.yZp9bSElvl4fWdetpw6kCSRPEr7G34lUCfxM7n4v26c",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3Q0OEBleGFtcGxlLmNvbSIsInN1YiI6InVaNWhwTnpnekRoOUFJM09tdjNGSTZ0MkFxSjIiLCJpYXQiOjE2ODM0NjkyNjMsImV4cCI6MTY4NDc2NTI2M30.yowygeaRgN-8JaROu3-AqVzHQ4x8e4DoDIkqqFriCi8"
   }
-  
+}

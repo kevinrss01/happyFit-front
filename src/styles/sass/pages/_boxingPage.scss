@@ -7,13 +7,25 @@
   width: 100%;
   height: 100%;
 
+  &:before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url("../../../public/images/90979051_original.webp");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+  }
+
 
   .boxing-image-container{
     position: absolute;
     z-index: 1;
     height: 100%;
-    width: calc(100% - 200px);
-
+    width: 100%;
     .image-boxe{
       width: 100%;
       height: 100%;
@@ -22,13 +34,6 @@
     }
   }
 
-  .logo-container{
-    position: absolute;
-    z-index: 2;
-    .image-logo{
-      position: relative;
-    }
-  }
 
   .boxing-text-container{
     display: flex;
@@ -37,7 +42,6 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-
 
     h1{
       font-size: 30px;

@@ -7,9 +7,6 @@ const BoxingPage = () => {
   return (
     <Navbar>
       <div className="boxing-page-container">
-        <div className="boxing-image-container">
-          <Image src={boxeImage} alt="image-boxe" className="image-boxe" />
-        </div>
         <div className="boxing-text-container">
           <h1>
             Dépassez vos limites avec un programmes de boxe

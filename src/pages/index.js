@@ -44,18 +44,18 @@ export default function Home() {
           goForward={goForward}
           creationDate={tempState.programs[weekIndex - 1].creationDate}
         />
-        {tempState.programs[weekIndex - 1].weekSportStructure.map((val) => (
-          <Opener message={`Jour ${val.jour} : ${val.typeEntrainement}`}>
+        {tempState.programs[weekIndex - 1].sportPrograms.map((val) => (
+          <Opener message={`Jour ${val.dayNumber} : ${val.trainingType}`}>
             <Link
               href={`/programs/${tempState.programs[weekIndex - 1].id}/${
-                val.jour
+                val.day
               }/échauffement`}
             >
               <button className="button-opener">Échauffements</button>
             </Link>
             <Link
               href={`/programs/${tempState.programs[weekIndex - 1].id}/${
-                val.jour
+                val.day
               }/exercice`}
             >
               <button className="button-opener">Exercices</button>

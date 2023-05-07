@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 
 function TopBarLogo() {
   const { asPath, pathname } = useRouter();
-  console.log(asPath); // '/blog/xyz'
-  console.log(pathname);
   return (
     <div className="topBarContainer">
       <Image src={logo} alt="logo" width={70} height={70} />

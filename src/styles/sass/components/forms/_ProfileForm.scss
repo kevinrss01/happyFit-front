@@ -18,12 +18,10 @@
     }
 
     input {
-        border-radius: 10px
+        border-radius: 10px;
     }
 
-
 }
-
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     visibility: hidden;
@@ -71,8 +69,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
             color: $bleu;
         }
     }
-
-
 
 }
 
