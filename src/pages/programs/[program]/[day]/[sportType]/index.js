@@ -8,7 +8,7 @@ const capitalize = (str) => {
   return `${firstLetter}${restOfLetter}`;
 };
 
-export default function sportTypePage({ program, day, sportType }) {
+export default function SportTypePage({ program, day, sportType }) {
   const { programs } = useSelector((state) => state.sport);
   const sportTypeField = useMemo(
     () => (sportType === "exercice" ? "exercices" : "warmUp"),
