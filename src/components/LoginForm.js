@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useState, useMemo, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../redux/actions/userActions";
+import { useRouter } from "next/router";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FcLock } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -13,6 +14,7 @@ const defaultFormValue = {
 };
 
 function LoginForm() {
+  const router = useRouter();
   const [formValue, setFormValue] = useState(defaultFormValue);
   const dispatch = useDispatch();
   const { email, password, visible } = useMemo(() => formValue, [formValue]);
@@ -35,9 +37,13 @@ function LoginForm() {
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      const { visible, ...data } = formValue;
-      dispatch(userLogin(data));
-      setFormValue(defaultFormValue);
+      if (formValue.email.match(/.*@.*[.].*/)) {
+        const { visible, ...data } = formValue;
+        dispatch(userLogin(data)).then(() => {
+          router.push("/");
+        });
+        setFormValue(defaultFormValue);
+      }
     },
     [formValue]
   );

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const backendServer = "http://localhost:4000";
 const formatUrl = (url) => `${backendServer}/${url}`;
-const headers = { headers: { apiKey: "process.env.API_KEY" } };
+const headers = { headers: {} };
 
 class Axios {
   static get(url) {
@@ -23,6 +23,10 @@ class Axios {
 
   static patch(url, data) {
     return axios.patch(formatUrl(url), data, headers);
+  }
+
+  static saveToken(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }
 }
 
