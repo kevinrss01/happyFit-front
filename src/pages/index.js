@@ -5,6 +5,7 @@ import Opener from "../components/Opener";
 import axios from "axios";
 import ProgramNavigator from "../components/ProgramNavigator";
 import Link from "next/link";
+import { Navbar } from "../components/Navbar";
 
 const numberFormater = (num) => `${num}${num == 1 ? "ère" : "e"}`;
 
@@ -30,16 +31,9 @@ export default function Home() {
   if (programs.length == 0) return <>Loading...</>;
 
   return (
-    <div
-      style={{
-        dispaly: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        margin: "auto",
-      }}
-    >
-      <ProgramNavigator
+    <Navbar>
+      <div className="program-navigator-container">
+        <ProgramNavigator
         limit={programs.length}
         index={weekIndex}
         goBackward={goBackward}
@@ -59,6 +53,7 @@ export default function Home() {
           </Link>
         </Opener>
       ))}
-    </div>
+      </div>
+    </Navbar>
   );
 }

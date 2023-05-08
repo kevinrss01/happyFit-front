@@ -1,0 +1,35 @@
+.selection-button {
+  padding: 7px;
+  font-size: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.selection-button:active {
+  transform: scale(0.9);
+}
+
+.submit-button {
+  background-color: darken($bleu, 30%);
+  color: inherit;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  width: 550px;
+  font-size: 17px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: $primary-transition;
+
+  &:hover{
+    background-color: $bleu;
+  }
+}
+
+.button-login-form{
+  width: 91%;
+  margin-top: 5px;
+}

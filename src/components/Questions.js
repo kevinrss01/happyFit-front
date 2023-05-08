@@ -1,10 +1,12 @@
 import React, { useState, useCallback, useId } from "react";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+import TopBarLogo from "./TopBarLogo";
 
 const defaultQuestions = {
   sportExperienceInYears: [
     { text: "Débutant", selected: false, value: 0 },
     { text: "Intermédiaire (1 an)", selected: false, value: 1 },
-    { text: "Avancé (2ans+)", selected: false, value: 2 },
+    { text: "Avancé (2 ans et plus)", selected: false, value: 2 },
   ],
   fitnessGoal: [
     { text: "Perte de poids", selected: false, value: "lose weight" },
@@ -34,14 +36,15 @@ const defaultQuestions = {
 const questionsAndFields = {
   sportExperienceInYears: "Quel est votre niveau actuel ?",
   fitnessGoal: "Quels est votre objectifs ?",
-  trainingPlace: "Vous entrainez plus souvent",
+  trainingPlace: "Où est-ce que vous souhaitez vous entrainer ?",
   availableTimePerSessionInMinutes:
     "Combien de temps souhaitez-vous vous entrainer par jour ?",
 };
 
 const selectedStyle = {
-  backgroundColor: "white",
-  color: "black",
+  backgroundColor: "#3e8bd0",
+  color: "white",
+  border: "1px solid #3e8bd0",
 };
 
 const defaultStyle = {
@@ -97,28 +100,14 @@ function Questions({ validate, goBack }) {
     }
   }, [questions]);
 
-  const keyId = useId();
-  const keyIdBis = useId();
-
   return (
     <div className="column-container">
-      <h2 className="title-inscription-form" style={{ width: "100%" }}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6 logo"
-          onClick={goBack}
-          style={{ alignSelf: "center", transform: "scale(1.3)" }}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
+      <TopBarLogo />
+      <h2
+        className="title-inscription-form"
+        style={{ width: "100%", marginTop: "20px" }}
+      >
+        <IoArrowBackCircleOutline className="icon" onClick={goBack} />
         <span>Paramètres de séance</span>
       </h2>
 
@@ -145,11 +134,11 @@ function Questions({ validate, goBack }) {
       })}
       <div className="container-column" style={{ marginBottom: 10 }}>
         <h2>Combien de séances pouvez-vous faire par semaine ?</h2>
-        <div className="container gap-10">
+        <div className="container gap-10" style={{ marginTop: "20px" }}>
           <span>Nombre de séances :</span>
           <select
             id="select-sessions-per-week"
-            style={{ width: 50, textAlign: "center" }}
+            style={{ width: 50, textAlign: "center", cursor: "pointer" }}
             defaultValue={sessionStorage.getItem("sessionsPerWeek") || 2}
           >
             <option>1</option>
