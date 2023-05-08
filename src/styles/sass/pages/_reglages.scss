@@ -1,0 +1,62 @@
+.setting-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 1000px;
+  overflow: scroll;
+
+  * {
+    color: white;
+  }
+
+  .personal-info-container, .email-container, .password-container{
+    margin: 20px 0;
+  }
+
+  .personal-info-container{
+    width: 90%;
+    border: 1px solid white;
+    height: 500px;
+    padding: 10px;
+    border-radius: $primary-border-radius;
+
+    h2{
+      width: 100%;
+        text-align: center;
+    }
+  }
+
+  .email-container{
+    width: 90%;
+    border: 1px solid white;
+    height: 300px;
+    padding: 10px;
+    border-radius: $primary-border-radius;
+
+    h2{
+      width: 100%;
+        text-align: center;
+    }
+  }
+
+  .password-container{
+    width: 90%;
+    border: 1px solid white;
+    height: 300px;
+    padding: 10px;
+    border-radius: $primary-border-radius;
+
+    h2{
+      width: 100%;
+        text-align: center;
+    }
+  }
+
+
+
+  h1{
+    color: white;
+    text-align: center;
+  }
+}
