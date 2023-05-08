@@ -107,6 +107,7 @@ function ProfileForm({ validate }) {
         <input
           id="email"
           value={email}
+          type="email"
           placeholder="E-mail"
           onChange={handleChange}
         />

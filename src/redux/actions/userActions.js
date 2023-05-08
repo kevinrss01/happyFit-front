@@ -1,6 +1,10 @@
+import AuthAPI from "../../service/AuthAPI";
 import UserAPI from "../../service/UserAPI";
 import {
   GET_USER_ERROR,
+  GET_USER_INFO_ERROR,
+  GET_USER_INFO_REQUEST,
+  GET_USER_INFO_SUCCESS,
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   LOGIN_ERROR,
@@ -10,6 +14,7 @@ import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
 } from "./actions";
+import { getProgramSuccess } from "./sportActions";
 
 const getUserRequest = () => ({ type: GET_USER_REQUEST });
 const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data });
@@ -22,6 +27,13 @@ const loginError = (err) => ({ type: LOGIN_ERROR, payload: err });
 const registerRequest = () => ({ type: REGISTER_REQUEST });
 const registerSuccess = (data) => ({ type: REGISTER_SUCCESS, payload: data });
 const registerError = (err) => ({ type: REGISTER_ERROR, payload: err });
+
+const getUserInfoRequest = () => ({ type: GET_USER_INFO_REQUEST });
+const getUserInfoSuccess = (data) => ({
+  type: GET_USER_INFO_SUCCESS,
+  payload: data,
+});
+const getUserInfoError = (err) => ({ type: GET_USER_INFO_ERROR, payload: err });
 
 /* idée d'automatisation pour les actions redondantes : 
  créer un tableau à 4 éléments (qui pourrait être le résultat d'une fonction fléchée) contenant des objets avec la forme 
@@ -43,20 +55,21 @@ const registerError = (err) => ({ type: REGISTER_ERROR, payload: err });
 export const userLogin = (loginData) => async (dispatch) => {
   dispatch(loginRequest());
   try {
-    const res = await UserAPI.login(loginData);
-    dispatch(loginSuccess(res.data));
-    return Promise.resolve();
+    const res = await AuthAPI.login(loginData);
+    dispatch(getUserInfoSuccess(res.data));
+    dispatch(getProgramSuccess(res.data));
+    AuthAPI.saveToken(res.data.tokens.accessToken);
+    return Promise.resolve(res.data);
   } catch (err) {
     dispatch(loginError(err));
-    return Promise.reject();
+    return Promise.reject(err);
   }
 };
 
 export const userRegister = (registerData) => async (dispatch) => {
   dispatch(registerRequest());
   try {
-    const res = await UserAPI.register(registerData);
-    dispatch(registerSuccess(res.data));
+    const res = await AuthAPI.register(registerData);
     return Promise.resolve();
   } catch (err) {
     dispatch(registerError(err));
@@ -69,4 +82,15 @@ export const getUser = () => async (dispatch) => {
   //endpoint call with axios stored in a variable
   // variable value dispatched in getUserSuccess
   //catch error and dispatch it in getUserError
+};
+
+export const getUserInfo = (userId) => async (dispatch) => {
+  dispatch(getUserInfoRequest());
+  try {
+    const res = await UserAPI.getUserInfo(userId);
+    dispatch(getProgramSuccess(res.data));
+    dispatch(getUserInfoSuccess(res.data));
+  } catch (err) {
+    dispatch(getUserInfoError(err));
+  }
 };

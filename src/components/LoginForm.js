@@ -3,6 +3,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import Axios from "../service/axios";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../redux/actions/userActions";
+import { useRouter } from "next/router";
 
 const defaultFormValue = {
   email: "",
@@ -13,6 +14,7 @@ const defaultFormValue = {
 const style = { width: 20, height: "auto" };
 
 function LoginForm() {
+  const router = useRouter();
   const [formValue, setFormValue] = useState(defaultFormValue);
   const dispatch = useDispatch();
   const { email, password, visible } = useMemo(() => formValue, [formValue]);
@@ -35,9 +37,13 @@ function LoginForm() {
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      const { visible, ...data } = formValue;
-      dispatch(userLogin(data));
-      setFormValue(defaultFormValue);
+      if (formValue.email.match(/.*@.*[.].*/)) {
+        const { visible, ...data } = formValue;
+        dispatch(userLogin(data)).then(() => {
+          router.push("/");
+        });
+        setFormValue(defaultFormValue);
+      }
     },
     [formValue]
   );

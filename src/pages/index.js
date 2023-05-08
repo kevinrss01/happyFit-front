@@ -10,18 +10,8 @@ const numberFormater = (num) => `${num}${num == 1 ? "ère" : "e"}`;
 
 export default function Home() {
   const { programs } = useSelector((state) => state.sport);
-  const [tempState, setTempState] = useState({ programs: [] });
   const [weekIndex, setWeekIndex] = useState(1);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProgram());
-    axios.get("/api/hello").then((data) => {
-      setTempState(data.data);
-      dispatch(getProgramSuccess(data.data));
-    });
-  }, [dispatch]);
-
-  console.log("state", programs);
 
   const goForward = useCallback(() => {
     setWeekIndex((prevIndex) => prevIndex + 1);
@@ -31,7 +21,7 @@ export default function Home() {
     setWeekIndex((prevIndex) => prevIndex - 1);
   }, []);
 
-  if (tempState.programs.length == 0) return <>Loading...</>;
+  if (programs.length == 0) return <>Loading...</>;
 
   return (
     <div
@@ -44,24 +34,24 @@ export default function Home() {
       }}
     >
       <ProgramNavigator
-        limit={tempState.programs.length}
+        limit={programs.length}
         index={weekIndex}
         goBackward={goBackward}
         goForward={goForward}
-        creationDate={tempState.programs[weekIndex - 1].creationDate}
+        creationDate={programs[weekIndex - 1].creationDate}
       />
-      {tempState.programs[weekIndex - 1].weekSportStructure.map((val) => (
-        <Opener message={`Jour ${val.jour} : ${val.typeEntrainement}`}>
+      {programs[weekIndex - 1].sportPrograms.map((val) => (
+        <Opener message={`Jour ${val.dayNumber} : ${val.trainingType}`}>
           <Link
-            href={`/programs/${tempState.programs[weekIndex - 1].id}/${
-              val.jour
+            href={`/programs/${programs[weekIndex - 1].id}/${
+              val.dayNumber
             }/échauffement`}
           >
             <button className="button-opener">Échauffements</button>
           </Link>
           <Link
-            href={`/programs/${tempState.programs[weekIndex - 1].id}/${
-              val.jour
+            href={`/programs/${programs[weekIndex - 1].id}/${
+              val.dayNumber
             }/exercice`}
           >
             <button className="button-opener">Exercices</button>
