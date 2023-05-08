@@ -1,5 +1,6 @@
 import { Navbar } from "../components/Navbar";
 
+//Test commit
 export default function Reglages() {
   return (
     <Navbar>
