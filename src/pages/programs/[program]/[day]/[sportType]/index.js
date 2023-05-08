@@ -10,25 +10,21 @@ const capitalize = (str) => {
 
 export default function sportTypePage({ program, day, sportType }) {
   const { programs } = useSelector((state) => state.sport);
-  const sportTypeField = useMemo(() => {
-    const field = sportType.replace("é", "e");
-    return `${field}s`;
-  }, [sportType]);
-
-  // const currentProgram = programs.sportPrograms.find(
-  //   ({ numeroJour }) => numeroJour.toString() === day
-  // );
-  // console.log(currentProgram[sportTypeField], currentProgram);
+  const sportTypeField = useMemo(
+    () => (sportType === "exercice" ? "exercices" : "warmUp"),
+    [sportType]
+  );
 
   const currentProgram = programs.find(({ id }) => id === program);
+
   const currentSession = currentProgram.sportPrograms.find(
-    ({ numeroJour }) => numeroJour.toString() === day
+    ({ dayNumber }) => dayNumber.toString() === day
   );
 
   return (
     <div style={{ color: "white" }}>
       <Link href="/">
-        <i className="fa fa-arrow-circle-left"></i>
+        <i className="fa fa-arrow-circle-left" style={{ color: "white" }}></i>
       </Link>
     </div>
   );

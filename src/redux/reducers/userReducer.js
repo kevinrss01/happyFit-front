@@ -1,5 +1,8 @@
 import {
   GET_USER_ERROR,
+  GET_USER_INFO_ERROR,
+  GET_USER_INFO_REQUEST,
+  GET_USER_INFO_SUCCESS,
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   LOGIN_ERROR,
@@ -51,7 +54,46 @@ const registerComputer = {
   }),
 };
 
+const userInfoComputer = {
+  [GET_USER_INFO_REQUEST]: (state, payload = undefined) => ({
+    ...state,
+    isFetching: true,
+  }),
+  [GET_USER_INFO_SUCCESS]: (state, payload) => {
+    const {
+      email,
+      firstName,
+      lastName,
+      weightInKilos,
+      heightInCentimeters,
+      availableTimePerSessionInMinutes,
+      fitnessGoal,
+      trainingPlace,
+    } = payload;
+    return {
+      ...state,
+      isFetching: false,
+      userInfo: {
+        email,
+        firstName,
+        lastName,
+        weightInKilos,
+        heightInCentimeters,
+        availableTimePerSessionInMinutes,
+        fitnessGoal,
+        trainingPlace,
+      },
+    };
+  },
+  [GET_USER_INFO_ERROR]: (state, error) => ({
+    ...state,
+    isFetching: false,
+    error,
+  }),
+};
+
 export const userComputer = {
   ...loginComputer,
   ...registerComputer,
+  ...userInfoComputer,
 };
