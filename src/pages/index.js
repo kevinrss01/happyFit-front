@@ -26,7 +26,13 @@ export default function Home() {
     creationDate,
     sportPrograms,
     id: programId,
-  } = useMemo(() => programs[weekIndex - 1], [programs, weekIndex]);
+  } = useMemo(
+    () =>
+      programs.length
+        ? programs[weekIndex - 1]
+        : { creationDate: "", sportPrograms: [], id: 0 },
+    [programs, weekIndex]
+  );
 
   if (programs.length == 0) return <>Loading...</>;
 
