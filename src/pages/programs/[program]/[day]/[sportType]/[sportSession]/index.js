@@ -1,1 +1,3 @@
-export default function sportSessionPage(props) {}
+export default function sportSessionPage(props) {
+  return <></>;
+}

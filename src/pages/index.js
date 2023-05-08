@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProgram, getProgramSuccess } from "../redux/actions/sportActions";
 import Opener from "../components/Opener";
@@ -21,6 +21,12 @@ export default function Home() {
     setWeekIndex((prevIndex) => prevIndex - 1);
   }, []);
 
+  const {
+    creationDate,
+    sportPrograms,
+    id: programId,
+  } = useMemo(() => programs[weekIndex - 1], [programs, weekIndex]);
+
   if (programs.length == 0) return <>Loading...</>;
 
   return (
@@ -38,22 +44,17 @@ export default function Home() {
         index={weekIndex}
         goBackward={goBackward}
         goForward={goForward}
-        creationDate={programs[weekIndex - 1].creationDate}
+        creationDate={creationDate}
       />
-      {programs[weekIndex - 1].sportPrograms.map((val) => (
-        <Opener message={`Jour ${val.dayNumber} : ${val.trainingType}`}>
-          <Link
-            href={`/programs/${programs[weekIndex - 1].id}/${
-              val.dayNumber
-            }/échauffement`}
-          >
+      {sportPrograms.map((val) => (
+        <Opener
+          message={`Jour ${val.dayNumber} : ${val.trainingType}`}
+          key={`day-${val.dayNumber}-program-${programId}`}
+        >
+          <Link href={`/programs/${programId}/${val.dayNumber}/échauffement`}>
             <button className="button-opener">Échauffements</button>
           </Link>
-          <Link
-            href={`/programs/${programs[weekIndex - 1].id}/${
-              val.dayNumber
-            }/exercice`}
-          >
+          <Link href={`/programs/${programId}/${val.dayNumber}/exercice`}>
             <button className="button-opener">Exercices</button>
           </Link>
         </Opener>
