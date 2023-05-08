@@ -1,0 +1,92 @@
+.profile-form {
+    @include flex-centre;
+    flex-direction: column;
+    gap: 15px;
+    
+    button{
+        cursor: pointer;
+        background-color: darken($bleu, 30%);
+        transition: $primary-transition;
+
+        &:hover{
+            background-color: $bleu;
+        }
+    }
+
+    .visible, #sexe{
+        cursor: pointer;
+    }
+
+    input {
+        border-radius: 10px;
+    }
+
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    visibility: hidden;
+}
+
+.container {
+    @include flex-centre;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.column-container,  {
+    @include flex-centre;
+    flex-direction: column;
+
+    h2{
+        margin-top: 20px;
+    }
+
+    .icon {
+        cursor: pointer;
+        font-size: 27px;
+        transition: $primary-transition;
+
+        &:hover{
+            color: $bleu;
+        }
+    }
+}
+
+//Paramètres personnels
+.container-column{
+    h2 {
+        margin-top: 20px;
+    }
+
+    .icon {
+        cursor: pointer;
+        font-size: 27px;
+        transition: $primary-transition;
+
+        &:hover{
+            color: $bleu;
+        }
+    }
+
+}
+
+.logo {
+    width: 20px;
+}
+
+i {
+    color: black;
+}
+
+h2, input {
+    font-family: $primary-font;
+}
+
+.title-inscription-form {
+    text-align: center;
+    @include flex-centre;
+    gap: 15px;
+}
+
