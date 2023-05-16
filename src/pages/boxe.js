@@ -1,3 +1,6 @@
+import Image from "next/image";
+import boxeImage from "../public/images/90979051_original.webp";
+import logo from "../public/images/HappyFit-logo.png";
 import { Navbar } from "../components/Navbar";
 import { useEffect, useState } from "react";
 import { FcApproval } from "react-icons/fc";
@@ -32,40 +35,38 @@ const BoxingPage = () => {
   };
 
   return (
-    <Navbar>
-      <div className="boxing-page-container">
-        <div className="boxing-text-container">
-          <h1>
-            Dépassez vos limites avec un programmes de boxe
-            <br /> sur-mesure qui vous ressemble.
-          </h1>
-          <div
-            className="stay-in-touch-button"
-            style={{
-              backgroundColor: stayInTouch ? "#3e8bd0" : "",
-              cursor: stayInTouch ? "not-allowed" : "pointer",
-              pointerEvents: stayInTouch ? "none" : "auto",
-            }}
-            onClick={() => {
-              postInterestedUser();
-            }}
-          >
-            {stayInTouch ? (
-              <h2
-                style={{
-                  justifyContent: stayInTouch ? "space-between" : "center",
-                }}
-              >
-                En liste d&lsquo;attente <br /> <FcApproval />
-              </h2>
-            ) : (
-              <h2>Rester informé</h2>
-            )}
-          </div>
-          <h2>Créé pour vous, par vous, et rien que pour vous.</h2>
+    <div className="boxing-page-container">
+      <div className="boxing-text-container">
+        <h1>
+          Dépassez vos limites avec un programmes de boxe
+          <br /> sur-mesure qui vous ressemble.
+        </h1>
+        <div
+          className="stay-in-touch-button"
+          style={{
+            backgroundColor: stayInTouch ? "#3e8bd0" : "",
+            cursor: stayInTouch ? "not-allowed" : "pointer",
+            pointerEvents: stayInTouch ? "none" : "auto",
+          }}
+          onClick={() => {
+            postInterestedUser();
+          }}
+        >
+          {stayInTouch ? (
+            <h2
+              style={{
+                justifyContent: stayInTouch ? "space-between" : "center",
+              }}
+            >
+              En liste d&lsquo;attente <br /> <FcApproval />
+            </h2>
+          ) : (
+            <h2>Rester informé</h2>
+          )}
         </div>
+        <h2>Créé pour vous, par vous, et rien que pour vous.</h2>
       </div>
-    </Navbar>
+    </div>
   );
 };
 

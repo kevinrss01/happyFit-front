@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import AuthAPI from "../../service/AuthAPI";
 import UserAPI from "../../service/UserAPI";
 import {
@@ -10,6 +11,9 @@ import {
   LOGIN_ERROR,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  REFRESH_TOKEN_ERROR,
+  REFRESH_TOKEN_REQUEST,
+  REFRESH_TOKEN_SUCCESS,
   REGISTER_ERROR,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
@@ -35,6 +39,16 @@ const getUserInfoSuccess = (data) => ({
 });
 const getUserInfoError = (err) => ({ type: GET_USER_INFO_ERROR, payload: err });
 
+const refreshTokenRequest = () => ({ type: REFRESH_TOKEN_REQUEST });
+const refreshTokenSuccess = (data) => ({
+  type: REFRESH_TOKEN_SUCCESS,
+  payload: data,
+});
+const refreshTokenError = (err) => ({
+  type: REFRESH_TOKEN_ERROR,
+  payload: err,
+});
+
 /* idée d'automatisation pour les actions redondantes : 
  créer un tableau à 4 éléments (qui pourrait être le résultat d'une fonction fléchée) contenant des objets avec la forme 
   {
@@ -58,7 +72,7 @@ export const userLogin = (loginData) => async (dispatch) => {
     const res = await AuthAPI.login(loginData);
     dispatch(getUserInfoSuccess(res.data));
     dispatch(getProgramSuccess(res.data));
-    AuthAPI.saveToken(res.data.tokens.accessToken);
+    AuthAPI.saveToken(res.data.tokens);
     return Promise.resolve(res.data);
   } catch (err) {
     dispatch(loginError(err));
@@ -92,5 +106,18 @@ export const getUserInfo = (userId) => async (dispatch) => {
     dispatch(getUserInfoSuccess(res.data));
   } catch (err) {
     dispatch(getUserInfoError(err));
+  }
+};
+
+export const refreshToken = (token) => async (dispatch) => {
+  dispatch(refreshTokenRequest());
+  try {
+    const res = await AuthAPI.refreshToken(token);
+    AuthAPI.saveRefreshedToken(res.data.accessToken);
+    const { sub } = jwtDecode(res.data.accessToken);
+    dispatch(getUserInfo(sub));
+    dispatch(refreshTokenSuccess(res.data));
+  } catch (err) {
+    dispatch(refreshTokenError(err));
   }
 };
