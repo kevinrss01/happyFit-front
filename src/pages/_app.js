@@ -3,6 +3,8 @@ import store from "../redux/store";
 import "../styles/sass/main.scss";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
+import AuthGuard from "../components/AuthGuard";
+import CustomNavbar from "../components/CustomNavbar";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -30,7 +32,11 @@ function MyApp({ Component, pageProps }) {
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       <Provider store={store}>
-        <Component {...pageProps} />;
+        <AuthGuard>
+          <CustomNavbar component={Component}>
+            <Component {...pageProps} />;
+          </CustomNavbar>
+        </AuthGuard>
       </Provider>
     </Fragment>
   );

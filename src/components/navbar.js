@@ -38,7 +38,7 @@ export const Navbar = ({ children }) => {
                 : "icon-container"
             }
             onClick={() => {
-              router.push("/programmes");
+              router.push("/programme");
             }}
           >
             <GiWeightLiftingUp />

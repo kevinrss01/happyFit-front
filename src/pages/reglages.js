@@ -1,3 +1,3 @@
-export default function Reglages() {
- return <>Réglages</>;
+export default function reglages() {
+  return <>Réglages</>;
 }

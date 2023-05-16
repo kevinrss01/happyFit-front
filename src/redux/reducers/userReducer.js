@@ -8,6 +8,9 @@ import {
   LOGIN_ERROR,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  REFRESH_TOKEN_ERROR,
+  REFRESH_TOKEN_REQUEST,
+  REFRESH_TOKEN_SUCCESS,
   REGISTER_ERROR,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
@@ -92,8 +95,25 @@ const userInfoComputer = {
   }),
 };
 
+const refreshTokenComputer = {
+  [REFRESH_TOKEN_REQUEST]: (state, payload = undefined) => ({
+    ...state,
+    isFetching: true,
+  }),
+  [REFRESH_TOKEN_SUCCESS]: (state, payload) => ({
+    ...state,
+    isFetching: false,
+  }),
+  [REFRESH_TOKEN_ERROR]: (state, error) => ({
+    ...state,
+    isFetching: false,
+    error,
+  }),
+};
+
 export const userComputer = {
   ...loginComputer,
   ...registerComputer,
   ...userInfoComputer,
+  ...refreshTokenComputer,
 };

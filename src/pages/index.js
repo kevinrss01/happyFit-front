@@ -5,7 +5,6 @@ import Opener from "../components/Opener";
 import axios from "axios";
 import ProgramNavigator from "../components/ProgramNavigator";
 import Link from "next/link";
-import { Navbar } from "../components/Navbar";
 
 const numberFormater = (num) => `${num}${num == 1 ? "ère" : "e"}`;
 
@@ -26,14 +25,19 @@ export default function Home() {
     creationDate,
     sportPrograms,
     id: programId,
-  } = useMemo(() => programs[weekIndex - 1], [programs, weekIndex]);
+  } = useMemo(
+    () =>
+      programs.length
+        ? programs[weekIndex - 1]
+        : { creationDate: "", sportPrograms: [], id: 0 },
+    [programs, weekIndex]
+  );
 
   if (programs.length == 0) return <>Loading...</>;
 
   return (
-    <Navbar>
-      <div className="program-navigator-container">
-        <ProgramNavigator
+    <div className="program-navigator-container">
+      <ProgramNavigator
         limit={programs.length}
         index={weekIndex}
         goBackward={goBackward}
@@ -53,7 +57,6 @@ export default function Home() {
           </Link>
         </Opener>
       ))}
-      </div>
-    </Navbar>
+    </div>
   );
 }
