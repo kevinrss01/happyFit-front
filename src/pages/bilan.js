@@ -1,9 +1,9 @@
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 
 export default function Bilan() {
   return (
-    <div className="bilan-main-container">
-      <Navbar />
-    </div>
+    <Navbar>
+      <div className="bilan-main-container"></div>
+    </Navbar>
   );
 }

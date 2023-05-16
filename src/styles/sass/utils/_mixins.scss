@@ -10,3 +10,22 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin blue-button($width, $height){
+  @include flex-centre;
+  background-color: darken($bleu, 30%);
+  color: inherit;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  width: $width;
+  font-size: 17px;
+  cursor: pointer;
+  transition: $primary-transition;
+  height: $height;
+
+
+  &:hover{
+    background-color: $bleu;
+  }
+}

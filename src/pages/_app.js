@@ -5,6 +5,8 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 import AuthGuard from "../components/AuthGuard";
 import CustomNavbar from "../components/CustomNavbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,7 +17,6 @@ function MyApp({ Component, pageProps }) {
         div#__next {
           height: 100%;
           padding: 0;
-          overflow: hidden;
           background-image: linear-gradient(to right, #1d1e27, #111111);
         }
       `}</style>
@@ -35,6 +36,20 @@ function MyApp({ Component, pageProps }) {
         <AuthGuard>
           <CustomNavbar component={Component}>
             <Component {...pageProps} />;
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              zIndex={9999}
+            />
+            <ToastContainer />
           </CustomNavbar>
         </AuthGuard>
       </Provider>
