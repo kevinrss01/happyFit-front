@@ -1,5 +1,5 @@
 .login-form-container{
-    background-image: $gradient-background-right;
+    background-image: linear-gradient(to right, #1d1e27, #111111);
     margin: auto;
     width: 100%;
     height: 100%;
@@ -42,33 +42,50 @@ $gradient-background-left: linear-gradient(to left, #1d1e27, #111111);
 .login-form {
     @include flex-col;
     justify-content: center;
-    background-image: $gradient-background-right;
+    background-image: linear-gradient(to right, #1d1e27, #111111);
     gap: 20px;
     color: white;
     width: 600px;
     padding: 20px;
     margin: auto;
-    height: 500px;
+    height: 540px;
     border-radius: 10px 0 0 10px;
     background-color: white;
 
-
+    h2{
+        font-size: 28px;
+        text-align: center;
+    }
 
     .icon{
         cursor: pointer;
+    }
+
+    .error-container{
+        .error-message{
+            color: red;
+            font-size: 16px;
+        }
     }
 
     .no-account {
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
-        width: 540px;
+        width: 525px;
 
         span{
             opacity: 60%;
         }
+
+
     }
 
+}
+
+.input-login{
+    width: 525px !important;
+    height: 50px;
 }
 
 //Also for register form
@@ -90,10 +107,11 @@ $gradient-background-left: linear-gradient(to left, #1d1e27, #111111);
         color: #222222;
     }
     input {
-        border: none;
+        font-size: 12px;
         width: 100%;
         color: #222222;
         background-color: inherit;
+        height: 20px;
     }
     select {
         outline: none;

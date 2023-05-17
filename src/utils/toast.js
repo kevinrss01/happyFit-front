@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 
+//Type is either "success" or "error" or "warn" or "info" or "promise"
 export default function toastMessage(message, type) {
   toast[type](message, {
     position: "top-right",

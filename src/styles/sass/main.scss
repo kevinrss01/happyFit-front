@@ -23,6 +23,11 @@
 @import 'pages/boxingPage';
 @import 'pages/reglages';
 
+// Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 //N'oublie pas que quand tu créer les fichiers tu dois ajouter '_' avant le nom du fichier pour que le fichier soit pris en compte par le compilateur.
 

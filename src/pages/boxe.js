@@ -1,5 +1,5 @@
 import { Navbar } from "../components/Navbar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FcApproval } from "react-icons/fc";
 import axios from "axios";
 import toastMessage from "../utils/toast";
@@ -23,7 +23,7 @@ const BoxingPage = () => {
       })
       .catch(function (error) {
         console.log(error);
-        console.log(error.response.request.response);
+        //console.log(error?.response?.request?.response);
         toastMessage(
           "Oups, une erreur est survenu, veuillez réessayer plus tard.",
           "error"
