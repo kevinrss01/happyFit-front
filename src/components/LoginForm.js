@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FcLock } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { Button } from "@tremor/react";
+import toastMessage from "../utils/toast";
 
 const defaultFormValue = {
   email: "",
@@ -16,6 +18,9 @@ const defaultFormValue = {
 function LoginForm() {
   const router = useRouter();
   const [formValue, setFormValue] = useState(defaultFormValue);
+  const [loading, setLoading] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const dispatch = useDispatch();
   const { email, password, visible } = useMemo(() => formValue, [formValue]);
 
@@ -38,11 +43,31 @@ function LoginForm() {
     (event) => {
       event.preventDefault();
       if (formValue.email.match(/.*@.*[.].*/)) {
+        setShowErrorMessage(false);
+        setLoading(true);
         const { visible, ...data } = formValue;
-        dispatch(userLogin(data)).then(() => {
-          router.push("/");
-        });
-        setFormValue(defaultFormValue);
+        dispatch(userLogin(data))
+          .then(() => {
+            setLoading(false);
+            setFormValue(defaultFormValue);
+            router.push("/");
+          })
+          .catch((error) => {
+            setLoading(false);
+            console.log(error.request.response);
+            if (error.request.response.includes("Invalid credentials")) {
+              setErrorMessage("Email ou mot de passe incorrect");
+              setShowErrorMessage(true);
+            } else {
+              toastMessage(
+                "Oups ! Une erreur est survenue veuillez réessayer plus tard.",
+                "error"
+              );
+            }
+          });
+      } else {
+        setErrorMessage("Veuillez entrer un email valide");
+        setShowErrorMessage(true);
       }
     },
     [formValue]
@@ -76,17 +101,33 @@ function LoginForm() {
           <AiFillEye onClick={handleVisibleClick} className="icon" />
         )}
       </div>
+      {showErrorMessage && (
+        <div className="error-container">
+          <span className="error-message">{errorMessage}</span>
+        </div>
+      )}
 
-      <button type="submit" className="button-login-form submit-button">
-        {" "}
-        Connexion
-      </button>
+      <Button
+        disabled={!(email.length > 4 && password.length > 7)}
+        loading={loading}
+        type="submit"
+        className="button-submit"
+      >
+        <span className="text-base">Se connecter</span>
+      </Button>
+
       <div className="no-account">
         <span style={{ marginBottom: 5, fontFamily: "Rubik" }}>
           Pas encore inscrit ?{" "}
         </span>
         <Link href="/inscription">
-          <a style={{ fontFamily: "Rubik", color: "#3e8bd0" }}>
+          <a
+            style={{
+              fontFamily: "Rubik",
+              color: "#3e8bd0",
+              textDecoration: "underline",
+            }}
+          >
             Je m&lsquo;inscris
           </a>
         </Link>

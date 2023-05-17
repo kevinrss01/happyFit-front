@@ -1,8 +1,6 @@
-import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProgram, getProgramSuccess } from "../redux/actions/sportActions";
 import Opener from "../components/Opener";
-import axios from "axios";
 import ProgramNavigator from "../components/ProgramNavigator";
 import Link from "next/link";
 

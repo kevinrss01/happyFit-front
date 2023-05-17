@@ -13,25 +13,27 @@
 }
 
 .submit-button {
-  background-color: darken($bleu, 30%);
+  background-color: #3e8bd0;
   color: inherit;
   padding: 15px;
-  border-radius: $primary-border-radius;
+  border-radius: 10px;
   border: none;
   width: 550px;
   font-size: 17px;
   margin-top: 20px;
   cursor: pointer;
-  transition: $primary-transition;
+  transition: 0.3s ease-in;
 
   &:hover{
-    background-color: $bleu;
+    background-color: #3e8bd0;
   }
 }
 
-.button-login-form{
-  width: 550px;
+.button-submit{
+  width: 525px;
   margin-top: 5px;
+  background-color: #3e8bd0;
+  height: 50px;
 }
 
 .stay-in-touch-button{
