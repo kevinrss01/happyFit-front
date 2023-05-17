@@ -1,11 +1,8 @@
-import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProgram, getProgramSuccess } from "../redux/actions/sportActions";
 import Opener from "../components/Opener";
-import axios from "axios";
 import ProgramNavigator from "../components/ProgramNavigator";
 import Link from "next/link";
-import { Navbar } from "../components/Navbar";
 
 const numberFormater = (num) => `${num}${num == 1 ? "ère" : "e"}`;
 
@@ -37,9 +34,8 @@ export default function Home() {
   if (programs.length == 0) return <>Loading...</>;
 
   return (
-    <Navbar>
-      <div className="program-navigator-container">
-        <ProgramNavigator
+    <div className="program-navigator-container">
+      <ProgramNavigator
         limit={programs.length}
         index={weekIndex}
         goBackward={goBackward}
@@ -59,7 +55,6 @@ export default function Home() {
           </Link>
         </Opener>
       ))}
-      </div>
-    </Navbar>
+    </div>
   );
 }
