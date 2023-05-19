@@ -3,7 +3,7 @@ import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { FaWeightHanging, FaBirthdayCake } from "react-icons/fa";
 import { GiBodyHeight } from "react-icons/gi";
 import { FcFlashOn } from "react-icons/fc";
-import TopBarLogo from "./TopBarLogo";
+
 function removePureYears(years) {
   this.setFullYear(this.getFullYear() - years);
   this.setHours(1);
@@ -53,7 +53,6 @@ export default function ParamsForm({ validate, goBack }) {
 
   return (
     <form onSubmit={handleSubmit} className="container-column">
-      <TopBarLogo />
       <h2
         className="title-inscription-form"
         style={{ width: "100%", margin: "20px 0" }}

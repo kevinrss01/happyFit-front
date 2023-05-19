@@ -1,8 +1,14 @@
 import React, { useState, useMemo, useCallback, useEffect } from "react";
-import TopBarLogo from "../components/TopBarLogo";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLockAlt } from "react-icons/bi";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { AiOutlineMan, AiOutlineWoman } from "react-icons/ai";
+import { BsGenderAmbiguous } from "react-icons/bs";
+import { TextInput } from "@tremor/react";
+import { Button } from "@tremor/react";
+import { verificationProfilFormSchema } from "../utils/yupSchema";
+import { SelectBox, SelectBoxItem } from "@tremor/react";
+import * as Yup from "yup";
+import toastMessage from "../utils/toast";
 
 const defaultFormValue = {
   firstName: "",
@@ -10,11 +16,14 @@ const defaultFormValue = {
   email: "",
   sexe: "",
   password: "",
+  confirmPassword: "",
   visible: false,
 };
 
 function ProfileForm({ validate }) {
   const [formValue, setFormValue] = useState(defaultFormValue);
+  const [yupErrors, setYupErrors] = useState({});
+  const [passwordsDontMatch, setPasswordsDontMatch] = useState(false);
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -23,10 +32,15 @@ function ProfileForm({ validate }) {
     }
   }, []);
 
-  const { firstName, lastName, email, sexe, password, visible } = useMemo(
-    () => formValue,
-    [formValue]
-  );
+  const {
+    firstName,
+    lastName,
+    email,
+    sexe,
+    password,
+    visible,
+    confirmPassword,
+  } = useMemo(() => formValue, [formValue]);
 
   const handleChange = useCallback((event) => {
     setFormValue((prevForm) => ({
@@ -50,100 +64,139 @@ function ProfileForm({ validate }) {
   //   return !regex.test(num);
   // }, []);
 
-  const GenderLogo = useCallback(() => {
-    switch (sexe) {
-      case "man":
-        return <i className="fa fa-mars"></i>;
-      case "woman":
-        return <i className="fa fa-venus"></i>;
-      default:
-        return <i className="fa fa-venus-mars"></i>;
-    }
-  }, [formValue]);
+  const verifyInputs = async (formValues) => {
+    await verificationProfilFormSchema.validate(formValues, {
+      abortEarly: false,
+    });
+  };
 
   const handleSubmit = useCallback(
-    (event) => {
+    async (event) => {
       event.preventDefault();
-      const { visible, ...formValues } = formValue;
-      sessionStorage.setItem(
-        "personalInformations",
-        JSON.stringify({ ...formValues, visible: false })
-      );
-      validate("personal", formValues);
+      try {
+        setYupErrors({});
+        setPasswordsDontMatch(false);
+        await verifyInputs(formValue);
+        console.log("password", password);
+        console.log("confirmPassword", confirmPassword);
+
+        if (password !== confirmPassword) {
+          setPasswordsDontMatch(true);
+          return;
+        }
+        const { visible, ...formValues } = formValue;
+        sessionStorage.setItem(
+          "personalInformations",
+          JSON.stringify({ ...formValues, visible: false })
+        );
+        validate("personal", formValues);
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          const errorMessages = {};
+          error.inner.forEach((error) => {
+            errorMessages[error.path] = error.message;
+          });
+          setYupErrors(errorMessages);
+        } else {
+          console.log(error);
+          toastMessage(
+            "Oups, une erreur est survenue, veuillez réessayer plus tard",
+            "error"
+          );
+        }
+      }
     },
     [formValue]
   );
 
   return (
-    <form className="profile-form" onSubmit={handleSubmit}>
-      <TopBarLogo />
-      <h2>Mon profil</h2>
-      <div className="input-form">
-        <input
+    <div className="form-container">
+      <h2 className="text-2xl">Mon profil</h2>
+
+      <form className="form" onSubmit={handleSubmit}>
+        <TextInput
           id="firstName"
-          value={firstName}
+          name="firstName"
           placeholder="Prénom"
           onChange={handleChange}
+          error={yupErrors.firstName}
+          errorMessage={yupErrors.firstName ? yupErrors.firstName : null}
+          value={firstName}
+          className="input"
         />
-      </div>
-      <div className="input-form">
-        <input
+
+        <TextInput
           id="lastName"
-          value={lastName}
+          name="lastName"
           placeholder="Nom"
           onChange={handleChange}
+          value={lastName}
+          error={yupErrors.lastName}
+          errorMessage={yupErrors.lastName ? yupErrors.lastName : null}
+          className="input"
         />
-      </div>
-      <div className="input-form">
-        <MdOutlineAlternateEmail />
-        <input
+
+        <TextInput
           id="email"
-          value={email}
-          type="email"
+          name="email"
           placeholder="E-mail"
+          icon={MdOutlineAlternateEmail}
           onChange={handleChange}
+          value={email}
+          error={yupErrors.email}
+          errorMessage={yupErrors.email ? yupErrors.email : null}
+          className="input"
         />
-      </div>
-      <div className="input-form">
-        <GenderLogo />
-        <select id="sexe" onChange={handleChange} defaultValue={sexe}>
-          {!sexe && (
-            <option hidden selected>
-              Genre
-            </option>
-          )}
-          <option value="man">Homme</option>
-          <option value="woman">Femme</option>
-          defaultValue={"Genre"}
-        </select>
-      </div>
-      <div className="input-form">
-        <BiLockAlt />
-        <input
+        <SelectBox
           onChange={handleChange}
+          defaultValue="Genre"
+          placeholder="Genre"
+          id="sexe"
+          name="sexe"
+          value={sexe}
+          icon={BsGenderAmbiguous}
+          className="input"
+        >
+          <SelectBoxItem value="man" text="Homme" icon={AiOutlineMan} />
+          <SelectBoxItem value="woman" text="Femme" icon={AiOutlineWoman} />
+        </SelectBox>
+        <TextInput
           id="password"
-          type={visible ? "text" : "password"}
+          type="password"
           placeholder="Mot de passe"
+          icon={BiLockAlt}
+          name="password"
+          onChange={handleChange}
           value={password}
+          error={yupErrors.password || passwordsDontMatch}
+          errorMessage={yupErrors.password ? yupErrors.password : null}
+          className="input"
         />
-        {visible ? (
-          <AiOutlineEyeInvisible
-            onClick={handleVisibleClick}
-            id="visible"
-            className="w-6 h-6 visible"
-          />
-        ) : (
-          <AiOutlineEye
-            className="w-6 h-6 visible"
-            onClick={handleVisibleClick}
-          />
-        )}
-      </div>
-      <button type="submit" className="submit-button">
-        {" "}
-        Continuer
-      </button>
-    </form>
+        <TextInput
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirmation du mot de passe"
+          icon={BiLockAlt}
+          name="confirmPassword"
+          onChange={handleChange}
+          value={confirmPassword}
+          error={passwordsDontMatch}
+          errorMessage={
+            passwordsDontMatch ? "Les mots de passe ne correspondent pas" : null
+          }
+          className="input"
+        />
+        <Button
+          type="submit"
+          className="submit-button width-100"
+          disabled={
+            !(firstName, lastName, email, sexe, password, confirmPassword)
+          }
+        >
+          <span className="text-base">Continuer</span>
+        </Button>
+      </form>
+    </div>
   );
 }
 

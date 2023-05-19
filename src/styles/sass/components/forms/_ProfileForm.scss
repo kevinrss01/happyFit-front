@@ -1,15 +1,54 @@
+.form-container{
+    @include flex-centre;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1250px;
+    height: 100%;
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    .form{
+        @include flex-centre;
+        flex-direction: column;
+        gap: 30px;
+        width: 40%;
+
+        .input{
+        }
+
+        select{
+            color: black;
+        }
+
+        .submit-button{
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
+
+
+
+//////////////////////////////
+
 .profile-form {
     @include flex-centre;
     flex-direction: column;
     gap: 15px;
-    
-    button{
-        cursor: pointer;
-        background-color: darken($bleu, 30%);
-        transition: $primary-transition;
 
-        &:hover{
-            background-color: $bleu;
+    .input-form{
+        select{
+            color: black;
+
+        }
+
+        input {
+            border-radius: 10px;
+            font-size: 15px;
+            padding: 0 5px;
         }
     }
 
@@ -17,11 +56,16 @@
         cursor: pointer;
     }
 
-    input {
-        border-radius: 10px;
+
+
+        .submit-button{
+            width: 530px;
+            height: 50px;
+        }
+
+
     }
 
-}
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     visibility: hidden;

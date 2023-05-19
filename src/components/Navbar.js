@@ -2,12 +2,12 @@ import { CgMenuGridO } from "react-icons/cg";
 import { MdAutoGraph, MdSportsMma } from "react-icons/md";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { AiOutlineSetting } from "react-icons/ai";
-import { useRouter, usePathname } from "next/router";
+import { useRouter } from "next/router";
 import logo from "../public/images/HappyFit-logo.png";
 import Image from "next/image";
 export const Navbar = ({ children }) => {
   const router = useRouter();
-  const { asPath, pathname } = useRouter();
+  const { asPath } = useRouter();
 
   const links = [
     {

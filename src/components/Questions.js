@@ -1,6 +1,5 @@
-import React, { useState, useCallback, useId } from "react";
+import React, { useState, useCallback } from "react";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
-import TopBarLogo from "./TopBarLogo";
 
 const defaultQuestions = {
   sportExperienceInYears: [
@@ -102,7 +101,6 @@ function Questions({ validate, goBack }) {
 
   return (
     <div className="column-container">
-      <TopBarLogo />
       <h2
         className="title-inscription-form"
         style={{ width: "100%", marginTop: "20px" }}

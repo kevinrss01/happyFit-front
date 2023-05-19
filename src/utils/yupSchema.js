@@ -31,7 +31,14 @@ const passwordVerif = Yup.string()
   )
   .required("Mot de passe requis");
 
-export const verificationUpdatePersonalInfoSchema = Yup.object().shape({
+const sexeVerif = Yup.string()
+  .oneOf(["man", "woman"], 'Le sexe doit être "Homme" ou "Femme"')
+  .required("Genre requis");
+
+export const verificationProfilFormSchema = Yup.object().shape({
   firstName: firstNameVerif,
   lastName: lastNameVerif,
+  sexe: sexeVerif,
+  email: emailVerif,
+  password: passwordVerif,
 });

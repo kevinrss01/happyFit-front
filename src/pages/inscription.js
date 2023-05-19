@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ParamsForm from "../components/ParamsForm";
 import ProfileForm from "../components/ProfileForm";
 import Questions from "../components/Questions";
@@ -6,6 +6,8 @@ import Axios from "../service/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../redux/actions/userActions";
 import { useRouter } from "next/router";
+import TopBarLogo from "../components/TopBarLogo";
+import { ProgressBar } from "@tremor/react";
 
 const defaultValidations = {
   personal: false,
@@ -39,6 +41,7 @@ export default function Inscription() {
     () => validations,
     [validations]
   );
+  const [progress, setProgress] = useState(0);
 
   const updateData = (validatedStep, updatingData) => {
     if (Object.keys(updatingData).every((key) => !!updatingData[key])) {
@@ -59,6 +62,18 @@ export default function Inscription() {
       modifyValidationState(validatedStep, true);
     }
   };
+
+  useEffect(() => {
+    if (personal) {
+      setProgress(33);
+    } else {
+      setProgress(0);
+    }
+
+    if (metrics) {
+      setProgress(66);
+    }
+  }, [metrics, personal]);
 
   const modifyValidationState = (step, isValidated) => {
     setValidations((prevValidations) => ({
@@ -101,8 +116,14 @@ export default function Inscription() {
   // priorité mineure donc j'ai mis un text en attendant de mettre un vrai loader
   if (isFetching) return <>Loading...</>;
 
+  console.log(metrics);
+  console.log(params);
+  console.log(personal);
+
   return (
-    <div style={{ color: "white" }}>
+    <div style={{ color: "white" }} className="register-container">
+      <TopBarLogo />
+      <ProgressBar percentageValue={progress} className="mt-3 progress-bar" />
       {personal ? (
         <>
           {metrics ? (
