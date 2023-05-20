@@ -8,8 +8,12 @@
   .progress-bar{
     width: 40%;
     max-width: 500px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
+}
+
+.container {
+  @include flex-centre;
 }
 
 

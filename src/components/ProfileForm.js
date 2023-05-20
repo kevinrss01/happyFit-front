@@ -76,9 +76,8 @@ function ProfileForm({ validate }) {
       try {
         setYupErrors({});
         setPasswordsDontMatch(false);
+        console.log("formValue", formValue);
         await verifyInputs(formValue);
-        console.log("password", password);
-        console.log("confirmPassword", confirmPassword);
 
         if (password !== confirmPassword) {
           setPasswordsDontMatch(true);
@@ -90,7 +89,9 @@ function ProfileForm({ validate }) {
           JSON.stringify({ ...formValues, visible: false })
         );
         validate("personal", formValues);
+        console.log("formValues", formValues);
       } catch (error) {
+        console.log("error", error);
         if (error instanceof Yup.ValidationError) {
           const errorMessages = {};
           error.inner.forEach((error) => {
@@ -121,7 +122,7 @@ function ProfileForm({ validate }) {
           onChange={handleChange}
           error={yupErrors.firstName}
           errorMessage={yupErrors.firstName ? yupErrors.firstName : null}
-          value={firstName}
+          defaultValue={firstName}
           className="input"
         />
 
@@ -130,7 +131,7 @@ function ProfileForm({ validate }) {
           name="lastName"
           placeholder="Nom"
           onChange={handleChange}
-          value={lastName}
+          defaultValue={lastName}
           error={yupErrors.lastName}
           errorMessage={yupErrors.lastName ? yupErrors.lastName : null}
           className="input"
@@ -142,24 +143,31 @@ function ProfileForm({ validate }) {
           placeholder="E-mail"
           icon={MdOutlineAlternateEmail}
           onChange={handleChange}
-          value={email}
+          defaultValue={email}
           error={yupErrors.email}
           errorMessage={yupErrors.email ? yupErrors.email : null}
           className="input"
         />
         <SelectBox
-          onChange={handleChange}
-          defaultValue="Genre"
+          onValueChange={(value) => {
+            setFormValue((prevForm) => ({
+              ...prevForm,
+              sexe: value,
+            }));
+          }}
           placeholder="Genre"
           id="sexe"
           name="sexe"
-          value={sexe}
           icon={BsGenderAmbiguous}
           className="input"
+          defaultValue={sexe}
         >
           <SelectBoxItem value="man" text="Homme" icon={AiOutlineMan} />
           <SelectBoxItem value="woman" text="Femme" icon={AiOutlineWoman} />
         </SelectBox>
+        {yupErrors.sexe && (
+          <p className="text-red-500 text-xs">{yupErrors.sexe}</p>
+        )}
         <TextInput
           id="password"
           type="password"
@@ -167,7 +175,7 @@ function ProfileForm({ validate }) {
           icon={BiLockAlt}
           name="password"
           onChange={handleChange}
-          value={password}
+          defaultValue={password}
           error={yupErrors.password || passwordsDontMatch}
           errorMessage={yupErrors.password ? yupErrors.password : null}
           className="input"
@@ -179,7 +187,7 @@ function ProfileForm({ validate }) {
           icon={BiLockAlt}
           name="confirmPassword"
           onChange={handleChange}
-          value={confirmPassword}
+          defaultValue={confirmPassword}
           error={passwordsDontMatch}
           errorMessage={
             passwordsDontMatch ? "Les mots de passe ne correspondent pas" : null

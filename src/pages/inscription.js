@@ -67,7 +67,7 @@ export default function Inscription() {
     if (personal) {
       setProgress(33);
     } else {
-      setProgress(0);
+      setProgress(1);
     }
 
     if (metrics) {

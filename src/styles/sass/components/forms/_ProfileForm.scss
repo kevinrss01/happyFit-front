@@ -15,9 +15,6 @@
         gap: 30px;
         width: 40%;
 
-        .input{
-        }
-
         select{
             color: black;
         }
@@ -25,6 +22,7 @@
         .submit-button{
             width: 100%;
             margin: 0;
+            height: 45px;
         }
     }
 }
@@ -34,69 +32,6 @@
 
 //////////////////////////////
 
-.profile-form {
-    @include flex-centre;
-    flex-direction: column;
-    gap: 15px;
-
-    .input-form{
-        select{
-            color: black;
-
-        }
-
-        input {
-            border-radius: 10px;
-            font-size: 15px;
-            padding: 0 5px;
-        }
-    }
-
-    .visible, #sexe{
-        cursor: pointer;
-    }
-
-
-
-        .submit-button{
-            width: 530px;
-            height: 50px;
-        }
-
-
-    }
-
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    visibility: hidden;
-}
-
-.container {
-    @include flex-centre;
-}
-
-.gap-10 {
-    gap: 10px;
-}
-
-.column-container,  {
-    @include flex-centre;
-    flex-direction: column;
-
-    h2{
-        margin-top: 20px;
-    }
-
-    .icon {
-        cursor: pointer;
-        font-size: 27px;
-        transition: $primary-transition;
-
-        &:hover{
-            color: $bleu;
-        }
-    }
-}
 
 //Paramètres personnels
 .container-column{
