@@ -30,7 +30,7 @@ export const refreshTokenOnLocalStorage = (token) => {
   tokenObject.token = token;
 };
 
-export const tokenIsValid = () => {
+export const assessTokenValidity = () => {
   const tokenObject = getItemFromLocalStorage(TOKEN_ACCESSOR);
   if (!tokenObject) return false;
 
