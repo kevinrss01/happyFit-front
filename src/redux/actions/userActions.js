@@ -1,6 +1,6 @@
-import jwtDecode from "jwt-decode";
-import AuthAPI from "../../service/AuthAPI";
-import UserAPI from "../../service/UserAPI";
+import jwtDecode from 'jwt-decode'
+import AuthAPI from '../../service/AuthAPI'
+import UserAPI from '../../service/UserAPI'
 import {
   GET_USER_ERROR,
   GET_USER_INFO_ERROR,
@@ -17,37 +17,37 @@ import {
   REGISTER_ERROR,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
-} from "./actions";
-import { getProgramSuccess } from "./sportActions";
+} from './actions'
+import { getProgramSuccess } from './sportActions'
 
-const getUserRequest = () => ({ type: GET_USER_REQUEST });
-const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data });
-const getUserError = (err) => ({ type: GET_USER_ERROR, payload: err });
+const getUserRequest = () => ({ type: GET_USER_REQUEST })
+const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data })
+const getUserError = (err) => ({ type: GET_USER_ERROR, payload: err })
 
-const loginRequest = () => ({ type: LOGIN_REQUEST });
-const loginSuccess = (data) => ({ type: LOGIN_SUCCESS, payload: data });
-const loginError = (err) => ({ type: LOGIN_ERROR, payload: err });
+const loginRequest = () => ({ type: LOGIN_REQUEST })
+const loginSuccess = (data) => ({ type: LOGIN_SUCCESS, payload: data })
+const loginError = (err) => ({ type: LOGIN_ERROR, payload: err })
 
-const registerRequest = () => ({ type: REGISTER_REQUEST });
-const registerSuccess = (data) => ({ type: REGISTER_SUCCESS, payload: data });
-const registerError = (err) => ({ type: REGISTER_ERROR, payload: err });
+const registerRequest = () => ({ type: REGISTER_REQUEST })
+const registerSuccess = (data) => ({ type: REGISTER_SUCCESS, payload: data })
+const registerError = (err) => ({ type: REGISTER_ERROR, payload: err })
 
-const getUserInfoRequest = () => ({ type: GET_USER_INFO_REQUEST });
+const getUserInfoRequest = () => ({ type: GET_USER_INFO_REQUEST })
 const getUserInfoSuccess = (data) => ({
   type: GET_USER_INFO_SUCCESS,
   payload: data,
-});
-const getUserInfoError = (err) => ({ type: GET_USER_INFO_ERROR, payload: err });
+})
+const getUserInfoError = (err) => ({ type: GET_USER_INFO_ERROR, payload: err })
 
-const refreshTokenRequest = () => ({ type: REFRESH_TOKEN_REQUEST });
+const refreshTokenRequest = () => ({ type: REFRESH_TOKEN_REQUEST })
 const refreshTokenSuccess = (data) => ({
   type: REFRESH_TOKEN_SUCCESS,
   payload: data,
-});
+})
 const refreshTokenError = (err) => ({
   type: REFRESH_TOKEN_ERROR,
   payload: err,
-});
+})
 
 /* idée d'automatisation pour les actions redondantes : 
  créer un tableau à 4 éléments (qui pourrait être le résultat d'une fonction fléchée) contenant des objets avec la forme 
@@ -67,57 +67,57 @@ const refreshTokenError = (err) => ({
 */
 
 export const userLogin = (loginData) => async (dispatch) => {
-  dispatch(loginRequest());
+  dispatch(loginRequest())
   try {
-    const res = await AuthAPI.login(loginData);
-    dispatch(getUserInfoSuccess(res.data));
-    dispatch(getProgramSuccess(res.data));
-    AuthAPI.saveToken(res.data.tokens);
-    return Promise.resolve(res.data);
+    const res = await AuthAPI.login(loginData)
+    dispatch(getUserInfoSuccess(res.data))
+    dispatch(getProgramSuccess(res.data))
+    AuthAPI.saveToken(res.data.tokens)
+    return Promise.resolve(res.data)
   } catch (err) {
-    dispatch(loginError(err));
-    return Promise.reject(err);
+    dispatch(loginError(err))
+    return Promise.reject(err)
   }
-};
+}
 
 export const userRegister = (registerData) => async (dispatch) => {
-  dispatch(registerRequest());
+  dispatch(registerRequest())
   try {
-    const res = await AuthAPI.register(registerData);
-    return Promise.resolve();
+    const res = await AuthAPI.register(registerData)
+    return Promise.resolve()
   } catch (err) {
-    dispatch(registerError(err));
-    return Promise.reject();
+    dispatch(registerError(err))
+    return Promise.reject()
   }
-};
+}
 
 export const getUser = () => async (dispatch) => {
   //dispatch getUserRequest()
   //endpoint call with axios stored in a variable
   // variable value dispatched in getUserSuccess
   //catch error and dispatch it in getUserError
-};
+}
 
 export const getUserInfo = (userId) => async (dispatch) => {
-  dispatch(getUserInfoRequest());
+  dispatch(getUserInfoRequest())
   try {
-    const res = await UserAPI.getUserInfo(userId);
-    dispatch(getProgramSuccess(res.data));
-    dispatch(getUserInfoSuccess(res.data));
+    const res = await UserAPI.getUserInfo(userId)
+    dispatch(getProgramSuccess(res.data))
+    dispatch(getUserInfoSuccess(res.data))
   } catch (err) {
-    dispatch(getUserInfoError(err));
+    dispatch(getUserInfoError(err))
   }
-};
+}
 
 export const refreshToken = (token) => async (dispatch) => {
-  dispatch(refreshTokenRequest());
+  dispatch(refreshTokenRequest())
   try {
-    const res = await AuthAPI.refreshToken(token);
-    AuthAPI.saveRefreshedToken(res.data.accessToken);
-    const { sub } = jwtDecode(res.data.accessToken);
-    dispatch(getUserInfo(sub));
-    dispatch(refreshTokenSuccess(res.data));
+    const res = await AuthAPI.refreshToken(token)
+    AuthAPI.saveRefreshedToken(res.data.accessToken)
+    const { sub } = jwtDecode(res.data.accessToken)
+    dispatch(getUserInfo(sub))
+    dispatch(refreshTokenSuccess(res.data))
   } catch (err) {
-    dispatch(refreshTokenError(err));
+    dispatch(refreshTokenError(err))
   }
-};
+}

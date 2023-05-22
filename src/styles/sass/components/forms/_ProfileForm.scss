@@ -1,71 +1,66 @@
-.form-container{
+.form-container {
+  @include flex-centre;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1250px;
+  height: 100%;
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  .form {
     @include flex-centre;
     flex-direction: column;
-    width: 100%;
-    max-width: 1250px;
-    height: 100%;
+    gap: 30px;
+    width: 40%;
 
-    h2 {
-        margin-bottom: 30px;
+    select {
+      color: black;
     }
 
-    .form{
-        @include flex-centre;
-        flex-direction: column;
-        gap: 30px;
-        width: 40%;
-
-        select{
-            color: black;
-        }
-
-        .submit-button{
-            width: 100%;
-            margin: 0;
-            height: 45px;
-        }
+    .submit-button {
+      width: 100%;
+      margin: 0;
+      height: 45px;
     }
+  }
 }
-
-
-
 
 //////////////////////////////
 
-
 //Paramètres personnels
-.container-column{
-    h2 {
-        margin-top: 20px;
+.container-column {
+  h2 {
+    margin-top: 20px;
+  }
+
+  .icon {
+    cursor: pointer;
+    font-size: 27px;
+    transition: $primary-transition;
+
+    &:hover {
+      color: $bleu;
     }
-
-    .icon {
-        cursor: pointer;
-        font-size: 27px;
-        transition: $primary-transition;
-
-        &:hover{
-            color: $bleu;
-        }
-    }
-
+  }
 }
 
 .logo {
-    width: 20px;
+  width: 20px;
 }
 
 i {
-    color: black;
+  color: black;
 }
 
-h2, input {
-    font-family: $primary-font;
+h2,
+input {
+  font-family: $primary-font;
 }
 
 .title-inscription-form {
-    text-align: center;
-    @include flex-centre;
-    gap: 15px;
+  text-align: center;
+  @include flex-centre;
+  gap: 15px;
 }
-

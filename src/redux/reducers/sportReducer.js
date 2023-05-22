@@ -1,15 +1,11 @@
 // reducer to handle all of the actions for program part
 
-import {
-  GET_SPORT_ERROR,
-  GET_SPORT_REQUEST,
-  GET_SPORT_SUCCESS,
-} from "../actions/actions";
+import { GET_SPORT_ERROR, GET_SPORT_REQUEST, GET_SPORT_SUCCESS } from '../actions/actions'
 
 export const initialSportState = {
   isFetching: false,
   programs: [],
-};
+}
 
 export const sportComputer = {
   [GET_SPORT_REQUEST]: (state, data = undefined) => ({
@@ -25,4 +21,4 @@ export const sportComputer = {
     ...state,
     isFetching: false,
   }),
-};
+}

@@ -10,7 +10,6 @@
 
 .selection-button:active {
   transform: scale(0.9);
-
 }
 
 .submit-button {
@@ -25,19 +24,19 @@
   cursor: pointer;
   transition: 0.3s ease-in;
 
-  &:hover{
+  &:hover {
     background-color: $bleu;
   }
 }
 
-.button-submit{
+.button-submit {
   width: 525px;
   margin-top: 5px;
   background-color: #3e8bd0;
   height: 50px;
 }
 
-.stay-in-touch-button{
+.stay-in-touch-button {
   @include blue-button(350px, 40px);
   z-index: 3;
 }

@@ -17,7 +17,7 @@
 
 // LAYOUTS -> Ce qui est réutilisable comme le footer ou le header ou une navbar.
 @import 'layouts/topBar';
-@import "layouts/navbar";
+@import 'layouts/navbar';
 
 // PAGES -> Blocs de code qui ne s'applique qu'a une seule page. Les règles spécifiques à une seule page.
 // Par exemple, le style d'une page d'inscription ou de connexion.
@@ -30,7 +30,4 @@
 @tailwind components;
 @tailwind utilities;
 
-
 //N'oublie pas que quand tu créer les fichiers tu dois ajouter '_' avant le nom du fichier pour que le fichier soit pris en compte par le compilateur.
-
-

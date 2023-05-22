@@ -1,138 +1,129 @@
-import React, { useEffect, useMemo, useState } from "react";
-import ParamsForm from "../components/ParamsForm";
-import ProfileForm from "../components/ProfileForm";
-import Questions from "../components/Questions";
-import Axios from "../service/axios";
-import { useDispatch, useSelector } from "react-redux";
-import { userRegister } from "../redux/actions/userActions";
-import { useRouter } from "next/router";
-import TopBarLogo from "../components/TopBarLogo";
-import { ProgressBar } from "@tremor/react";
+import React, { useEffect, useMemo, useState } from 'react'
+import ParamsForm from '../components/ParamsForm'
+import ProfileForm from '../components/ProfileForm'
+import Questions from '../components/Questions'
+import Axios from '../service/axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { userRegister } from '../redux/actions/userActions'
+import { useRouter } from 'next/router'
+import TopBarLogo from '../components/TopBarLogo'
+import { ProgressBar } from '@tremor/react'
 
 const defaultValidations = {
   personal: false,
   metrics: false,
   params: false,
-};
+}
 
 const defaultData = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  password: "",
-  birthday: "",
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  birthday: '',
   weightInKilos: 0,
   heightInCentimeters: 0,
-  sexe: "",
-  fitnessGoal: "",
+  sexe: '',
+  fitnessGoal: '',
   sportExperienceInYears: 0,
-  trainingPlace: "",
+  trainingPlace: '',
   numberOfSessionPerWeek: 0,
-  availableTimePerSessionInMinutes: "",
-};
+  availableTimePerSessionInMinutes: '',
+}
 
 export default function Inscription() {
-  const [validations, setValidations] = useState(defaultValidations);
-  const [data, setData] = useState(defaultData);
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const { isFetching } = useSelector((state) => state.user);
-  const { personal, metrics, params } = useMemo(
-    () => validations,
-    [validations]
-  );
-  const [progress, setProgress] = useState(0);
+  const [validations, setValidations] = useState(defaultValidations)
+  const [data, setData] = useState(defaultData)
+  const router = useRouter()
+  const dispatch = useDispatch()
+  const { isFetching } = useSelector((state) => state.user)
+  const { personal, metrics, params } = useMemo(() => validations, [validations])
+  const [progress, setProgress] = useState(0)
 
   const updateData = (validatedStep, updatingData) => {
     if (Object.keys(updatingData).every((key) => !!updatingData[key])) {
-      if (validatedStep === "params") {
-        const registerData = { ...data, ...updatingData };
+      if (validatedStep === 'params') {
+        const registerData = { ...data, ...updatingData }
         dispatch(userRegister(registerData)).then(() => {
           /* toaster d'annonce avant la redirection,
            indiquant que l'inscription a été réussie 
           indiquant qu'il faut se connecter
           */
-          router.push("/connexion");
-        });
+          router.push('/connexion')
+        })
       }
       setData((prevData) => ({
         ...prevData,
         ...updatingData,
-      }));
-      modifyValidationState(validatedStep, true);
+      }))
+      modifyValidationState(validatedStep, true)
     }
-  };
+  }
 
   useEffect(() => {
     if (personal) {
-      setProgress(33);
+      setProgress(33)
     } else {
-      setProgress(1);
+      setProgress(1)
     }
 
     if (metrics) {
-      setProgress(66);
+      setProgress(66)
     }
-  }, [metrics, personal]);
+  }, [metrics, personal])
 
   const modifyValidationState = (step, isValidated) => {
     setValidations((prevValidations) => ({
       ...prevValidations,
       [step]: isValidated,
-    }));
-  };
+    }))
+  }
 
   const validatePersonalStep = () => {
-    modifyValidationState("personal", true);
-  };
+    modifyValidationState('personal', true)
+  }
 
   const validateMetricsStep = () => {
-    modifyValidationState("metrics", true);
-  };
+    modifyValidationState('metrics', true)
+  }
   const validateParamsStep = () => {
-    modifyValidationState("params", true);
-    sessionStorage.removeItem("sessionsPerWeek");
-    sessionStorage.removeItem("questionsSaved");
-  };
+    modifyValidationState('params', true)
+    sessionStorage.removeItem('sessionsPerWeek')
+    sessionStorage.removeItem('questionsSaved')
+  }
 
   const goBackToPersonalStep = () => {
-    modifyValidationState("personal", false);
-  };
+    modifyValidationState('personal', false)
+  }
 
   const goBackToMetricsStep = () => {
-    modifyValidationState("metrics", false);
-  };
+    modifyValidationState('metrics', false)
+  }
 
-  const PartiePerso = () => <ProfileForm validate={updateData} />;
+  const PartiePerso = () => <ProfileForm validate={updateData} />
 
-  const PartieMetrics = () => (
-    <Questions validate={updateData} goBack={goBackToPersonalStep} />
-  );
+  const PartieMetrics = () => <Questions validate={updateData} goBack={goBackToPersonalStep} />
 
-  const PartieParams = () => (
-    <ParamsForm goBack={goBackToMetricsStep} validate={updateData} />
-  );
+  const PartieParams = () => <ParamsForm goBack={goBackToMetricsStep} validate={updateData} />
 
   // priorité mineure donc j'ai mis un text en attendant de mettre un vrai loader
-  if (isFetching) return <>Loading...</>;
+  if (isFetching) return <>Loading...</>
 
-  console.log(metrics);
-  console.log(params);
-  console.log(personal);
+  console.log(metrics)
+  console.log(params)
+  console.log(personal)
 
   return (
-    <div style={{ color: "white" }} className="register-container">
+    <div style={{ color: 'white' }} className='register-container'>
       <TopBarLogo />
-      <ProgressBar percentageValue={progress} className="mt-3 progress-bar" />
+      <ProgressBar percentageValue={progress} className='mt-3 progress-bar' />
       {personal ? (
         <>
           {metrics ? (
             !params ? (
               <PartieParams />
             ) : (
-              <button onClick={() => modifyValidationState("params", false)}>
-                Retour
-              </button>
+              <button onClick={() => modifyValidationState('params', false)}>Retour</button>
             )
           ) : (
             <PartieMetrics />
@@ -142,5 +133,5 @@ export default function Inscription() {
         <PartiePerso />
       )}
     </div>
-  );
+  )
 }

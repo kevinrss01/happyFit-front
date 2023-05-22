@@ -2,12 +2,12 @@ import {
   GENERATE_PROGRAM_ERROR,
   GENERATE_PROGRAM_REQUEST,
   GENERATE_PROGRAM_SUCCESS,
-} from "../actions/actions";
-import { generateReducer } from "./reducer";
+} from '../actions/actions'
+import { generateReducer } from './reducer'
 
 export const initialGenerationState = {
   isFetching: false,
-};
+}
 
 export const generationComputer = {
   [GENERATE_PROGRAM_REQUEST]: (state, data = undefined) => ({
@@ -22,4 +22,4 @@ export const generationComputer = {
     ...state,
     isFetching: false,
   }),
-};
+}

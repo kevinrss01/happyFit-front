@@ -1,9 +1,9 @@
-.navbar-parent{
+.navbar-parent {
   width: 100%;
   display: flex;
   height: 100%;
 
-  .navbar-container{
+  .navbar-container {
     position: fixed;
     background: $gradient-background-right;
     width: 220px;
@@ -13,12 +13,12 @@
     flex-direction: column;
     z-index: 10;
 
-    .logo-container{
+    .logo-container {
       position: absolute;
       top: 5px;
     }
 
-    .link-container{
+    .link-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -26,7 +26,7 @@
       width: 100%;
       height: 60%;
 
-      .icon-container{
+      .icon-container {
         width: 80%;
         display: flex;
         justify-content: space-between;
@@ -44,38 +44,38 @@
           font-size: 9px;
           font-weight: 900;
           font-style: normal;
-          text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+          text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
           text-decoration: none;
           background: transparent;
           cursor: pointer;
           right: 40px;
           left: 110px;
           display: inline-block;
-          box-shadow: inset 0px 1px 0px rgba(255,255,255,1),0px 1px 3px rgba(0,0,0,0.3);
+          box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1), 0px 1px 3px rgba(0, 0, 0, 0.3);
           outline: none;
           border: 1px solid #ba6;
         }
 
-        .btn-3{
+        .btn-3 {
           background: -webkit-gradient(linear, left top, left bottom, from(#a95), to(#fea));
         }
 
-        &:hover{
+        &:hover {
           color: $bleu;
           opacity: 1;
         }
 
-        :first-child{
+        :first-child {
           font-size: 30px;
         }
 
-        span{
+        span {
           width: 70%;
           font-size: 16px;
         }
       }
 
-      .icon-container-selected{
+      .icon-container-selected {
         color: $bleu;
         opacity: 1;
       }
@@ -88,4 +88,3 @@
     margin-left: 220px;
   }
 }
-

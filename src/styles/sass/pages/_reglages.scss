@@ -1,4 +1,4 @@
-.setting-container{
+.setting-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -10,61 +10,60 @@
     color: white;
   }
 
-  .personal-info-container, .email-container, .password-container{
+  .personal-info-container,
+  .email-container,
+  .password-container {
     margin: 20px 0;
   }
 
-  .personal-info-container{
+  .personal-info-container {
     width: 90%;
     border: 1px solid white;
     height: 500px;
     padding: 10px;
     border-radius: $primary-border-radius;
 
-    h2{
+    h2 {
       width: 100%;
-        text-align: center;
+      text-align: center;
     }
 
-    .input-container{
-
-      .input-and-label{
-        input{
+    .input-container {
+      .input-and-label {
+        input {
           color: black;
         }
       }
     }
   }
 
-  .email-container{
+  .email-container {
     width: 90%;
     border: 1px solid white;
     height: 300px;
     padding: 10px;
     border-radius: $primary-border-radius;
 
-    h2{
+    h2 {
       width: 100%;
-        text-align: center;
+      text-align: center;
     }
   }
 
-  .password-container{
+  .password-container {
     width: 90%;
     border: 1px solid white;
     height: 300px;
     padding: 10px;
     border-radius: $primary-border-radius;
 
-    h2{
+    h2 {
       width: 100%;
-        text-align: center;
+      text-align: center;
     }
   }
 
-
-
-  h1{
+  h1 {
     color: white;
     text-align: center;
   }

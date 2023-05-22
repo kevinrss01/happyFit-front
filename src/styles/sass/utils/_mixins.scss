@@ -1,17 +1,17 @@
-@mixin flex-centre{
+@mixin flex-centre {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin flex-col{
+@mixin flex-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-@mixin blue-button($width, $height){
+@mixin blue-button($width, $height) {
   @include flex-centre;
   background-color: darken($bleu, 30%);
   color: inherit;
@@ -24,8 +24,7 @@
   transition: $primary-transition;
   height: $height;
 
-
-  &:hover{
+  &:hover {
     background-color: $bleu;
   }
 }

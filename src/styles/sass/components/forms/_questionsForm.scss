@@ -1,12 +1,12 @@
-.question-container{
-  margin: 20px 0;
+.question-container {
+  margin: 15px 0;
 }
 
-.column-container,  {
+.column-container {
   @include flex-centre;
   flex-direction: column;
 
-  h2{
+  h2 {
     margin-top: 20px;
   }
 
@@ -15,7 +15,7 @@
     font-size: 27px;
     transition: $primary-transition;
 
-    &:hover{
+    &:hover {
       color: $bleu;
     }
   }

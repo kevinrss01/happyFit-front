@@ -14,14 +14,14 @@ import {
   REGISTER_ERROR,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
-} from "../actions/actions";
-import { generateReducer } from "./reducer";
+} from '../actions/actions'
+import { generateReducer } from './reducer'
 
 export const initialUserState = {
   isFetching: false,
   userInfo: {},
-  error: "",
-};
+  error: '',
+}
 
 const loginComputer = {
   [LOGIN_REQUEST]: (state, payload = undefined) => ({
@@ -38,7 +38,7 @@ const loginComputer = {
     isFetching: false,
     error,
   }),
-};
+}
 
 const registerComputer = {
   [REGISTER_REQUEST]: (state, payload = undefined) => ({
@@ -55,7 +55,7 @@ const registerComputer = {
     isFetching: false,
     error,
   }),
-};
+}
 
 const userInfoComputer = {
   [GET_USER_INFO_REQUEST]: (state, payload = undefined) => ({
@@ -72,7 +72,7 @@ const userInfoComputer = {
       availableTimePerSessionInMinutes,
       fitnessGoal,
       trainingPlace,
-    } = payload;
+    } = payload
     return {
       ...state,
       isFetching: false,
@@ -86,14 +86,14 @@ const userInfoComputer = {
         fitnessGoal,
         trainingPlace,
       },
-    };
+    }
   },
   [GET_USER_INFO_ERROR]: (state, error) => ({
     ...state,
     isFetching: false,
     error,
   }),
-};
+}
 
 const refreshTokenComputer = {
   [REFRESH_TOKEN_REQUEST]: (state, payload = undefined) => ({
@@ -109,11 +109,11 @@ const refreshTokenComputer = {
     isFetching: false,
     error,
   }),
-};
+}
 
 export const userComputer = {
   ...loginComputer,
   ...registerComputer,
   ...userInfoComputer,
   ...refreshTokenComputer,
-};
+}

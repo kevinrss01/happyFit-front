@@ -1,3 +1,3 @@
 export default function Programmes() {
-  return <> Programme</>;
+  return <> Programme</>
 }
