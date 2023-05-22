@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useCallback, useEffect } from 'react'
-import { tokenIsValid } from '../service/utils'
+import { assessTokenValidity } from '../service/utils'
 import { refreshToken } from '../redux/actions/userActions'
 import { useDispatch } from 'react-redux'
 import jwtDecode from 'jwt-decode'
@@ -8,7 +8,7 @@ import Axios from '../service/axios'
 import { getUserInfo } from '../redux/actions/userActions'
 
 export default function AuthGuard({ children }) {
-  const router = useRouter()
+  const { pathname, push } = useRouter()
   const dispatch = useDispatch()
 
   const handleRefreshToken = useCallback(
@@ -25,9 +25,10 @@ export default function AuthGuard({ children }) {
   )
 
   useEffect(() => {
-    const validStatus = tokenIsValid()
-    if (!validStatus) router.push('/connexion')
-    else handleRefreshToken(validStatus)
+    const validStatus = assessTokenValidity()
+    const doesNotNeedToRedirect = validStatus || pathname.includes('inscription')
+    if (doesNotNeedToRedirect) handleRefreshToken(validStatus)
+    else push('/connexion')
   }, [])
 
   return <>{children}</>
