@@ -7,7 +7,7 @@ import {
 } from "../actions/actions";
 
 export const initialSportState = {
-  isFetching: false,
+  isFetching: true,
   programs: [],
 };
 

@@ -2,7 +2,24 @@
     cursor: pointer;
 }
 
+.program-navigator-container {
+    width: 100%;
+}
+
 .button-opener {
     width: 200px;
     cursor: pointer;
+    background-color: lightgray;
+    text-align: center;
+    margin-bottom: 5px;
+    border-radius: 7px;
+}
+
+.button-opened {
+    width: 175px;
+    cursor: pointer;
+    background-color: lightgray;
+    text-align: center;
+    margin-bottom: 5px;
+    border-radius: 7px;
 }

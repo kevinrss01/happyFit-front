@@ -24,7 +24,7 @@ const Opener = ({ message, children }) => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: 10,
+        gap: 4,
       }}
     >
       <button className="button-opener" onClick={handleClick}>
@@ -39,6 +39,7 @@ const Opener = ({ message, children }) => {
             flexDirection: "column",
             gap: 5,
             marginBottom: 10,
+            width: 200,
           }}
         >
           {children}

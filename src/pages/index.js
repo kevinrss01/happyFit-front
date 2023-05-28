@@ -48,10 +48,10 @@ export default function Home() {
           key={`day-${val.dayNumber}-program-${programId}`}
         >
           <Link href={`/programs/${programId}/${val.dayNumber}/échauffement`}>
-            <button className="button-opener">Échauffements</button>
+            <button className="button-opened">Échauffements</button>
           </Link>
           <Link href={`/programs/${programId}/${val.dayNumber}/exercice`}>
-            <button className="button-opener">Exercices</button>
+            <button className="button-opened">Exercices</button>
           </Link>
         </Opener>
       ))}

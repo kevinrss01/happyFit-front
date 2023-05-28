@@ -5,12 +5,15 @@ import {
   GET_SPORT_SUCCESS,
 } from "./actions";
 
-const getProgramRequest = () => ({ type: GET_SPORT_REQUEST });
+export const getProgramRequest = () => ({ type: GET_SPORT_REQUEST });
 export const getProgramSuccess = (data) => ({
   type: GET_SPORT_SUCCESS,
   payload: data,
 });
-const getProgramError = (err) => ({ type: GET_SPORT_ERROR, payload: err });
+export const getProgramError = (err) => ({
+  type: GET_SPORT_ERROR,
+  payload: err,
+});
 
 export const getProgram = () => async (dispatch) => {
   dispatch(getProgramRequest());

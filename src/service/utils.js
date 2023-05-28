@@ -62,3 +62,37 @@ const handleRefreshTokenValid = (status, token) => {
   status.refresh = true;
   return handleTokenValid(status, token);
 };
+
+// time computation for rest
+
+export const computeInMinutes = (seconds) => {
+  if (seconds < 60) return handlePlural(seconds, "seconde", true);
+  const pureMinutes = seconds / 60;
+  const integerPartOfMinutes = Math.floor(pureMinutes);
+  const remainingFloatPart = pureMinutes - integerPartOfMinutes;
+  const strMinutes = handlePlural(integerPartOfMinutes, "minute", true);
+  console.log(
+    "remaining float part for str minutes",
+    remainingFloatPart,
+    strMinutes,
+    seconds
+  );
+  if (remainingFloatPart == 0) return strMinutes;
+
+  const remainingSeconds = remainingFloatPart * 60;
+  const strSeconds = handlePlural(remainingSeconds, "seconde", true);
+  return `${strMinutes} et ${strSeconds}`;
+};
+
+// string formating
+
+export const handlePlural = (
+  dependingNumber,
+  relatedString,
+  returnFullWord = false
+) => {
+  const pluralSuffix = dependingNumber > 1 ? "s" : "";
+  const stringWithPlural = `${relatedString}${pluralSuffix}`;
+  if (returnFullWord) return `${dependingNumber} ${stringWithPlural}`;
+  return stringWithPlural;
+};

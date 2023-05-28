@@ -44,6 +44,10 @@ export default function Inscription() {
   const [progress, setProgress] = useState(0);
 
   const updateData = (validatedStep, updatingData) => {
+    console.log(
+      "condition to go in",
+      Object.keys(updatingData).every((key) => !!updatingData[key])
+    );
     if (Object.keys(updatingData).every((key) => !!updatingData[key])) {
       if (validatedStep === "params") {
         const registerData = { ...data, ...updatingData };

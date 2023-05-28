@@ -18,7 +18,7 @@ import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
 } from "./actions";
-import { getProgramSuccess } from "./sportActions";
+import { getProgramRequest, getProgramSuccess } from "./sportActions";
 
 const getUserRequest = () => ({ type: GET_USER_REQUEST });
 const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data });
@@ -99,11 +99,12 @@ export const getUser = () => async (dispatch) => {
 };
 
 export const getUserInfo = (userId) => async (dispatch) => {
+  dispatch(getProgramRequest());
   dispatch(getUserInfoRequest());
   try {
     const res = await UserAPI.getUserInfo(userId);
-    dispatch(getProgramSuccess(res.data));
     dispatch(getUserInfoSuccess(res.data));
+    dispatch(getProgramSuccess(res.data));
   } catch (err) {
     dispatch(getUserInfoError(err));
   }
