@@ -1,0 +1,22 @@
+.question-container {
+  margin: 15px 0;
+}
+
+.column-container {
+  @include flex-centre;
+  flex-direction: column;
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  .icon {
+    cursor: pointer;
+    font-size: 27px;
+    transition: $primary-transition;
+
+    &:hover {
+      color: $bleu;
+    }
+  }
+}

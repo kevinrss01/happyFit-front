@@ -1,28 +1,25 @@
 // reducer to handle all of the actions for program part
 
-import {
-  GET_SPORT_ERROR,
-  GET_SPORT_REQUEST,
-  GET_SPORT_SUCCESS,
-} from "../actions/actions";
+import { produce } from 'immer'
+import { GET_SPORT_ERROR, GET_SPORT_REQUEST, GET_SPORT_SUCCESS } from '../actions/actions'
 
 export const initialSportState = {
-  isFetching: true,
-  programs: [],
-};
+   isFetching: true,
+   programs: [],
+}
 
 export const sportComputer = {
-  [GET_SPORT_REQUEST]: (state, data = undefined) => ({
-    ...state,
-    isFetching: true,
-  }),
-  [GET_SPORT_SUCCESS]: (state, { programs }) => ({
-    ...state,
-    isFetching: false,
-    programs,
-  }),
-  [GET_SPORT_ERROR]: (state, err) => ({
-    ...state,
-    isFetching: false,
-  }),
-};
+   [GET_SPORT_REQUEST]: (state, data = undefined) =>
+      produce(state, (draftState) => {
+         draftState.isFetching = true
+      }),
+   [GET_SPORT_SUCCESS]: (state, { programs }) =>
+      produce(state, (draftState) => {
+         draftState.isFetching = false
+         draftState.programs = programs
+      }),
+   [GET_SPORT_ERROR]: (state, err) =>
+      produce(state, (draftState) => {
+         draftState.isFetching = false
+      }),
+}

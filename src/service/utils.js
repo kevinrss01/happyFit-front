@@ -71,12 +71,6 @@ export const computeInMinutes = (seconds) => {
   const integerPartOfMinutes = Math.floor(pureMinutes);
   const remainingFloatPart = pureMinutes - integerPartOfMinutes;
   const strMinutes = handlePlural(integerPartOfMinutes, "minute", true);
-  console.log(
-    "remaining float part for str minutes",
-    remainingFloatPart,
-    strMinutes,
-    seconds
-  );
   if (remainingFloatPart == 0) return strMinutes;
 
   const remainingSeconds = remainingFloatPart * 60;
