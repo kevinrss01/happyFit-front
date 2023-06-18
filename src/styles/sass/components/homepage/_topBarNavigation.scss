@@ -1,4 +1,4 @@
-.top-bar-navigation-container{
+.top-bar-navigation-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,24 +7,23 @@
   width: 100%;
   padding-top: 20px;
 
-  .top-bar-navigation{
+  .top-bar-navigation {
     width: 40%;
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
 
-    i{
+    i {
       font-size: 20px;
       color: white;
 
-      &:hover{
+      &:hover {
         color: $bleu;
       }
     }
 
-    span{
-        font-size: 20px;
+    span {
+      font-size: 20px;
     }
   }
 }
-

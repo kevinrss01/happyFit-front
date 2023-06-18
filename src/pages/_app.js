@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function MyApp({ Component, pageProps }) {
    return (
       <Fragment>
+         {/* eslint-disable-next-line react/no-unknown-property */}
          <style jsx global>{`
             html,
             body,

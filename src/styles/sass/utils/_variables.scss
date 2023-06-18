@@ -3,7 +3,11 @@ $bleu: #3e8bd0;
 $gradient-background-right: linear-gradient(to right, #1d1e27, #111111);
 $gradient-background-left: linear-gradient(to left, #1d1e27, #111111);
 $opacity-gradient: linear-gradient(to right, rgba(29, 30, 39, 0), rgba(17, 17, 17, 1));
-$gradient-background-variant: linear-gradient(to right, lighten(#1d1e27, 50%), lighten(#111111, 50%));
+$gradient-background-variant: linear-gradient(
+  to right,
+  lighten(#1d1e27, 50%),
+  lighten(#111111, 50%)
+);
 
 // Fonts
 $font-logo: 'Norwester';

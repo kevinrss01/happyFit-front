@@ -418,6 +418,7 @@ node_modules/
 *.dsw
 *.dsp
 
+
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
 **/*.DesktopClient/GeneratedArtifacts
@@ -525,6 +526,7 @@ ehthumbs_vista.db
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
 
 # Windows shortcuts
 *.lnk
