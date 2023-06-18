@@ -140,7 +140,6 @@ function Questions({ validate, goBack }) {
             }),
             {},
          )
-
          if (!numberOfSessionPerWeek) {
             if (!sessionStorage.getItem('sessionsPerWeek')) {
                toastMessage(
@@ -166,7 +165,7 @@ function Questions({ validate, goBack }) {
    }, [questions, numberOfSessionPerWeek])
 
    return (
-      <div className='column-container'>
+      <div className='column-container components'>
          <Title className='title-inscription-form text-2xl w-full text-center' color='white'>
             <IoArrowBackCircleOutline className='icon' onClick={goBack} />
             <span>Paramètres de séance</span>

@@ -114,7 +114,7 @@ function ProfileForm({ validate }) {
    )
 
    return (
-      <div className='form-container'>
+      <div className='form-container components'>
          <Title className='text-2xl m-5' color='white'>
             Mon profil
          </Title>
