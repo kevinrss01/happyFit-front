@@ -6,35 +6,49 @@
   height: 1000px;
   overflow: scroll;
 
-  * {
-    color: white;
-  }
-
   .personal-info-container,
   .email-container,
   .password-container {
     margin: 20px 0;
   }
 
+  h2 {
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+
   .personal-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 90%;
     border: 1px solid white;
-    height: 500px;
-    padding: 10px;
+    padding: 20px;
     border-radius: $primary-border-radius;
 
     h2 {
       width: 100%;
       text-align: center;
+      margin-bottom: 20px;
     }
 
-    .input-container {
-      .input-and-label {
-        input {
-          color: black;
+    .form-input-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+
+        .input{
+          width: 40%
         }
-      }
+
     }
+
+
   }
 
   .email-container {
@@ -44,10 +58,6 @@
     padding: 10px;
     border-radius: $primary-border-radius;
 
-    h2 {
-      width: 100%;
-      text-align: center;
-    }
   }
 
   .password-container {
@@ -57,14 +67,11 @@
     padding: 10px;
     border-radius: $primary-border-radius;
 
-    h2 {
-      width: 100%;
-      text-align: center;
-    }
+
   }
 
   h1 {
-    color: white;
     text-align: center;
+    color: white;
   }
 }
