@@ -39,8 +39,11 @@
 .stay-in-touch-button {
   @include blue-button(350px, 40px);
   z-index: 3;
+  height: 60px;
+  margin: 10px;
 }
 
 .button-update-form{
   margin-top: 20px;
+  margin-bottom: 20px;
 }

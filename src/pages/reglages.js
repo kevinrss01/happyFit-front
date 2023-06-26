@@ -1,4 +1,6 @@
 import { PersonalInfoContainer } from '../components/settings/PersonalInfoContainer'
+import { EmailContainer } from '../components/settings/EmailContainer'
+import { PasswordContainer } from '../components/settings/PasswordContainer'
 
 export default function Reglages() {
    // TODO : Récupérer les données Redux et les passer aux composant
@@ -9,12 +11,8 @@ export default function Reglages() {
       <div className='setting-container'>
          <h1>Paramètres</h1>
          <PersonalInfoContainer userData={userData} />
-         <div className='email-container'>
-            <h2>Adresse email</h2>
-         </div>
-         <div className='password-container'>
-            <h2>Mot de passe</h2>
-         </div>
+         <EmailContainer userData={userData} />
+         <PasswordContainer userData={userData} />
       </div>
    )
 }
