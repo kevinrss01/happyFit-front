@@ -4,7 +4,6 @@ import { PasswordContainer } from '../components/settings/PasswordContainer'
 
 export default function Reglages() {
    // TODO : Récupérer les données Redux et les passer aux composant
-   // TODO : Sinon les récupérer via l'API
    const userData = {}
 
    return (

@@ -9,8 +9,8 @@ import { Button, ProgressBar, Title } from '@tremor/react'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { ErrorCallout } from '../components/errors/ErrorCallout'
 import { RegisterLoader } from '../components/loaders/RegisterLoader'
-import { userRegister } from '../redux/actions/userActions'
 import toastMessage from '../utils/toast'
+import { userRegister } from '../redux/actions/userActions'
 
 const defaultValidations = {
    personal: false,
@@ -42,6 +42,7 @@ export default function Inscription() {
    const { isFetching } = useSelector((state) => state.user)
    const { personal, metrics, params } = useMemo(() => validations, [validations])
    const [progress, setProgress] = useState(0)
+   const [finalData, setFinalData] = useState()
    const [isLoading, setIsLoading] = useState(true)
    const [isRegistered, setIsRegistered] = useState(false)
    const [isErrorDuringFetch, setIsErrorDuringFetch] = useState(false)
@@ -60,24 +61,23 @@ export default function Inscription() {
             const { confirmPassword, ...rest } = registerData
             setIsLoading(true)
 
-            dispatch(userRegister(rest))
-               .then(() => {
-                  setProgress(100)
-                  setIsLoading(false)
-                  /* toaster d'annonce avant la redirection,
-                  indiquant que l'inscription a été réussie
-                    indiquant qu'il faut se connecter
-                  */
-                  //router.push('/connexion')
-                  toastMessage('Votre programme à bien été créé !', 'success')
-                  setIsRegistered(true)
-               })
-               .catch((err) => {
-                  setIsLoading(false)
-                  setIsErrorDuringFetch(true)
-                  console.log(err)
-                  toastMessage("Une erreur est survenue lors de l'inscription", 'error')
-               })
+            // dispatch(userRegister(rest))
+            //    .then(() => {
+            //       setProgress(100)
+            //       setIsLoading(false)
+            //       /* toaster d'annonce avant la redirection,
+            //       indiquant que l'inscription a été réussie
+            //         indiquant qu'il faut se connecter
+            //       */
+            //       //router.push('/connexion')
+            //       toastMessage('Votre programme à bien été créé !', 'success')
+            //    })
+            //    .catch((err) => {
+            //       setIsLoading(false)
+            //       setIsErrorDuringFetch(true)
+            //       console.log(err)
+            //       toastMessage("Une erreur est survenue lors de l'inscription", 'error')
+            //    })
          }
          setData((prevData) => ({
             ...prevData,
@@ -148,15 +148,6 @@ export default function Inscription() {
                            <RegisterLoader />
                         ) : (
                            <>
-                              {isRegistered && !isLoading && (
-                                 <>
-                                    <Title color='red'>
-                                       Ajouter l'ajout du token dans le localStorage puis rediriger
-                                       vers la page d'accueil
-                                    </Title>
-                                    <Button className='m-8'>Aller vers l'accueil</Button>
-                                 </>
-                              )}
                               {isErrorDuringFetch && (
                                  <>
                                     <ErrorCallout

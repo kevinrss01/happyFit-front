@@ -116,7 +116,7 @@ export const PersonalInfoContainer = ({ userData }) => {
                   />
                   <TextInput
                      name='lastName'
-                     placeholder='nom'
+                     placeholder='Nom'
                      onChange={(e) => {
                         onChangeInput('lastName', e.target.value)
                      }}
