@@ -3,7 +3,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 1000px;
+  height: auto;
   overflow: scroll;
 
   .personal-info-container,
@@ -12,12 +12,16 @@
     margin: 20px 0;
   }
 
-  h2 {
+  h2, h3{
     width: 100%;
     text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
     color: white;
+    text-decoration: underline;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    margin-top: 20px;
   }
 
   .personal-info-container {
@@ -27,11 +31,14 @@
     align-items: center;
     width: 90%;
     border: 1px solid white;
-    padding: 20px;
+    padding: 15px;
     border-radius: $primary-border-radius;
-    min-height: 300px;
+    height: auto;
 
+    h3 {
+      margin: 14px;
 
+    }
 
     .form-input-container{
       display: flex;
@@ -41,9 +48,34 @@
       width: 100%;
       gap: 20px;
 
+      .container-names-input, .container-physics-inputs{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+
+      .container-single-input{
+        width: 47%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
         .input{
-          width: 40%
+          max-width: 100%;
         }
+      }
+
+      .params-workout-container{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+
 
     }
 

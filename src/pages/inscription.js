@@ -12,6 +12,7 @@ import { RegisterLoader } from '../components/loaders/RegisterLoader'
 import toastMessage from '../utils/toast'
 import { userRegister } from '../redux/actions/userActions'
 
+
 const defaultValidations = {
    personal: false,
    metrics: false,
@@ -61,23 +62,23 @@ export default function Inscription() {
             const { confirmPassword, ...rest } = registerData
             setIsLoading(true)
 
-            // dispatch(userRegister(rest))
-            //    .then(() => {
-            //       setProgress(100)
-            //       setIsLoading(false)
-            //       /* toaster d'annonce avant la redirection,
-            //       indiquant que l'inscription a été réussie
-            //         indiquant qu'il faut se connecter
-            //       */
-            //       //router.push('/connexion')
-            //       toastMessage('Votre programme à bien été créé !', 'success')
-            //    })
-            //    .catch((err) => {
-            //       setIsLoading(false)
-            //       setIsErrorDuringFetch(true)
-            //       console.log(err)
-            //       toastMessage("Une erreur est survenue lors de l'inscription", 'error')
-            //    })
+            dispatch(userRegister(rest))
+               .then(() => {
+                  setProgress(100)
+                  setIsLoading(false)
+                  /* toaster d'annonce avant la redirection,
+                  indiquant que l'inscription a été réussie
+                    indiquant qu'il faut se connecter
+                  */
+                  router.push('/connexion')
+                  toastMessage('Votre programme à bien été créé !', 'success')
+               })
+               .catch((err) => {
+                  setIsLoading(false)
+                  setIsErrorDuringFetch(true)
+                  console.log(err)
+                  toastMessage("Une erreur est survenue lors de l'inscription", 'error')
+               })
          }
          setData((prevData) => ({
             ...prevData,
@@ -136,7 +137,7 @@ export default function Inscription() {
    return (
       <div style={{ color: 'white' }} className='register-container'>
          <TopBarLogo />
-         <ProgressBar percentageValue={progress} className='mt-3 progress-bar' />
+         <ProgressBar value={progress} className='mt-3 progress-bar' />
          {personal ? (
             <>
                {metrics ? (
@@ -151,7 +152,7 @@ export default function Inscription() {
                               {isErrorDuringFetch && (
                                  <>
                                     <ErrorCallout
-                                       title='Une erreur est survenue pendant lors de la création de votre compte'
+                                       title='Une erreur est survenue pendant la création de votre compte'
                                        errorMessage="Veuillez nous excuser, une erreur est survenue. Ne vous
                                        inquiétez pas, vos données ont été sauvegardées. Veuillez
                                        simplement cliquer sur le bouton retour et réessayer plus tard. Si le problème persiste,

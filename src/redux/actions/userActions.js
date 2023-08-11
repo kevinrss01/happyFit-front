@@ -2,21 +2,21 @@ import jwtDecode from 'jwt-decode'
 import AuthAPI from '../../service/AuthAPI'
 import UserAPI from '../../service/UserAPI'
 import {
-  GET_USER_ERROR,
-  GET_USER_INFO_ERROR,
-  GET_USER_INFO_REQUEST,
-  GET_USER_INFO_SUCCESS,
-  GET_USER_REQUEST,
-  GET_USER_SUCCESS,
-  LOGIN_ERROR,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  REFRESH_TOKEN_ERROR,
-  REFRESH_TOKEN_REQUEST,
-  REFRESH_TOKEN_SUCCESS,
-  REGISTER_ERROR,
-  REGISTER_REQUEST,
-  REGISTER_SUCCESS,
+   GET_USER_ERROR,
+   GET_USER_INFO_ERROR,
+   GET_USER_INFO_REQUEST,
+   GET_USER_INFO_SUCCESS,
+   GET_USER_REQUEST,
+   GET_USER_SUCCESS,
+   LOGIN_ERROR,
+   LOGIN_REQUEST,
+   LOGIN_SUCCESS,
+   REFRESH_TOKEN_ERROR,
+   REFRESH_TOKEN_REQUEST,
+   REFRESH_TOKEN_SUCCESS,
+   REGISTER_ERROR,
+   REGISTER_REQUEST,
+   REGISTER_SUCCESS,
 } from './actions'
 import { getProgramSuccess } from './sportActions'
 
@@ -34,19 +34,19 @@ const registerError = (err) => ({ type: REGISTER_ERROR, payload: err })
 
 const getUserInfoRequest = () => ({ type: GET_USER_INFO_REQUEST })
 const getUserInfoSuccess = (data) => ({
-  type: GET_USER_INFO_SUCCESS,
-  payload: data,
+   type: GET_USER_INFO_SUCCESS,
+   payload: data,
 })
 const getUserInfoError = (err) => ({ type: GET_USER_INFO_ERROR, payload: err })
 
 const refreshTokenRequest = () => ({ type: REFRESH_TOKEN_REQUEST })
 const refreshTokenSuccess = (data) => ({
-  type: REFRESH_TOKEN_SUCCESS,
-  payload: data,
+   type: REFRESH_TOKEN_SUCCESS,
+   payload: data,
 })
 const refreshTokenError = (err) => ({
-  type: REFRESH_TOKEN_ERROR,
-  payload: err,
+   type: REFRESH_TOKEN_ERROR,
+   payload: err,
 })
 
 /* idée d'automatisation pour les actions redondantes : 
@@ -67,57 +67,58 @@ const refreshTokenError = (err) => ({
 */
 
 export const userLogin = (loginData) => async (dispatch) => {
-  dispatch(loginRequest())
-  try {
-    const res = await AuthAPI.login(loginData)
-    dispatch(getUserInfoSuccess(res.data))
-    dispatch(getProgramSuccess(res.data))
-    AuthAPI.saveToken(res.data.tokens)
-    return Promise.resolve(res.data)
-  } catch (err) {
-    dispatch(loginError(err))
-    return Promise.reject(err)
-  }
+   dispatch(loginRequest())
+   try {
+      const res = await AuthAPI.login(loginData)
+      dispatch(getUserInfoSuccess(res.data))
+      dispatch(getProgramSuccess(res.data))
+      AuthAPI.saveToken(res.data.tokens)
+      return Promise.resolve(res.data)
+   } catch (err) {
+      dispatch(loginError(err))
+      return Promise.reject(err)
+   }
 }
 
 export const userRegister = (registerData) => async (dispatch) => {
-  dispatch(registerRequest())
-  try {
-    const res = await AuthAPI.register(registerData)
-    return Promise.resolve()
-  } catch (err) {
-    dispatch(registerError(err))
-    return Promise.reject()
-  }
+   dispatch(registerRequest())
+   try {
+      const res = await AuthAPI.register(registerData)
+      return Promise.resolve()
+   } catch (err) {
+      dispatch(registerError(err))
+      return Promise.reject()
+   }
 }
 
 export const getUser = () => async (dispatch) => {
-  //dispatch getUserRequest()
-  //endpoint call with axios stored in a variable
-  // variable value dispatched in getUserSuccess
-  //catch error and dispatch it in getUserError
+   //dispatch getUserRequest()
+   //endpoint call with axios stored in a variable
+   // variable value dispatched in getUserSuccess
+   //catch error and dispatch it in getUserError
 }
 
 export const getUserInfo = (userId) => async (dispatch) => {
-  dispatch(getUserInfoRequest())
-  try {
-    const res = await UserAPI.getUserInfo(userId)
-    dispatch(getProgramSuccess(res.data))
-    dispatch(getUserInfoSuccess(res.data))
-  } catch (err) {
-    dispatch(getUserInfoError(err))
-  }
+   dispatch(getUserInfoRequest())
+   try {
+      const res = await UserAPI.getUserInfo(userId)
+      dispatch(getProgramSuccess(res.data))
+      dispatch(getUserInfoSuccess(res.data))
+   } catch (err) {
+      console.error(err)
+      dispatch(getUserInfoError(err))
+   }
 }
 
 export const refreshToken = (token) => async (dispatch) => {
-  dispatch(refreshTokenRequest())
-  try {
-    const res = await AuthAPI.refreshToken(token)
-    AuthAPI.saveRefreshedToken(res.data.accessToken)
-    const { sub } = jwtDecode(res.data.accessToken)
-    dispatch(getUserInfo(sub))
-    dispatch(refreshTokenSuccess(res.data))
-  } catch (err) {
-    dispatch(refreshTokenError(err))
-  }
+   dispatch(refreshTokenRequest())
+   try {
+      const res = await AuthAPI.refreshToken(token)
+      AuthAPI.saveRefreshedToken(res.data.accessToken)
+      const { sub } = jwtDecode(res.data.accessToken)
+      dispatch(getUserInfo(sub))
+      dispatch(refreshTokenSuccess(res.data))
+   } catch (err) {
+      dispatch(refreshTokenError(err))
+   }
 }

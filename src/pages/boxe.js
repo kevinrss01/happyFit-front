@@ -17,13 +17,11 @@ const BoxingPage = () => {
             email: email,
             id: id,
          })
-         .then(function (response) {
-            console.log(response)
+         .then(function () {
             setStayInTouch(true)
          })
          .catch(function (error) {
-            console.log(error)
-            //console.log(error?.response?.request?.response);
+            console.error(error)
             toastMessage('Oups, une erreur est survenu, veuillez réessayer plus tard.', 'error')
          })
    }

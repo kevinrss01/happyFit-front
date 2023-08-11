@@ -52,7 +52,6 @@ export default function ParamsForm({ validate, goBack }) {
          if (Object.keys(formValue).every((key) => !!formValue[key])) {
             validate('params', formValue)
          } else {
-            console.log(formValue)
             setInvalidInput(true)
          }
       },
