@@ -5,13 +5,12 @@ import Questions from '../components/register/Questions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import TopBarLogo from '../components/TopBarLogo'
-import { Button, ProgressBar, Title } from '@tremor/react'
+import { Button, ProgressBar } from '@tremor/react'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { ErrorCallout } from '../components/errors/ErrorCallout'
 import { RegisterLoader } from '../components/loaders/RegisterLoader'
 import toastMessage from '../utils/toast'
 import { userRegister } from '../redux/actions/userActions'
-
 
 const defaultValidations = {
    personal: false,
