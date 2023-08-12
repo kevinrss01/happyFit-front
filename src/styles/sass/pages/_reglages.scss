@@ -24,6 +24,34 @@
     margin-bottom: 25px;
   }
 
+  .tabs-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .tab {
+      background-color: $bleu-darken;
+      color: white;
+      margin-top: 20px;
+      height: 50px;
+      width: auto;
+      min-width: 200px;
+      cursor: pointer;
+      text-align: center;
+      @include flex-centre;
+      transition: background-color 0.2s ease-in-out;
+
+      &:active {
+        scale: 0.9;
+      }
+    }
+
+    .clicked {
+      background-color: $bleu;
+      border: 2px solid white;
+    }
+  }
+
   .personal-info-container {
     display: flex;
     flex-direction: column;

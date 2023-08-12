@@ -53,7 +53,7 @@ const BoxingPage = () => {
                      En liste d&lsquo;attente <br /> <FcApproval />
                   </h2>
                ) : (
-                  <h2>Rester informé</h2>
+                  <h2>Je suis intéressé</h2>
                )}
             </Button>
             <h2>Créé par vous, pour vous, et rien que pour vous.</h2>

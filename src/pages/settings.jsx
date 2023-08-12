@@ -2,44 +2,97 @@ import { PersonalInfoContainer } from '../components/settings/PersonalInfoContai
 import { EmailContainer } from '../components/settings/EmailContainer'
 import { PasswordContainer } from '../components/settings/PasswordContainer'
 import { useSelector } from 'react-redux'
-import { TabList, Tab, TabGroup, TabPanels, TabPanel } from '@tremor/react'
+import { TabList, Tab, TabGroup, TabPanels, TabPanel, Title } from '@tremor/react'
 import { BiSolidUserDetail } from 'react-icons/bi'
 import { MdOutlineAlternateEmail, MdPassword } from 'react-icons/md'
+import { useEffect, useState } from 'react'
+import CustomTabList from '../components/settings/CustomTabList'
 
 export default function Settings() {
    const { userInfo, isFetching } = useSelector((state) => state.user)
-
-   //TODO: Trouver pourquoi les données se perdent lors du refresh
+   const [isClickedSettingsPage, setIsClickedSettingsPage] = useState('Paramètres')
    //TODO: Modifier l'état de l'utilisateur dans le store lors de la modification de ses données
 
-   return (
-      <div className='setting-container'>
-         <h1 className='text-3xl mt-6'>Paramètres</h1>
+   console.log(userInfo)
 
-         <TabGroup defaultIndex={0} className='flex flex-col items-center justify-center mt-5'>
-            <TabList className='mt-8 flex items-center justify-center' variant={'solid'}>
-               <Tab icon={BiSolidUserDetail}>Information personnelle & programmes</Tab>
-               <Tab icon={MdOutlineAlternateEmail}>Email</Tab>
-               <Tab icon={MdPassword}>Mot de passe</Tab>
-            </TabList>
-            <TabPanels className='flex items-center justify-center'>
-               <TabPanel>
-                  <div className='mt-10 flex items-center justify-center'>
-                     <PersonalInfoContainer userData={userInfo} />
-                  </div>
-               </TabPanel>
-               <TabPanel>
-                  <div className='mt-10 flex items-center justify-center'>
-                     <EmailContainer userData={userInfo} />
-                  </div>
-               </TabPanel>
-               <TabPanel>
-                  <div className='mt-10 flex items-center justify-center'>
-                     <PasswordContainer userData={userInfo} />
-                  </div>
-               </TabPanel>
-            </TabPanels>
-         </TabGroup>
-      </div>
+   return (
+      <>
+         {userInfo.email && !isFetching ? (
+            <>
+               <div className='setting-container'>
+                  <CustomTabList
+                     tabs={['Paramètres', 'Factures']}
+                     actualState={isClickedSettingsPage}
+                     updateState={setIsClickedSettingsPage}
+                     size=''
+                  />
+                  {/*<CustomTabList*/}
+                  {/*   tabs={['Nom et programmes', 'Email', 'Mot de passe']}*/}
+                  {/*   actualState={isClickedSettingsPart}*/}
+                  {/*   updateState={setIsClickedSettingsPart}*/}
+                  {/*   size='small'*/}
+                  {/*/>*/}
+
+                  {isClickedSettingsPage === 'Factures' ? (
+                     <>
+                        <Title>Cette page n'est pas encore disponible.</Title>
+                     </>
+                  ) : (
+                     <>
+                        <TabGroup
+                           defaultIndex={0}
+                           className='flex flex-col items-center justify-center mt-5'
+                        >
+                           <TabList
+                              className='mt-8 flex items-center justify-center'
+                              variant={'solid'}
+                           >
+                              <Tab
+                                 icon={BiSolidUserDetail}
+                                 className='w-[190px] flex items-center justify-center'
+                              >
+                                 Nom et programmes
+                              </Tab>
+                              <Tab
+                                 icon={MdOutlineAlternateEmail}
+                                 className='w-[190px] flex items-center justify-center'
+                              >
+                                 Email
+                              </Tab>
+                              <Tab
+                                 icon={MdPassword}
+                                 className='w-[190px] flex items-center justify-center'
+                              >
+                                 Mot de passe
+                              </Tab>
+                           </TabList>
+                           <TabPanels className='flex items-center justify-center'>
+                              <TabPanel>
+                                 <div className='mt-10 flex items-center justify-center'>
+                                    <PersonalInfoContainer userData={userInfo} />
+                                 </div>
+                              </TabPanel>
+                              <TabPanel>
+                                 <div className='mt-10 flex items-center justify-center'>
+                                    <EmailContainer userData={userInfo} />
+                                 </div>
+                              </TabPanel>
+                              <TabPanel>
+                                 <div className='mt-10 flex items-center justify-center'>
+                                    <PasswordContainer userData={userInfo} />
+                                 </div>
+                              </TabPanel>
+                           </TabPanels>
+                        </TabGroup>
+                     </>
+                  )}
+               </div>
+            </>
+         ) : (
+            <>
+               <h1>Loading...</h1>
+            </>
+         )}
+      </>
    )
 }
