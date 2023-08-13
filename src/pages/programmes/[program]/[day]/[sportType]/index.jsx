@@ -21,7 +21,6 @@ const componentSelector = {
 
 export default function SportTypePage({ program, day, sportType }) {
    const { currentSession, isFetching } = useSportSession(program, day)
-   console.log('this is the current session', currentSession)
 
    const sportTypeField = useMemo(
       () => (sportType === 'exercice' ? 'exercices' : 'warmUp'),
