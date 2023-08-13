@@ -11,6 +11,11 @@ class UserAPI {
    static async updatePersonalUserInfo(userData, userId) {
       return Axios.patch(formatSuffix(`updateUserInfo/${userId}`), userData)
    }
+
+   static async updateUserEmail(newEmail, userId) {
+      const endpoint = formatSuffix(`updateEmail/${userId}`)
+      return Axios.patch(endpoint, newEmail)
+   }
 }
 
 export default UserAPI

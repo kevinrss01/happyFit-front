@@ -34,6 +34,7 @@ const Opener = ({ message, children }) => {
             flexDirection: 'column',
             gap: 5,
             marginBottom: 10,
+            width: 200,
           }}
         >
           {children}

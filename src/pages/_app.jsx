@@ -2,6 +2,7 @@ import { Provider } from 'react-redux'
 import store from '../redux/store'
 import '../styles/sass/main.scss'
 import { Fragment } from 'react'
+import { useRouter } from 'next/router'
 import AuthGuard from '../components/AuthGuard'
 import CustomNavbar from '../components/CustomNavbar'
 import { ToastContainer } from 'react-toastify'
@@ -32,7 +33,7 @@ function MyApp({ Component, pageProps }) {
          <Provider store={store}>
             <AuthGuard>
                <CustomNavbar component={Component}>
-                  <Component {...pageProps} />;
+                  <Component {...pageProps} />
                   <ToastContainer
                      position='top-right'
                      autoClose={3000}

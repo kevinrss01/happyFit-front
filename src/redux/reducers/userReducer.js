@@ -14,11 +14,18 @@ import {
    REGISTER_ERROR,
    REGISTER_REQUEST,
    REGISTER_SUCCESS,
+   UPDATE_USER_FIELD_ERROR,
+   UPDATE_USER_FIELD_REQUEST,
+   UPDATE_USER_FIELD_SUCCESS,
+   UPDATE_USER_INFO_ERROR,
+   UPDATE_USER_INFO_REQUEST,
+   UPDATE_USER_INFO_SUCCESS,
 } from '../actions/actions'
 import { generateReducer } from './reducer'
 
 export const initialUserState = {
    isFetching: false,
+   isUpdating: false,
    userInfo: {},
    error: '',
 }
@@ -119,9 +126,48 @@ const refreshTokenComputer = {
    }),
 }
 
+const updateUserComputer = {
+   [UPDATE_USER_INFO_REQUEST]: (state, payload = undefined) => ({
+      ...state,
+      isUpdating: true,
+   }),
+   [UPDATE_USER_INFO_SUCCESS]: (state, payload) => ({
+      ...state,
+      isUpdating: false,
+      userInfo: { ...state.userInfo, ...payload },
+   }),
+   [UPDATE_USER_INFO_ERROR]: (state, error) => ({
+      ...state,
+      isUpdating: false,
+      error,
+   }),
+}
+
+const updateUserFieldComputer = {
+   [UPDATE_USER_FIELD_REQUEST]: (state, payload = undefined) => ({
+      ...state,
+      isUpdating: true,
+   }),
+   [UPDATE_USER_FIELD_SUCCESS]: (state, payload) => ({
+      ...state,
+      isUpdating: false,
+      userInfo: {
+         ...state.userInfo,
+         [payload.field]: payload.data,
+      },
+   }),
+   [UPDATE_USER_FIELD_ERROR]: (state, error) => ({
+      ...state,
+      isUpdating: false,
+      error,
+   }),
+}
+
 export const userComputer = {
    ...loginComputer,
    ...registerComputer,
    ...userInfoComputer,
    ...refreshTokenComputer,
+   ...updateUserComputer,
+   ...updateUserFieldComputer,
 }

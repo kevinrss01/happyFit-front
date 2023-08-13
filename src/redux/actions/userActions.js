@@ -17,8 +17,16 @@ import {
    REGISTER_ERROR,
    REGISTER_REQUEST,
    REGISTER_SUCCESS,
+   UPDATE_USER_FIELD_ERROR,
+   UPDATE_USER_FIELD_REQUEST,
+   UPDATE_USER_FIELD_SUCCESS,
+   UPDATE_USER_INFO_ERROR,
+   UPDATE_USER_INFO_REQUEST,
+   UPDATE_USER_INFO_SUCCESS,
 } from './actions'
-import { getProgramSuccess } from './sportActions'
+import { getProgramRequest, getProgramSuccess } from './sportActions'
+// import { toast } from 'react-toastify'
+import toast from '../../utils/toast'
 
 const getUserRequest = () => ({ type: GET_USER_REQUEST })
 const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data })
@@ -46,6 +54,30 @@ const refreshTokenSuccess = (data) => ({
 })
 const refreshTokenError = (err) => ({
    type: REFRESH_TOKEN_ERROR,
+   payload: err,
+})
+
+const updateUserInfoRequest = () => ({
+   type: UPDATE_USER_INFO_REQUEST,
+})
+const updateUserInfoSuccess = (data) => ({
+   type: UPDATE_USER_INFO_SUCCESS,
+   payload: data,
+})
+const updateUserInfoError = (err) => ({
+   type: UPDATE_USER_INFO_ERROR,
+   payload: err,
+})
+
+const updateUserFieldRequest = () => ({
+   type: UPDATE_USER_FIELD_REQUEST,
+})
+const updateUserFieldSuccess = (field, data) => ({
+   type: UPDATE_USER_FIELD_SUCCESS,
+   payload: { field, data },
+})
+const updateUserFieldError = (err) => ({
+   type: UPDATE_USER_FIELD_ERROR,
    payload: err,
 })
 
@@ -99,13 +131,13 @@ export const getUser = () => async (dispatch) => {
 }
 
 export const getUserInfo = (userId) => async (dispatch) => {
+   dispatch(getProgramRequest())
    dispatch(getUserInfoRequest())
    try {
       const res = await UserAPI.getUserInfo(userId)
-      dispatch(getProgramSuccess(res.data))
       dispatch(getUserInfoSuccess(res.data))
+      dispatch(getProgramSuccess(res.data))
    } catch (err) {
-      console.error(err)
       dispatch(getUserInfoError(err))
    }
 }
@@ -121,4 +153,34 @@ export const refreshToken = (token) => async (dispatch) => {
    } catch (err) {
       dispatch(refreshTokenError(err))
    }
+}
+
+export const updateUserInfo = (data, id) => async (dispatch) => {
+   dispatch(updateUserInfoRequest())
+   try {
+      const res = await UserAPI.updatePersonalUserInfo(data, id)
+      dispatch(updateUserInfoSuccess(res.data))
+      toast('La mise à jour de vos données a été faite !', 'success')
+   } catch (err) {
+      dispatch(updateUserInfoError(err))
+      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
+   }
+}
+
+const updateUserField = (field, data) => async (dispatch) => {
+   dispatch(updateUserFieldRequest())
+   try {
+      const capitalizedField =
+         field.substring(0, 1).toUpperCase() + field.substring(1, field.length)
+      await UserAPI[`updateUser${capitalizedField}`](data)
+      dispatch(updateUserFieldSuccess({ field, data }))
+      toast('La mise à jour de vos données a été faite !', 'success')
+   } catch (err) {
+      dispatch(updateUserFieldError(err))
+      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
+   }
+}
+
+export const updateUserEmail = (newEmail) => async (dispatch) => {
+   dispatch(updateUserField('email', newEmail))
 }
