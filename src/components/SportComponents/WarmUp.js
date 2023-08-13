@@ -14,6 +14,8 @@ export default function WarmUp({
    repetition,
    rest,
 }) {
+   const repetitions = handlePlural(repetition, 'répétition', true)
+   const repetitionsText = repetitions ? ` de ${repetitions}` : ''
    return (
       <div className={sportTypeTextsClass}>
          <h2 style={centerStyle}>
@@ -21,8 +23,8 @@ export default function WarmUp({
          </h2>
          <p style={{ ...centerStyle, padding: 25 }}>
             {instructions} <br />
-            Répétez cet échauffement sur {handlePlural(numberOfSeries, 'série', true)} de{' '}
-            {handlePlural(repetition, 'répétition', true)} avec {computeInMinutes(rest)} de repos.
+            Répétez cet échauffement sur {handlePlural(numberOfSeries, 'série', true)}
+            {repetitionsText} avec {computeInMinutes(rest)} de repos.
          </p>
       </div>
    )
