@@ -25,6 +25,8 @@ import {
    UPDATE_USER_INFO_SUCCESS,
 } from './actions'
 import { getProgramRequest, getProgramSuccess } from './sportActions'
+// import { toast } from 'react-toastify'
+import toast from '../../utils/toast'
 
 const getUserRequest = () => ({ type: GET_USER_REQUEST })
 const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data })
@@ -158,10 +160,10 @@ export const updateUserInfo = (data, id) => async (dispatch) => {
    try {
       const res = await UserAPI.updatePersonalUserInfo(data, id)
       dispatch(updateUserInfoSuccess(res.data))
-      toast.success('La mise à jour de vos données a été faite !')
+      toast('La mise à jour de vos données a été faite !', 'success')
    } catch (err) {
       dispatch(updateUserInfoError(err))
-      toast.error('Une erreur est survenu pendant le traitement de vos données.')
+      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
    }
 }
 
@@ -172,10 +174,10 @@ const updateUserField = (field, data) => async (dispatch) => {
          field.substring(0, 1).toUpperCase() + field.substring(1, field.length)
       await UserAPI[`updateUser${capitalizedField}`](data)
       dispatch(updateUserFieldSuccess({ field, data }))
-      toast.success('La mise à jour de vos données a été faite !')
+      toast('La mise à jour de vos données a été faite !', 'success')
    } catch (err) {
       dispatch(updateUserFieldError(err))
-      toast.error('Une erreur est survenu pendant le traitement de vos données.')
+      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
    }
 }
 

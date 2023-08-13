@@ -11,7 +11,9 @@ const SetRenderer = ({ weight, seriesNumber, rest, repetition }) => (
 const Series = ({ series }) => {
    if (!series) return <></>
    const sortedSeries = [...series].sort((a, b) => a.seriesNumber - b.seriesNumber)
-   const rendererOfSeries = sortedSeries.map((set) => <SetRenderer {...set} />)
+   const rendererOfSeries = sortedSeries.map((set, index) => (
+      <SetRenderer key={`set n°${index}`} {...set} />
+   ))
    return <div>{rendererOfSeries}</div>
 }
 
