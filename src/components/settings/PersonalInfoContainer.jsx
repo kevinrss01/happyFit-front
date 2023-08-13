@@ -102,6 +102,7 @@ export const PersonalInfoContainer = ({ userData }) => {
          await verifyInputs(convertedObject)
 
          await UserAPI.updatePersonalUserInfo(convertedObject, userId)
+
          toastMessage('Vos informations personnelles ont bien été mises à jour', 'success')
       } catch (error) {
          console.error(error)

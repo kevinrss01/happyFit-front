@@ -5,6 +5,8 @@ import { AiOutlineSetting } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import logo from '../public/images/HappyFit-logo.png'
 import Image from 'next/image'
+import { Icon } from '@tremor/react'
+import { BiLogOutCircle } from 'react-icons/bi'
 export const Navbar = ({ children }) => {
    const router = useRouter()
    const { asPath } = useRouter()
@@ -67,6 +69,9 @@ export const Navbar = ({ children }) => {
             </div>
          </div>
          <div className='children'>{children}</div>
+         <div className='icons-container'>
+            <Icon size='sm' icon={BiLogOutCircle} />
+         </div>
       </div>
    )
 }
