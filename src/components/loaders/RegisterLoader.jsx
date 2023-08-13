@@ -1,6 +1,4 @@
 import { Bold, Title } from '@tremor/react'
-import Image from 'next/image'
-import gif from '../../public/images/gif-loader-register.gif'
 import { useState, useEffect } from 'react'
 import { sentencesForLoading } from '../../data/sentencesForLoading'
 import Lottie from 'lottie-react'
@@ -48,7 +46,7 @@ export const RegisterLoader = () => {
          <Title className='sentence-to-wait' color='white'>
             {sentenceToDisplay && (
                <>
-                  Saviez-vous que : <Bold className='text-lg'>{sentenceToDisplay}</Bold>
+                  Le saviez-vous ? <Bold className='text-lg'>{sentenceToDisplay}</Bold>
                </>
             )}
          </Title>
