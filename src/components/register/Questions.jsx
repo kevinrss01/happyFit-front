@@ -15,7 +15,7 @@ import { IoHome } from 'react-icons/io5'
 import { BiRun, BiTimer } from 'react-icons/bi'
 import { MdEmojiPeople } from 'react-icons/md'
 import { ImListNumbered } from 'react-icons/im'
-import { Button, SelectBox, SelectBoxItem, Title } from '@tremor/react'
+import { Button, Select, SelectItem, Title } from '@tremor/react'
 import toastMessage from '../../utils/toast'
 
 const icons = {
@@ -93,17 +93,6 @@ const questionsAndFields = {
    availableTimePerSessionInMinutes: 'Combien de temps souhaitez-vous vous entrainer par jour ?',
 }
 
-const selectedStyle = {
-   backgroundColor: '#3e8bd0',
-   color: 'white',
-   border: '1px solid #3e8bd0',
-}
-
-const defaultStyle = {
-   backgroundColor: 'inherit',
-   color: 'inherit',
-}
-
 const generateKey = (key) => `${key}_${new Date().getTime()}`
 
 function Questions({ validate, goBack }) {
@@ -140,7 +129,6 @@ function Questions({ validate, goBack }) {
             }),
             {},
          )
-
          if (!numberOfSessionPerWeek) {
             if (!sessionStorage.getItem('sessionsPerWeek')) {
                toastMessage(
@@ -166,7 +154,7 @@ function Questions({ validate, goBack }) {
    }, [questions, numberOfSessionPerWeek])
 
    return (
-      <div className='column-container'>
+      <div className='column-container components'>
          <Title className='title-inscription-form text-2xl w-full text-center' color='white'>
             <IoArrowBackCircleOutline className='icon' onClick={goBack} />
             <span>Paramètres de séance</span>
@@ -199,7 +187,7 @@ function Questions({ validate, goBack }) {
          <div className='container-column' style={{ marginBottom: 10 }}>
             <h2>Combien de séances pouvez-vous faire par semaine ?</h2>
             <div className='container gap-10' style={{ marginTop: '20px' }}>
-               <SelectBox
+               <Select
                   id='select-sessions-per-week'
                   defaultValue={
                      sessionStorage.getItem('sessionsPerWeek')
@@ -210,14 +198,28 @@ function Questions({ validate, goBack }) {
                   icon={ImListNumbered}
                   onValueChange={(value) => setNumberOfSessionPerWeek(value)}
                >
-                  <SelectBoxItem value='1' text='1 séance' icon={TbSquareRoundedNumber1Filled} />
-                  <SelectBoxItem value='2' text='2 séances' icon={TbSquareRoundedNumber2Filled} />
-                  <SelectBoxItem value='3' text='3 séances' icon={TbSquareRoundedNumber3Filled} />
-                  <SelectBoxItem value='4' text='4 séances' icon={TbSquareRoundedNumber4Filled} />
-                  <SelectBoxItem value='5' text='5 séances' icon={TbSquareRoundedNumber5Filled} />
-                  <SelectBoxItem value='6' text='6 séances' icon={TbSquareRoundedNumber6Filled} />
-                  <SelectBoxItem value='7' text='7 séances' icon={TbSquareRoundedNumber7Filled} />
-               </SelectBox>
+                  <SelectItem value='1' icon={TbSquareRoundedNumber1Filled}>
+                     1 séances
+                  </SelectItem>
+                  <SelectItem value='2' icon={TbSquareRoundedNumber2Filled}>
+                     2 séances
+                  </SelectItem>
+                  <SelectItem value='3' icon={TbSquareRoundedNumber3Filled}>
+                     3 séances
+                  </SelectItem>
+                  <SelectItem value='4' icon={TbSquareRoundedNumber4Filled}>
+                     4 séances
+                  </SelectItem>
+                  <SelectItem value='5' icon={TbSquareRoundedNumber5Filled}>
+                     5 séances
+                  </SelectItem>
+                  <SelectItem value='6' icon={TbSquareRoundedNumber6Filled}>
+                     6 séances
+                  </SelectItem>
+                  <SelectItem value='7' icon={TbSquareRoundedNumber7Filled}>
+                     7 séances
+                  </SelectItem>
+               </Select>
             </div>
          </div>
          <Button

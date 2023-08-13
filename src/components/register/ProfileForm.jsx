@@ -2,8 +2,7 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { BiLockAlt } from 'react-icons/bi'
 import { AiOutlineMan, AiOutlineWoman } from 'react-icons/ai'
-import { BsGenderAmbiguous } from 'react-icons/bs'
-import { TextInput, Title, SelectBox, SelectBoxItem, Text } from '@tremor/react'
+import { TextInput, Title, Select, SelectItem, Text } from '@tremor/react'
 import { Button } from '@tremor/react'
 import { verificationProfilFormSchema } from '../../utils/yupSchema'
 import * as Yup from 'yup'
@@ -96,7 +95,6 @@ function ProfileForm({ validate }) {
             )
             validate('personal', formValues)
          } catch (error) {
-            setIsLoadingButton(false)
             console.error('error', error)
             if (error instanceof Yup.ValidationError) {
                const errorMessages = {}
@@ -108,14 +106,16 @@ function ProfileForm({ validate }) {
                console.log(error)
                toastMessage('Oups, une erreur est survenue, veuillez réessayer plus tard', 'error')
             }
+         } finally {
+            setIsLoadingButton(false)
          }
       },
       [formValue],
    )
 
    return (
-      <div className='form-container'>
-         <Title className='text-2xl m-5' color='white'>
+      <div className='form-container components'>
+         <Title className='text-3xl m-5' color='white'>
             Mon profil
          </Title>
 
@@ -156,23 +156,27 @@ function ProfileForm({ validate }) {
             {emailTaken && (
                <Text className='text-red-500 text-base'>Cet email est déjà utilisé</Text>
             )}
-            <SelectBox
+            <Select
                onValueChange={(value) => {
                   setFormValue((prevForm) => ({
                      ...prevForm,
                      sexe: value,
                   }))
                }}
-               placeholder='Genre'
+               placeholder='Votre genre'
                id='sexe'
                name='sexe'
-               icon={BsGenderAmbiguous}
+               //icon={BsGenderAmbiguous}
                className='input'
-               defaultValue={sexe}
+               value={sexe}
             >
-               <SelectBoxItem value='man' text='Homme' icon={AiOutlineMan} />
-               <SelectBoxItem value='woman' text='Femme' icon={AiOutlineWoman} />
-            </SelectBox>
+               <SelectItem value='man' icon={AiOutlineMan}>
+                  Homme
+               </SelectItem>
+               <SelectItem value='woman' icon={AiOutlineWoman}>
+                  Femme
+               </SelectItem>
+            </Select>
             {yupErrors.sexe && <p className='text-red-500 text-xs'>{yupErrors.sexe}</p>}
             <TextInput
                id='password'

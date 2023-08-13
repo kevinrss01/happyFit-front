@@ -1,6 +1,6 @@
 import LoginForm from '../components/login/LoginForm'
 import TopBarLogo from '../components/TopBarLogo'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Connexion() {
    const [randomDivNumber, setRandomDivNumber] = useState(() => Math.floor(Math.random() * 3) + 1)

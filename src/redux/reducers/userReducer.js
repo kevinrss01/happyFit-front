@@ -79,6 +79,10 @@ const userInfoComputer = {
          availableTimePerSessionInMinutes,
          fitnessGoal,
          trainingPlace,
+         numberOfSessionPerWeek,
+         sportExperienceInYears,
+         id,
+         birthday,
       } = payload
       return {
          ...state,
@@ -92,6 +96,10 @@ const userInfoComputer = {
             availableTimePerSessionInMinutes,
             fitnessGoal,
             trainingPlace,
+            numberOfSessionPerWeek,
+            sportExperienceInYears,
+            id,
+            birthday,
          },
       }
    },
