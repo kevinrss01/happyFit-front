@@ -2,23 +2,29 @@ import jwtDecode from 'jwt-decode'
 import AuthAPI from '../../service/AuthAPI'
 import UserAPI from '../../service/UserAPI'
 import {
-  GET_USER_ERROR,
-  GET_USER_INFO_ERROR,
-  GET_USER_INFO_REQUEST,
-  GET_USER_INFO_SUCCESS,
-  GET_USER_REQUEST,
-  GET_USER_SUCCESS,
-  LOGIN_ERROR,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  REFRESH_TOKEN_ERROR,
-  REFRESH_TOKEN_REQUEST,
-  REFRESH_TOKEN_SUCCESS,
-  REGISTER_ERROR,
-  REGISTER_REQUEST,
-  REGISTER_SUCCESS,
-} from "./actions";
-import { getProgramRequest, getProgramSuccess } from "./sportActions";
+   GET_USER_ERROR,
+   GET_USER_INFO_ERROR,
+   GET_USER_INFO_REQUEST,
+   GET_USER_INFO_SUCCESS,
+   GET_USER_REQUEST,
+   GET_USER_SUCCESS,
+   LOGIN_ERROR,
+   LOGIN_REQUEST,
+   LOGIN_SUCCESS,
+   REFRESH_TOKEN_ERROR,
+   REFRESH_TOKEN_REQUEST,
+   REFRESH_TOKEN_SUCCESS,
+   REGISTER_ERROR,
+   REGISTER_REQUEST,
+   REGISTER_SUCCESS,
+   UPDATE_USER_FIELD_ERROR,
+   UPDATE_USER_FIELD_REQUEST,
+   UPDATE_USER_FIELD_SUCCESS,
+   UPDATE_USER_INFO_ERROR,
+   UPDATE_USER_INFO_REQUEST,
+   UPDATE_USER_INFO_SUCCESS,
+} from './actions'
+import { getProgramRequest, getProgramSuccess } from './sportActions'
 
 const getUserRequest = () => ({ type: GET_USER_REQUEST })
 const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data })
@@ -34,19 +40,43 @@ const registerError = (err) => ({ type: REGISTER_ERROR, payload: err })
 
 const getUserInfoRequest = () => ({ type: GET_USER_INFO_REQUEST })
 const getUserInfoSuccess = (data) => ({
-  type: GET_USER_INFO_SUCCESS,
-  payload: data,
+   type: GET_USER_INFO_SUCCESS,
+   payload: data,
 })
 const getUserInfoError = (err) => ({ type: GET_USER_INFO_ERROR, payload: err })
 
 const refreshTokenRequest = () => ({ type: REFRESH_TOKEN_REQUEST })
 const refreshTokenSuccess = (data) => ({
-  type: REFRESH_TOKEN_SUCCESS,
-  payload: data,
+   type: REFRESH_TOKEN_SUCCESS,
+   payload: data,
 })
 const refreshTokenError = (err) => ({
-  type: REFRESH_TOKEN_ERROR,
-  payload: err,
+   type: REFRESH_TOKEN_ERROR,
+   payload: err,
+})
+
+const updateUserInfoRequest = () => ({
+   type: UPDATE_USER_INFO_REQUEST,
+})
+const updateUserInfoSuccess = (data) => ({
+   type: UPDATE_USER_INFO_SUCCESS,
+   payload: data,
+})
+const updateUserInfoError = (err) => ({
+   type: UPDATE_USER_INFO_ERROR,
+   payload: err,
+})
+
+const updateUserFieldRequest = () => ({
+   type: UPDATE_USER_FIELD_REQUEST,
+})
+const updateUserFieldSuccess = (field, data) => ({
+   type: UPDATE_USER_FIELD_SUCCESS,
+   payload: { field, data },
+})
+const updateUserFieldError = (err) => ({
+   type: UPDATE_USER_FIELD_ERROR,
+   payload: err,
 })
 
 /* idée d'automatisation pour les actions redondantes : 
@@ -67,58 +97,88 @@ const refreshTokenError = (err) => ({
 */
 
 export const userLogin = (loginData) => async (dispatch) => {
-  dispatch(loginRequest())
-  try {
-    const res = await AuthAPI.login(loginData)
-    dispatch(getUserInfoSuccess(res.data))
-    dispatch(getProgramSuccess(res.data))
-    AuthAPI.saveToken(res.data.tokens)
-    return Promise.resolve(res.data)
-  } catch (err) {
-    dispatch(loginError(err))
-    return Promise.reject(err)
-  }
+   dispatch(loginRequest())
+   try {
+      const res = await AuthAPI.login(loginData)
+      dispatch(getUserInfoSuccess(res.data))
+      dispatch(getProgramSuccess(res.data))
+      AuthAPI.saveToken(res.data.tokens)
+      return Promise.resolve(res.data)
+   } catch (err) {
+      dispatch(loginError(err))
+      return Promise.reject(err)
+   }
 }
 
 export const userRegister = (registerData) => async (dispatch) => {
-  dispatch(registerRequest())
-  try {
-    const res = await AuthAPI.register(registerData)
-    return Promise.resolve()
-  } catch (err) {
-    dispatch(registerError(err))
-    return Promise.reject()
-  }
+   dispatch(registerRequest())
+   try {
+      const res = await AuthAPI.register(registerData)
+      return Promise.resolve()
+   } catch (err) {
+      dispatch(registerError(err))
+      return Promise.reject()
+   }
 }
 
 export const getUser = () => async (dispatch) => {
-  //dispatch getUserRequest()
-  //endpoint call with axios stored in a variable
-  // variable value dispatched in getUserSuccess
-  //catch error and dispatch it in getUserError
+   //dispatch getUserRequest()
+   //endpoint call with axios stored in a variable
+   // variable value dispatched in getUserSuccess
+   //catch error and dispatch it in getUserError
 }
 
 export const getUserInfo = (userId) => async (dispatch) => {
-  dispatch(getProgramRequest());
-  dispatch(getUserInfoRequest());
-  try {
-    const res = await UserAPI.getUserInfo(userId);
-    dispatch(getUserInfoSuccess(res.data));
-    dispatch(getProgramSuccess(res.data));
-  } catch (err) {
-    dispatch(getUserInfoError(err))
-  }
+   dispatch(getProgramRequest())
+   dispatch(getUserInfoRequest())
+   try {
+      const res = await UserAPI.getUserInfo(userId)
+      dispatch(getUserInfoSuccess(res.data))
+      dispatch(getProgramSuccess(res.data))
+   } catch (err) {
+      dispatch(getUserInfoError(err))
+   }
 }
 
 export const refreshToken = (token) => async (dispatch) => {
-  dispatch(refreshTokenRequest())
-  try {
-    const res = await AuthAPI.refreshToken(token)
-    AuthAPI.saveRefreshedToken(res.data.accessToken)
-    const { sub } = jwtDecode(res.data.accessToken)
-    dispatch(getUserInfo(sub))
-    dispatch(refreshTokenSuccess(res.data))
-  } catch (err) {
-    dispatch(refreshTokenError(err))
-  }
+   dispatch(refreshTokenRequest())
+   try {
+      const res = await AuthAPI.refreshToken(token)
+      AuthAPI.saveRefreshedToken(res.data.accessToken)
+      const { sub } = jwtDecode(res.data.accessToken)
+      dispatch(getUserInfo(sub))
+      dispatch(refreshTokenSuccess(res.data))
+   } catch (err) {
+      dispatch(refreshTokenError(err))
+   }
+}
+
+export const updateUserInfo = (data, id) => async (dispatch) => {
+   dispatch(updateUserInfoRequest())
+   try {
+      const res = await UserAPI.updatePersonalUserInfo(data, id)
+      dispatch(updateUserInfoSuccess(res.data))
+      toast.success('La mise à jour de vos données a été faite !')
+   } catch (err) {
+      dispatch(updateUserInfoError(err))
+      toast.error('Une erreur est survenu pendant le traitement de vos données.')
+   }
+}
+
+const updateUserField = (field, data) => async (dispatch) => {
+   dispatch(updateUserFieldRequest())
+   try {
+      const capitalizedField =
+         field.substring(0, 1).toUpperCase() + field.substring(1, field.length)
+      await UserAPI[`updateUser${capitalizedField}`](data)
+      dispatch(updateUserFieldSuccess({ field, data }))
+      toast.success('La mise à jour de vos données a été faite !')
+   } catch (err) {
+      dispatch(updateUserFieldError(err))
+      toast.error('Une erreur est survenu pendant le traitement de vos données.')
+   }
+}
+
+export const updateUserEmail = (newEmail) => async (dispatch) => {
+   dispatch(updateUserField('email', newEmail))
 }
