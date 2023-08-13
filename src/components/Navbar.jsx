@@ -18,7 +18,7 @@ export const Navbar = ({ children }) => {
       {
          name: 'Programmes',
          icon: <GiWeightLiftingUp />,
-         path: '/programmes',
+         path: '/programs',
       },
       {
          name: 'Bilan',

@@ -43,10 +43,10 @@ export default function ProgrammesPage() {
                message={`Jour ${val.dayNumber} : ${val.trainingType}`}
                key={`day-${val.dayNumber}-program-${programId}`}
             >
-               <Link href={`/programmes/${programId}/${val.dayNumber}/échauffement`}>
+               <Link href={`/programs/${programId}/${val.dayNumber}/échauffement`}>
                   <button className='button-opened'>Échauffements</button>
                </Link>
-               <Link href={`/programmes/${programId}/${val.dayNumber}/exercice`}>
+               <Link href={`/programs/${programId}/${val.dayNumber}/exercice`}>
                   <button className='button-opened'>Exercices</button>
                </Link>
             </Opener>
