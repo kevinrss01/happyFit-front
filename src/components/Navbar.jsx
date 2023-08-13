@@ -13,7 +13,7 @@ export const Navbar = ({ children }) => {
       {
          name: 'Général',
          icon: <CgMenuGridO />,
-         path: '/general',
+         path: '/',
       },
       {
          name: 'Programmes',

@@ -12,6 +12,7 @@ const getFinishBasedOnCreationDate = (creationDate) => {
    finishDate.setDate(finishDate.getDate() + 7)
    const finishJSON = finishDate.toJSON().substring(0, 10)
    return formatJSONDate(finishJSON)
+}
 
 const formatJSONDate = (json) => json.split('-').reverse().join('/')
 

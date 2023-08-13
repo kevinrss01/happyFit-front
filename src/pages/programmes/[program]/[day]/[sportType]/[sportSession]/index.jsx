@@ -17,7 +17,7 @@ export default function sportSessionPage({ program, day, sportType, sportSession
    return (
       <div>
          <ArrowButton
-            href={`/programs/${program}/${day}/${sportType}`}
+            href={`/programmes/${program}/${day}/${sportType}`}
             isLink
             className='mt-3 ml-3'
          />

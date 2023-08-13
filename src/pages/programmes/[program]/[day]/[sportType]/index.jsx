@@ -21,6 +21,7 @@ const componentSelector = {
 
 export default function SportTypePage({ program, day, sportType }) {
    const { currentSession, isFetching } = useSportSession(program, day)
+   console.log('this is the current session', currentSession)
 
    const sportTypeField = useMemo(
       () => (sportType === 'exercice' ? 'exercices' : 'warmUp'),
@@ -49,13 +50,13 @@ export default function SportTypePage({ program, day, sportType }) {
                padding: 10,
             }}
          >
-            <ArrowButton isLink href='/' direction='left' />
+            <ArrowButton isLink href='/programmes' direction='left' />
             <h1 style={{ textAlign: 'center', width: '100%', fontSize: '20px' }}>
                {sportTypeName}s centrés sur le {currentSession.trainingType}
             </h1>
          </div>
          <SportTypeComponent
-            path={`/programs/${program}/${day}/${sportType}`}
+            path={`/programmes/${program}/${day}/${sportType}`}
             {...props(currentSession)}
          />
       </div>
