@@ -13,7 +13,7 @@ export default function Settings() {
    const [isClickedSettingsPage, setIsClickedSettingsPage] = useState('Paramètres')
    //TODO: Modifier l'état de l'utilisateur dans le store lors de la modification de ses données
 
-   console.log(userInfo)
+   const { email } = userInfo
 
    return (
       <>
@@ -74,7 +74,7 @@ export default function Settings() {
                               </TabPanel>
                               <TabPanel>
                                  <div className='mt-10 flex items-center justify-center'>
-                                    <EmailContainer userData={userInfo} />
+                                    <EmailContainer email={email} />
                                  </div>
                               </TabPanel>
                               <TabPanel>

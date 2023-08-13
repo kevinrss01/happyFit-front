@@ -82,7 +82,9 @@ export const Navbar = ({ children }) => {
                <Icon
                   size='lg'
                   className='token'
-                  tooltip={`Jeton${numberOfTokens > 0 ? 's' : ''} disponible`}
+                  tooltip={`Nombre de jeton disponible : ${
+                     numberOfTokens === 9999 ? 'Illimité' : `${numberOfTokens} jetons`
+                  }`}
                   icon={MdGeneratingTokens}
                   onClick={() => handleLogout()}
                />
