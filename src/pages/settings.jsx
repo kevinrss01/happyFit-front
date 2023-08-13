@@ -5,15 +5,13 @@ import { useSelector } from 'react-redux'
 import { TabList, Tab, TabGroup, TabPanels, TabPanel, Title } from '@tremor/react'
 import { BiSolidUserDetail } from 'react-icons/bi'
 import { MdOutlineAlternateEmail, MdPassword } from 'react-icons/md'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import CustomTabList from '../components/settings/CustomTabList'
 
 export default function Settings() {
    const { userInfo, isFetching } = useSelector((state) => state.user)
    const [isClickedSettingsPage, setIsClickedSettingsPage] = useState('Paramètres')
    //TODO: Modifier l'état de l'utilisateur dans le store lors de la modification de ses données
-
-   console.log(userInfo)
 
    return (
       <>
