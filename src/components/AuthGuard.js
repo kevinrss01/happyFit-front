@@ -25,10 +25,15 @@ export default function AuthGuard({ children }) {
    )
 
    useEffect(() => {
-      const validStatus = assessTokenValidity()
-      if (!pathname.includes('inscription')) {
-         if (validStatus) handleRefreshToken(validStatus)
-         else push('/connexion')
+      try {
+         const validStatus = assessTokenValidity()
+         if (!pathname.includes('inscription')) {
+            if (validStatus) handleRefreshToken(validStatus)
+            else push('/connexion')
+         }
+      } catch (error) {
+         console.error('An error occurred:', error)
+         push('/connexion')
       }
    }, [])
 

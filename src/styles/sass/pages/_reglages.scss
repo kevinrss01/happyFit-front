@@ -3,38 +3,109 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 1000px;
+  height: auto;
   overflow: scroll;
-
-  * {
-    color: white;
-  }
+  width: 100%;
 
   .personal-info-container,
   .email-container,
   .password-container {
-    margin: 20px 0;
+    margin: 10px 0;
+  }
+
+  h2, h3{
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .tabs-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .tab {
+      background-color: $bleu-darken;
+      color: white;
+      margin-top: 20px;
+      height: 50px;
+      width: auto;
+      min-width: 200px;
+      cursor: pointer;
+      text-align: center;
+      @include flex-centre;
+      transition: background-color 0.2s ease-in-out;
+
+      &:active {
+        scale: 0.9;
+      }
+    }
+
+    .clicked {
+      background-color: $bleu;
+      border: 2px solid white;
+    }
   }
 
   .personal-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 90%;
-    border: 1px solid white;
-    height: 500px;
-    padding: 10px;
+    padding: 15px;
     border-radius: $primary-border-radius;
+    height: auto;
 
-    h2 {
-      width: 100%;
-      text-align: center;
+    h3 {
+      margin: 14px;
     }
 
-    .input-container {
-      .input-and-label {
-        input {
-          color: black;
+    .form-input-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+
+      .container-names-input, .container-physics-inputs{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+
+      .container-single-input{
+        width: 47%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .input{
+          max-width: 100%;
         }
       }
+
+      .params-workout-container{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+
+
     }
+
+
   }
 
   .email-container {
@@ -44,10 +115,6 @@
     padding: 10px;
     border-radius: $primary-border-radius;
 
-    h2 {
-      width: 100%;
-      text-align: center;
-    }
   }
 
   .password-container {
@@ -57,14 +124,11 @@
     padding: 10px;
     border-radius: $primary-border-radius;
 
-    h2 {
-      width: 100%;
-      text-align: center;
-    }
+
   }
 
   h1 {
-    color: white;
     text-align: center;
+    color: white;
   }
 }

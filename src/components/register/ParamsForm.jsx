@@ -3,8 +3,7 @@ import { IoArrowBackCircleOutline } from 'react-icons/io5'
 import { FaWeightHanging, FaBirthdayCake } from 'react-icons/fa'
 import { GiBodyHeight } from 'react-icons/gi'
 import { FcFlashOn } from 'react-icons/fc'
-import { Bold, Button, DateRangePicker, TextInput, Title } from '@tremor/react'
-import { es, fr } from 'date-fns/locale'
+import { Bold, Button, TextInput, Title } from '@tremor/react'
 import toastMessage from '../../utils/toast'
 
 function removePureYears(years) {
@@ -53,7 +52,6 @@ export default function ParamsForm({ validate, goBack }) {
          if (Object.keys(formValue).every((key) => !!formValue[key])) {
             validate('params', formValue)
          } else {
-            console.log(formValue)
             setInvalidInput(true)
          }
       },
@@ -61,7 +59,7 @@ export default function ParamsForm({ validate, goBack }) {
    )
 
    return (
-      <form onSubmit={handleSubmit} className='container-column w-2/5 max-w-xl'>
+      <form onSubmit={handleSubmit} className='container-column w-2/5 max-w-xl components'>
          <Title color='white' className='text-2xl flex w-full justify-center items-center m-5 mb-7'>
             <IoArrowBackCircleOutline className='icon mr-2' onClick={goBack} />
             Paramètres personnels

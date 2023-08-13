@@ -5,9 +5,12 @@ import Questions from '../components/register/Questions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import TopBarLogo from '../components/TopBarLogo'
-import { Button, ProgressBar, Title } from '@tremor/react'
+import { Button, ProgressBar } from '@tremor/react'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { ErrorCallout } from '../components/errors/ErrorCallout'
+import { RegisterLoader } from '../components/loaders/RegisterLoader'
+import toastMessage from '../utils/toast'
+import { userRegister } from '../redux/actions/userActions'
 
 const defaultValidations = {
    personal: false,
@@ -45,30 +48,36 @@ export default function Inscription() {
    const [isErrorDuringFetch, setIsErrorDuringFetch] = useState(false)
 
    const updateData = (validatedStep, updatingData) => {
-      if (Object.keys(updatingData).every((key) => !!updatingData[key])) {
+      if (
+         Object.keys(updatingData).every(
+            (key) =>
+               updatingData[key] !== undefined &&
+               updatingData[key] !== null &&
+               updatingData[key] !== '',
+         )
+      ) {
          if (validatedStep === 'params') {
             const registerData = { ...data, ...updatingData }
             const { confirmPassword, ...rest } = registerData
-
             setIsLoading(true)
 
-            // console.log(rest)
-            // dispatch(userRegister(rest))
-            //    .then(() => {
-            //       setProgress(100)
-            //       setIsLoading(false)
-            //       /* toaster d'annonce avant la redirection,
-            //       indiquant que l'inscription a été réussie
-            //         indiquant qu'il faut se connecter
-            //       */
-            //       router.push('/connexion')
-            //    })
-            //    .catch((err) => {
-            //       setIsLoading(false)
-            //       setIsErrorDuringFetch(true)
-            //       console.log(err)
-            //       toastMessage("Une erreur est survenue lors de l'inscription", 'error')
-            //    })
+            dispatch(userRegister(rest))
+               .then(() => {
+                  setProgress(100)
+                  setIsLoading(false)
+                  /* toaster d'annonce avant la redirection,
+                  indiquant que l'inscription a été réussie
+                    indiquant qu'il faut se connecter
+                  */
+                  router.push('/connexion')
+                  toastMessage('Votre programme à bien été créé !', 'success')
+               })
+               .catch((err) => {
+                  setIsLoading(false)
+                  setIsErrorDuringFetch(true)
+                  console.log(err)
+                  toastMessage("Une erreur est survenue lors de l'inscription", 'error')
+               })
          }
          setData((prevData) => ({
             ...prevData,
@@ -122,10 +131,12 @@ export default function Inscription() {
    const PartieMetrics = () => <Questions validate={updateData} goBack={goBackToPersonalStep} />
    const PartieParams = () => <ParamsForm goBack={goBackToMetricsStep} validate={updateData} />
 
+   //if (isFetching) return <>Loading...</>
+
    return (
       <div style={{ color: 'white' }} className='register-container'>
          <TopBarLogo />
-         <ProgressBar percentageValue={progress} className='mt-3 progress-bar' />
+         <ProgressBar value={progress} className='mt-3 progress-bar' />
          {personal ? (
             <>
                {metrics ? (
@@ -134,15 +145,13 @@ export default function Inscription() {
                   ) : (
                      <>
                         {isLoading ? (
-                           <>
-                              <Title className='text-3xl text-white'>Loading...</Title>
-                           </>
+                           <RegisterLoader />
                         ) : (
                            <>
                               {isErrorDuringFetch && (
                                  <>
                                     <ErrorCallout
-                                       title='Une erreur est survenue pendant lors de la création de votre compte'
+                                       title='Une erreur est survenue pendant la création de votre compte'
                                        errorMessage="Veuillez nous excuser, une erreur est survenue. Ne vous
                                        inquiétez pas, vos données ont été sauvegardées. Veuillez
                                        simplement cliquer sur le bouton retour et réessayer plus tard. Si le problème persiste,
