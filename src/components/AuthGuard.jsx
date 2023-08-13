@@ -1,39 +1,33 @@
-import { useRouter } from 'next/router'
-import { useCallback, useEffect } from 'react'
-import { assessTokenValidity } from '../service/utils'
-import { refreshToken } from '../redux/actions/userActions'
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import jwtDecode from 'jwt-decode'
 import Axios from '../service/axios'
 import { getUserInfo } from '../redux/actions/userActions'
+import { useSecuredDispatch } from '../service/hooks/useSecuredDispatch'
+import { useRouter } from 'next/router'
+import toastMessage from '../utils/toast'
 
 export default function AuthGuard({ children }) {
-   const { pathname, push } = useRouter()
-   const dispatch = useDispatch()
-
-   const handleRefreshToken = useCallback(
-      (status) => {
-         if (status.refresh) {
-            dispatch(refreshToken(status.token))
-         } else {
-            const { sub: userId } = jwtDecode(status.token)
-            Axios.saveToken(status.token)
-            dispatch(getUserInfo(userId))
-         }
-      },
-      [dispatch],
-   )
+   const dispatch = useSecuredDispatch()
+   const userId = useSelector(state => state.user.userInfo.id);
+   const { push } = useRouter()
 
    useEffect(() => {
       try {
-         const validStatus = assessTokenValidity()
-         if (!pathname.includes('inscription')) {
-            if (validStatus) handleRefreshToken(validStatus)
-            else push('/connexion')
+         if(userId) {
+            dispatch(getUserInfo(userId));
+         } else {
+            const token = Axios.getToken();
+            if(token) {
+               const {sub: id} = jwtDecode(token);
+               dispatch(getUserInfo(id))
+            } else {
+               throw new Error("");
+            }
          }
-      } catch (error) {
-         console.error('An error occurred:', error)
-         push('/connexion')
+      } catch(error) {
+         toastMessage("Une erreur est survenue, veuillez vous reconnecter.", "error")
+         push("/connexion")
       }
    }, [])
 
