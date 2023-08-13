@@ -41,9 +41,13 @@ export const useSecuredDispatch = () => {
    }
 
    return (actionObject) => {
-      const tokenStatus = assessTokenValidity()
-      if (!pathname.includes('inscription')) {
-         refreshTokenForActionOrRedirect(actionObject, tokenStatus)
+      try {
+         const tokenStatus = assessTokenValidity()
+         if (!pathname.includes('inscription')) {
+            refreshTokenForActionOrRedirect(actionObject, tokenStatus)
+         }
+      } catch (error) {
+         redirect()
       }
    }
 }
