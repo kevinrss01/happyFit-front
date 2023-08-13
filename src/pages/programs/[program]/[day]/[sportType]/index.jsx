@@ -49,7 +49,7 @@ export default function SportTypePage({ program, day, sportType }) {
                padding: 10,
             }}
          >
-            <ArrowButton isLink href='/' direction='left' />
+            <ArrowButton isLink href='/programs' direction='left' />
             <h1 style={{ textAlign: 'center', width: '100%', fontSize: '20px' }}>
                {sportTypeName}s centrés sur le {currentSession.trainingType}
             </h1>

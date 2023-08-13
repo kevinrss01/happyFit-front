@@ -75,6 +75,7 @@ export const computeInMinutes = (seconds) => {
 // string formating
 
 export const handlePlural = (dependingNumber, relatedString, returnFullWord = false) => {
+   if (!dependingNumber) return ''
    const pluralSuffix = dependingNumber > 1 ? 's' : ''
    const stringWithPlural = `${relatedString}${pluralSuffix}`
    if (returnFullWord) return `${dependingNumber} ${stringWithPlural}`
