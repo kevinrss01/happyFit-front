@@ -15,12 +15,12 @@ export const Navbar = ({ children }) => {
       {
          name: 'Général',
          icon: <CgMenuGridO />,
-         path: '/general',
+         path: '/',
       },
       {
          name: 'Programmes',
          icon: <GiWeightLiftingUp />,
-         path: '/programmes',
+         path: '/programs',
       },
       {
          name: 'Bilan',

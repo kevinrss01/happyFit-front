@@ -1,12 +1,10 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Opener from '../components/Opener'
-import ProgramNavigator from '../components/ProgramNavigator'
+import Opener from '../../components/Opener'
+import ProgramNavigator from '../../components/ProgramNavigator'
 import Link from 'next/link'
 
-const numberFormater = (num) => `${num}${num == 1 ? 'ère' : 'e'}`
-
-export default function Home() {
+export default function ProgrammesPage() {
    const { programs } = useSelector((state) => state.sport)
    const [weekIndex, setWeekIndex] = useState(1)
    const dispatch = useDispatch()
