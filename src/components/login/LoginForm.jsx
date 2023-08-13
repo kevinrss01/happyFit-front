@@ -118,7 +118,7 @@ function LoginForm() {
 
          <div className='no-account'>
             <span style={{ marginBottom: 5, fontFamily: 'Rubik' }}>Pas encore inscrit ? </span>
-            <Link href='/src/pages/inscription'>
+            <Link href='/inscription'>
                <a
                   style={{
                      fontFamily: 'Rubik',
