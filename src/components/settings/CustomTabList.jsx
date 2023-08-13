@@ -1,9 +1,11 @@
+import { Fragment } from "react"
+
 const CustomTabList = ({ tabs, actualState, updateState, size }) => {
    return (
       <div className='tabs-container'>
          {tabs.map((tab, index) => {
             return (
-               <>
+               <Fragment key={`custom tab n°${index}`}>
                   <div
                      className={actualState === tab ? 'tab clicked' : 'tab'}
                      onClick={() => {
@@ -17,7 +19,7 @@ const CustomTabList = ({ tabs, actualState, updateState, size }) => {
                   >
                      {tab}
                   </div>
-               </>
+               </Fragment>
             )
          })}
       </div>
