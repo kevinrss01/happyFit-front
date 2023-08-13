@@ -22,11 +22,11 @@ export default function AuthGuard({ children }) {
                const {sub: id} = jwtDecode(token);
                dispatch(getUserInfo(id))
             } else {
-               push("/connexion");
+               throw new Error("");
             }
          }
       } catch(error) {
-         toastMessage("Une erreur est survenue, veuillez vous reconnecter.", error)
+         toastMessage("Une erreur est survenue, veuillez vous reconnecter.", "error")
          push("/connexion")
       }
    }, [])
