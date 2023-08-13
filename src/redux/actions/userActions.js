@@ -159,11 +159,12 @@ export const updateUserInfo = (data, id) => async (dispatch) => {
    dispatch(updateUserInfoRequest())
    try {
       const res = await UserAPI.updatePersonalUserInfo(data, id)
-      dispatch(updateUserInfoSuccess(res.data))
+      dispatch(updateUserInfoSuccess(data))
       toast('La mise à jour de vos données a été faite !', 'success')
    } catch (err) {
       dispatch(updateUserInfoError(err))
       toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
+      throw new Error(err)
    }
 }
 

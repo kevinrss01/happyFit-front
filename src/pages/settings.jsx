@@ -13,6 +13,8 @@ export default function Settings() {
    const [isClickedSettingsPage, setIsClickedSettingsPage] = useState('Paramètres')
    //TODO: Modifier l'état de l'utilisateur dans le store lors de la modification de ses données
 
+   console.log(userInfo)
+
    return (
       <>
          {userInfo.email && !isFetching ? (
