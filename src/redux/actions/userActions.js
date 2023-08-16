@@ -163,25 +163,30 @@ export const updateUserInfo = (data, id) => async (dispatch) => {
       toast('La mise à jour de vos données a été faite !', 'success')
    } catch (err) {
       dispatch(updateUserInfoError(err))
-      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
+      toast('Une erreur est survenu, veuillez réessayer plus tard.', 'error')
       throw new Error(err)
    }
 }
 
-const updateUserField = (field, data) => async (dispatch) => {
+const updateUserField = (field, data, id) => async (dispatch) => {
    dispatch(updateUserFieldRequest())
    try {
       const capitalizedField =
          field.substring(0, 1).toUpperCase() + field.substring(1, field.length)
-      await UserAPI[`updateUser${capitalizedField}`](data)
+      await UserAPI[`updateUser${capitalizedField}`](data, id)
       dispatch(updateUserFieldSuccess({ field, data }))
-      toast('La mise à jour de vos données a été faite !', 'success')
+      toast('Mise à jour de vos données effectué avec succès !', 'success')
    } catch (err) {
+      console.error(err)
       dispatch(updateUserFieldError(err))
-      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
+      toast(
+         'Une erreur est survenu pendant le traitement de vos données, veuillez recharger la page ou réessayer plus tard.',
+         'error',
+      )
    }
 }
 
-export const updateUserEmail = (newEmail) => async (dispatch) => {
-   dispatch(updateUserField('email', newEmail))
+export const updateUserEmail = (newEmail, id) => async (dispatch) => {
+   dispatch(updateUserField('email', { newEmail: newEmail }, id))
+   return newEmail
 }

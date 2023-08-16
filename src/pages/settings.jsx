@@ -13,7 +13,7 @@ export default function Settings() {
    const [isClickedSettingsPage, setIsClickedSettingsPage] = useState('Paramètres')
    //TODO: Modifier l'état de l'utilisateur dans le store lors de la modification de ses données
 
-   const { email } = userInfo
+   const { email, id } = userInfo
 
    return (
       <>
@@ -21,7 +21,7 @@ export default function Settings() {
             <>
                <div className='setting-container'>
                   <CustomTabList
-                     tabs={['Paramètres', 'Factures']}
+                     tabs={['Paramètres', 'Facturation']}
                      actualState={isClickedSettingsPage}
                      updateState={setIsClickedSettingsPage}
                      size=''
@@ -74,12 +74,12 @@ export default function Settings() {
                               </TabPanel>
                               <TabPanel>
                                  <div className='mt-10 flex items-center justify-center'>
-                                    <EmailContainer email={email} />
+                                    <EmailContainer email={email} userId={id} />
                                  </div>
                               </TabPanel>
                               <TabPanel>
                                  <div className='mt-10 flex items-center justify-center'>
-                                    <PasswordContainer userData={userInfo} />
+                                    <PasswordContainer email={email} userId={id} />
                                  </div>
                               </TabPanel>
                            </TabPanels>

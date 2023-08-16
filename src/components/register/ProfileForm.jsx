@@ -78,7 +78,6 @@ function ProfileForm({ validate }) {
             const valideEmail = await axios.get(`http://localhost:4000/users/verifyEmail/${email}`)
             if (valideEmail.data === true) {
                setEmailTaken(true)
-               setIsLoadingButton(false)
                return
             }
             setIsLoadingButton(false)
