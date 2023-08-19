@@ -9,8 +9,7 @@ import { Button, ProgressBar } from '@tremor/react'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { ErrorCallout } from '../components/errors/ErrorCallout'
 import { RegisterLoader } from '../components/loaders/RegisterLoader'
-import toastMessage from '../utils/toast'
-import { userLogin, userRegister } from '../redux/actions/userActions'
+import { userRegister } from '../redux/actions/userActions'
 
 const defaultValidations = {
    personal: false,
@@ -71,8 +70,7 @@ export default function Inscription() {
 
    const afterRegisterCallback = useCallback(() => {
       setProgress(100)
-      sessionStorage.removeItem('sessionsPerWeek')
-      sessionStorage.removeItem('questionsSaved')
+      sessionStorage.clear()
       setTimeout(() => {
          router.push('/')
       }, 900)

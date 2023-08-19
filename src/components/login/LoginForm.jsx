@@ -9,6 +9,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { Button } from '@tremor/react'
 import toastMessage from '../../utils/toast'
 import LoginModal from './LoginModal'
+import { useWindowSize } from '@react-hookz/web'
 
 const defaultFormValue = {
    email: '',
@@ -25,6 +26,8 @@ function LoginForm() {
    const dispatch = useDispatch()
    const { email, password, visible } = useMemo(() => formValue, [formValue])
    const [isModalOpen, setIsModalOpen] = useState(false)
+
+   const { width, size } = useWindowSize()
 
    const handleChange = useCallback(({ target }) => {
       const { value, id, checked, type } = target
@@ -82,7 +85,13 @@ function LoginForm() {
    return (
       <>
          <LoginModal closeModal={closeModal} isOpenModal={isModalOpen} />
-         <form onSubmit={handleSubmit} className='login-form'>
+         <form
+            onSubmit={handleSubmit}
+            className='login-form'
+            style={{
+               borderRadius: width < 1400 ? '0 0 0 0' : '10px 0 0 10px',
+            }}
+         >
             <h2>Connexion</h2>
             <div className='input-form'>
                <MdOutlineAlternateEmail />
