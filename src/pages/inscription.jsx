@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import ParamsForm from '../components/register/ParamsForm'
 import ProfileForm from '../components/register/ProfileForm'
 import Questions from '../components/register/Questions'
@@ -10,7 +10,7 @@ import { AiOutlineRollback } from 'react-icons/ai'
 import { ErrorCallout } from '../components/errors/ErrorCallout'
 import { RegisterLoader } from '../components/loaders/RegisterLoader'
 import toastMessage from '../utils/toast'
-import { userRegister } from '../redux/actions/userActions'
+import { userLogin, userRegister } from '../redux/actions/userActions'
 
 const defaultValidations = {
    personal: false,
@@ -34,68 +34,57 @@ const defaultData = {
    availableTimePerSessionInMinutes: '',
 }
 
+const userSelector = (state) => {
+   const { isFetching: isLoading, error } = state.user
+   return { isLoading, error }
+}
+
 export default function Inscription() {
    const [validations, setValidations] = useState(defaultValidations)
    const [data, setData] = useState(defaultData)
    const router = useRouter()
    const dispatch = useDispatch()
-   const { isFetching } = useSelector((state) => state.user)
+   const { isLoading, error } = useSelector(userSelector)
    const { personal, metrics, params } = useMemo(() => validations, [validations])
    const [progress, setProgress] = useState(0)
-   const [finalData, setFinalData] = useState()
-   const [isLoading, setIsLoading] = useState(true)
-   const [isRegistered, setIsRegistered] = useState(false)
-   const [isErrorDuringFetch, setIsErrorDuringFetch] = useState(false)
 
    const updateData = (validatedStep, updatingData) => {
-      if (
-         Object.keys(updatingData).every(
-            (key) =>
-               updatingData[key] !== undefined &&
-               updatingData[key] !== null &&
-               updatingData[key] !== '',
-         )
-      ) {
-         if (validatedStep === 'params') {
-            const registerData = { ...data, ...updatingData }
-            const { confirmPassword, ...rest } = registerData
-            setIsLoading(true)
-
-            dispatch(userRegister(rest))
-               .then(() => {
-                  setProgress(100)
-                  setIsLoading(false)
-                  /* toaster d'annonce avant la redirection,
-                  indiquant que l'inscription a été réussie
-                    indiquant qu'il faut se connecter
-                  */
-                  router.push('/login')
-                  toastMessage('Votre programme à bien été créé !', 'success')
-               })
-               .catch((err) => {
-                  setIsLoading(false)
-                  setIsErrorDuringFetch(true)
-                  console.error(err)
-                  toastMessage("Une erreur est survenue lors de l'inscription", 'error')
-               })
-         }
-         setData((prevData) => ({
-            ...prevData,
-            ...updatingData,
-         }))
+      const allValuesAreCorrect = Object.values(updatingData).every((value) => value || value === 0)
+      if (allValuesAreCorrect) {
+         handleUpdateOnValidatedStep(validatedStep, updatingData)
          modifyValidationState(validatedStep, true)
       }
    }
 
+   const handleUpdateOnValidatedStep = (validatedStep, updatingData) => {
+      if (validatedStep === 'params') {
+         const registerData = { ...data, ...updatingData }
+         const { confirmPassword, ...rest } = registerData
+         dispatch(userRegister(rest, setProgress)).then(afterRegisterCallback)
+      } else {
+         setData((prevData) => ({
+            ...prevData,
+            ...updatingData,
+         }))
+      }
+   }
+
+   const afterRegisterCallback = useCallback(() => {
+      setProgress(100)
+      sessionStorage.removeItem('sessionsPerWeek')
+      sessionStorage.removeItem('questionsSaved')
+      setTimeout(() => {
+         router.push('/')
+      }, 900)
+   }, [router])
+
    useEffect(() => {
-      if (personal) {
+      if (personal && metrics) {
+         setProgress(66)
+      } else if (personal) {
          setProgress(33)
       } else {
          setProgress(1)
-      }
-
-      if (metrics) {
-         setProgress(66)
       }
    }, [metrics, personal])
 
@@ -131,8 +120,6 @@ export default function Inscription() {
    const PartieMetrics = () => <Questions validate={updateData} goBack={goBackToPersonalStep} />
    const PartieParams = () => <ParamsForm goBack={goBackToMetricsStep} validate={updateData} />
 
-   //if (isFetching) return <>Loading...</>
-
    return (
       <div style={{ color: 'white' }} className='register-container'>
          <TopBarLogo />
@@ -148,7 +135,7 @@ export default function Inscription() {
                            <RegisterLoader />
                         ) : (
                            <>
-                              {isErrorDuringFetch && (
+                              {error && (
                                  <>
                                     <ErrorCallout
                                        title='Une erreur est survenue pendant la création de votre compte'

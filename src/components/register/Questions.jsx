@@ -62,7 +62,6 @@ const defaultQuestions = {
       { text: 'Remise en forme', selected: false, value: 'fitness', icon: 'fitness' },
    ],
    'availableTimePerSessionInMinutes': [
-      { text: '15 minutes', selected: false, value: 15, icon: 'time' },
       { text: '30 minutes', selected: false, value: 30, icon: 'time' },
       { text: '45 minutes', selected: false, value: 45, icon: 'time' },
       { text: '1 heure', selected: false, value: 60, icon: 'time' },
