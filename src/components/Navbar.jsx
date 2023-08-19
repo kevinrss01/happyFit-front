@@ -5,9 +5,14 @@ import { AiOutlineSetting } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import logo from '../public/images/HappyFit-logo.png'
 import Image from 'next/image'
+import { Icon, Text, Bold } from '@tremor/react'
+import { BiLogOutCircle } from 'react-icons/bi'
+import { useState } from 'react'
+import { MdGeneratingTokens } from 'react-icons/md'
 export const Navbar = ({ children }) => {
    const router = useRouter()
    const { asPath } = useRouter()
+   const [numberOfTokens, setNumberOfTokens] = useState(9999)
 
    const links = [
       {
@@ -38,6 +43,11 @@ export const Navbar = ({ children }) => {
       },
    ]
 
+   const handleLogout = () => {
+      localStorage.removeItem('userTokens')
+      router.push('/login')
+   }
+
    return (
       <div className='navbar-parent'>
          <div className='navbar-container'>
@@ -67,6 +77,28 @@ export const Navbar = ({ children }) => {
             </div>
          </div>
          <div className='children'>{children}</div>
+         <div className='icons-container'>
+            <div className='token-container'>
+               <Icon
+                  size='lg'
+                  className='token'
+                  tooltip={`Nombre de jeton disponible : ${
+                     numberOfTokens === 9999 ? 'Illimité' : `${numberOfTokens} jetons`
+                  }`}
+                  icon={MdGeneratingTokens}
+                  onClick={() => handleLogout()}
+               />
+               <Bold className='flex items-center justify-center text-white'>Illimité</Bold>
+            </div>
+
+            <Icon
+               size='lg'
+               className='logout'
+               tooltip='Se deconnecter'
+               icon={BiLogOutCircle}
+               onClick={() => handleLogout()}
+            />
+         </div>
       </div>
    )
 }

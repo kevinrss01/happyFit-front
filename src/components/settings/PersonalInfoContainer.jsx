@@ -1,8 +1,7 @@
 import { Button } from '@tremor/react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import jwtDecode from 'jwt-decode'
-import UserAPI from '../../service/UserAPI'
 import toastMessage from '../../utils/toast'
 import { verifPersonalInfoSchema } from '../../utils/yupSchema'
 import * as Yup from 'yup'
@@ -10,6 +9,8 @@ import NamesContainer from './personalContainer/NamesContainer'
 import WorkoutParamsContainer from './personalContainer/WorkoutParamsContainer'
 import HeightWeightContainer from './personalContainer/HeightWeightContainer'
 import GoalContainer from './personalContainer/GoalContainer'
+import { updateUserInfo } from '../../redux/actions/userActions'
+import { useDispatch, useSelector } from 'react-redux'
 
 function convertStringsToInts(obj) {
    let newObj = {}
@@ -33,6 +34,10 @@ export const PersonalInfoContainer = ({ userData }) => {
       if (userData.fitnessGoal === 'lose weight') return 2
    })
 
+   const isUpdating = useSelector((state) => state.user.isUpdating)
+
+   const dispatch = useDispatch()
+
    const {
       firstName,
       lastName,
@@ -44,9 +49,6 @@ export const PersonalInfoContainer = ({ userData }) => {
       availableTimePerSessionInMinutes,
       fitnessGoal,
    } = updatedData
-   const [isUpdating, setIsUpdating] = useState(false)
-
-   useEffect(() => {}, [])
 
    const getUserId = () => {
       const userToken = JSON.parse(localStorage.getItem('userTokens'))
@@ -89,7 +91,6 @@ export const PersonalInfoContainer = ({ userData }) => {
    const onSubmit = async () => {
       try {
          setYupErrors({})
-         setIsUpdating(true)
 
          if (!guardInputs()) {
             return
@@ -101,8 +102,7 @@ export const PersonalInfoContainer = ({ userData }) => {
 
          await verifyInputs(convertedObject)
 
-         await UserAPI.updatePersonalUserInfo(convertedObject, userId)
-         toastMessage('Vos informations personnelles ont bien été mises à jour', 'success')
+         dispatch(updateUserInfo(convertedObject, userId))
       } catch (error) {
          console.error(error)
          if (error instanceof Yup.ValidationError) {
@@ -117,8 +117,6 @@ export const PersonalInfoContainer = ({ userData }) => {
                'error',
             )
          }
-      } finally {
-         setIsUpdating(false)
       }
    }
 

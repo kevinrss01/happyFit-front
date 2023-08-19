@@ -78,7 +78,6 @@ function ProfileForm({ validate }) {
             const valideEmail = await axios.get(`http://localhost:4000/users/verifyEmail/${email}`)
             if (valideEmail.data === true) {
                setEmailTaken(true)
-               setIsLoadingButton(false)
                return
             }
             setIsLoadingButton(false)
@@ -103,7 +102,7 @@ function ProfileForm({ validate }) {
                })
                setYupErrors(errorMessages)
             } else {
-               console.log(error)
+               console.error(error)
                toastMessage('Oups, une erreur est survenue, veuillez réessayer plus tard', 'error')
             }
          } finally {

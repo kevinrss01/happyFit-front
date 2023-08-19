@@ -54,7 +54,7 @@ function LoginForm() {
                })
                .catch((error) => {
                   setLoading(false)
-                  console.log(error.request.response)
+                  console.error(error.request.response)
                   if (error.request.response.includes('Invalid credentials')) {
                      setErrorMessage('Email ou mot de passe incorrect')
                      setShowErrorMessage(true)
