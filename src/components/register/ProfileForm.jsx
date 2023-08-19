@@ -128,6 +128,7 @@ function ProfileForm({ validate }) {
                errorMessage={yupErrors.firstName ? yupErrors.firstName : null}
                defaultValue={firstName}
                className='input'
+               value={firstName}
             />
 
             <TextInput
@@ -139,6 +140,7 @@ function ProfileForm({ validate }) {
                error={yupErrors.lastName}
                errorMessage={yupErrors.lastName ? yupErrors.lastName : null}
                className='input'
+               value={lastName}
             />
 
             <TextInput
@@ -151,6 +153,7 @@ function ProfileForm({ validate }) {
                error={yupErrors.email}
                errorMessage={yupErrors.email ? yupErrors.email : null}
                className='input'
+               value={email}
             />
             {emailTaken && (
                <Text className='text-red-500 text-base'>Cet email est déjà utilisé</Text>
@@ -188,6 +191,7 @@ function ProfileForm({ validate }) {
                error={yupErrors.password || passwordsDontMatch}
                errorMessage={yupErrors.password ? yupErrors.password : null}
                className='input'
+               value={password}
             />
             <TextInput
                id='confirmPassword'
@@ -200,11 +204,12 @@ function ProfileForm({ validate }) {
                error={passwordsDontMatch}
                errorMessage={passwordsDontMatch ? 'Les mots de passe ne correspondent pas' : null}
                className='input'
+               value={confirmPassword}
             />
             <Button
                type='submit'
                className='submit-button width-100'
-               disabled={!(firstName, lastName, email, sexe, password, confirmPassword)}
+               disabled={!(firstName && lastName && email && sexe && password && confirmPassword)}
                loading={isLoadingButton}
             >
                <span className='text-base'>Continuer</span>

@@ -9,25 +9,24 @@ import toastMessage from '../utils/toast'
 
 export default function AuthGuard({ children }) {
    const dispatch = useSecuredDispatch()
-   const userId = useSelector(state => state.user.userInfo.id);
+   const userId = useSelector((state) => state.user.userInfo.id)
    const { push } = useRouter()
 
    useEffect(() => {
       try {
-         if(userId) {
-            dispatch(getUserInfo(userId));
+         if (userId) {
+            dispatch(getUserInfo(userId))
          } else {
-            const token = Axios.getToken();
-            if(token) {
-               const {sub: id} = jwtDecode(token);
+            const token = Axios.getToken()
+            if (token) {
+               const { sub: id } = jwtDecode(token)
                dispatch(getUserInfo(id))
             } else {
-               throw new Error("");
+               throw new Error('')
             }
          }
-      } catch(error) {
-         toastMessage("Une erreur est survenue, veuillez vous reconnecter.", "error")
-         push("/connexion")
+      } catch (error) {
+         push('/login')
       }
    }, [])
 
