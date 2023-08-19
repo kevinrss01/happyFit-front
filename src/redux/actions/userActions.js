@@ -27,6 +27,7 @@ import {
 import { getProgramRequest, getProgramSuccess } from './sportActions'
 // import { toast } from 'react-toastify'
 import toast from '../../utils/toast'
+import toastMessage from '../../utils/toast'
 
 const getUserRequest = () => ({ type: GET_USER_REQUEST })
 const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data })
@@ -101,10 +102,7 @@ const updateUserFieldError = (err) => ({
 export const userLogin = (loginData) => async (dispatch) => {
    dispatch(loginRequest())
    try {
-      const res = await AuthAPI.login(loginData)
-      dispatch(getUserInfoSuccess(res.data))
-      dispatch(getProgramSuccess(res.data))
-      AuthAPI.saveToken(res.data.tokens)
+      await proceedToLogin(dispatch, loginData)
       return Promise.resolve(res.data)
    } catch (err) {
       dispatch(loginError(err))
@@ -112,15 +110,26 @@ export const userLogin = (loginData) => async (dispatch) => {
    }
 }
 
-export const userRegister = (registerData) => async (dispatch) => {
+export const userRegister = (registerData, setProgress) => async (dispatch) => {
    dispatch(registerRequest())
    try {
-      const res = await AuthAPI.register(registerData)
+      await AuthAPI.register(registerData)
+      setProgress(95)
+      await proceedToLogin(dispatch, registerData)
+      toastMessage('Votre programme à bien été créé !', 'success')
       return Promise.resolve()
    } catch (err) {
       dispatch(registerError(err))
+      toastMessage("Une erreur est survenue lors de l'inscription", 'error')
       return Promise.reject()
    }
+}
+
+async function proceedToLogin(dispatch, { email, password }) {
+   const res = await AuthAPI.login({ email, password })
+   dispatch(getUserInfoSuccess(res.data))
+   dispatch(getProgramSuccess(res.data))
+   AuthAPI.saveToken(res.data.tokens)
 }
 
 export const getUser = () => async (dispatch) => {
