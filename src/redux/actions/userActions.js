@@ -139,6 +139,7 @@ export const getUserInfo = (userId) => async (dispatch) => {
       dispatch(getProgramSuccess(res.data))
    } catch (err) {
       dispatch(getUserInfoError(err))
+      throw new Error(err)
    }
 }
 
@@ -152,6 +153,7 @@ export const refreshToken = (token) => async (dispatch) => {
       dispatch(refreshTokenSuccess(res.data))
    } catch (err) {
       dispatch(refreshTokenError(err))
+      return Promise.reject()
    }
 }
 

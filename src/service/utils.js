@@ -14,7 +14,7 @@ export const getItemFromLocalStorage = (itemField) => {
 const TOKEN_LIFE_DURATION = 3600000
 // 15 days in milliseconds
 const REFRESH_TOKEN_LIFE_DURATION = 1296000000
-const TOKEN_ACCESSOR = 'userTokens'
+export const TOKEN_ACCESSOR = 'userTokens'
 
 export const saveTokensOnLocalStorage = (token, refreshToken) => {
    const tokenDate = Date.now()
