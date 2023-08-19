@@ -4,6 +4,8 @@
 
 .program-navigator-container {
     width: 100%;
+    @include flex-col;
+    gap: 20px;
 }
 
 .button-opener {
