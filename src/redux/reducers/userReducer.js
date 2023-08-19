@@ -27,6 +27,7 @@ export const initialUserState = {
    isFetching: false,
    isUpdating: false,
    userInfo: {},
+   role: 'user',
    error: '',
 }
 

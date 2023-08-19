@@ -5,38 +5,58 @@ import { AiOutlineSetting } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import logo from '../public/images/HappyFit-logo.png'
 import Image from 'next/image'
+import ArticlesDataModal from './Modals/ArticlesDataModal'
+import { ADMIN_ROLE } from '../service/constants'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
+
+const roleSelector = (state) => {
+   const { role } = state.user
+   return role === ADMIN_ROLE
+}
+
+const links = [
+   {
+      name: 'Général',
+      icon: <CgMenuGridO />,
+      path: '/',
+   },
+   {
+      name: 'Programmes',
+      icon: <GiWeightLiftingUp />,
+      path: '/programs',
+   },
+   {
+      name: 'Bilan',
+      icon: <MdAutoGraph />,
+      path: '/bilan',
+   },
+   {
+      name: 'Boxe',
+      icon: <MdSportsMma />,
+      path: '/boxe',
+      button: true,
+   },
+   {
+      name: 'Paramètres',
+      icon: <AiOutlineSetting />,
+      path: '/settings',
+   },
+]
+
 export const Navbar = ({ children }) => {
    const router = useRouter()
    const { asPath } = useRouter()
+   const isAdmin = useSelector(roleSelector)
+   const [visible, setVisible] = useState(false)
 
-   const links = [
-      {
-         name: 'Général',
-         icon: <CgMenuGridO />,
-         path: '/',
-      },
-      {
-         name: 'Programmes',
-         icon: <GiWeightLiftingUp />,
-         path: '/programs',
-      },
-      {
-         name: 'Bilan',
-         icon: <MdAutoGraph />,
-         path: '/bilan',
-      },
-      {
-         name: 'Boxe',
-         icon: <MdSportsMma />,
-         path: '/boxe',
-         button: true,
-      },
-      {
-         name: 'Paramètres',
-         icon: <AiOutlineSetting />,
-         path: '/settings',
-      },
-   ]
+   const closeModal = () => {
+      setVisible(false)
+   }
+
+   const showModal = () => {
+      setVisible(true)
+   }
 
    return (
       <div className='navbar-parent'>
@@ -48,7 +68,7 @@ export const Navbar = ({ children }) => {
                {links.map((link, index) => {
                   return (
                      <div
-                        key={index}
+                        key={`link n°${index}: ${link.name}`}
                         className={
                            asPath === link.path
                               ? 'icon-container icon-container-selected'
@@ -64,6 +84,8 @@ export const Navbar = ({ children }) => {
                      </div>
                   )
                })}
+               {isAdmin && <ArticlesDataModal />}
+               <ArticlesDataModal {...{ visible, showModal, closeModal }} />
             </div>
          </div>
          <div className='children'>{children}</div>
