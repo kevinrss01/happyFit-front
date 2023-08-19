@@ -7,6 +7,8 @@ import { updateUserEmail } from '../../redux/actions/userActions'
 import axios from 'axios'
 import { AiFillLock } from 'react-icons/ai'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
+import { verifNewEmail } from '../../utils/yupSchema'
+
 export const EmailContainer = ({ email, userId }) => {
    const [password, setPassword] = useState('')
    const [actualEmail, setActualEmail] = useState(email || '')
@@ -16,6 +18,12 @@ export const EmailContainer = ({ email, userId }) => {
    const [isLoading, setIsLoading] = useState(false)
    const dispatch = useDispatch()
    const isUpdating = useSelector((state) => state.user.isUpdating)
+
+   const verifyInputs = async (formValues) => {
+      await verifNewEmail.validate(formValues, {
+         abortEarly: false,
+      })
+   }
 
    const onSubmit = async () => {
       setIsError(false)
@@ -35,22 +43,37 @@ export const EmailContainer = ({ email, userId }) => {
          return
       }
 
-      setActualEmail(newEmail)
-
-      AuthAPI.login({ email: actualEmail, password })
+      verifyInputs({ newEmail: newEmail })
          .then(() => {
-            const successDispatch = dispatch(updateUserEmail(newEmail, userId))
-            if (successDispatch) {
-               setActualEmail(newEmail)
-            }
+            AuthAPI.login({ email: actualEmail, password })
+               .then(() => {
+                  setActualEmail(newEmail)
+                  const successDispatch = dispatch(updateUserEmail(newEmail, userId))
+                  if (successDispatch) {
+                     setActualEmail(newEmail)
+                     setNewEmail('')
+                     setPassword('')
+                  }
+               })
+               .catch((err) => {
+                  setActualEmail(email)
+                  console.error(err)
+                  if (err.response.status === 401) {
+                     setIsError(true)
+                     return setErrorMessage('Mot de passe incorrect')
+                  }
+
+                  toastMessage('Une erreur est survenue, veuillez réessayer plus tard', 'error')
+               })
+               .finally(() => {
+                  setIsLoading(false)
+               })
          })
          .catch((err) => {
-            setActualEmail(email)
-            console.error(err)
-            if (err.response.status === 401) return toastMessage('Mot de passe incorrect.', 'error')
-            toastMessage('Une erreur est survenue, veuillez réessayer plus tard', 'error')
+            setIsError(true)
+            setErrorMessage(err.errors[0])
+            setIsLoading(false)
          })
-         .finally(() => setIsLoading(false))
    }
 
    return (
@@ -62,13 +85,17 @@ export const EmailContainer = ({ email, userId }) => {
             <TextInput
                icon={AiFillLock}
                type='password'
+               value={password}
                placeholder='Entrez votre mot de passe'
                onChange={(e) => setPassword(e.target.value)}
+               error={errorMessage === 'Mot de passe incorrect'}
             ></TextInput>
             <TextInput
+               value={newEmail}
                icon={MdOutlineAlternateEmail}
                placeholder='Entrez votre nouvel email'
                onChange={(e) => setNewEmail(e.target.value)}
+               error={errorMessage.includes('email')}
             ></TextInput>
             {isError && <Text className='text-red-500 text-base'>{errorMessage}</Text>}
          </div>

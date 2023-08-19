@@ -13,7 +13,7 @@ export const useSecuredDispatch = () => {
    const redirect = () => {
       toastMessage(REDIRECT_ERROR, 'error')
       localStorage.removeItem('userTokens')
-      push('/connexion')
+      push('/login')
    }
 
    return (actionObject) => {

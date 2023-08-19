@@ -102,7 +102,7 @@ function ProfileForm({ validate }) {
                })
                setYupErrors(errorMessages)
             } else {
-               console.log(error)
+               console.error(error)
                toastMessage('Oups, une erreur est survenue, veuillez réessayer plus tard', 'error')
             }
          } finally {

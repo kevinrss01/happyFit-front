@@ -1,5 +1,5 @@
 import { Button } from '@tremor/react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import jwtDecode from 'jwt-decode'
 import toastMessage from '../../utils/toast'
@@ -35,7 +35,6 @@ export const PersonalInfoContainer = ({ userData }) => {
    })
 
    const isUpdating = useSelector((state) => state.user.isUpdating)
-   console.log(userData)
 
    const dispatch = useDispatch()
 
@@ -50,8 +49,6 @@ export const PersonalInfoContainer = ({ userData }) => {
       availableTimePerSessionInMinutes,
       fitnessGoal,
    } = updatedData
-
-   useEffect(() => {}, [])
 
    const getUserId = () => {
       const userToken = JSON.parse(localStorage.getItem('userTokens'))

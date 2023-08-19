@@ -29,11 +29,11 @@ export default function AuthGuard({ children }) {
          const validStatus = assessTokenValidity()
          if (!pathname.includes('inscription')) {
             if (validStatus) handleRefreshToken(validStatus)
-            else push('/connexion')
+            else push('/login')
          }
       } catch (error) {
          console.error('An error occurred:', error)
-         push('/connexion')
+         push('/login')
       }
    }, [])
 
