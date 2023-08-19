@@ -34,12 +34,17 @@ const defaultData = {
    availableTimePerSessionInMinutes: '',
 }
 
+const userSelector = (state) => {
+   const { isFetching: isLoading, error } = state.user
+   return { isLoading, error }
+}
+
 export default function Inscription() {
    const [validations, setValidations] = useState(defaultValidations)
    const [data, setData] = useState(defaultData)
    const router = useRouter()
    const dispatch = useDispatch()
-   const { isFetching: isLoading, error } = useSelector((state) => state.user)
+   const { isLoading, error } = useSelector(userSelector)
    const { personal, metrics, params } = useMemo(() => validations, [validations])
    const [progress, setProgress] = useState(0)
 
