@@ -102,8 +102,8 @@ const updateUserFieldError = (err) => ({
 export const userLogin = (loginData) => async (dispatch) => {
    dispatch(loginRequest())
    try {
-      await proceedToLogin(dispatch, loginData)
-      return Promise.resolve(res.data)
+      const result = await proceedToLogin(dispatch, loginData)
+      return Promise.resolve(result)
    } catch (err) {
       dispatch(loginError(err))
       return Promise.reject(err)
@@ -115,9 +115,9 @@ export const userRegister = (registerData, setProgress) => async (dispatch) => {
    try {
       await AuthAPI.register(registerData)
       setProgress(95)
-      await proceedToLogin(dispatch, registerData)
+      const result = await proceedToLogin(dispatch, registerData)
       toastMessage('Votre programme à bien été créé !', 'success')
-      return Promise.resolve()
+      return Promise.resolve(result)
    } catch (err) {
       dispatch(registerError(err))
       toastMessage("Une erreur est survenue lors de l'inscription", 'error')
@@ -130,6 +130,7 @@ async function proceedToLogin(dispatch, { email, password }) {
    dispatch(getUserInfoSuccess(res.data))
    dispatch(getProgramSuccess(res.data))
    AuthAPI.saveToken(res.data.tokens)
+   return Promise.resolve(res.data)
 }
 
 export const getUser = () => async (dispatch) => {
