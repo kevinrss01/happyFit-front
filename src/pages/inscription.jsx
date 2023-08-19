@@ -69,13 +69,13 @@ export default function Inscription() {
                   indiquant que l'inscription a été réussie
                     indiquant qu'il faut se connecter
                   */
-                  router.push('/connexion')
+                  router.push('/login')
                   toastMessage('Votre programme à bien été créé !', 'success')
                })
                .catch((err) => {
                   setIsLoading(false)
                   setIsErrorDuringFetch(true)
-                  console.log(err)
+                  console.error(err)
                   toastMessage("Une erreur est survenue lors de l'inscription", 'error')
                })
          }

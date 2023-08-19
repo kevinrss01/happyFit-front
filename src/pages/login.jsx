@@ -2,7 +2,7 @@ import LoginForm from '../components/login/LoginForm'
 import TopBarLogo from '../components/TopBarLogo'
 import { useState } from 'react'
 
-export default function Connexion() {
+export default function Login() {
    const [randomDivNumber, setRandomDivNumber] = useState(() => Math.floor(Math.random() * 3) + 1)
 
    return (

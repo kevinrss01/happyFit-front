@@ -81,7 +81,6 @@
         justify-content: space-between;
       }
 
-
       .container-single-input{
         width: 47%;
         display: flex;
@@ -100,30 +99,38 @@
         flex-direction: column;
         gap: 20px;
       }
-
-
-
     }
-
-
   }
 
   .email-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 90%;
-    border: 1px solid white;
-    height: 300px;
+    height: auto;
     padding: 10px;
-    border-radius: $primary-border-radius;
+    gap: 20px;
 
+    .input-container{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 
   .password-container {
     width: 90%;
-    border: 1px solid white;
-    height: 300px;
+    height: auto;
     padding: 10px;
     border-radius: $primary-border-radius;
+    @include flex-col;
 
+    .input-container{
+      @include flex-col;
+      width: 50%;
+      gap: 20px;
+    }
 
   }
 
