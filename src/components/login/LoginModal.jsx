@@ -78,12 +78,13 @@ const LoginModal = ({ isOpenModal, closeModal }) => {
                               <Accordion>
                                  <AccordionHeader>J'ai oublié mon mot de passe</AccordionHeader>
                                  <AccordionBody>
-                                    Pour réinitialiser votre mot de passe veuillez rentrez l'email
+                                    Pour réinitialiser votre mot de passe veuillez rentrer l’e-mail
                                     lié à votre compte, si un compte Happy Fit est associé à cet
-                                    email vous recevrez les instructions par mail. <br />
+                                    e-mail vous recevrez les instructions par mail.
+                                    <br />
                                     <TextInput
                                        className='mt-5'
-                                       placeholder='Entrez votre email'
+                                       placeholder='Entrez votre e-mail'
                                        icon={MdOutlineAlternateEmail}
                                        onChange={(e) => setEmail(e.target.value)}
                                        error={errorMessage}
