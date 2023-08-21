@@ -145,9 +145,10 @@ export const getUserInfo = (userId) => async (dispatch) => {
 
 export const refreshToken = (token) => async (dispatch) => {
    dispatch(refreshTokenRequest())
+   console.log('refresh token')
    try {
       const res = await AuthAPI.refreshToken(token)
-      AuthAPI.saveRefreshedToken(res.data.accessToken)
+      AuthAPI.saveToken(res.data)
       const { sub } = jwtDecode(res.data.accessToken)
       dispatch(getUserInfo(sub))
       dispatch(refreshTokenSuccess(res.data))
