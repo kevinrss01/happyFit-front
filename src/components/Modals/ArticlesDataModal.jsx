@@ -1,6 +1,6 @@
 import { useState, useEffect, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { Button, Title } from '@tremor/react'
+import { Button, TextInput, Title } from '@tremor/react'
 import FlexContainer from '../Containers/FlexContainer'
 import axios from 'axios'
 import toastMessage from '../../utils/toast'
@@ -9,6 +9,13 @@ const defaultObject = {
    title: '',
    text: '',
    file: undefined,
+   date: new Date().toLocaleDateString('fr-FR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+   }),
+   author: '',
+   subject: '',
 }
 
 const style = {
@@ -22,30 +29,48 @@ const style = {
 }
 
 const ModalBody = ({ handleChange, handleButtonFileClick, handleInputFileChange, objectData }) => {
-   const { title, text, file } = objectData
+   const { title, text, file, author, subject } = objectData
    return (
       <>
-         <label htmlFor='title' className='modal-label'>
-            <input
-               className='modal-input'
+         <label htmlFor='title' className='modal-label w-[80%] flex items-center'>
+            <TextInput
+               className='modal-input w-[100%]'
                value={title}
                onChange={handleChange}
                id='title'
-               placeholder='Titre'
+               placeholder="Titre de l'article*"
             />
          </label>
-         <label htmlFor='text' className='modal-label'>
+         <label htmlFor='author' className='modal-label w-[80%] flex items-center'>
+            <TextInput
+               className='modal-input w-[100%]'
+               value={subject}
+               onChange={handleChange}
+               id='subject'
+               placeholder="Sujet de l'article* (ex: 'Sommeil, nutrition, exercice')"
+            />
+         </label>
+         <label htmlFor='text' className='modal-label w-[80%] flex items-center justify-center'>
             <textarea
-               className='modal-text-area'
+               className='modal-text-area w-[100%]'
                value={text}
                onChange={handleChange}
                id='text'
-               placeholder='Texte'
+               placeholder="Corps de l'article* (HTML)"
+            />
+         </label>
+         <label htmlFor='subject' className='modal-label w-[80%] flex items-center'>
+            <TextInput
+               className='modal-input w-[100%]'
+               value={author}
+               onChange={handleChange}
+               id='author'
+               placeholder="Autheur de l'article* (ex: Kevin/Aymen de Happy Fit)"
             />
          </label>
          <label htmlFor='imgSelector' className='modal-label'>
             <Button
-               className='mb-3 mr-2 w-25 bg-white border-gray-200 text-gray-500 hover:text-white bg-gray-50 hover:border-gray-300'
+               className='mb-3 mr-2 w-25 bg-white border-gray-200 text-gray-500 hover:text-white hover:border-gray-300'
                type='button'
                onClick={handleButtonFileClick}
             >
@@ -96,10 +121,17 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
 
    const handleSubmit = (event) => {
       event.preventDefault()
-      if (objectData.file && objectData.title && objectData.text) {
+      if (
+         objectData.file &&
+         objectData.title &&
+         objectData.text &&
+         objectData.author &&
+         objectData.subject
+      ) {
          setIsLoading(true)
          const formData = new FormData()
          const entries = Object.entries(objectData)
+         console.log(entries)
          entries.forEach(([key, value]) => {
             formData.append(key, value)
          })
