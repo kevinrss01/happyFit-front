@@ -9,6 +9,9 @@ import ArticlesDataModal from './Modals/ArticlesDataModal'
 import { ADMIN_ROLE } from '../service/constants'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
+import { Icon, Text, Bold } from '@tremor/react'
+import { BiLogOutCircle } from 'react-icons/bi'
+import { MdGeneratingTokens } from 'react-icons/md'
 
 const roleSelector = (state) => {
    const { role } = state.user
@@ -49,6 +52,7 @@ export const Navbar = ({ children }) => {
    const { asPath } = useRouter()
    const isAdmin = useSelector(roleSelector)
    const [visible, setVisible] = useState(false)
+   const [numberOfTokens, setNumberOfTokens] = useState(9999)
 
    const closeModal = () => {
       setVisible(false)
@@ -56,6 +60,11 @@ export const Navbar = ({ children }) => {
 
    const showModal = () => {
       setVisible(true)
+   }
+
+   const handleLogout = () => {
+      localStorage.removeItem('userTokens')
+      router.push('/login')
    }
 
    return (
@@ -89,6 +98,28 @@ export const Navbar = ({ children }) => {
             </div>
          </div>
          <div className='children'>{children}</div>
+         <div className='icons-container'>
+            <div className='token-container'>
+               <Icon
+                  size='lg'
+                  className='token'
+                  tooltip={`Nombre de jeton disponible : ${
+                     numberOfTokens === 9999 ? 'Illimité' : `${numberOfTokens} jetons`
+                  }`}
+                  icon={MdGeneratingTokens}
+                  onClick={() => handleLogout()}
+               />
+               <Bold className='flex items-center justify-center text-white'>Illimité</Bold>
+            </div>
+
+            <Icon
+               size='lg'
+               className='logout'
+               tooltip='Se deconnecter'
+               icon={BiLogOutCircle}
+               onClick={() => handleLogout()}
+            />
+         </div>
       </div>
    )
 }

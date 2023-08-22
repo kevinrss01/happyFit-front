@@ -27,6 +27,7 @@ import {
 import { getProgramRequest, getProgramSuccess } from './sportActions'
 // import { toast } from 'react-toastify'
 import toast from '../../utils/toast'
+import toastMessage from '../../utils/toast'
 
 const getUserRequest = () => ({ type: GET_USER_REQUEST })
 const getUserSuccess = (data) => ({ type: GET_USER_SUCCESS, payload: data })
@@ -101,26 +102,35 @@ const updateUserFieldError = (err) => ({
 export const userLogin = (loginData) => async (dispatch) => {
    dispatch(loginRequest())
    try {
-      const res = await AuthAPI.login(loginData)
-      dispatch(getUserInfoSuccess(res.data))
-      dispatch(getProgramSuccess(res.data))
-      AuthAPI.saveToken(res.data.tokens)
-      return Promise.resolve(res.data)
+      const result = await proceedToLogin(dispatch, loginData)
+      return Promise.resolve(result)
    } catch (err) {
       dispatch(loginError(err))
       return Promise.reject(err)
    }
 }
 
-export const userRegister = (registerData) => async (dispatch) => {
+export const userRegister = (registerData, setProgress) => async (dispatch) => {
    dispatch(registerRequest())
    try {
-      const res = await AuthAPI.register(registerData)
-      return Promise.resolve()
+      await AuthAPI.register(registerData)
+      setProgress(95)
+      const result = await proceedToLogin(dispatch, registerData)
+      toastMessage('Votre programme à bien été créé !', 'success')
+      return Promise.resolve(result)
    } catch (err) {
       dispatch(registerError(err))
+      toastMessage("Une erreur est survenue lors de l'inscription", 'error')
       return Promise.reject()
    }
+}
+
+async function proceedToLogin(dispatch, { email, password }) {
+   const res = await AuthAPI.login({ email, password })
+   dispatch(getUserInfoSuccess(res.data))
+   dispatch(getProgramSuccess(res.data))
+   AuthAPI.saveToken(res.data.tokens)
+   return Promise.resolve(res.data)
 }
 
 export const getUser = () => async (dispatch) => {
@@ -162,28 +172,34 @@ export const updateUserInfo = (data, id) => async (dispatch) => {
    dispatch(updateUserInfoRequest())
    try {
       const res = await UserAPI.updatePersonalUserInfo(data, id)
-      dispatch(updateUserInfoSuccess(res.data))
+      dispatch(updateUserInfoSuccess(data))
       toast('La mise à jour de vos données a été faite !', 'success')
    } catch (err) {
       dispatch(updateUserInfoError(err))
-      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
+      toast('Une erreur est survenu, veuillez réessayer plus tard.', 'error')
+      throw new Error(err)
    }
 }
 
-const updateUserField = (field, data) => async (dispatch) => {
+const updateUserField = (field, data, id) => async (dispatch) => {
    dispatch(updateUserFieldRequest())
    try {
       const capitalizedField =
          field.substring(0, 1).toUpperCase() + field.substring(1, field.length)
-      await UserAPI[`updateUser${capitalizedField}`](data)
+      await UserAPI[`updateUser${capitalizedField}`](data, id)
       dispatch(updateUserFieldSuccess({ field, data }))
-      toast('La mise à jour de vos données a été faite !', 'success')
+      toast('Mise à jour de vos données effectué avec succès !', 'success')
    } catch (err) {
+      console.error(err)
       dispatch(updateUserFieldError(err))
-      toast('Une erreur est survenu pendant le traitement de vos données.', 'error')
+      toast(
+         'Une erreur est survenu pendant le traitement de vos données, veuillez recharger la page ou réessayer plus tard.',
+         'error',
+      )
    }
 }
 
-export const updateUserEmail = (newEmail) => async (dispatch) => {
-   dispatch(updateUserField('email', newEmail))
+export const updateUserEmail = (newEmail, id) => async (dispatch) => {
+   dispatch(updateUserField('email', { newEmail: newEmail }, id))
+   return newEmail
 }

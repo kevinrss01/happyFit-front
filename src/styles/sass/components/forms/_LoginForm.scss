@@ -47,7 +47,6 @@ $gradient-background-left: linear-gradient(to left, #1d1e27, #111111);
   padding: 20px;
   margin: auto;
   height: 540px;
-  border-radius: 10px 0 0 10px;
   background-color: white;
 
   h2 {
@@ -66,7 +65,7 @@ $gradient-background-left: linear-gradient(to left, #1d1e27, #111111);
     }
   }
 
-  .no-account {
+  .no-account, .login-issue {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;

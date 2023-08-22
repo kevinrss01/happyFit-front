@@ -14,7 +14,7 @@ const lastNameVerif = Yup.string()
 
 const emailVerif = Yup.string()
    .min(5, "L'email doit contenir au moins 5 caractères")
-   .email('Email invalide')
+   .email("Format de l'email invalide")
    .required('Email requis')
    .matches(/[.]/, 'Email invalide')
 
@@ -80,4 +80,12 @@ export const verifPersonalInfoSchema = Yup.object().shape({
    fitnessGoal: fitnessGoalVerif,
    heightInCentimeters: heightVerif,
    weightInKilos: weightVerif,
+})
+
+export const verifNewEmail = Yup.object().shape({
+   newEmail: emailVerif,
+})
+
+export const newPasswordVerif = Yup.object().shape({
+   newPassword: passwordVerif,
 })

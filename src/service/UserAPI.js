@@ -13,8 +13,16 @@ class UserAPI {
    }
 
    static async updateUserEmail(newEmail, userId) {
-      const endpoint = formatSuffix(`updateEmail/${userId}`)
+      const endpoint = formatSuffix(`updateUserEmail/${userId}`)
       return Axios.patch(endpoint, newEmail)
+   }
+
+   static async updatePasswordByMail(email) {
+      return Axios.patch(formatSuffix(`updateUserPasswordWithMail`), { email: email })
+   }
+
+   static async updatePassword(newPassword, userId) {
+      return Axios.patch(formatSuffix(`updateUserPassword/${userId}`), { newPassword: newPassword })
    }
 }
 

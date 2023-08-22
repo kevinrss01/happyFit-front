@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { TabList, Tab, TabGroup, TabPanels, TabPanel, Title } from '@tremor/react'
 import { BiSolidUserDetail } from 'react-icons/bi'
 import { MdOutlineAlternateEmail, MdPassword } from 'react-icons/md'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import CustomTabList from '../components/settings/CustomTabList'
 
 export default function Settings() {
@@ -13,7 +13,7 @@ export default function Settings() {
    const [isClickedSettingsPage, setIsClickedSettingsPage] = useState('Paramètres')
    //TODO: Modifier l'état de l'utilisateur dans le store lors de la modification de ses données
 
-   console.log(userInfo)
+   const { email, id } = userInfo
 
    return (
       <>
@@ -21,7 +21,7 @@ export default function Settings() {
             <>
                <div className='setting-container'>
                   <CustomTabList
-                     tabs={['Paramètres', 'Factures']}
+                     tabs={['Paramètres', 'Facturation']}
                      actualState={isClickedSettingsPage}
                      updateState={setIsClickedSettingsPage}
                      size=''
@@ -74,12 +74,12 @@ export default function Settings() {
                               </TabPanel>
                               <TabPanel>
                                  <div className='mt-10 flex items-center justify-center'>
-                                    <EmailContainer userData={userInfo} />
+                                    <EmailContainer email={email} userId={id} />
                                  </div>
                               </TabPanel>
                               <TabPanel>
                                  <div className='mt-10 flex items-center justify-center'>
-                                    <PasswordContainer userData={userInfo} />
+                                    <PasswordContainer email={email} userId={id} />
                                  </div>
                               </TabPanel>
                            </TabPanels>
