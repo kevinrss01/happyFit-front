@@ -3,11 +3,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Button, Title } from '@tremor/react'
 import FlexContainer from '../Containers/FlexContainer'
 import axios from 'axios'
+import toastMessage from '../../utils/toast'
 
 const defaultObject = {
    title: '',
    text: '',
-   img: undefined,
+   file: undefined,
 }
 
 const style = {
@@ -21,7 +22,7 @@ const style = {
 }
 
 const ModalBody = ({ handleChange, handleButtonFileClick, handleInputFileChange, objectData }) => {
-   const { title, text, img } = objectData
+   const { title, text, file } = objectData
    return (
       <>
          <label htmlFor='title' className='modal-label'>
@@ -57,7 +58,7 @@ const ModalBody = ({ handleChange, handleButtonFileClick, handleInputFileChange,
                id='imgSelector'
                type='file'
             />
-            {img && <span>{img.name}</span>}
+            {file && <span>{file.name}</span>}
          </label>
       </>
    )
@@ -65,6 +66,7 @@ const ModalBody = ({ handleChange, handleButtonFileClick, handleInputFileChange,
 
 export default function ArticlesDataModal({ visible, showModal, closeModal }) {
    const [objectData, setObjectData] = useState(defaultObject)
+   const [isLoading, setIsLoading] = useState(false)
 
    useEffect(() => {
       !visible && setObjectData(defaultObject)
@@ -83,28 +85,43 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
       const file = files.length ? files[0] : undefined
       setObjectData((prevData) => ({
          ...prevData,
-         img: file,
+         file: file,
       }))
    }
 
-   const handleButtonFileClick = (event) => {
+   const handleButtonFileClick = () => {
       const inputFile = document.getElementById('imgSelector')
       inputFile.click()
    }
 
    const handleSubmit = (event) => {
       event.preventDefault()
-      if (objectData.img) {
+      if (objectData.file && objectData.title && objectData.text) {
+         setIsLoading(true)
          const formData = new FormData()
          const entries = Object.entries(objectData)
          entries.forEach(([key, value]) => {
             formData.append(key, value)
          })
-         setObjectData(defaultObject)
-         // axios.post("endponit", formData).then(() => {
-         //     setObjectData(defaultObject);
-         // })
-         // axios send the data and then reset the state
+
+         axios
+            .post('http://localhost:4000/users/createArticle', formData)
+            .then(() => {
+               setObjectData(defaultObject)
+               toastMessage('Article créé avec succès', 'success')
+            })
+            .catch((err) => {
+               console.log(err)
+               return toastMessage(
+                  "Une erreur est survenue lors de la création de l'article",
+                  'error',
+               )
+            })
+            .finally(() => {
+               setIsLoading(false)
+            })
+      } else {
+         toastMessage('Veuillez remplir tous les champs', 'error')
       }
    }
 
@@ -147,18 +164,10 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
                         <form style={style} onSubmit={handleSubmit}>
                            <ModalBody {...modalBodyProps} />
                            <FlexContainer className='gap-2'>
-                              <Button
-                                 className='mt-2 w-25 text-center border-gray-200 text-gray-500 hover:text-white bg-gray-50 hover:border-gray-300'
-                                 type='submit'
-                                 loading={false}
-                              >
+                              <Button className='mt-2 w-25 ' type='submit' loading={isLoading}>
                                  Valider
                               </Button>
-                              <Button
-                                 className='mt-2 w-25 bg-white border-gray-200 text-gray-500 hover:text-white bg-gray-50 hover:border-gray-300'
-                                 type='button'
-                                 onClick={closeModal}
-                              >
+                              <Button className='mt-2 w-25' type='button' onClick={closeModal}>
                                  Fermer
                               </Button>
                            </FlexContainer>
