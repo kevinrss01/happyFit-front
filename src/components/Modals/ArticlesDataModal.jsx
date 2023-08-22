@@ -121,7 +121,7 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
                setIsLoading(false)
             })
       } else {
-         toastMessage('Veuillez remplir tous les champs', 'error')
+         toastMessage('Veuillez vous concentrer et remplir tous les putain de champs.', 'error')
       }
    }
 
