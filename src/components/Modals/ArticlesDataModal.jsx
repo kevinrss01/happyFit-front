@@ -129,7 +129,6 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
    const handleSubmit = (event) => {
       event.preventDefault()
       const entries = Object.entries(objectData)
-      console.log(entries)
       const allValuesAreValid = entries.every(([key, value]) => value)
       if (allValuesAreValid) {
          setIsLoading(true)
