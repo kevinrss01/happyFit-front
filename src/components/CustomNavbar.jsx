@@ -1,6 +1,6 @@
 import { Navbar } from './Navbar'
 
-const deniedComponents = ['Inscription', 'Login']
+const deniedComponents = ['registration', 'login']
 
 const componentDeniedForNavbar = (component) => {
    const [Function, ...rest] = component.toString().split('(')

@@ -43,7 +43,7 @@ export const useSecuredDispatch = () => {
    return (actionObject) => {
       try {
          const tokenStatus = assessTokenValidity()
-         if (!pathname.includes('inscription')) {
+         if (!pathname.includes('registration')) {
             refreshTokenForActionOrRedirect(actionObject, tokenStatus)
          }
       } catch (error) {
