@@ -27,6 +27,9 @@ class UserAPI {
 
    static async createArticleData(formData) {
       return Axios.post(formatSuffix(`createArticle`), formData)
+
+   static getAllArticles() {
+      return Axios.get(formatSuffix('getAllArticles'))
    }
 }
 
