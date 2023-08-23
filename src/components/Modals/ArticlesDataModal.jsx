@@ -10,13 +10,18 @@ const defaultObject = {
    title: '',
    text: '',
    file: undefined,
-   date: new Date().toLocaleDateString('fr-FR', {
+   date: '',
+   author: '',
+   subject: '',
+}
+
+const defaultObjectInitializer = () => {
+   const date = new Date().toLocaleDateString('fr-FR', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
-   }),
-   author: '',
-   subject: '',
+   })
+   return { ...defaultObject, date }
 }
 
 const style = {
@@ -91,7 +96,7 @@ const ModalBody = ({ handleChange, handleButtonFileClick, handleInputFileChange,
 }
 
 export default function ArticlesDataModal({ visible, showModal, closeModal }) {
-   const [objectData, setObjectData] = useState(defaultObject)
+   const [objectData, setObjectData] = useState(defaultObjectInitializer)
    const [isLoading, setIsLoading] = useState(false)
    // may be useful for creation of article ?
    const userId = useSelector((state) => state.user.userInfo.id)
