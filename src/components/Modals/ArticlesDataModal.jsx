@@ -10,18 +10,17 @@ const defaultObject = {
    title: '',
    text: '',
    file: undefined,
-   date: '',
+   date: new Date().toLocaleDateString('fr-FR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+   }),
    author: '',
    subject: '',
 }
 
 const defaultObjectInitializer = () => {
-   const date = new Date().toLocaleDateString('fr-FR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-   })
-   return { ...defaultObject, date }
+   return { ...defaultObject }
 }
 
 const style = {
@@ -130,6 +129,7 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
    const handleSubmit = (event) => {
       event.preventDefault()
       const entries = Object.entries(objectData)
+      console.log(entries)
       const allValuesAreValid = entries.every(([key, value]) => value)
       if (allValuesAreValid) {
          setIsLoading(true)
@@ -143,7 +143,7 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
                setObjectData(defaultObject)
                toastMessage('Article créé avec succès', 'success')
             })
-            .catch((err) => {
+            .catch(() => {
                return toastMessage(
                   "Une erreur est survenue lors de la création de l'article",
                   'error',
