@@ -1,6 +1,6 @@
 export default function Modal({ visible, close, footer, body, title = 'Modal header' }) {
    if (!visible) return <></>
-   console.log('render')
+
    const defaultFooter = <button onClick={close}>Fermer</button>
 
    const BodyComponent = body

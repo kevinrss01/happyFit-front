@@ -2,8 +2,9 @@ import { useState, useEffect, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Button, TextInput, Title } from '@tremor/react'
 import FlexContainer from '../Containers/FlexContainer'
-import axios from 'axios'
 import toastMessage from '../../utils/toast'
+import { useSelector } from 'react-redux'
+import UserAPI from '../../service/UserAPI'
 
 const defaultObject = {
    title: '',
@@ -92,6 +93,8 @@ const ModalBody = ({ handleChange, handleButtonFileClick, handleInputFileChange,
 export default function ArticlesDataModal({ visible, showModal, closeModal }) {
    const [objectData, setObjectData] = useState(defaultObject)
    const [isLoading, setIsLoading] = useState(false)
+   // may be useful for creation of article ?
+   const userId = useSelector((state) => state.user.userInfo.id)
 
    useEffect(() => {
       !visible && setObjectData(defaultObject)
@@ -121,29 +124,21 @@ export default function ArticlesDataModal({ visible, showModal, closeModal }) {
 
    const handleSubmit = (event) => {
       event.preventDefault()
-      if (
-         objectData.file &&
-         objectData.title &&
-         objectData.text &&
-         objectData.author &&
-         objectData.subject
-      ) {
+      const entries = Object.entries(objectData)
+      const allValuesAreValid = entries.every(([key, value]) => value)
+      if (allValuesAreValid) {
          setIsLoading(true)
          const formData = new FormData()
-         const entries = Object.entries(objectData)
-         console.log(entries)
          entries.forEach(([key, value]) => {
             formData.append(key, value)
          })
 
-         axios
-            .post('http://localhost:4000/users/createArticle', formData)
+         UserAPI.createArticleData(formData)
             .then(() => {
                setObjectData(defaultObject)
                toastMessage('Article créé avec succès', 'success')
             })
             .catch((err) => {
-               console.log(err)
                return toastMessage(
                   "Une erreur est survenue lors de la création de l'article",
                   'error',

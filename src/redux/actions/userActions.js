@@ -155,7 +155,7 @@ export const getUserInfo = (userId) => async (dispatch) => {
 
 export const refreshToken = (token) => async (dispatch) => {
    dispatch(refreshTokenRequest())
-   console.log('refresh token')
+
    try {
       const res = await AuthAPI.refreshToken(token)
       AuthAPI.saveToken(res.data)

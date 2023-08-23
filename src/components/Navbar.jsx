@@ -93,8 +93,7 @@ export const Navbar = ({ children }) => {
                      </div>
                   )
                })}
-               {isAdmin && <ArticlesDataModal />}
-               <ArticlesDataModal {...{ visible, showModal, closeModal }} />
+               {isAdmin && <ArticlesDataModal {...{ visible, showModal, closeModal }} />}
             </div>
          </div>
          <div className='children'>{children}</div>
