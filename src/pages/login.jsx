@@ -1,11 +1,18 @@
 import LoginForm from '../components/login/LoginForm'
 import TopBarLogo from '../components/TopBarLogo'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useWindowSize } from '@react-hookz/web'
+import { useRouter } from 'next/router'
 
 export default function Login() {
    const [randomDivNumber, setRandomDivNumber] = useState(() => Math.floor(Math.random() * 3) + 1)
    const size = useWindowSize()
+   const router = useRouter()
+
+   useEffect(() => {
+      const accessToken = localStorage.getItem('userTokens')
+      if (accessToken) router.push('/')
+   }, [])
 
    return (
       <div className='login-form-container'>

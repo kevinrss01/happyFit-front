@@ -38,7 +38,7 @@ const userSelector = (state) => {
    return { isLoading, error }
 }
 
-export default function Inscription() {
+export default function Registration() {
    const [validations, setValidations] = useState(defaultValidations)
    const [data, setData] = useState(defaultData)
    const router = useRouter()

@@ -1,15 +1,11 @@
 import { Navbar } from './Navbar'
+import { useRouter } from 'next/router'
 
-const deniedComponents = ['Inscription', 'Login']
-
-const componentDeniedForNavbar = (component) => {
-   const [Function, ...rest] = component.toString().split('(')
-   const name = Function.substring(9, Function.length).trim()
-   return deniedComponents.includes(name)
-}
+const deniedPaths = ['/registration', '/login']
 
 export default function CustomNavbar({ children, component }) {
-   const isDenied = componentDeniedForNavbar(component)
+   const router = useRouter()
+   const isDenied = deniedPaths.includes(router.pathname)
    if (isDenied) return <>{children}</>
 
    return <Navbar>{children}</Navbar>
