@@ -5,16 +5,18 @@ import Axios from '../service/axios'
 import { getUserInfo } from '../redux/actions/userActions'
 import { useSecuredDispatch } from '../service/hooks/useSecuredDispatch'
 import { useRouter } from 'next/router'
-import toastMessage from '../utils/toast'
+
+const allowedPaths = ['/login', '/registration']
 
 export default function AuthGuard({ children }) {
    const dispatch = useSecuredDispatch()
    const userId = useSelector((state) => state.user.userInfo.id)
-   const { push } = useRouter()
+   const { push, pathname } = useRouter()
 
    useEffect(() => {
       try {
          if (userId) {
+            console.log(userId)
             dispatch(getUserInfo(userId))
          } else {
             const token = Axios.getToken()
@@ -22,10 +24,14 @@ export default function AuthGuard({ children }) {
                const { sub: id } = jwtDecode(token)
                dispatch(getUserInfo(id))
             } else {
-               throw new Error('')
+               console.error('no token')
+               if (allowedPaths.includes(pathname)) return
+               throw new Error('No token found')
             }
          }
       } catch (error) {
+         console.error(error)
+         //localStorage.clear()
          push('/login')
       }
    }, [])
