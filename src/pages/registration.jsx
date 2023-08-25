@@ -77,6 +77,11 @@ export default function Registration() {
    }, [router])
 
    useEffect(() => {
+      const accessToken = localStorage.getItem('userTokens')
+      if (accessToken) router.push('/')
+   }, [])
+
+   useEffect(() => {
       if (personal && metrics) {
          setProgress(66)
       } else if (personal) {
