@@ -1,51 +1,32 @@
-import { useCallback, useMemo, useState } from 'react'
-import { Card } from '@tremor/react'
+import { Title } from '@tremor/react'
 
-const Opener = ({ message, children }) => {
-   const [isOpened, setIsOpened] = useState(false)
+const Opener = ({ message, children, sexe }) => {
+   const getBackgroundImage = (typeOfTraining) => {
+      const types = [
+         { keyword: 'full-body', value: 'full-body' },
+         { keyword: 'haut du corps', value: 'high-body' },
+         { keyword: 'cardio', value: 'cardio' },
+         { keyword: 'bas du corps', value: 'legs' },
+      ]
 
-   const handleClick = useCallback(() => {
-      setIsOpened((prev) => !prev)
-   }, [])
+      for (const type of types) {
+         if (typeOfTraining.includes(type.keyword)) {
+            return type.value
+         }
+      }
 
-   const icone = useMemo(
-      () => (
-         <i className={`fa fa-angle-${isOpened ? 'up' : 'down'}`} style={{ marginRight: 5 }}></i>
-      ),
-      [isOpened],
-   )
-
-   //Ajouter le fond dégradé pour la Card
+      return 'full-body'
+   }
 
    return (
-      <Card
-         style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            gap: 10,
-            width: '60%',
-         }}
-      >
-         <button className='button-opener' onClick={handleClick}>
-            {icone}
-            {message}
-         </button>
-         <div
-            style={{
-               display: 'flex',
-               alignItems: 'center',
-               flexDirection: 'column',
-               gap: 5,
-               marginBottom: 10,
-               width: 200,
-            }}
-         >
-            {children}
+      <div className={`card ${sexe}-${getBackgroundImage(message)}`}>
+         <div className='title-container'>
+            <Title className='title-card' color='white'>
+               {message}
+            </Title>
          </div>
-      </Card>
+         <div className='button-container'>{children}</div>
+      </div>
    )
 }
-
 export default Opener

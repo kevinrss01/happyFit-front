@@ -1,18 +1,33 @@
 import LoginForm from '../components/login/LoginForm'
 import TopBarLogo from '../components/TopBarLogo'
-import { useState } from 'react'
-import { useWindowSize } from '@react-hookz/web'
+import { useEffect, useState } from 'react'
 
-export default function Login() {
+function Login() {
    const [randomDivNumber, setRandomDivNumber] = useState(() => Math.floor(Math.random() * 3) + 1)
-   const size = useWindowSize()
+   const [windowWidth, setWindowWidth] = useState(0)
+
+   useEffect(() => {
+      const handleResize = () => {
+         setWindowWidth(window.innerWidth)
+      }
+
+      window.addEventListener('resize', handleResize)
+
+      // Appel initial
+      handleResize()
+
+      // Supprimer l'écouteur d'événements lors du nettoyage
+      return () => {
+         window.removeEventListener('resize', handleResize)
+      }
+   }, [])
 
    return (
       <div className='login-form-container'>
          <TopBarLogo />
          <div className='login-form-and-image-container'>
-            <LoginForm />
-            {size.width > 1400 && (
+            <LoginForm windowWith={windowWidth} />
+            {windowWidth > 1400 && (
                <div className={`login-form-image-container-${randomDivNumber}`}></div>
             )}
          </div>
@@ -20,3 +35,5 @@ export default function Login() {
       </div>
    )
 }
+
+export default Login

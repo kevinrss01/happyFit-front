@@ -40,7 +40,7 @@ export const RegisterLoader = () => {
             <br />
             (Merci de ne pas fermer la page)
          </Title>
-         {/* <Image src={gif} height={350} width={450} /> */}
+
          <Lottie animationData={animationData} />
 
          <Title className='sentence-to-wait' color='white'>

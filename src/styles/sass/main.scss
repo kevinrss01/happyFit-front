@@ -10,11 +10,11 @@
 // COMPONENTS -> Blocs indépendants comme les boutons ou un loader.
 @import 'components/forms/LoginForm';
 @import 'components/forms/ProfileForm';
-@import 'components/Opener.scss';
 @import 'components/boutons.scss';
 @import 'components/homepage/topBarNavigation.scss';
 @import 'components/forms/questionsForm.scss';
 @import 'components/registerLoader.scss';
+@import 'components/programs/opener.scss';
 
 // LAYOUTS -> Ce qui est réutilisable comme le footer ou le header ou une navbar.
 @import 'layouts/topBar';

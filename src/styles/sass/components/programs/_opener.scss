@@ -1,0 +1,71 @@
+.pointer {
+   cursor: pointer;
+}
+
+.program-navigator-container {
+   @include flex-col;
+   width: 100%;
+
+   .carousel-container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 650px;
+      height: auto;
+
+   }
+   .card {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      width: 500px;
+      height: 600px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 20px;
+      padding: 20px;
+
+      .title-container {
+         width: 100%;
+
+         .title-card {
+            width: 70%;
+            font-size: 30px;
+            backdrop-filter: blur(5px); /* ajustez la valeur selon vos besoins */
+         }
+      }
+
+      .button-container {
+         display: flex;
+         justify-content: space-between;
+      }
+   }
+
+   //MAN
+   .man-legs {
+      background-image: url('../../../../public/images/programs/man/legs.jpg');
+   }
+   .man-cardio {
+      background-image: url('../../../../public/images/programs/man/cardio-man.jpg');
+   }
+   .man-high-body {
+      background-image: url('../../../../public/images/programs/man/high-body-man.jpg');
+   }
+   .man-full-body {
+      background-image: url('../../../../public/images/programs/man/fullbody-man.jpg');
+   }
+
+   //WOMAN
+   .woman-legs {
+      background-image: url('../../../../public/images/programs/woman/legs-woman.jpg');
+   }
+   .woman-cardio {
+      background-image: url('../../../../public/images/programs/woman/cardio-woman.jpg');
+   }
+   .woman-high-body {
+      background-image: url('../../../../public/images/programs/woman/high-body-woman.jpg');
+   }
+   .woman-full-body {
+      background-image: url('../../../../public/images/programs/woman/fullbody-woman.jpg');
+   }
+}

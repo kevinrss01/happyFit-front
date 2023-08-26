@@ -1,11 +1,11 @@
 import { CgMenuGridO } from 'react-icons/cg'
 import { MdAutoGraph, MdSportsMma } from 'react-icons/md'
-import { GiWeightLiftingUp } from 'react-icons/gi'
+import { GiStrongMan } from 'react-icons/gi'
 import { AiOutlineSetting } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import logo from '../public/images/HappyFit-logo.png'
 import Image from 'next/image'
-import { Icon, Text, Bold } from '@tremor/react'
+import { Icon, Bold } from '@tremor/react'
 import { BiLogOutCircle } from 'react-icons/bi'
 import { useState } from 'react'
 import { MdGeneratingTokens } from 'react-icons/md'
@@ -22,7 +22,7 @@ export const Navbar = ({ children }) => {
       },
       {
          name: 'Programmes',
-         icon: <GiWeightLiftingUp />,
+         icon: <GiStrongMan />,
          path: '/programs',
       },
       {
