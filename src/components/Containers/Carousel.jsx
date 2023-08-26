@@ -3,14 +3,14 @@ import { TiChevronLeftOutline, TiChevronRightOutline } from 'react-icons/ti'
 const MAX_VISIBILITY = 3
 
 const Carousel = ({ children }) => {
-   const [active, setActive] = useState(2)
+   const [active, setActive] = useState(0)
    const count = React.Children.count(children)
 
    return (
       <div className='carousel'>
          {active > 0 && (
             <button className='nav left' onClick={() => setActive((i) => i - 1)}>
-               <TiChevronLeftOutline />
+               <TiChevronLeftOutline className='arrow' />
             </button>
          )}
          {React.Children.map(children, (child, i) => (
@@ -31,7 +31,7 @@ const Carousel = ({ children }) => {
          ))}
          {active < count - 1 && (
             <button className='nav right' onClick={() => setActive((i) => i + 1)}>
-               <TiChevronRightOutline />
+               <TiChevronRightOutline className='arrow' />
             </button>
          )}
       </div>

@@ -3,27 +3,103 @@
 }
 
 .program-navigator-container {
-   @include flex-col;
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+   align-items: center;
    width: 100%;
+   height: 65%;
 
-   .carousel-container{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 650px;
-      height: auto;
+   $color-purple: #8B5CF6;
+   $color-pink: #EC4899;
+   $color-gray: #9CA3AF;
+   $color-black: #1F2937;
+   $card-size: 450px;
+
+
+
+   .carousel{
+      position: relative;
+      width: $card-size;
+      height: $card-size;
+      perspective: 500px;
+      transform-style: preserve-3d;
+
+      .nav {
+         color: white;
+         font-size: 5rem;
+         position: absolute;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         top: 50%;
+         z-index: 2;
+         cursor: pointer;
+         user-select: none;
+         background: unset;
+         border: unset;
+
+         &.left {
+            transform: translateX(-100%) translatey(-50%);
+         }
+
+         &.right {
+            right: 0;
+            transform: translateX(100%) translatey(-50%);
+         }
+      }
+
+      button{
+
+         .arrow{
+            color: white;
+            font-size: 60px;
+
+            &:hover{
+               font-size: 63px;
+            }
+         }
+      }
+
 
    }
+
+   .card-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform:
+              rotateY(calc(var(--offset) * 50deg))
+              scaleY(calc(1 + var(--abs-offset) * -0.4))
+              translateZ(calc(var(--abs-offset) * -30rem))
+              translateX(calc(var(--direction) * -5rem));
+      filter: blur(calc(var(--abs-offset) * 1rem));
+      transition: all 0.3s ease-out;
+   }
+
+   //.card {
+   //   width: 100%;
+   //   height: 100%;
+   //   padding: 2rem;
+   //   background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%));
+   //   border-radius: 1rem;
+   //   color: $color-gray;
+   //   text-align: justify;
+   //   transition: all 0.3s ease-out;
+   //}
+
+
    .card {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      width: 500px;
+      width: 450px;
       height: 600px;
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 20px;
       padding: 20px;
+      transition: all 0.3s ease-out;
 
       .title-container {
          width: 100%;
@@ -31,7 +107,7 @@
          .title-card {
             width: 70%;
             font-size: 30px;
-            backdrop-filter: blur(5px); /* ajustez la valeur selon vos besoins */
+            backdrop-filter: blur(5px);
          }
       }
 

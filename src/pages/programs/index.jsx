@@ -7,6 +7,7 @@ import { Button } from '@tremor/react'
 import { BiSolidHot } from 'react-icons/bi'
 import 'react-multi-carousel/lib/styles.css'
 import { MdSportsScore } from 'react-icons/md'
+import Carousel from '../../components/Containers/Carousel'
 
 export default function ProgrammesPage() {
    const { programs } = useSelector((state) => state.sport)
@@ -42,7 +43,8 @@ export default function ProgrammesPage() {
             goForward={goForward}
             creationDate={creationDate}
          />
-         <div className='carousel-container'>
+
+         <Carousel>
             {sportPrograms.map((val) => (
                <Opener
                   message={`Jour ${val.dayNumber} : ${val.trainingType}`}
@@ -61,7 +63,7 @@ export default function ProgrammesPage() {
                   </Link>
                </Opener>
             ))}
-         </div>
+         </Carousel>
       </div>
    )
 }
