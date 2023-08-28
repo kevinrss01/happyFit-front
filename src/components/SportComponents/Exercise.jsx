@@ -20,7 +20,6 @@ const SetRenderer = ({ weight, seriesNumber, rest, repetition }) => (
 const Series = ({ series }) => {
    if (!series) return <></>
    const sortedSeries = [...series].sort((a, b) => a.seriesNumber - b.seriesNumber)
-   console.log(series)
    return (
       <Carousel arrowTopPosition='20%' carouselHeight={400} carouselWidth={400}>
          {sortedSeries.map((set, index) => (
@@ -33,9 +32,9 @@ const Series = ({ series }) => {
 const Exercise = ({ exerciseName, instructions, muscleGroup, series }) => {
    const { push, asPath, query } = useRouter()
 
-   const nextWarmUpPath =
-      asPath.split('/').slice(0, 5).join('/') +
-      `/${(parseInt(query?.sportSession) + 1).toString()}?length=${query.length}`
+   const basePath = asPath.split('/').slice(0, 5).join('/')
+   const nextSportSession = parseInt(query?.sportSession) + 1
+   const nextWarmUpPath = `${basePath}/${nextSportSession}?length=${query.length}`
 
    return (
       <div className={`details-exo-container ${sportTypeTextsClass}`}>
@@ -57,7 +56,7 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series }) => {
             <p className='instructions'>
                {instructions} <br />
             </p>
-            <Bold className='mt-10'>Démonstration :</Bold>
+            <Bold className='mt-10'>Démonstration : (image test)</Bold>
             <Image
                src='https://api.exercisedb.io/image/MWrgkcrpK2XxJv'
                width={250}

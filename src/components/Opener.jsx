@@ -1,21 +1,16 @@
 import { Title } from '@tremor/react'
 import Tilt from 'react-parallax-tilt'
 
-function getRandomOneOrTwo(typeOfTraining) {
-   const number = Math.floor(Math.random() * 2) + 1
-   return typeOfTraining + number
-}
-
-function getRandomOneOrTwoOrThree(typeOfTraining) {
-   const number = Math.floor(Math.random() * 3) + 1
+const getRandomNumber = (typeOfTraining, max) => {
+   const number = Math.floor(Math.random() * max) + 1
    return typeOfTraining + number
 }
 
 const getBackgroundImage = (typeOfTraining) => {
    const types = [
-      { keyword: 'full-body', value: getRandomOneOrTwoOrThree('full-body') },
-      { keyword: 'haut du corps', value: getRandomOneOrTwo('high-body') },
-      { keyword: 'cardio', value: getRandomOneOrTwo('cardio') },
+      { keyword: 'full-body', value: getRandomNumber('full-body', 3) },
+      { keyword: 'haut du corps', value: getRandomNumber('high-body', 2) },
+      { keyword: 'cardio', value: getRandomNumber('cardio', 2) },
       { keyword: 'bas du corps', value: 'legs' },
    ]
 

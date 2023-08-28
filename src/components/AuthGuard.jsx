@@ -16,7 +16,6 @@ export default function AuthGuard({ children }) {
    useEffect(() => {
       try {
          if (userId) {
-            console.log(userId)
             dispatch(getUserInfo(userId))
          } else {
             const token = Axios.getToken()

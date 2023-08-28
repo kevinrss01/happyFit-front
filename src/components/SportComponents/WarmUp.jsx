@@ -21,9 +21,12 @@ export default function WarmUp({
    const repetitionsText = repetitions ? ` de ${repetitions}` : ''
    const { push, asPath, query } = useRouter()
 
-   const programPath = asPath.split('/').slice(0, 4).join('/') + '/exercise'
-   const nextWarmUpPath =
-      asPath.split('/').slice(0, 4).join('/') + `/warmup/${exerciseNumber}?length=${query.length}`
+   const basePath = asPath.split('/').slice(0, 4).join('/')
+   const exercisePathParam = '/exercise'
+   const warmUpParam = `/warmup/${exerciseNumber}`
+
+   const programPath = `${basePath}${exercisePathParam}`
+   const nextWarmUpPath = `${basePath}${warmUpParam}?length=${query.length}`
 
    return (
       <div className={`details-exo-container ${sportTypeTextsClass}`}>
@@ -65,7 +68,7 @@ export default function WarmUp({
             <Bold className=''>{repetitions}</Bold>
             <Bold className=''>{computeInMinutes(rest)} de repos</Bold>
 
-            <Bold className='mt-10'>Démonstration :</Bold>
+            <Bold className='mt-10'>Démonstration : (image test)</Bold>
             <Image
                src='https://api.exercisedb.io/image/MWrgkcrpK2XxJv'
                width={250}

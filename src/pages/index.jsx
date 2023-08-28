@@ -17,7 +17,7 @@ export default function Home() {
          })
          .catch((err) => {
             toastMessage('Une erreur est survenue, veuillez réessayer plus tard', 'error')
-            console.log(err)
+            console.error(err)
          })
    }, [])
 

@@ -48,8 +48,7 @@ const links = [
 ]
 
 export const Navbar = ({ children }) => {
-   const router = useRouter()
-   const { asPath } = router
+   const { asPath, push } = useRouter()
    const isAdmin = useSelector(roleSelector)
    const [visible, setVisible] = useState(false)
    const [numberOfTokens, setNumberOfTokens] = useState(9999)
@@ -64,7 +63,7 @@ export const Navbar = ({ children }) => {
 
    const handleLogout = () => {
       localStorage.removeItem('userTokens')
-      router.push('/login')
+      push('/login')
    }
 
    return (
@@ -84,7 +83,7 @@ export const Navbar = ({ children }) => {
                               : 'icon-container'
                         }
                         onClick={() => {
-                           router.push(link.path)
+                           push(link.path)
                         }}
                      >
                         {link.icon}
