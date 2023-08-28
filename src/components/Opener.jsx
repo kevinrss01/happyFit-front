@@ -1,47 +1,46 @@
-import { useCallback, useMemo, useState } from 'react'
+import { Title } from '@tremor/react'
+import Tilt from 'react-parallax-tilt'
 
-const Opener = ({ message, children }) => {
-  const [isOpened, setIsOpened] = useState(false)
-
-  const handleClick = useCallback(() => {
-    setIsOpened((prev) => !prev)
-  }, [])
-
-  const icone = useMemo(
-    () => <i className={`fa fa-angle-${isOpened ? 'up' : 'down'}`} style={{ marginRight: 5 }}></i>,
-    [isOpened],
-  )
-
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        gap: 10,
-      }}
-    >
-      <button className='button-opener' onClick={handleClick}>
-        {icone}
-        {message}
-      </button>
-      {isOpened && (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'column',
-            gap: 5,
-            marginBottom: 10,
-            width: 200,
-          }}
-        >
-          {children}
-        </div>
-      )}
-    </div>
-  )
+const getRandomNumber = (typeOfTraining, max) => {
+   const number = Math.floor(Math.random() * max) + 1
+   return typeOfTraining + number
 }
 
+const getBackgroundImage = (typeOfTraining) => {
+   const types = [
+      { keyword: 'full-body', value: getRandomNumber('full-body', 3) },
+      { keyword: 'haut du corps', value: getRandomNumber('high-body', 2) },
+      { keyword: 'cardio', value: getRandomNumber('cardio', 2) },
+      { keyword: 'bas du corps', value: 'legs' },
+   ]
+
+   for (const type of types) {
+      if (typeOfTraining.includes(type.keyword)) {
+         return type.value
+      }
+   }
+
+   return 'full-body'
+}
+
+const Opener = ({ message, children, sexe }) => {
+   return (
+      <Tilt
+         glareEnable={true}
+         glareMaxOpacity={0.4}
+         glareColor='#ffffff'
+         glarePosition='top'
+         glareBorderRadius='20px'
+      >
+         <div className={`card ${sexe}-${getBackgroundImage(message)}`}>
+            <div className='title-container'>
+               <Title className='title-card' color='white'>
+                  {message}
+               </Title>
+            </div>
+            <div className='button-container'>{children}</div>
+         </div>
+      </Tilt>
+   )
+}
 export default Opener

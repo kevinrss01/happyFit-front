@@ -10,6 +10,12 @@ const nextConfig = {
             port: '',
             pathname: '/v0/b/happyfit-app.appspot.com/o/**',
          },
+         {
+            protocol: 'https',
+            hostname: 'api.exercisedb.io',
+            port: '',
+            pathname: '/**',
+         },
       ],
    },
 }

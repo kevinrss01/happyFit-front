@@ -84,6 +84,7 @@ const userInfoComputer = {
          sportExperienceInYears,
          id,
          birthday,
+         sexe,
       } = payload
       return {
          ...state,
@@ -101,6 +102,7 @@ const userInfoComputer = {
             sportExperienceInYears,
             id,
             birthday,
+            sexe,
          },
       }
    },

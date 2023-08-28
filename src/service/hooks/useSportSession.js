@@ -5,7 +5,7 @@ export default function useSportSession(programId, dayIndex, sportType, index) {
    const { programs, isFetching } = useSelector((state) => state.sport)
 
    const sportTypeField = useMemo(
-      () => (sportType === 'exercice' ? 'exercises' : 'warmUp'),
+      () => (sportType === 'exercise' ? 'exercises' : 'warmUp'),
       [sportType],
    )
 

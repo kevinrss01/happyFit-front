@@ -1,6 +1,6 @@
 import { CgMenuGridO } from 'react-icons/cg'
 import { MdAutoGraph, MdSportsMma } from 'react-icons/md'
-import { GiWeightLiftingUp } from 'react-icons/gi'
+import { GiStrongMan } from 'react-icons/gi'
 import { AiOutlineSetting } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import logo from '../public/images/HappyFit-logo.png'
@@ -9,7 +9,7 @@ import ArticlesDataModal from './Modals/ArticlesDataModal'
 import { ADMIN_ROLE } from '../service/constants'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
-import { Icon, Text, Bold } from '@tremor/react'
+import { Icon, Bold } from '@tremor/react'
 import { BiLogOutCircle } from 'react-icons/bi'
 import { MdGeneratingTokens } from 'react-icons/md'
 
@@ -26,7 +26,7 @@ const links = [
    },
    {
       name: 'Programmes',
-      icon: <GiWeightLiftingUp />,
+      icon: <GiStrongMan />,
       path: '/programs',
    },
    {
@@ -48,8 +48,7 @@ const links = [
 ]
 
 export const Navbar = ({ children }) => {
-   const router = useRouter()
-   const { asPath } = useRouter()
+   const { asPath, push } = useRouter()
    const isAdmin = useSelector(roleSelector)
    const [visible, setVisible] = useState(false)
    const [numberOfTokens, setNumberOfTokens] = useState(9999)
@@ -64,7 +63,7 @@ export const Navbar = ({ children }) => {
 
    const handleLogout = () => {
       localStorage.removeItem('userTokens')
-      router.push('/login')
+      push('/login')
    }
 
    return (
@@ -79,12 +78,12 @@ export const Navbar = ({ children }) => {
                      <div
                         key={`link n°${index}: ${link.name}`}
                         className={
-                           asPath === link.path
+                           asPath === link.path || asPath.includes(link.path + '/')
                               ? 'icon-container icon-container-selected'
                               : 'icon-container'
                         }
                         onClick={() => {
-                           router.push(link.path)
+                           push(link.path)
                         }}
                      >
                         {link.icon}
