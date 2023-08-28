@@ -18,6 +18,7 @@
 @import 'components/programs/topBarNavigation.scss';
 @import 'components/programs/lists.scss';
 @import 'components/programs/detailsExo.scss';
+@import 'components/modal';
 
 // LAYOUTS -> Ce qui est réutilisable comme le footer ou le header ou une navbar.
 @import 'layouts/topBar';
@@ -28,6 +29,7 @@
 @import 'pages/boxingPage';
 @import 'pages/reglages';
 @import 'pages/register';
+@import 'pages/general';
 
 // Tailwind
 @tailwind base;

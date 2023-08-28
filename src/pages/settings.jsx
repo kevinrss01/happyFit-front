@@ -26,14 +26,8 @@ export default function Settings() {
                      updateState={setIsClickedSettingsPage}
                      size=''
                   />
-                  {/*<CustomTabList*/}
-                  {/*   tabs={['Nom et programmes', 'Email', 'Mot de passe']}*/}
-                  {/*   actualState={isClickedSettingsPart}*/}
-                  {/*   updateState={setIsClickedSettingsPart}*/}
-                  {/*   size='small'*/}
-                  {/*/>*/}
 
-                  {isClickedSettingsPage === 'Factures' ? (
+                  {isClickedSettingsPage === 'Facturation' ? (
                      <>
                         <Title>Cette page n'est pas encore disponible.</Title>
                      </>

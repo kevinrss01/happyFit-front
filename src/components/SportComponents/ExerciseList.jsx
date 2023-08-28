@@ -18,7 +18,7 @@ export default function ExerciseList({ exercises, path }) {
          {exercises.map(({ exerciseName }, index) => (
             <Card key={`opener-forWarmUp-${index}`} className='warm-up-card'>
                <Title color='white' className='title-card-list'>
-                  {exerciseName}
+                  {index + 1} - {exerciseName}
                </Title>
                <Button
                   onClick={handleClick(index)}

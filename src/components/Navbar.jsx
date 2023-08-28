@@ -5,43 +5,62 @@ import { AiOutlineSetting } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import logo from '../public/images/HappyFit-logo.png'
 import Image from 'next/image'
+import ArticlesDataModal from './Modals/ArticlesDataModal'
+import { ADMIN_ROLE } from '../service/constants'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 import { Icon, Bold } from '@tremor/react'
 import { BiLogOutCircle } from 'react-icons/bi'
-import { useState } from 'react'
 import { MdGeneratingTokens } from 'react-icons/md'
+
+const roleSelector = (state) => {
+   const { role } = state.user
+   return role === ADMIN_ROLE
+}
+
+const links = [
+   {
+      name: 'Général',
+      icon: <CgMenuGridO />,
+      path: '/',
+   },
+   {
+      name: 'Programmes',
+      icon: <GiStrongMan />,
+      path: '/programs',
+   },
+   {
+      name: 'Bilan',
+      icon: <MdAutoGraph />,
+      path: '/bilan',
+   },
+   {
+      name: 'Boxe',
+      icon: <MdSportsMma />,
+      path: '/boxe',
+      button: true,
+   },
+   {
+      name: 'Paramètres',
+      icon: <AiOutlineSetting />,
+      path: '/settings',
+   },
+]
+
 export const Navbar = ({ children }) => {
    const router = useRouter()
-   const { asPath } = useRouter()
+   const { asPath } = router
+   const isAdmin = useSelector(roleSelector)
+   const [visible, setVisible] = useState(false)
    const [numberOfTokens, setNumberOfTokens] = useState(9999)
 
-   const links = [
-      {
-         name: 'Général',
-         icon: <CgMenuGridO />,
-         path: '/',
-      },
-      {
-         name: 'Programmes',
-         icon: <GiStrongMan />,
-         path: '/programs',
-      },
-      {
-         name: 'Bilan',
-         icon: <MdAutoGraph />,
-         path: '/bilan',
-      },
-      {
-         name: 'Boxe',
-         icon: <MdSportsMma />,
-         path: '/boxe',
-         button: true,
-      },
-      {
-         name: 'Paramètres',
-         icon: <AiOutlineSetting />,
-         path: '/settings',
-      },
-   ]
+   const closeModal = () => {
+      setVisible(false)
+   }
+
+   const showModal = () => {
+      setVisible(true)
+   }
 
    const handleLogout = () => {
       localStorage.removeItem('userTokens')
@@ -58,7 +77,7 @@ export const Navbar = ({ children }) => {
                {links.map((link, index) => {
                   return (
                      <div
-                        key={index}
+                        key={`link n°${index}: ${link.name}`}
                         className={
                            asPath === link.path || asPath.includes(link.path + '/')
                               ? 'icon-container icon-container-selected'
@@ -74,6 +93,7 @@ export const Navbar = ({ children }) => {
                      </div>
                   )
                })}
+               {isAdmin && <ArticlesDataModal {...{ visible, showModal, closeModal }} />}
             </div>
          </div>
          <div className='children'>{children}</div>

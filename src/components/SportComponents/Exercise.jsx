@@ -33,8 +33,6 @@ const Series = ({ series }) => {
 const Exercise = ({ exerciseName, instructions, muscleGroup, series }) => {
    const { push, asPath, query } = useRouter()
 
-   console.log(asPath.split('/').slice(0, 5).join('/'))
-
    const nextWarmUpPath =
       asPath.split('/').slice(0, 5).join('/') +
       `/${(parseInt(query?.sportSession) + 1).toString()}?length=${query.length}`
@@ -52,7 +50,7 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series }) => {
                   icon={AiOutlineArrowRight}
                   onClick={() => push(nextWarmUpPath)}
                >
-                  Passer à l'échauffement suivant
+                  Passer à l'exercice suivant
                </Button>
             )}
             <Bold className='mt-10'>Astuces : </Bold>
@@ -66,8 +64,12 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series }) => {
                height={250}
                alt="GIF de l'exercice"
             />
-            <Bold className='mt-10 mb-4'>Séries :</Bold>
-            <Series series={series} />
+            {series && (
+               <>
+                  <Bold className='mt-10 mb-4'>Séries :</Bold>
+                  <Series series={series} />
+               </>
+            )}
          </div>
       </div>
    )

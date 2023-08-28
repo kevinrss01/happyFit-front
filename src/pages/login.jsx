@@ -1,6 +1,7 @@
 import LoginForm from '../components/login/LoginForm'
 import TopBarLogo from '../components/TopBarLogo'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 function Login() {
    const [randomDivNumber, setRandomDivNumber] = useState(() => Math.floor(Math.random() * 3) + 1)

@@ -24,6 +24,14 @@ class UserAPI {
    static async updatePassword(newPassword, userId) {
       return Axios.patch(formatSuffix(`updateUserPassword/${userId}`), { newPassword: newPassword })
    }
+
+   static async createArticleData(formData) {
+      return Axios.post(formatSuffix(`createArticle`), formData)
+   }
+
+   static async getAllArticles() {
+      return Axios.get(formatSuffix('getAllArticles'))
+   }
 }
 
 export default UserAPI
