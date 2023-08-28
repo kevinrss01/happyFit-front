@@ -4,8 +4,8 @@ import WarmUp from '../../../../../../components/SportComponents/WarmUp'
 import useSportSession from '../../../../../../service/hooks/useSportSession'
 
 const componentSelector = {
-   exercice: Exercise,
-   échauffement: WarmUp,
+   exercise: Exercise,
+   warmup: WarmUp,
 }
 
 export default function sportSessionPage({ program, day, sportType, sportSession }) {

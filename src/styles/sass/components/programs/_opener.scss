@@ -10,85 +10,6 @@
    width: 100%;
    height: 65%;
 
-   $color-purple: #8B5CF6;
-   $color-pink: #EC4899;
-   $color-gray: #9CA3AF;
-   $color-black: #1F2937;
-   $card-size: 450px;
-
-
-
-   .carousel{
-      position: relative;
-      width: $card-size;
-      height: $card-size;
-      perspective: 500px;
-      transform-style: preserve-3d;
-
-      .nav {
-         color: white;
-         font-size: 5rem;
-         position: absolute;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         top: 50%;
-         z-index: 2;
-         cursor: pointer;
-         user-select: none;
-         background: unset;
-         border: unset;
-
-         &.left {
-            transform: translateX(-100%) translatey(-50%);
-         }
-
-         &.right {
-            right: 0;
-            transform: translateX(100%) translatey(-50%);
-         }
-      }
-
-      button{
-
-         .arrow{
-            color: white;
-            font-size: 60px;
-
-            &:hover{
-               font-size: 63px;
-            }
-         }
-      }
-
-
-   }
-
-   .card-container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transform:
-              rotateY(calc(var(--offset) * 50deg))
-              scaleY(calc(1 + var(--abs-offset) * -0.4))
-              translateZ(calc(var(--abs-offset) * -30rem))
-              translateX(calc(var(--direction) * -5rem));
-      filter: blur(calc(var(--abs-offset) * 1rem));
-      transition: all 0.3s ease-out;
-   }
-
-   //.card {
-   //   width: 100%;
-   //   height: 100%;
-   //   padding: 2rem;
-   //   background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%));
-   //   border-radius: 1rem;
-   //   color: $color-gray;
-   //   text-align: justify;
-   //   transition: all 0.3s ease-out;
-   //}
-
-
    .card {
       display: flex;
       justify-content: space-between;
@@ -117,31 +38,72 @@
       }
    }
 
-   //MAN
+   //!MAN!//
+   //LEGS
    .man-legs {
       background-image: url('../../../../public/images/programs/man/legs.jpg');
    }
-   .man-cardio {
-      background-image: url('../../../../public/images/programs/man/cardio-man.jpg');
+
+   //CARDIO
+   .man-cardio1 {
+      background-image: url('../../../../public/images/programs/man/cardio1-man.jpg');
    }
-   .man-high-body {
-      background-image: url('../../../../public/images/programs/man/high-body-man.jpg');
-   }
-   .man-full-body {
-      background-image: url('../../../../public/images/programs/man/fullbody-man.jpg');
+   .man-cardio2 {
+      background-image: url('../../../../public/images/programs/man/cardio2-man.jpg');
    }
 
-   //WOMAN
+   //UPPER BODY
+   .man-high-body1 {
+      background-image: url('../../../../public/images/programs/man/high-body1-man.jpg');
+   }
+   .man-high-body2 {
+      background-image: url('../../../../public/images/programs/man/high-body2-man.jpg');
+   }
+
+   //FULLBODY
+   .man-full-body1 {
+      background-image: url('../../../../public/images/programs/man/fullbody1-man.jpg');
+   }
+   .man-full-body2 {
+      background-image: url('../../../../public/images/programs/man/fullbody2-man.jpg');
+   }
+   .man-full-body3 {
+      background-image: url('../../../../public/images/programs/man/fullbody3-man.jpg');
+   }
+
+   //!WOMAN!//
+   //LEGS
    .woman-legs {
       background-image: url('../../../../public/images/programs/woman/legs-woman.jpg');
    }
-   .woman-cardio {
-      background-image: url('../../../../public/images/programs/woman/cardio-woman.jpg');
+
+   //CARDIO
+   .woman-cardio1 {
+      background-image: url('../../../../public/images/programs/woman/cardio1-woman.jpg');
    }
-   .woman-high-body {
-      background-image: url('../../../../public/images/programs/woman/high-body-woman.jpg');
+   .woman-cardio2 {
+      background-image: url('../../../../public/images/programs/woman/cardio2-woman.jpg');
    }
-   .woman-full-body {
-      background-image: url('../../../../public/images/programs/woman/fullbody-woman.jpg');
+
+   // UPPER BODY
+   .woman-high-body1 {
+      background-image: url('../../../../public/images/programs/woman/high-body1-woman.jpg');
+   }
+   //(Same as 1)
+   .woman-high-body2 {
+      background-image: url('../../../../public/images/programs/woman/high-body1-woman.jpg');
+   }
+
+   // FULLBODY
+   .woman-full-body1 {
+      background-image: url('../../../../public/images/programs/woman/fullbody1-woman.jpg');
+   }
+   //(Same as 1)
+   .woman-full-body2 {
+      background-image: url('../../../../public/images/programs/woman/fullbody1-woman.jpg');
+   }
+   //(Same as 1)
+   .woman-full-body3 {
+      background-image: url('../../../../public/images/programs/woman/fullbody1-woman.jpg');
    }
 }

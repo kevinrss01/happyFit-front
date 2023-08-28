@@ -2,14 +2,26 @@ import React, { useState } from 'react'
 import { TiChevronLeftOutline, TiChevronRightOutline } from 'react-icons/ti'
 const MAX_VISIBILITY = 3
 
-const Carousel = ({ children }) => {
+const Carousel = ({ children, arrowTopPosition, carouselWidth, carouselHeight }) => {
    const [active, setActive] = useState(0)
    const count = React.Children.count(children)
 
    return (
-      <div className='carousel'>
+      <div
+         className='carousel'
+         style={{
+            width: `${carouselWidth}px`,
+            height: `${carouselHeight}px`,
+         }}
+      >
          {active > 0 && (
-            <button className='nav left' onClick={() => setActive((i) => i - 1)}>
+            <button
+               className='nav left'
+               style={{
+                  top: arrowTopPosition,
+               }}
+               onClick={() => setActive((i) => i - 1)}
+            >
                <TiChevronLeftOutline className='arrow' />
             </button>
          )}
@@ -30,7 +42,13 @@ const Carousel = ({ children }) => {
             </div>
          ))}
          {active < count - 1 && (
-            <button className='nav right' onClick={() => setActive((i) => i + 1)}>
+            <button
+               className='nav right'
+               style={{
+                  top: arrowTopPosition,
+               }}
+               onClick={() => setActive((i) => i + 1)}
+            >
                <TiChevronRightOutline className='arrow' />
             </button>
          )}

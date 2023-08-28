@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import ArrowButton from './Icons/ArrowButton'
+import { Title } from '@tremor/react'
 
 const getWeekString = (index, creationDate) => {
    const start = formatJSONDate(creationDate)
@@ -26,10 +27,16 @@ export default function ProgramNavigator({ index, limit, creationDate, goForward
       <div className='top-bar-navigation-container'>
          <div className='top-bar-navigation'>
             <ArrowButton direction='left' onClick={validateCallback(index > 1, goBackward)} />
-            <span>
+            <Title
+               color='white'
+               className='title-date'
+               style={{
+                  fontSize: '25px',
+               }}
+            >
                {/* Semaine {index} du {creationDate.replaceAll(/-/g, "/")} */}
                {getWeekString(index, creationDate)}
-            </span>
+            </Title>
             <ArrowButton direction='right' onClick={validateCallback(index < limit, goForward)} />
          </div>
       </div>

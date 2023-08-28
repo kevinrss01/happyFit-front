@@ -60,7 +60,7 @@ export const Navbar = ({ children }) => {
                      <div
                         key={index}
                         className={
-                           asPath === link.path
+                           asPath === link.path || asPath.includes(link.path + '/')
                               ? 'icon-container icon-container-selected'
                               : 'icon-container'
                         }

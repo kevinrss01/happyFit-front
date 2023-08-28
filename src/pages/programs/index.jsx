@@ -5,7 +5,6 @@ import ProgramNavigator from '../../components/ProgramNavigator'
 import Link from 'next/link'
 import { Button } from '@tremor/react'
 import { BiSolidHot } from 'react-icons/bi'
-import 'react-multi-carousel/lib/styles.css'
 import { MdSportsScore } from 'react-icons/md'
 import Carousel from '../../components/Containers/Carousel'
 
@@ -44,19 +43,20 @@ export default function ProgrammesPage() {
             creationDate={creationDate}
          />
 
-         <Carousel>
+         <Carousel arrowTopPosition='50%' carouselHeight={450} carouselWidth={450}>
             {sportPrograms.map((val) => (
                <Opener
                   message={`Jour ${val.dayNumber} : ${val.trainingType}`}
                   key={`day-${val.dayNumber}-program-${programId}`}
                   sexe={userSexe}
+                  programsURL={`/programs/${programId}/${val.dayNumber}/exercise`}
                >
-                  <Link href={`/programs/${programId}/${val.dayNumber}/échauffement`}>
+                  <Link href={`/programs/${programId}/${val.dayNumber}/warmup`}>
                      <Button className='' icon={BiSolidHot}>
                         Échauffements
                      </Button>
                   </Link>
-                  <Link href={`/programs/${programId}/${val.dayNumber}/exercice`}>
+                  <Link href={`/programs/${programId}/${val.dayNumber}/exercise`}>
                      <Button className='' icon={MdSportsScore}>
                         Exercices
                      </Button>

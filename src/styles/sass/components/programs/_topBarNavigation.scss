@@ -1,0 +1,38 @@
+.top-bar-navigation-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+   margin-bottom: 20px;
+   width: 100%;
+   padding-top: 20px;
+
+   .top-bar-navigation {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      i {
+         font-size: 25px;
+         color: white;
+
+         &:hover {
+            color: $bleu;
+         }
+      }
+
+      span {
+         font-size: 20px;
+      }
+   }
+}
+
+.fa {
+   font-size: 25px !important;
+   margin-right: 10px;
+
+   &:hover {
+      color: $bleu !important;
+   }
+}
