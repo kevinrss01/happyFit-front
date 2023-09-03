@@ -110,7 +110,7 @@ export const userLogin = (loginData) => async (dispatch) => {
    }
 }
 
-export const userRegister = (registerData, setProgress) => async (dispatch) => {
+export const userRegister = (registerData, setProgress, webSocketServer) => async (dispatch) => {
    dispatch(registerRequest())
    try {
       await AuthAPI.register(registerData)
@@ -122,6 +122,8 @@ export const userRegister = (registerData, setProgress) => async (dispatch) => {
       dispatch(registerError(err))
       toastMessage("Une erreur est survenue lors de l'inscription", 'error')
       return Promise.reject()
+   } finally {
+      webSocketServer.close()
    }
 }
 

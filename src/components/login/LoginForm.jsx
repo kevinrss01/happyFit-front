@@ -134,22 +134,24 @@ function LoginForm({ windowWith }) {
                <div className='no-account'>
                   <span style={{ fontFamily: 'Rubik' }}>Pas encore inscrit ? </span>
                   <Link href='/registration'>
-                     <a
+                     <p
                         style={{
                            fontFamily: 'Rubik',
                            color: '#3e8bd0',
                            textDecoration: 'underline',
+                            cursor: 'pointer',
+
                         }}
                      >
                         Je m&lsquo;inscris
-                     </a>
+                     </p>
                   </Link>
                </div>
                <div className='login-issue'>
                   <span style={{ marginBottom: 5, fontFamily: 'Rubik' }}>
                      Problème de connexion ?
                   </span>
-                  <a
+                  <p
                      style={{
                         fontFamily: 'Rubik',
                         color: '#3e8bd0',
@@ -159,7 +161,7 @@ function LoginForm({ windowWith }) {
                      onClick={() => setIsModalOpen(true)}
                   >
                      Demander de l'aide
-                  </a>
+                  </p>
                </div>
             </div>
          </form>
