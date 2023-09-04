@@ -120,6 +120,9 @@ export const userRegister = (registerData, setProgress, webSocketServer) => asyn
       return Promise.resolve(result)
    } catch (err) {
       dispatch(registerError(err))
+      if (process.env.NEXT_PUBLIC_BUILD_METHODE === 'development') {
+         console.error(err)
+      }
       toastMessage("Une erreur est survenue lors de l'inscription", 'error')
       return Promise.reject()
    } finally {
