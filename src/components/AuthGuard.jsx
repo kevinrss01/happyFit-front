@@ -30,8 +30,9 @@ export default function AuthGuard({ children }) {
          }
       } catch (error) {
          console.error(error)
-         //localStorage.clear()
-         push('/login')
+         localStorage.clear('token')
+         localStorage.clear('userTokens')
+         push('login')
       }
    }, [])
 
