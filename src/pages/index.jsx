@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react'
 import UserAPI from '../service/UserAPI'
 import toastMessage from '../utils/toast'
 import GeneralLoader from '../components/loaders/GeneralLoader'
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@tremor/react'
+import { GrArticle } from 'react-icons/gr'
+import { ImStatsDots } from 'react-icons/im'
 
 export default function Home() {
    const [articles, setArticles] = useState([])
@@ -28,9 +31,26 @@ export default function Home() {
          </Title>
          {!isLoading && articles.length > 0 ? (
             <>
-               {articles.map((article, index) => {
-                  return <ArticleCard key={index} data={article} />
-               })}
+               <TabGroup className='tab-group'>
+                  <TabList className='mt-8 tab-list' variant='solid'>
+                     <Tab icon={GrArticle}>Articles</Tab>
+                     <Tab icon={ImStatsDots}>Statistiques</Tab>
+                  </TabList>
+                  <TabPanels>
+                     <TabPanel>
+                        <div className='article-tab-container'>
+                           {articles.map((article, index) => {
+                              return <ArticleCard key={index} data={article} />
+                           })}
+                        </div>
+                     </TabPanel>
+                     <TabPanel>
+                        <div className='stats-tab-container'>
+                           <h2 className='text-white'>Page des statistiques</h2>
+                        </div>
+                     </TabPanel>
+                  </TabPanels>
+               </TabGroup>
             </>
          ) : (
             <>

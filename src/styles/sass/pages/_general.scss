@@ -1,55 +1,72 @@
-.general-main-container{
-  @include flex-col;
+.general-main-container {
+   @include flex-col;
 
-  .title-container{
-    font-size: 35px;
-  }
+   .title-container {
+      font-size: 35px;
+   }
 
-  .card-container{
-    @include flex-col;
-    width: 80%;
-    height: auto;
-    margin-top: 30px;
-    background-image: $gradient-background-left;
+   .tab-group {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
 
-    .title{
-      font-size: 30px;
-      text-align: center;
-      color: white;
-      margin-bottom: 20px;
-    }
-
-    .date-container, .subject-container{
-      width: 100%;
-    }
-
-    .date-container{
-      margin-top: 10px;
-    }
-
-    .subject-container{
-      margin-bottom: 20px;
-    }
-    .body-card{
-      h1{
-        text-align: center;
-        color: white;
-        margin-bottom: 30px;
-        font-size: 22px;
+      .tab-list {
+         //
       }
 
-      h2{
-        color: white;
-        margin: 15px 0;
-        font-size: 18px;
-        width: 100%;
-        text-decoration: underline;
+      .article-tab-container,
+      .stats-tab-container {
+         width: 100%;
+         @include flex-centre;
+      }
+   }
+
+   .card-container {
+      @include flex-col;
+      width: 80%;
+      height: auto;
+      margin-top: 30px;
+      background-image: $gradient-background-left;
+
+      .title {
+         font-size: 30px;
+         text-align: center;
+         color: white;
+         margin-bottom: 20px;
       }
 
-      p{
-        color: white;
-        margin: 5px 0;
+      .date-container,
+      .subject-container {
+         width: 100%;
       }
-    }
-  }
+
+      .date-container {
+         margin-top: 10px;
+      }
+
+      .subject-container {
+         margin-bottom: 20px;
+      }
+      .body-card {
+         h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 22px;
+         }
+
+         h2 {
+            color: white;
+            margin: 15px 0;
+            font-size: 18px;
+            width: 100%;
+            text-decoration: underline;
+         }
+
+         p {
+            color: white;
+            margin: 5px 0;
+         }
+      }
+   }
 }

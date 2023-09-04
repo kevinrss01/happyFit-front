@@ -149,7 +149,7 @@ export const getUserInfo = (userId) => async (dispatch) => {
       dispatch(getProgramSuccess(res.data))
    } catch (err) {
       dispatch(getUserInfoError(err))
-      throw new Error(err)
+      console.error(err)
    }
 }
 
