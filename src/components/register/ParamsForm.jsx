@@ -82,7 +82,7 @@ export default function ParamsForm({ validate, goBack }) {
    }, [])
 
    const handleChange = useCallback((event) => {
-      const { id = 'referenceS', value, type } = event.target
+      const { id, value, type } = event.target
 
       setFormValue((prevForm) => ({
          ...prevForm,

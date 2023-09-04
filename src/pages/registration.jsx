@@ -169,19 +169,14 @@ export default function Registration() {
             <>
                {metrics ? (
                   !params ? (
-                     <>
-                        {' '}
-                        <PartieParams />
-                     </>
+                     <PartieParams />
                   ) : (
                      <>
                         {isLoading ? (
-                           <>
-                              <RegisterLoader
-                                 stepDone={stepDoneInProgramCreation}
-                                 numberOfTraining={data?.numberOfSessionPerWeek}
-                              />
-                           </>
+                           <RegisterLoader
+                              stepDone={stepDoneInProgramCreation}
+                              numberOfTraining={data?.numberOfSessionPerWeek}
+                           />
                         ) : (
                            <>
                               {error && (
