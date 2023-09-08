@@ -9,6 +9,7 @@ import { Button, ProgressBar } from '@tremor/react'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { ErrorCallout } from '../components/errors/ErrorCallout'
 import { RegisterLoader } from '../components/loaders/RegisterLoader'
+import io from 'socket.io-client'
 import { userRegister } from '../redux/actions/userActions'
 
 const defaultValidations = {
@@ -31,12 +32,19 @@ const defaultData = {
    trainingPlace: '',
    numberOfSessionPerWeek: 0,
    availableTimePerSessionInMinutes: '',
+   city: '',
+   referenceSource: '',
+   deviceRegistration: '',
+   registrationDate: '',
+   isUserSubscribed: false,
 }
 
 const userSelector = (state) => {
    const { isFetching: isLoading, error } = state.user
    return { isLoading, error }
 }
+
+let socketServer = ''
 
 export default function Registration() {
    const [validations, setValidations] = useState(defaultValidations)
@@ -46,6 +54,7 @@ export default function Registration() {
    const { isLoading, error } = useSelector(userSelector)
    const { personal, metrics, params } = useMemo(() => validations, [validations])
    const [progress, setProgress] = useState(0)
+   const [stepDoneInProgramCreation, setStepDoneInProgramCreation] = useState([])
 
    const updateData = (validatedStep, updatingData) => {
       const allValuesAreCorrect = Object.values(updatingData).every((value) => value || value === 0)
@@ -57,9 +66,14 @@ export default function Registration() {
 
    const handleUpdateOnValidatedStep = (validatedStep, updatingData) => {
       if (validatedStep === 'params') {
+         socketServer = io.connect('http://localhost:4000')
+
          const registerData = { ...data, ...updatingData }
          const { confirmPassword, ...rest } = registerData
-         dispatch(userRegister(rest, setProgress)).then(afterRegisterCallback)
+
+         console.log(registerData)
+
+         dispatch(userRegister(rest, setProgress, socketServer)).then(afterRegisterCallback)
       } else {
          setData((prevData) => ({
             ...prevData,
@@ -118,6 +132,35 @@ export default function Registration() {
    const PartieMetrics = () => <Questions validate={updateData} goBack={goBackToPersonalStep} />
    const PartieParams = () => <ParamsForm goBack={goBackToMetricsStep} validate={updateData} />
 
+   // const sendMessages = () => {
+   //    socketServer.emit('newMessage', 'Hello from client')
+   // }
+
+   useEffect(() => {
+      if (socketServer) {
+         const numberOfProgramStructure = 1
+         const barProgressionLeft = 34
+
+         const numberOfSessionPerWeek = parseInt(data?.numberOfSessionPerWeek)
+         if (isNaN(numberOfSessionPerWeek)) {
+            console.error('numberOfSessionPerWeek is not a number')
+         }
+
+         const numberOfWarmup = numberOfSessionPerWeek
+         const totalSteps = numberOfProgramStructure + numberOfSessionPerWeek + numberOfWarmup
+         const progressionByStep =
+            totalSteps === 0 ? console.error('total steps = 0') : barProgressionLeft / totalSteps
+
+         socketServer.on(`receive_message_${data?.email}`, (message) => {
+            setStepDoneInProgramCreation((prevStepDoneInProgramCreation) => [
+               ...prevStepDoneInProgramCreation,
+               message,
+            ])
+            setProgress((prevProgress) => prevProgress + progressionByStep)
+         })
+      }
+   }, [socketServer])
+
    return (
       <div style={{ color: 'white' }} className='register-container'>
          <TopBarLogo />
@@ -130,7 +173,10 @@ export default function Registration() {
                   ) : (
                      <>
                         {isLoading ? (
-                           <RegisterLoader />
+                           <RegisterLoader
+                              stepDone={stepDoneInProgramCreation}
+                              numberOfTraining={data?.numberOfSessionPerWeek}
+                           />
                         ) : (
                            <>
                               {error && (

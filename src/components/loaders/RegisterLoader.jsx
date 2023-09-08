@@ -1,10 +1,14 @@
 import { Bold, Title } from '@tremor/react'
 import { useState, useEffect } from 'react'
 import { sentencesForLoading } from '../../data/sentencesForLoading'
-import Lottie from 'lottie-react'
-import animationData from '../../public/animations/girl-running-on-treadmill.json'
+import { RotatingLines } from 'react-loader-spinner'
+import TextStepProgram from '../register/TextStepProgram'
 
-export const RegisterLoader = () => {
+export const RotatingLoader = () => {
+   return <RotatingLines strokeColor='#3e8bd0' width='25' />
+}
+
+export const RegisterLoader = ({ stepDone, numberOfTraining }) => {
    const [sentenceToDisplay, setSentenceToDisplay] = useState('')
    const [indexSentence, setIndexSentence] = useState(0)
 
@@ -41,7 +45,33 @@ export const RegisterLoader = () => {
             (Merci de ne pas fermer la page)
          </Title>
 
-         <Lottie animationData={animationData} />
+         <div className='all-steps-container'>
+            <TextStepProgram
+               text='Création de la structure du programme'
+               isLoading={stepDone.length === 0}
+               isDisplay={true}
+            />
+
+            {stepDone.includes('program structure done') &&
+               [...Array(numberOfTraining)].map((_, index) => (
+                  <TextStepProgram
+                     key={`text-step-program-${index}`}
+                     text={`Création de la séance d'échauffement du jour N°${index + 1}`}
+                     isLoading={stepDone.length === 1 + index}
+                     isDisplay={stepDone.length >= 1 + index}
+                  />
+               ))}
+
+            {stepDone.length >= 1 + numberOfTraining &&
+               [...Array(numberOfTraining)].map((_, index) => (
+                  <TextStepProgram
+                     key={`text-step-program-${index}`}
+                     text={`Création du programme d'entraînement N°${index + 1}`}
+                     isLoading={stepDone.length === 1 + (numberOfTraining + index)}
+                     isDisplay={stepDone.length >= 1 + (numberOfTraining + index)}
+                  />
+               ))}
+         </div>
 
          <Title className='sentence-to-wait' color='white'>
             {sentenceToDisplay && (

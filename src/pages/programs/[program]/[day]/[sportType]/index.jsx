@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import { useMemo } from 'react'
-import { useSelector } from 'react-redux'
 import WarmUpList from '../../../../../components/SportComponents/WarmUpList'
 import ExerciseList from '../../../../../components/SportComponents/ExerciseList'
 import ArrowButton from '../../../../../components/Icons/ArrowButton'
