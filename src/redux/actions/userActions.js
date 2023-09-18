@@ -114,7 +114,6 @@ export const userRegister = (registerData, setProgress, webSocketServer) => asyn
    dispatch(registerRequest())
    try {
       await AuthAPI.register(registerData)
-      setProgress(95)
       const result = await proceedToLogin(dispatch, registerData)
       toastMessage('Votre programme à bien été créé !', 'success')
       return Promise.resolve(result)
@@ -123,6 +122,7 @@ export const userRegister = (registerData, setProgress, webSocketServer) => asyn
       if (process.env.NEXT_PUBLIC_BUILD_METHODE === 'development') {
          console.error(err)
       }
+      setProgress(66)
       toastMessage("Une erreur est survenue lors de l'inscription", 'error')
       return Promise.reject()
    } finally {

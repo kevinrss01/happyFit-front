@@ -29,7 +29,7 @@ const Series = ({ series }) => {
    )
 }
 
-const Exercise = ({ exerciseName, instructions, muscleGroup, series }) => {
+const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }) => {
    const { push, asPath, query } = useRouter()
 
    const basePath = asPath.split('/').slice(0, 5).join('/')
@@ -52,10 +52,13 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series }) => {
                   Passer à l'exercice suivant
                </Button>
             )}
-            <Bold className='mt-10'>Astuces : </Bold>
+            <Bold className='mt-10'>Instructions : </Bold>
             <p className='instructions'>
                {instructions} <br />
             </p>
+
+            {totalTime && <p>Temps total : {totalTime} minutes</p>}
+
             <Bold className='mt-10'>Démonstration : (image test)</Bold>
             <Image
                src='https://api.exercisedb.io/image/MWrgkcrpK2XxJv'

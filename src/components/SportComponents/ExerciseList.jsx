@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import FlexContainer from '../Containers/FlexContainer'
 import { useCallback } from 'react'
-import { sportTypeButtonsClass } from '../../service/StringClasses'
 import { Card, Button, Title } from '@tremor/react'
 import { BiDetail } from 'react-icons/bi'
 
@@ -12,6 +11,8 @@ export default function ExerciseList({ exercises, path }) {
    })
 
    if (!Array.isArray(exercises)) return <></>
+
+   console.log(exercises)
 
    return (
       <FlexContainer flexDirection='column'>

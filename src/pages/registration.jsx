@@ -71,8 +71,6 @@ export default function Registration() {
          const registerData = { ...data, ...updatingData }
          const { confirmPassword, ...rest } = registerData
 
-         console.log(registerData)
-
          dispatch(userRegister(rest, setProgress, socketServer)).then(afterRegisterCallback)
       } else {
          setData((prevData) => ({
@@ -190,7 +188,11 @@ export default function Registration() {
                                     />
 
                                     <Button
-                                       onClick={() => modifyValidationState('params', false)}
+                                       onClick={() => {
+                                          setStepDoneInProgramCreation([])
+                                          setProgress(66)
+                                          modifyValidationState('params', false)
+                                       }}
                                        icon={AiOutlineRollback}
                                     >
                                        Retour
