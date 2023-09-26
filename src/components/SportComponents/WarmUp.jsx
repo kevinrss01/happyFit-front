@@ -70,7 +70,7 @@ export default function WarmUp({
 
             <Bold className='mt-10'>Démonstration : (image test)</Bold>
             <Image
-               src='https://api.exercisedb.io/image/MWrgkcrpK2XxJv'
+               src='https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/ZFTZfpWIemY7ee.gif?alt=media&token=6b2894c6-eb66-4b96-8b9e-72fa74681b77'
                width={250}
                height={250}
                alt="GIF de l'exercice"

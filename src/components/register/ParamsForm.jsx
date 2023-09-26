@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { IoArrowBackCircleOutline } from 'react-icons/io5'
+import { IoArrowBackCircleOutline, IoLogoTiktok } from 'react-icons/io5'
 import { FaWeightHanging, FaBirthdayCake, FaCity } from 'react-icons/fa'
-import { GiBodyHeight, GiUnfriendlyFire } from 'react-icons/gi'
+import { GiBodyHeight } from 'react-icons/gi'
 import { FcFlashOn } from 'react-icons/fc'
 import { Bold, Button, TextInput, Title } from '@tremor/react'
 import toastMessage from '../../utils/toast'
@@ -30,6 +30,7 @@ const typeOfReferenceSource = [
    { text: 'Discord', value: 'discord', icon: GiBrain },
    { text: 'App Store', value: 'app-store', icon: GrAppleAppStore },
    { text: 'Google Play', value: 'google-play', icon: GrGooglePlay },
+   { text: 'TikTok', value: 'tiktok', icon: IoLogoTiktok },
    { text: 'Autres', value: 'other', icon: BiWorld },
 ]
 
@@ -41,14 +42,6 @@ function removePureYears(years) {
 }
 
 const minimumBirthDayToBeMajor = Reflect.apply(removePureYears, new Date(), [16])
-
-const setDeviceRegistration = (windowWidth) => {
-   if (windowWidth < 640) {
-      return 'webMobile'
-   } else {
-      return 'webLargeScreen'
-   }
-}
 
 const defaultData = {
    heightInCentimeters: undefined,
@@ -64,9 +57,24 @@ const defaultData = {
    deviceRegistration: '',
 }
 
+const setDeviceRegistration = (windowWidth) => {
+   if (windowWidth < 640) {
+      return 'webMobile'
+   } else {
+      return 'webLargeScreen'
+   }
+}
+
 export default function ParamsForm({ validate, goBack }) {
    const [formValue, setFormValue] = useState(defaultData)
-   const { heightInCentimeters, weightInKilos, birthday, city, referenceSource } = formValue
+   const {
+      heightInCentimeters,
+      weightInKilos,
+      birthday,
+      city,
+      referenceSource,
+      deviceRegistration,
+   } = formValue
    const calendarRef = useRef()
    const [invalidInput, setInvalidInput] = useState(false)
    const [invalidAge, setInvalidAge] = useState(false)
@@ -79,6 +87,11 @@ export default function ParamsForm({ validate, goBack }) {
       if (sessionStorage.getItem('metrics')) {
          setFormValue(JSON.parse(sessionStorage.getItem('metrics')))
       }
+
+      setFormValue((prevForm) => ({
+         ...prevForm,
+         deviceRegistration: setDeviceRegistration(window.innerWidth),
+      }))
    }, [])
 
    const handleChange = useCallback((event) => {
@@ -95,13 +108,6 @@ export default function ParamsForm({ validate, goBack }) {
          event.preventDefault()
          setInvalidAge(false)
 
-         sessionStorage.setItem('metrics', JSON.stringify(formValue))
-
-         setFormValue((prevForm) => ({
-            ...prevForm,
-            deviceRegistration: setDeviceRegistration(window.innerWidth),
-         }))
-
          const date = new Date(birthday)
          if (date.getTime() > minimumBirthDayToBeMajor.getTime()) {
             event.nativeEvent.returnValue = false
@@ -109,13 +115,17 @@ export default function ParamsForm({ validate, goBack }) {
             toastMessage('Vous devez avoir au moins 16 ans pour vous inscrire', 'error')
             return
          }
+
+         console.log(formValue)
+
          if (Object.keys(formValue).every((key) => !!formValue[key])) {
+            sessionStorage.setItem('metrics', JSON.stringify(formValue))
             validate('params', formValue)
          } else {
             setInvalidInput(true)
          }
       },
-      [formValue],
+      [formValue, deviceRegistration],
    )
 
    return (
@@ -178,6 +188,13 @@ export default function ParamsForm({ validate, goBack }) {
                error={invalidInput && !city}
                value={formValue.city}
             />
+
+            <Title
+               color='white'
+               className='text-2xl flex w-full justify-center items-center text-center'
+            >
+               Où avez-vous entendu parler de nous ?
+            </Title>
 
             <Select
                placeholder='Où avez-vous entendu parler de nous ?'

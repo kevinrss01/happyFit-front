@@ -37,6 +37,10 @@ const defaultData = {
    deviceRegistration: '',
    registrationDate: '',
    isUserSubscribed: false,
+   exoPerformances: {
+      benchPress: 0,
+      squat: 0,
+   },
 }
 
 const userSelector = (state) => {

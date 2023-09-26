@@ -1,34 +1,9 @@
 import React, { useState, useCallback } from 'react'
 import { IoArrowBackCircleOutline } from 'react-icons/io5'
-
-import {
-   TbSquareRoundedNumber1Filled,
-   TbSquareRoundedNumber2Filled,
-   TbSquareRoundedNumber3Filled,
-   TbSquareRoundedNumber4Filled,
-   TbSquareRoundedNumber5Filled,
-   TbSquareRoundedNumber6Filled,
-   TbSquareRoundedNumber7Filled,
-} from 'react-icons/tb'
-import { GiMeditation, GiBodyBalance, GiWeight, GiMuscleFat, GiGymBag } from 'react-icons/gi'
-import { IoHome } from 'react-icons/io5'
-import { BiRun, BiTimer } from 'react-icons/bi'
-import { MdEmojiPeople } from 'react-icons/md'
-import { ImListNumbered } from 'react-icons/im'
-import { Button, Select, SelectItem, Title } from '@tremor/react'
+import { Button, Title } from '@tremor/react'
 import toastMessage from '../../utils/toast'
-
-const icons = {
-   beginner: MdEmojiPeople,
-   intermediate: GiBodyBalance,
-   advanced: GiMeditation,
-   loseWeight: GiWeight,
-   gainMuscle: GiMuscleFat,
-   fitness: BiRun,
-   time: BiTimer,
-   home: IoHome,
-   gym: GiGymBag,
-}
+import { SecondSection } from './questions/SecondSection'
+import { FirstSection } from './questions/FirstSection'
 
 const defaultQuestions = {
    'sportExperienceInYears': [
@@ -87,12 +62,10 @@ const defaultQuestions = {
 
 const questionsAndFields = {
    sportExperienceInYears: 'Quel est votre niveau actuel ?',
-   fitnessGoal: 'Quels est votre objectifs ?',
+   fitnessGoal: 'Quel est votre objectif ?',
    trainingPlace: 'Où est-ce que vous souhaitez vous entrainer ?',
    availableTimePerSessionInMinutes: 'Combien de temps souhaitez-vous vous entrainer par jour ?',
 }
-
-const generateKey = (key) => `${key}_${new Date().getTime()}`
 
 function Questions({ validate, goBack }) {
    const questionsSaved = sessionStorage.getItem('questionsSaved')
@@ -100,21 +73,11 @@ function Questions({ validate, goBack }) {
       questionsSaved ? JSON.parse(questionsSaved) : defaultQuestions,
    )
    const [numberOfSessionPerWeek, setNumberOfSessionPerWeek] = useState('')
-
-   const handleClick = useCallback(
-      (question, textValue) => {
-         setQuestions((prevQuestions) => ({
-            ...prevQuestions,
-            [question]: prevQuestions[question].map(({ text, selected, value, icon }) => ({
-               text,
-               selected: !selected && text === textValue,
-               value,
-               icon,
-            })),
-         }))
-      },
-      [questions],
-   )
+   const [firstSectionFilled, setFirstSectionFilled] = useState(false)
+   const [userExoPerf, setUserExoPerf] = useState({
+      benchPress: 0,
+      squat: 0,
+   })
 
    const submit = useCallback(() => {
       if (
@@ -128,6 +91,13 @@ function Questions({ validate, goBack }) {
             }),
             {},
          )
+         sessionStorage.setItem(
+            'exoPerformances',
+            JSON.stringify({
+               ...userExoPerf,
+            }),
+         )
+
          if (!numberOfSessionPerWeek) {
             if (!sessionStorage.getItem('sessionsPerWeek')) {
                toastMessage(
@@ -137,6 +107,7 @@ function Questions({ validate, goBack }) {
             } else {
                validate('metrics', {
                   ...selectedAnswers,
+                  exoPerformances: userExoPerf,
                   numberOfSessionPerWeek: parseInt(sessionStorage.getItem('sessionsPerWeek')),
                })
             }
@@ -144,13 +115,14 @@ function Questions({ validate, goBack }) {
             sessionStorage.setItem('sessionsPerWeek', numberOfSessionPerWeek)
             validate('metrics', {
                ...selectedAnswers,
+               exoPerformances: userExoPerf,
                numberOfSessionPerWeek: parseInt(numberOfSessionPerWeek),
             })
          }
       } else {
          toastMessage('Veuillez répondre à toutes les questions', 'error')
       }
-   }, [questions, numberOfSessionPerWeek])
+   }, [questions, numberOfSessionPerWeek, userExoPerf])
 
    return (
       <div className='column-container components'>
@@ -159,80 +131,49 @@ function Questions({ validate, goBack }) {
             <span>Paramètres de séance</span>
          </Title>
 
-         {Object.keys(questionsAndFields).map((key) => {
-            return (
-               <div key={generateKey(key)} className='question-container'>
-                  <h2 style={{ textAlign: 'center' }}>{questionsAndFields[key]}</h2>
-                  <div className='container gap-10'>
-                     {questions[key].map(({ text, selected, icon }) => {
-                        return (
-                           <Button
-                              className='selection-button'
-                              key={generateKey(text)}
-                              onClick={() => handleClick(key, text)}
-                              variant={selected ? 'primary' : 'secondary'}
-                              disabled={selected && true}
-                              style={{ transform: selected && 'scale(1)' }}
-                              icon={icon ? icons[icon] : undefined}
-                           >
-                              {text}
-                           </Button>
-                        )
-                     })}
-                  </div>
-               </div>
-            )
-         })}
-         <div className='container-column' style={{ marginBottom: 10 }}>
-            <h2>Combien de séances pouvez-vous faire par semaine ?</h2>
-            <div className='container gap-10' style={{ marginTop: '20px' }}>
-               <Select
-                  id='select-sessions-per-week'
-                  defaultValue={
-                     sessionStorage.getItem('sessionsPerWeek')
-                        ? sessionStorage.getItem('sessionsPerWeek')
-                        : '1'
-                  }
-                  placeholder='Nombre de séances par semaine'
-                  icon={ImListNumbered}
-                  onValueChange={(value) => setNumberOfSessionPerWeek(value)}
+         {firstSectionFilled ? (
+            <SecondSection
+               setNumberOfSessionPerWeek={setNumberOfSessionPerWeek}
+               numberOfSessionPerWeek={numberOfSessionPerWeek}
+               setUserExoPerf={setUserExoPerf}
+               userExoPerf={userExoPerf}
+            />
+         ) : (
+            <FirstSection
+               questions={questions}
+               setQuestions={setQuestions}
+               questionsAndFields={questionsAndFields}
+               setFirstSectionFilled={setFirstSectionFilled}
+            />
+         )}
+
+         {firstSectionFilled && (
+            <div
+               style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  width: '100%',
+               }}
+            >
+               <Button
+                  className='questions-back-and-forward-button'
+                  onClick={() => setFirstSectionFilled(false)}
                >
-                  <SelectItem value='1' icon={TbSquareRoundedNumber1Filled}>
-                     1 séances
-                  </SelectItem>
-                  <SelectItem value='2' icon={TbSquareRoundedNumber2Filled}>
-                     2 séances
-                  </SelectItem>
-                  <SelectItem value='3' icon={TbSquareRoundedNumber3Filled}>
-                     3 séances
-                  </SelectItem>
-                  <SelectItem value='4' icon={TbSquareRoundedNumber4Filled}>
-                     4 séances
-                  </SelectItem>
-                  <SelectItem value='5' icon={TbSquareRoundedNumber5Filled}>
-                     5 séances
-                  </SelectItem>
-                  <SelectItem value='6' icon={TbSquareRoundedNumber6Filled}>
-                     6 séances
-                  </SelectItem>
-                  <SelectItem value='7' icon={TbSquareRoundedNumber7Filled}>
-                     7 séances
-                  </SelectItem>
-               </Select>
+                  Retour
+               </Button>
+               <Button
+                  onClick={submit}
+                  className='questions-back-and-forward-button'
+                  disabled={
+                     !Object.keys(questionsAndFields).every((key) =>
+                        questions[key].some((val) => val.selected),
+                     ) || numberOfSessionPerWeek === ''
+                  }
+               >
+                  Continuer
+               </Button>
             </div>
-         </div>
-         <Button
-            className='submit-button'
-            onClick={submit}
-            style={{ margin: '80px 0', height: '45px' }}
-            disabled={
-               !Object.keys(questionsAndFields).every((key) =>
-                  questions[key].some((val) => val.selected),
-               )
-            }
-         >
-            Continuer
-         </Button>
+         )}
       </div>
    )
 }
