@@ -36,7 +36,7 @@ const GoalContainer = ({ userData, onChangeInput, indexGoalTab }) => {
                   <Flex>
                      <Bold className='text-white text-center'>
                         Votre objectif est simplement de vous remettre en forme, d'être en meilleure
-                        santé, de vous sentir mieux dans votre corps et dans votre tête.
+                        santé, de vous sentir mieux physiquement et mentalement.
                      </Bold>
                      <Button
                         disabled={userData?.fitnessGoal === 'fitness'}
