@@ -1,7 +1,7 @@
 import { Title } from '@tremor/react'
 import ArticleCard from '../components/general/ArticleCard'
 import { useEffect, useState } from 'react'
-import UserAPI from '../service/UserAPI'
+import UserAPI from '../service/API/UserAPI'
 import toastMessage from '../utils/toast'
 import GeneralLoader from '../components/loaders/GeneralLoader'
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@tremor/react'

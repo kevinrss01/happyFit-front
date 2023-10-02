@@ -41,5 +41,14 @@
             padding-bottom: 40px;
          }
       }
+
+      .gif-and-muscles-img-container{
+         margin-top: 20px;
+         display: flex;
+
+         .gif-container, .muscles-img-container{
+            @include flex-col;
+         }
+      }
    }
 }

@@ -10,6 +10,16 @@ export const exercisesDataList = {
                "Démarrez debout, pieds à largeur de hanches, tournez légèrement les orteils vers l'extérieur. Inspirez, baissez-vous comme si vous vous asseyez sur une chaise, gardez le dos droit, les genoux suivant la direction des pieds. Descendez jusqu'à ce que vos cuisses soient parallèles au sol. Expirez et poussez sur vos talons pour remonter.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,gluteus',
+                  secondaryMuscleGroups: 'core,hamstring',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps,Fessiers',
+                  secondaryMuscleGroups: 'Sangle abdominale, Ischios-jambiers',
+               },
+            },
          },
          {
             name: 'Squat sumo',
@@ -20,6 +30,16 @@ export const exercisesDataList = {
                "Démarrez avec les pieds largement répartis, les orteils pointant légèrement vers l'extérieur. Tenez une haltère ou une kettlebell devant vous. Accroupissez-vous lentement, en gardant le dos droit et en poussant vos hanches vers l'arrière. Gardez votre poitrine ouverte. Descendez aussi bas que le confort vous le permet. Ensuite, levez-vous en pressant vos talons, revenez à la position debout.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'gluteus,quadriceps',
+                  secondaryMuscleGroups: 'adductors,hamstring',
+               },
+               french: {
+                  primaryMuscleGroups: 'Fessiers, Quadriceps',
+                  secondaryMuscleGroups: 'Adducteurs, Ischios-jambiers',
+               },
+            },
          },
          {
             name: 'Développé couché',
@@ -30,6 +50,16 @@ export const exercisesDataList = {
                "1. Allongez-vous sur le banc, les pieds au sol. 2. Saisissez la barre en pronation, mains plus larges que les épaules. 3. Descendez la barre au niveau de la poitrine sans la toucher. 4. Poussez la barre à la verticale jusqu'à tendre les bras sans verrouiller les coudes. 5. Gardez le dos plaqué au banc tout long de l'exercice et contrôlez les mouvements.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'triceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Triceps, Épaules',
+               },
+            },
          },
          {
             name: 'Soulevé de terre',
@@ -40,6 +70,16 @@ export const exercisesDataList = {
                "Commencez avec les pieds sous la barre, à la largeur des hanches. Gardez le dos droit, pliez les genoux et saisissez la barre. Tout en gardant les bras tendus, soulevez la barre en poussant le sol avec vos pieds et aller jusqu'à l'extension complète des hanches et des genoux. Revenez en position de départ en contrôlant le mouvement.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'hamstring,back,gluteus',
+                  secondaryMuscleGroups: 'quadriceps,core,forearms',
+               },
+               french: {
+                  primaryMuscleGroups: 'Ischios-jambiers, Dos, Fessiers',
+                  secondaryMuscleGroups: 'Quadriceps, Sangle abdominale, Avant-bras',
+               },
+            },
          },
          {
             name: 'Développé militaire',
@@ -50,6 +90,16 @@ export const exercisesDataList = {
                "Debout, saisir une barre avec une prise plus large que les épaules. Les pieds sont espacés de la largeur du bassin. Initier le mouvement en poussant la barre verticalement jusqu'à l'extension totale de vos bras. Pause, puis abaisser la barre au niveau du menton de manière contrôlée.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'shoulders',
+                  secondaryMuscleGroups: 'triceps',
+               },
+               french: {
+                  primaryMuscleGroups: 'Épaules',
+                  secondaryMuscleGroups: 'Triceps',
+               },
+            },
          },
          {
             name: 'Fentes avec haltères',
@@ -60,6 +110,16 @@ export const exercisesDataList = {
                "Tenez un haltère dans chaque main, les bras tendus le long du corps, les pieds écartés à la largeur des épaules. Faites un pas en avant avec le pied droit, descendez le corps en fléchissant le genou avant à 90 degrés tout en gardant le genou arrière proche du sol. Poussez sur le pied avant pour revenir à la position debout. Répétez avec l'autre jambe.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'gluteus,quadriceps,hamstring',
+                  secondaryMuscleGroups: 'core,calfs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Fessiers, Quadriceps, Ischios-jambiers',
+                  secondaryMuscleGroups: 'Sangle abdominale, Mollets',
+               },
+            },
          },
          {
             name: 'Fentes Bulgares',
@@ -70,6 +130,16 @@ export const exercisesDataList = {
                "Place un pied sur un banc derrière toi, l'autre pied devant toi au sol. Garde le dos droit, abaisse ton corps en pliant le genou avant jusqu'à ce que ton cuisse soit parallèle au sol. Pousse pour remonter à la position initiale. Répète et change de jambe.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,gluteus,hamstring',
+                  secondaryMuscleGroups: 'core,calfs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps,Fessiers,Ischios-jambiers',
+                  secondaryMuscleGroups: 'Sangle abdominale,Mollets',
+               },
+            },
          },
          {
             name: 'Rowing barre',
@@ -80,6 +150,16 @@ export const exercisesDataList = {
                "Position de départ, debout, bien droit, pieds à largeur d'épaules, barre tenue à deux mains avec prises en pronation. Inspirez et tirez la barre vers votre torse, en gardant votre dos droit et vos coudes près de votre corps. Expirez en fin de mouvement. Assurez-vous de serrer vos muscles du dos en haut de la traction, puis abaissez lentement la barre à la position de départ.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: "'back,latissimus'",
+                  secondaryMuscleGroups: "'biceps,shoulders_back",
+               },
+               french: {
+                  primaryMuscleGroups: 'Dos, Grand dorsal',
+                  secondaryMuscleGroups: 'Biceps, Épaules dos',
+               },
+            },
          },
          {
             name: 'Traction',
@@ -90,6 +170,16 @@ export const exercisesDataList = {
                "Commencez en vous suspendant à une barre, les mains un peu plus larges que les épaules, les paumes face à vous. Engagez votre cœur et maintenez vos épaules en arrière, commencez à tirer votre corps vers le haut jusqu'à ce que votre menton soit au-dessus de la barre. Descendez lentement pour revenir à la position de départ.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'latissimus, biceps',
+                  secondaryMuscleGroups: 'forearms, shoulders_back',
+               },
+               french: {
+                  primaryMuscleGroups: 'Grand dorsal, Biceps',
+                  secondaryMuscleGroups: 'Avant-bras, Épaules dos',
+               },
+            },
          },
          {
             name: 'Tirage poitrine',
@@ -100,6 +190,16 @@ export const exercisesDataList = {
                'Asseyez-vous sur la machine avec les genoux bien calés sous les supports. Attrapez la barre avec une prise large. Inclinez le buste légèrement en arrière, gardez votre dos droit et tirez la barre vers votre poitrine. Maintenez brièvement la contraction, puis revenez à la position de départ en contrôlant le mouvement.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'latissimus,back',
+                  secondaryMuscleGroups: 'biceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Grand dorsal, Dos',
+                  secondaryMuscleGroups: 'Biceps, Épaules',
+               },
+            },
          },
          {
             name: 'Presse à cuisses',
@@ -110,6 +210,16 @@ export const exercisesDataList = {
                "1. Asseyez-vous dans la machine et placez vos pieds sur le plateau devant vous. 2. Déverrouillez les poids et étendez vos jambes complètement. 3. Inspirez et baissez lentement le poids jusqu'à ce que vos genoux fassent un angle de 90 degrés. 4. Expirez et repoussez le poids jusqu'à la position de départ.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,gluteus',
+                  secondaryMuscleGroups: 'hamstring,calves',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Fessiers',
+                  secondaryMuscleGroups: 'Ischios-jambiers, Mollets',
+               },
+            },
          },
          {
             name: 'Leg curl',
@@ -120,6 +230,16 @@ export const exercisesDataList = {
                "Assieds-toi sur la machine, le dos bien droit. La poulie doit être au niveau de tes chevilles. Inspire et remonte la charge en pliant les genoux, jusqu'à ce qu'elle touche ton postérieur. Expire en revenant à la position initiale. Assure-toi toujours de faire des mouvements fluides et contrôlés.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'hamstring',
+                  secondaryMuscleGroups: 'gluteus,calfs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Ischios-jambiers',
+                  secondaryMuscleGroups: 'Fessiers, Mollets',
+               },
+            },
          },
          {
             name: 'Curl biceps avec haltères',
@@ -130,6 +250,16 @@ export const exercisesDataList = {
                "Debout, les pieds à la largeur des épaules, tenez un haltère dans chaque main, les paumes tournées vers l'avant, les bras étendus. Soulevez les haltères vers vos épaules en contractant les biceps et en gardant les coudes immobiles. Abaissez lentement les haltères pour revenir à la position de départ. ",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'biceps',
+                  secondaryMuscleGroups: 'forearms',
+               },
+               french: {
+                  primaryMuscleGroups: 'Biceps',
+                  secondaryMuscleGroups: 'Avant-bras',
+               },
+            },
          },
          {
             name: 'Dips',
@@ -140,6 +270,16 @@ export const exercisesDataList = {
                "Commencez par suspendre votre corps à l'aide de deux barres parallèles. Vos bras doivent être droit mais pas verrouillés. Abaissez lentement votre corps en fléchissant les coudes jusqu'à ce que ceux-ci forment un angle de 90 degrés. Veillez à garder le corps droit et à ne pas se cambrer. Ensuite, poussez avec vos bras pour revenir à la position initiale.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'triceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Triceps, Épaules',
+               },
+            },
          },
          {
             name: 'Écarté avec haltères',
@@ -150,6 +290,16 @@ export const exercisesDataList = {
                '1. Allongez-vous sur un banc plat, haltères en mains. 2. Étendez vos bras au-dessus de votre poitrine, paumes face à face. 3. Abaissez lentement les bras de chaque côté en arc, en gardant une légère courbure des coudes. 4. Lorsque vous sentez une bonne extension des pectoraux, remontez les haltères en arquant, sans les faire se toucher.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'shoulders,triceps',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Épaules, Triceps',
+               },
+            },
          },
          {
             name: 'Élévation latérale avec haltères',
@@ -160,6 +310,16 @@ export const exercisesDataList = {
                "Debout, haltères en main. Gardez vos bras tendus légèrement vers l'avant, les coudes un peu pliés. Expirez tout en soulevant les poids latéralement jusqu'à ce que les bras soient presque parallèles au sol. Inhalez en revenant doucement à la position de départ.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'shoulders',
+                  secondaryMuscleGroups: 'triceps',
+               },
+               french: {
+                  primaryMuscleGroups: 'Épaules',
+                  secondaryMuscleGroups: 'Triceps',
+               },
+            },
          },
          {
             name: 'Leg curl assis',
@@ -170,6 +330,16 @@ export const exercisesDataList = {
                "Asseyez-vous sur la machine avec votre dos appuyé fermement contre le dossier. Placez vos jambes sous le coussinet et ajustez-le de manière à ce qu'il repose confortablement sur vos chevilles. Inspirez, puis en expirant, pliez vos genoux et tirez le coussinet vers vos fesses, en contractant vos ischio-jambiers. Faites une pause en haut, puis inspirez en revenant à la position initiale.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'hamstring',
+                  secondaryMuscleGroups: 'gluteus,calves',
+               },
+               french: {
+                  primaryMuscleGroups: 'Ischios-jambiers',
+                  secondaryMuscleGroups: 'Fessiers, Mollets',
+               },
+            },
          },
          {
             name: 'Rowing à la poulie basse',
@@ -180,6 +350,16 @@ export const exercisesDataList = {
                'Positionnez-vous devant la machine, prenez le câble à deux mains. Asseyez-vous avec le dos droit. Tirez la poignée vers vous en pliant les coudes, gardez les coudes près du corps. Ramenez lentement à la position de départ, contrôlez le mouvement, répétez.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'back, latissimus',
+                  secondaryMuscleGroups: 'biceps, shoulders_back',
+               },
+               french: {
+                  primaryMuscleGroups: 'Dos, Grand dorsal',
+                  secondaryMuscleGroups: 'Biceps, Épaules dos',
+               },
+            },
          },
          {
             name: 'Curl marteau',
@@ -190,6 +370,16 @@ export const exercisesDataList = {
                "Commence avec une haltère dans chaque main, bras complètement étendus, et les paumes tournées vers votre torse. Maintenez vos coudes près de votre corps. Ensuite, tout en tenant le haut du bras immobile, enroulez les poids tout en contractant vos biceps lorsque vous exhalez. Continuez à élever les poids jusqu'à ce que vos biceps soient entièrement contractés et les haltères sont à l'épaule au niveau. Enfin, prenez une pause en haut du mouvement, puis commencez à abaisser les haltères vers la position de départ tout en inspirant.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'biceps,forearms',
+                  secondaryMuscleGroups: '',
+               },
+               french: {
+                  primaryMuscleGroups: 'Biceps, Avant-bras',
+                  secondaryMuscleGroups: '',
+               },
+            },
          },
          {
             name: 'Twist russe',
@@ -200,6 +390,16 @@ export const exercisesDataList = {
                'Asseyez-vous sur le sol avec les genoux légèrement pliés, penchez-vous en arrière à un angle de 45 degrés tout en gardant votre dos droit. Tenez un poids avec les deux mains. Tournez votre tronc à droite, puis à gauche pour toucher le poids sur chaque côté.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'abs,core',
+                  secondaryMuscleGroups: 'back,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Abdominaux,Sangle abdominale',
+                  secondaryMuscleGroups: 'Dos, Épaules',
+               },
+            },
          },
          {
             name: 'Pompes',
@@ -210,6 +410,16 @@ export const exercisesDataList = {
                "Commence face au sol, avec les mains légèrement plus large que la largeur des épaules. Mettez vos pieds ensemble. Contractez votre abdomen, puis poussez votre corps vers le haut jusqu'à ce que vos bras soient totalement étendus. Faites une pause, puis descendez lentement et en contrôle jusqu'à ce que votre poitrine touche presque le sol.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'triceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Triceps, Épaules',
+               },
+            },
          },
          {
             name: 'Planche',
@@ -220,6 +430,16 @@ export const exercisesDataList = {
                'Commence en position de push-up, les avant-bras sur le sol. Assure-toi que ton corps forme une ligne droite de la tête aux pieds. Garde cette position aussi longtemps que possible en maintenant le ventre bien serré et en évitant de laisser ton dos se creuser.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'core',
+                  secondaryMuscleGroups: 'shoulders,back,gluteus',
+               },
+               french: {
+                  primaryMuscleGroups: 'Sangle abdominale',
+                  secondaryMuscleGroups: 'Épaules, Dos, Fessiers',
+               },
+            },
          },
          {
             name: 'Burpee',
@@ -230,6 +450,16 @@ export const exercisesDataList = {
                "Debout, fléchissez les genoux et posez les mains au sol devant les pieds. Poussez les jambes en arrière pour arriver en position de planche, puis avec une poussée dynamique, ramenez rapidement les pieds entre les mains. Ensuite, bondissez en l'air avec les bras au-dessus de la tête. Répétez le mouvement.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'all',
+                  secondaryMuscleGroups: 'none',
+               },
+               french: {
+                  primaryMuscleGroups: 'Tous les muscles',
+                  secondaryMuscleGroups: 'Aucun',
+               },
+            },
          },
          {
             name: 'Mountain Climber',
@@ -240,6 +470,16 @@ export const exercisesDataList = {
                "1. Commencez en position de pompes, gardez vos mains à la largeur des épaules et serrez vos abdominaux. 2. Lever votre genou droit jusqu'à votre poitrine puis revenez à la position de départ. 3. Faite de même avec le genou gauche. 4. Répétez et augmentez la vitesse au fur et à mesure pour plus d'intensité.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'core,quadriceps',
+                  secondaryMuscleGroups: 'shoulders,hamstring,gluteus',
+               },
+               french: {
+                  primaryMuscleGroups: 'Sangle abdominale, Quadriceps',
+                  secondaryMuscleGroups: 'Épaules, Ischios-jambiers, Fessiers',
+               },
+            },
          },
          {
             name: 'Fentes',
@@ -250,6 +490,16 @@ export const exercisesDataList = {
                "Commencez debout, les pieds écartés à largeur de hanches. Faites un pas en avant avec une jambe, abaissez votre corps en fléchissant le genou avant à environ 90 degrés. L'arrière du genou doit presque toucher le sol. Gardez votre buste droit. Remontez à la position de départ en poussant sur votre talon avant. Répétez avec l'autre jambe.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,gluteus',
+                  secondaryMuscleGroups: 'hamstring,core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Fessiers',
+                  secondaryMuscleGroups: 'Ischios-jambiers, Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Superman',
@@ -260,6 +510,16 @@ export const exercisesDataList = {
                'Allongez-vous face contre terre, bras et jambes tendus. Simultanément, levez vos bras et vos jambes aussi haut que possible du sol, en gardant votre visage vers le sol. Maintenez, puis abaissez lentement pour revenir à la position de départ.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'back_lower,gluteus,hamstring',
+                  secondaryMuscleGroups: 'core,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Dos inférieur, Fessiers, Ischios-jambiers',
+                  secondaryMuscleGroups: 'Sangle abdominale, Épaules',
+               },
+            },
          },
          {
             name: 'Crunch à vélo',
@@ -270,6 +530,16 @@ export const exercisesDataList = {
                'Commencez par allonger sur le dos, genoux pliés et pieds sur le sol. Mains derrière la tête, soulevez vos épaules du sol. Amenez votre coude droit vers votre genou gauche en étendant votre jambe droite. Remettez-vous et répétez en alternant les côtés.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'abs',
+                  secondaryMuscleGroups: 'core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Abdominaux',
+                  secondaryMuscleGroups: 'Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Planche latérale',
@@ -280,6 +550,16 @@ export const exercisesDataList = {
                "Commencez à plat sur le côté, appuyé sur un bras étendu ou plié. Vos épaules, hanches et chevilles doivent être alignées. Les genoux peuvent toucher le sol pour une intensité plus faible, de 30 à 60 secondes de maintien dans le temps. Vos hanches doivent rester soulevées et les épaules éloignées des oreilles. Regardez devant vous pour maintenir l'équilibre.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'core,abs',
+                  secondaryMuscleGroups: 'shoulders,gluteus',
+               },
+               french: {
+                  primaryMuscleGroups: 'Sangle abdominale, Abdominaux',
+                  secondaryMuscleGroups: 'Épaules, Fessiers',
+               },
+            },
          },
          {
             name: 'Pont fessier',
@@ -290,6 +570,16 @@ export const exercisesDataList = {
                "1. Commencez en position couchée avec les genoux pliés et les pieds sur le sol. 2. Levez les hanches jusqu'à ce que votre corps forme une ligne droite des épaules aux genoux. 3. Gardez votre poids sur vos talons et gardez vos hanches élevées pendant quelques secondes. 4. Revenez à la position de départ en abaissant lentement les hanches vers le sol.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'gluteus',
+                  secondaryMuscleGroups: 'hamstring,core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Fessiers',
+                  secondaryMuscleGroups: 'Ischios-jambiers, Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Relevé de bassin inversé',
@@ -300,6 +590,16 @@ export const exercisesDataList = {
                "Allonge-toi sur le dos, les bras étendus à tes côtés, les paumes vers le bas. Plie les genoux et pose tes pieds au sol, rapprochés de tes fesses. Pousse tes talons dans le sol et élève lentement les hanches du sol en contractant les fessiers et les muscles du bas du dos. Lorsque tes hanches sont entièrement levées, pause d'une seconde, puis redescend lentement au sol. Répète pour les séries nécessaires.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'abs,gluteus',
+                  secondaryMuscleGroups: 'hamstring,core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Abdominaux, Fessiers',
+                  secondaryMuscleGroups: 'Ischios-jambiers, Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Pompes diamant',
@@ -310,6 +610,16 @@ export const exercisesDataList = {
                "Commencez en position haute de pompe avec vos mains formant un diamant sous votre poitrine. Gardez le corps droit et stable, pliez les coudes pour descendre jusqu'à ce que votre poitrine soit proche de vos mains. Remontez en poussant fort avec vos mains jusqu'à l'extension complète des bras. Répétez.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'triceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Triceps, Épaules',
+               },
+            },
          },
          {
             name: 'Pompes inclinées',
@@ -320,6 +630,16 @@ export const exercisesDataList = {
                "Positionnez-vous face à un banc ou une surface élevée. Mettez vos mains à la largeur des épaules sur le banc. Positionnez vos pieds derrière vous, en gardant le corps droit. Pliez les coudes pour abaisser le haut du corps vers le banc, puis poussez le corps pour revenir en position de départ. L'essentiel est de garder le torse droit pendant tout le mouvement et d'assurer que les coudes restent tuckés contre le corps",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'shoulders,triceps',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Épaules, Triceps',
+               },
+            },
          },
          {
             name: 'Pompes déclinées',
@@ -330,6 +650,16 @@ export const exercisesDataList = {
                "Placez vos pieds sur une surface surélevée, mains écartées au niveau des épaules. Corps droit, abaissez-vous lentement jusqu'à ce que votre torse touche presque le sol, en fléchissant les coudes. Remontez en expirant, en poussant vers le bas. Répétez pour les séries prévues.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'triceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Triceps, Épaules',
+               },
+            },
          },
          {
             name: 'Pompes sur les poings',
@@ -340,6 +670,16 @@ export const exercisesDataList = {
                'Commencez en position de pompe classique mais avec les poings fermés sous les épaules. Descendez en gardant le corps droit, puis remontez en poussant sur vos poings. Assurez-vous de garder votre dos droit et votre nuque alignée avec votre colonne vertébrale.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'triceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Triceps, Épaules',
+               },
+            },
          },
          {
             name: 'Pompes surélevées',
@@ -350,6 +690,16 @@ export const exercisesDataList = {
                "Commencez en position haute de pompes traditionnelles avec les mains sur une surface surélevée. Votre corps doit former une ligne droite de votre tête à vos pieds. Descendez en pliant les coudes jusqu'à ce que votre poitrine touche presque la surface. Puis, remontez en poussant avec vos bras jusqu'à retrouver la position initiale. Gardez le corps gainé tout au long du mouvement.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'chest',
+                  secondaryMuscleGroups: 'triceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Poitrine',
+                  secondaryMuscleGroups: 'Triceps, Épaules',
+               },
+            },
          },
          {
             name: 'Chaise',
@@ -360,6 +710,16 @@ export const exercisesDataList = {
                "Debout, face à un mur, gardez vos pieds écartés à la largeur des épaules. En gardant le dos droit et les épaules détendues, 'asseyez' vous en arrière et descendez comme si vous alliez vous asseoir sur une chaise. Assurez-vous que vos genoux ne dépassent pas vos orteils. Descendez jusqu'à ce que vos cuisses soient parallèles au sol, puis poussez à travers vos talons pour vous lever.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,gluteus',
+                  secondaryMuscleGroups: 'core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Fessiers',
+                  secondaryMuscleGroups: 'Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Montées de genoux',
@@ -370,6 +730,16 @@ export const exercisesDataList = {
                'Debout avec le dos droit et les jambes légèrement séparées, placez vos mains à la hauteur de la taille. Montez le genou droit vers votre main droite, puis mettez-le de nouveau au sol. Réciproquement, montez le genou gauche vers la main gauche. Continuez à alterner rapidement tout en gardant le tronc bien droit.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'abs,quadriceps',
+                  secondaryMuscleGroups: 'gluteus',
+               },
+               french: {
+                  primaryMuscleGroups: 'Abdominaux, Quadriceps',
+                  secondaryMuscleGroups: 'Fessiers',
+               },
+            },
          },
       ],
       cardio: [
@@ -382,6 +752,16 @@ export const exercisesDataList = {
                "Commencez par marcher pendant 5 minutes pour vous échauffer. Progressivement, augmentez votre vitesse jusqu'à une allure confortable. Gardez le dos droit, les épaules détendues et les coudes à 90 degrés. Concentrez votre regard droit devant et maintenez une respiration régulière. Après la course, marchez pendant 5 minutes pour refroidir.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'all_lower',
+                  secondaryMuscleGroups: 'core,abs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Tous les muscles inférieurs',
+                  secondaryMuscleGroups: 'Sangle abdominale, Abdominaux',
+               },
+            },
          },
          {
             name: 'Vélo elliptique',
@@ -392,6 +772,16 @@ export const exercisesDataList = {
                'Begin standing with your feet on the pedals, holding the handles. Engage your core, straighten your back, then pedal smoothly, aiming for an even speed. Don’t lean on the handles; let your lower body support your weight. Optimal sessions last 20-30 minutes.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,hamstring,gluteus,calves',
+                  secondaryMuscleGroups: 'abs,back,core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Ischios-jambiers, Fessiers, Mollets',
+                  secondaryMuscleGroups: 'Abdominaux, Dos, Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Rameur',
@@ -402,6 +792,16 @@ export const exercisesDataList = {
                "Commencez par vous asseoir sur le siège, saisissez les poignées et posez vos pieds sur les supports. Redressez vos jambes tout en tirant les poignées vers votre torse. Puis, pliez les jambes et revenez à la position de départ. Assurez-vous de garder le dos droit et les épaules détendues tout au long de l'exercice.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'back,legs,core,arms',
+                  secondaryMuscleGroups: 'gluteus,hamstring,quadriceps,shoulders',
+               },
+               french: {
+                  primaryMuscleGroups: 'Dos, Jambes, Sangle abdominale, Bras',
+                  secondaryMuscleGroups: 'Fessiers, Ischios-jambiers, Quadriceps, Épaules',
+               },
+            },
          },
          {
             name: 'Escalier montant',
@@ -412,6 +812,16 @@ export const exercisesDataList = {
                "Commence par te tenir debout au bas de l'escalier. Monte les marches une à une à un rythme soutenu. Garde une posture droite et engage ton noyau. Utilise les bras pour maintenir l'équilibre. Lorsque tu arrives en haut, fais demi-tour et redescends normalement. Répète l'exercice plusieurs fois.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,calfs,gluteus',
+                  secondaryMuscleGroups: 'core,hamstring',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Mollets, Fessiers',
+                  secondaryMuscleGroups: 'Sangle abdominale, Ischios-jambiers',
+               },
+            },
          },
          {
             name: 'Corde à sauter',
@@ -422,6 +832,17 @@ export const exercisesDataList = {
                "Commencez par tenir les poignées de la corde à la hauteur de vos hanches. Commencez à sauter en utilisant un mouvement de poignet pour faire tourner la corde. Les sauts doivent être courts, environ 1 à 2 cm du sol. Votre abdomen doit être engagé tout au long de l'exercice.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'calves,quadriceps,hamstring,gluteus,abs',
+                  secondaryMuscleGroups: 'all_upper,forearms',
+               },
+               french: {
+                  primaryMuscleGroups:
+                     'Mollets, Quadriceps, Ischios-jambiers, Fessiers, Abdominaux',
+                  secondaryMuscleGroups: 'Tous les muscles supérieurs, Avant-bras',
+               },
+            },
          },
          {
             name: 'Pédalo',
@@ -432,6 +853,16 @@ export const exercisesDataList = {
                "Allongez-vous sur le dos avec vos mains derrière votre tête. Levez vos jambes à un angle de 90 degrés. Pédalez en l'air, amenant alternativement votre coude droit vers votre genou gauche, puis votre coude gauche vers votre genou droit. Gardez votre torse élevé, engagez votre core et respirez régulièrement durant toute l'exécution.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps, hamstrings, calfs, gluteus',
+                  secondaryMuscleGroups: 'core, abs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Ischios-jambiers, Mollets, Fessiers',
+                  secondaryMuscleGroups: 'Sangle abdominale, Abdominaux',
+               },
+            },
          },
          {
             name: 'Jumping Jacks',
@@ -442,6 +873,16 @@ export const exercisesDataList = {
                '1. Debout, pieds collés, bras le long du corps. 2. Sautez en écartant vos pieds et amenez vos bras à la verticale au-dessus de votre tête. 3. Sautez à nouveau en joignant vos pieds et ramenez vos bras le long du corps. Maintenez une cadence rapide.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'all',
+                  secondaryMuscleGroups: 'core,legs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Tous les muscles',
+                  secondaryMuscleGroups: 'Sangle abdominale, Jambes',
+               },
+            },
          },
          {
             name: 'Montée de genoux',
@@ -452,6 +893,16 @@ export const exercisesDataList = {
                'Stand straight, feet shoulder-width apart. Raise your knees to waist level while maintaining the upper body straight. Lower your knee to return to the starting position. Repeat the movement on the opposite side. Keep the pace constant and the abdominal muscles contracted during the entire exercise.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'abs,legs',
+                  secondaryMuscleGroups: 'core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Abdominaux, Jambes',
+                  secondaryMuscleGroups: 'Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Burpees',
@@ -462,6 +913,16 @@ export const exercisesDataList = {
                '1. Commencez debout, pieds écartés à largeur de hanches. 2. Accroupissez-vous, mains au sol devant vous. 3. En appui sur vos mains, lancez vos jambes en arrière pour arriver en position de pompe. Faites une pompe. 4. Ramenez vos jambes vers vos mains en sautant. 5. Straighten up with a jump, clapping your hands above your head. Land softly and go for the next rep.',
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: "'all'",
+                  secondaryMuscleGroups: "'all'",
+               },
+               french: {
+                  primaryMuscleGroups: 'Tous les muscles',
+                  secondaryMuscleGroups: 'Tous les muscles',
+               },
+            },
          },
          {
             name: 'Mountain Climbers',
@@ -472,6 +933,16 @@ export const exercisesDataList = {
                "Commencez en position de planche, les bras tendus, les épaules alignées avec les poignets, le dos plat, les pieds espacés et le corps formant une ligne droite de la tête aux talons. Ramenez votre genou droit à votre poitrine, remettez-le à sa place et répétez avec le genou gauche tout en gardant la position de planche. Exécutez l'alternance des jambes rapidement et de manière continue tout en conservant une bonne forme. Restez engagé sur le plancher pelvien et le noyau pour stabiliser le corps.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps, hamstrings, abs, shoulders',
+                  secondaryMuscleGroups: 'back, gluteus, calfs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Ischios-jambiers, Abdominaux, Épaules',
+                  secondaryMuscleGroups: 'Dos, Fessiers, Mollets',
+               },
+            },
          },
          {
             name: 'Course sur place',
@@ -482,6 +953,16 @@ export const exercisesDataList = {
                "Commencez par vous positionner droit. Levez un genou à hauteur de la hanche, puis abaissez-le rapidement et soulevez l'autre genou comme si vous couriez. Avec vos bras, imitez le mouvement de la course. Le poids du corps doit être sur les boules des pieds. Conservez un rythme soutenu.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'all_lower',
+                  secondaryMuscleGroups: 'core,abs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Tous les muscles inférieurs',
+                  secondaryMuscleGroups: 'Sangle abdominale, Abdominaux',
+               },
+            },
          },
          {
             name: 'Shadow Boxing',
@@ -492,6 +973,16 @@ export const exercisesDataList = {
                "Start by standing with feet shoulder-width apart, knees slightly bent, and a light bounce in your stance. Close your hands into fists and hold them up in front of your face. Mimic the boxing punches - jab, cross, hook, and uppercut. Make sure you extend your punches fully, but don't lock your elbows. Also, remember to move around as you punch to give it a more realistic feel and to work on your footwork.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'all_upper',
+                  secondaryMuscleGroups: 'core,legs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Tous les muscles supérieurs',
+                  secondaryMuscleGroups: 'Sangle abdominale, Jambes',
+               },
+            },
          },
          {
             name: 'Fentes sautées',
@@ -502,6 +993,16 @@ export const exercisesDataList = {
                "Commencez en position de fente avec le genou droit devant et le genou gauche derrière. Sauter en l'air et changer les jambes en midair. Atterrir avec le genou gauche devant et le droit derrière. Gardez le torse droit et l'amortissement de l'atterrissage avec les genoux pliés.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'quadriceps,gluteus',
+                  secondaryMuscleGroups: 'hamstring,calves,core',
+               },
+               french: {
+                  primaryMuscleGroups: 'Quadriceps, Fessiers',
+                  secondaryMuscleGroups: 'Ischios-jambiers, Mollets, Sangle abdominale',
+               },
+            },
          },
          {
             name: 'Course en extérieur',
@@ -512,6 +1013,16 @@ export const exercisesDataList = {
                "Commence par un échauffement rapide de 5 à 10 minutes, puis commence à courir à une allure confortable. Concentre-toi sur la respiration régulière et la posture. Garde ton dos droit, regarde devant toi et gardes les épaules détendues. Varie le rythme et l'intensité de ta course pour des bénéfices optimaux.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'all_lower',
+                  secondaryMuscleGroups: 'core,abs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Tous les muscles inférieurs',
+                  secondaryMuscleGroups: 'Sangle abdominale, Abdominaux',
+               },
+            },
          },
          {
             name: 'Squat sauté',
@@ -522,6 +1033,16 @@ export const exercisesDataList = {
                "Commencez en position de squat traditionnelle, pieds écartés de la largeur des épaules, genoux pliés à environ 90 degrés, dos droit, regard devant. Explosez vers le haut en poussant sur vos jambes, sautez en l'air et retendez vos jambes. En redescendant, pliez de nouveau les genoux pour absorber l'impact et retournez immédiatement en position de squat pour répéter le mouvement.",
             video: '',
             gif: '',
+            muscleGroups: {
+               english: {
+                  primaryMuscleGroups: 'gluteus,quadriceps',
+                  secondaryMuscleGroups: 'core,calfs',
+               },
+               french: {
+                  primaryMuscleGroups: 'Fessiers, Quadriceps',
+                  secondaryMuscleGroups: 'Sangle abdominale, Mollets',
+               },
+            },
          },
       ],
    },
@@ -535,6 +1056,16 @@ export const exercisesDataList = {
             "1. Commencez par vous tenir debout sur le tapis roulant, pieds écartés. 2. Sélectionnez une vitesse de marche confortable. 3. Commencez à marcher, mains relâchées le long du corps. 4. Maintenez une posture droite, regardez devant vous. 5. Respirez normalement et continuez jusqu'à la fin de votre durée d'entraînement prédéterminée.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'all_lower',
+               secondaryMuscleGroups: 'core',
+            },
+            french: {
+               primaryMuscleGroups: 'Tous les muscles inférieurs',
+               secondaryMuscleGroups: 'Sangle abdominale',
+            },
+         },
       },
       {
          name: 'Vélo elliptique (faire résistance)',
@@ -545,6 +1076,16 @@ export const exercisesDataList = {
             'Positionnez-vous sur le vélo, pieds dans les pédales, mains sur les poignées. Assurez-vous que votre dos est droit. Commencez à pédaler lentement pour vous échauffer, puis augmentez le rythme pour entrer dans une zone de travail cardio modérée. Vos jambes doivent bouger dans un mouvement fluide, sans jamais être complètement tendues. Pédalez pendant la durée souhaitée.',
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'all_lower',
+               secondaryMuscleGroups: 'core,abs',
+            },
+            french: {
+               primaryMuscleGroups: 'Tous les muscles inférieurs',
+               secondaryMuscleGroups: 'Sangle abdominale, Abdominaux',
+            },
+         },
       },
       {
          name: 'Corde à sauter',
@@ -555,6 +1096,17 @@ export const exercisesDataList = {
             "Commencez par tenir la corde derrière vous, les pieds groupés. Faites tourner la corde et faites un petit saut au moment où elle s'approche de vos pieds. Atterrissez légèrement sur la pointe de vos pieds. Continuez à un rythme constant. Gardez les coudes près de votre corps, et utilisez vos poignets pour faire tourner la corde, pas vos bras.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'calves,quadriceps,hamstring,gluteus,core',
+               secondaryMuscleGroups: 'shoulders,forearms',
+            },
+            french: {
+               primaryMuscleGroups:
+                  'Mollets, Quadriceps, Ischios-jambiers, Fessiers, Sangle abdominale',
+               secondaryMuscleGroups: 'Épaules, Avant-bras',
+            },
+         },
       },
       {
          name: 'Fentes',
@@ -565,6 +1117,16 @@ export const exercisesDataList = {
             "Commencez droit, feet hip-width apart. Step forward avec un pied, descends votre corps jusqu'à ce que votre genou avant forme un angle de 90 degrés. Retournez à la position de départ en poussant sur le talon avant. Changez de pied et répétez.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'quadriceps,gluteus',
+               secondaryMuscleGroups: 'hamstring,core',
+            },
+            french: {
+               primaryMuscleGroups: 'Quadriceps, Fessiers',
+               secondaryMuscleGroups: 'Ischios-jambiers, Sangle abdominale',
+            },
+         },
       },
       {
          name: 'Squat',
@@ -575,6 +1137,16 @@ export const exercisesDataList = {
             "Commencez en position debout, les pieds écartés de la largeur des épaules, les orteils légèrement tournés vers l'extérieur. Gardez votre colonne vertébrale neutre et fixez votre regard sur un point devant vous. Poussez vos fesses en arrière et pliez les genoux tout en gardant le torse droit. Accroupissez-vous jusqu'à ce que vos cuisses soient parallèles au sol ou plus bas si vous le pouvez. Poussez à travers vos talons pour revenir en position debout.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'quadriceps,gluteus',
+               secondaryMuscleGroups: 'core,hamstring',
+            },
+            french: {
+               primaryMuscleGroups: 'Quadriceps, Fessiers',
+               secondaryMuscleGroups: 'Sangle abdominale, Ischios-jambiers',
+            },
+         },
       },
       {
          name: 'Talons aux fesses',
@@ -585,6 +1157,16 @@ export const exercisesDataList = {
             "Commencez debout avec les pieds à largeur de hanches. Pliez un genou et amenez le talon à toucher les fesses, revenez à la position de départ et alternez avec l'autre jambe. Faites le mouvement rapidement et continuez à alterner pour l'intervalle requis.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'hamstring,quadriceps',
+               secondaryMuscleGroups: 'gluteus,calfs',
+            },
+            french: {
+               primaryMuscleGroups: 'Ischios-jambiers, Quadriceps',
+               secondaryMuscleGroups: 'Fessiers, Mollets',
+            },
+         },
       },
       {
          name: 'Montées de genoux',
@@ -595,6 +1177,17 @@ export const exercisesDataList = {
             "1. Commencez à pied joints. 2. Levez un genou aussi haut que vous le pouvez, gardez l'autre pied au sol. 3. Abaissez le genou et répétez avec l'autre genou. 4. Pour un meilleur résultat, contractez vos abdominaux lors de la levée du genou.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'abs,quadriceps,hamstring',
+               secondaryMuscleGroups: 'all_upper,all_lower,core,gluteus',
+            },
+            french: {
+               primaryMuscleGroups: 'Abdominaux, Quadriceps, Ischios-jambiers',
+               secondaryMuscleGroups:
+                  'Tous les muscles supérieurs, Tous les muscles inférieurs, Sangle abdominale, Fessiers',
+            },
+         },
       },
       {
          name: 'Burpees',
@@ -605,6 +1198,16 @@ export const exercisesDataList = {
             'Commencez debout. Accroupissez-vous et posez les mains au sol, jambes derrière pour position de pompe. Faites une pompe. Ramenez jambes sous corps, sautez le plus haut possible, bras vers le ciel. Retour position de départ, répétez.',
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'all',
+               secondaryMuscleGroups: 'core,legs,chest',
+            },
+            french: {
+               primaryMuscleGroups: 'Tous les muscles',
+               secondaryMuscleGroups: 'Sangle abdominale, Jambes, Poitrine',
+            },
+         },
       },
       {
          name: 'Jumping jacks',
@@ -615,16 +1218,36 @@ export const exercisesDataList = {
             "Debout, bras le long du corps. Sautez en écartant les jambes, en levant les bras en même temps pour les mettre au-dessus de votre tête. Revenez à la position de départ en sautant, en ramenant les bras le long du corps. Assurez-vous de garder les genoux souples pour absorber l'impact.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'core,legs',
+               secondaryMuscleGroups: 'shoulders',
+            },
+            french: {
+               primaryMuscleGroups: 'Sangle abdominale, Jambes',
+               secondaryMuscleGroups: 'Épaules',
+            },
+         },
       },
       {
          name: 'Mountain climbers',
          traduction: 'Mountain climbers',
          description:
-            "Un exercice de cardio à haute intensité qui cible le coeur, les jambes, les épaules et les abdominaux. C'est comme faire du jogging en place, mais avec vos mains sur le sol.",
+            "Un exercice de cardio à haute intensité qui cible le coeur, les jambes, les épaules et les abdominaux. C'est comme faire du jogging sur place, mais avec vos mains sur le sol.",
          execution:
             "Commencez en position de planche, les mains directement sous les épaules. Serrez vos abdominaux et faites rentrer votre genou droit vers votre poitrine. Revenez en position de planche et changez de jambes. Répétez de manière fluide et rapide. Gardez le dos plat durant tout l'exercice.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'abs,quadriceps',
+               secondaryMuscleGroups: 'shoulders,hamstring,gluteus',
+            },
+            french: {
+               primaryMuscleGroups: 'Abdominaux, Quadriceps',
+               secondaryMuscleGroups: 'Épaules, Ischios-jambiers, Fessiers',
+            },
+         },
       },
       {
          name: 'Pompes',
@@ -635,6 +1258,16 @@ export const exercisesDataList = {
             "Commencez en position haute de la planche, mains légèrement plus larges que les épaules et les pieds à la largeur des hanches. Gardez le corps droit, pliez les coudes pour abaisser votre poitrine jusqu'à ce qu'elle soit juste au-dessus du sol. Poussez pour revenir en position de départ. Gardez le noyau engagé tout au long de l'exercice.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'chest',
+               secondaryMuscleGroups: 'triceps,shoulders',
+            },
+            french: {
+               primaryMuscleGroups: 'Poitrine',
+               secondaryMuscleGroups: 'Triceps, Épaules',
+            },
+         },
       },
       {
          name: 'Fentes sauté',
@@ -645,6 +1278,16 @@ export const exercisesDataList = {
             "Commencez debout, faites une fente en avançant le pied droit et abaissez le corps jusqu'à ce que le genou droit soit à angle droit. Poussez sur vos pieds pour sauter en l'air tout en changeant la position des jambes en rotation. Atterrissez doucement et répétez.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'quadriceps,gluteus',
+               secondaryMuscleGroups: 'hamstring,core',
+            },
+            french: {
+               primaryMuscleGroups: 'Quadriceps, Fessiers',
+               secondaryMuscleGroups: 'Ischios-jambiers, Sangle abdominale',
+            },
+         },
       },
       {
          name: 'Gainage militaire',
@@ -655,6 +1298,16 @@ export const exercisesDataList = {
             "Commencez en position de planche sur les avant-bras. Assurez-vous que votre corps est aligné, de la tête aux pieds. Montez jusqu'à une position de planche haute en posant une main sur le sol, puis l'autre, pour vous retrouver en appui sur vos mains. Retournez ensuite en position de planche basse en mettant un coude au sol, puis l'autre. Répétez l'exercice plusieurs fois, en alternant le bras qui monte en premier.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'core',
+               secondaryMuscleGroups: 'shoulders,back,abs,gluteus',
+            },
+            french: {
+               primaryMuscleGroups: 'Sangle abdominale',
+               secondaryMuscleGroups: 'Épaules, Dos, Abdominaux, Fessiers',
+            },
+         },
       },
       {
          name: 'Course sur place',
@@ -665,6 +1318,16 @@ export const exercisesDataList = {
             "Debout, le corps droit, commencez à courir sur place. Veillez à soulever vos genoux le plus haut possible et balancez vos bras en coordination avec le mouvement de vos jambes. Gardez votre dos droit et regardez en avant. Commencez doucement et augmentez progressivement l'intensité.",
          video: '',
          gif: '',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'all_lower',
+               secondaryMuscleGroups: 'core',
+            },
+            french: {
+               primaryMuscleGroups: 'Tous les muscles inférieurs',
+               secondaryMuscleGroups: 'Sangle abdominale',
+            },
+         },
       },
    ],
 }

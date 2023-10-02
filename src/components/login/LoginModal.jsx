@@ -10,7 +10,7 @@ import {
 } from '@tremor/react'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { RiMailSendLine } from 'react-icons/ri'
-import UserAPI from '../../service/UserAPI'
+import UserAPI from '../../service/API/UserAPI'
 import toastMessage from '../../utils/toast'
 import { ModalTremor } from '../Modals/ModalTremor'
 

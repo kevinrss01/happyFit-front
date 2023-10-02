@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode'
-import AuthAPI from '../../service/AuthAPI'
-import UserAPI from '../../service/UserAPI'
+import AuthAPI from '../../service/API/AuthAPI'
+import UserAPI from '../../service/API/UserAPI'
 import {
    GET_USER_ERROR,
    GET_USER_INFO_ERROR,
