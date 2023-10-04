@@ -172,8 +172,8 @@ export const exercisesDataList = {
             gif: '',
             muscleGroups: {
                english: {
-                  primaryMuscleGroups: 'latissimus, biceps',
-                  secondaryMuscleGroups: 'forearms, shoulders_back',
+                  primaryMuscleGroups: 'latissimus,biceps',
+                  secondaryMuscleGroups: 'forearms,shoulders_back',
                },
                french: {
                   primaryMuscleGroups: 'Grand dorsal, Biceps',
@@ -352,8 +352,8 @@ export const exercisesDataList = {
             gif: '',
             muscleGroups: {
                english: {
-                  primaryMuscleGroups: 'back, latissimus',
-                  secondaryMuscleGroups: 'biceps, shoulders_back',
+                  primaryMuscleGroups: 'back,latissimus',
+                  secondaryMuscleGroups: 'biceps,shoulders_back',
                },
                french: {
                   primaryMuscleGroups: 'Dos, Grand dorsal',

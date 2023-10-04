@@ -10,6 +10,7 @@ import {
    Bold,
    Button,
    Text,
+   Icon,
 } from '@tremor/react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -17,9 +18,9 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { GiSonicBoom } from 'react-icons/gi'
 import { useEffect, useMemo, useState } from 'react'
 import WarmUpLoader from '../loaders/SportPages/WarmUpLoader'
-import axios from 'axios'
-
+import fetchMusclesGroupImg from '../../service/API/ExternalAPI'
 import { exercisesDataList } from '../../constants/exercisesData'
+import { BsQuestionLg } from 'react-icons/bs'
 
 const { warmUp } = exercisesDataList
 
@@ -34,15 +35,9 @@ function splitExecutionIntoSteps(execution) {
    return markedText.split('||').filter(Boolean)
 }
 
-export default function WarmUp({
-   exerciseNumber,
-   exerciseName,
-   instructions,
-   numberOfSeries,
-   repetition,
-   rest,
-}) {
+export default function WarmUp({ exerciseNumber, exerciseName, instructions, repetition }) {
    const [muscleGroupImage, setMuscleGroupImage] = useState(null)
+   const [musclesList, setMusclesList] = useState('')
    const [isLoading, setIsLoading] = useState(true)
 
    const repetitions = handlePlural(repetition, 'répétition', true)
@@ -66,33 +61,24 @@ export default function WarmUp({
 
    useEffect(() => {
       const { primaryMuscleGroups, secondaryMuscleGroups } = muscleGroups.english
+      const frenchGroupMusclesList = [
+         ...muscleGroups.french.primaryMuscleGroups.split(','),
+         ...muscleGroups.french.secondaryMuscleGroups.split(','),
+      ].join(', ')
       setIsLoading(true)
-      const fetchData = async () => {
-         const options = {
-            method: 'GET',
-            url: 'https://muscle-group-image-generator.p.rapidapi.com/getMulticolorImage',
-            params: {
-               primaryColor: '240,100,80',
-               secondaryColor: '200,100,80',
-               primaryMuscleGroups: primaryMuscleGroups,
-               secondaryMuscleGroups: secondaryMuscleGroups,
-               transparentBackground: '0',
-            },
-            responseType: 'arraybuffer',
-            headers: {
-               'X-RapidAPI-Key': '14b8eccabcmsha2eda835da87d52p1ce5c5jsn27276cf68176',
-               'X-RapidAPI-Host': 'muscle-group-image-generator.p.rapidapi.com',
-            },
-         }
 
+      const fetchData = async () => {
          try {
-            const response = await axios.request(options)
-            const imageFile = new Blob([response.data])
-            const imageUrl = URL.createObjectURL(imageFile)
-            setMuscleGroupImage(imageUrl)
-            setIsLoading(false)
+            const musclesImgUrl = await fetchMusclesGroupImg(
+               primaryMuscleGroups,
+               secondaryMuscleGroups,
+            )
+            setMuscleGroupImage(musclesImgUrl)
+            setMusclesList(frenchGroupMusclesList)
          } catch (error) {
             console.error(error)
+         } finally {
+            setIsLoading(false)
          }
       }
 
@@ -131,15 +117,13 @@ export default function WarmUp({
                   <Accordion>
                      <AccordionHeader>Description</AccordionHeader>
                      <AccordionBody>
-                        {description
-                           ? description
-                           : 'Information indisponible veuillez nous contacter.'}
+                        {description || 'Information indisponible, veuillez nous contacter.'}
                      </AccordionBody>
                   </Accordion>
                   <Accordion defaultOpen={true}>
                      <AccordionHeader>Instruction</AccordionHeader>
                      <AccordionBody>
-                        {instructions || 'Information indisponible veuillez nous contacter.'}
+                        {instructions || 'Information indisponible, veuillez nous contacter.'}
                      </AccordionBody>
                   </Accordion>
                   <Accordion defaultOpen={false}>
@@ -158,7 +142,9 @@ export default function WarmUp({
 
                <div className='gif-and-muscles-img-container'>
                   <div className='gif-container'>
-                     <Bold>Démonstration </Bold>
+                     <div className='title'>
+                        <Bold>Démonstration : </Bold>
+                     </div>
                      <Image
                         src='https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/ZFTZfpWIemY7ee.gif?alt=media&token=6b2894c6-eb66-4b96-8b9e-72fa74681b77'
                         width={250}
@@ -167,14 +153,28 @@ export default function WarmUp({
                      />
                   </div>
                   <div className='muscles-img-container'>
-                     <Bold>Groupe de muscles : </Bold>
-                     {muscleGroupImage && (
+                     <div className='title-and-icon'>
+                        <Bold>Groupe de muscles : </Bold>{' '}
+                        <Icon
+                           variant='light'
+                           size='xs'
+                           icon={BsQuestionLg}
+                           className='icon'
+                           tooltip={`Cet exercice sollicite : ${musclesList}`}
+                        />
+                     </div>
+
+                     {muscleGroupImage ? (
                         <Image
                            src={muscleGroupImage}
                            width={250}
                            height={250}
                            alt='muscles group'
                         />
+                     ) : (
+                        <Text className='flex items-center'>
+                           Image indisponible pour le moment.
+                        </Text>
                      )}
                   </div>
                </div>

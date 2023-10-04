@@ -48,6 +48,19 @@
 
          .gif-container, .muscles-img-container{
             @include flex-col;
+
+            .title-and-icon{
+               @include flex-centre;
+
+               .icon{
+                  margin-left: 3px;
+               }
+            }
+
+            .title{
+               @include flex-col;
+               height: 45px;
+            }
          }
       }
    }
