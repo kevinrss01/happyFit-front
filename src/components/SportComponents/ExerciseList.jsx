@@ -12,8 +12,6 @@ export default function ExerciseList({ exercises, path }) {
 
    if (!Array.isArray(exercises)) return <></>
 
-   console.log(exercises)
-
    return (
       <FlexContainer flexDirection='column'>
          {exercises.map(({ exerciseName }, index) => (

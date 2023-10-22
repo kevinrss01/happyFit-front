@@ -54,12 +54,12 @@ export default function WarmUp({ exerciseNumber, exerciseName, instructions, rep
    const isLastWarmUp = parseInt(query?.length) === parseInt(exerciseNumber)
 
    const exerciseData = useMemo(() => {
-      return warmUp.filter((exercise) => exercise.name === exerciseName)[0]
+      return warmUp.filter((exercise) => exercise.name === exerciseName)[0] || undefined
    }, [exerciseName])
 
-   const { traduction, muscleGroups, gif, video, execution, description } = exerciseData
-
    useEffect(() => {
+      if (!exerciseData) return
+
       const { primaryMuscleGroups, secondaryMuscleGroups } = muscleGroups.english
       const frenchGroupMusclesList = [
          ...muscleGroups.french.primaryMuscleGroups.split(','),
@@ -84,6 +84,15 @@ export default function WarmUp({ exerciseNumber, exerciseName, instructions, rep
 
       fetchData()
    }, [exerciseName])
+
+   if (!exerciseData)
+      return (
+         <>
+            <h1 className='width-[100%] text-center text-white text-2xl'>Exercice introuvable</h1>
+         </>
+      )
+
+   const { traduction, muscleGroups, gif, video, execution, description } = exerciseData
 
    return (
       <div className={`details-exo-container ${sportTypeTextsClass}`}>
@@ -145,12 +154,13 @@ export default function WarmUp({ exerciseNumber, exerciseName, instructions, rep
                      <div className='title'>
                         <Bold>Démonstration : </Bold>
                      </div>
-                     <Image
-                        src='https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/ZFTZfpWIemY7ee.gif?alt=media&token=6b2894c6-eb66-4b96-8b9e-72fa74681b77'
-                        width={250}
-                        height={250}
-                        alt="GIF de l'exercice"
-                     />
+                     {gif ? (
+                        <Image src={gif} width={250} height={250} alt="GIF de l'exercice" />
+                     ) : (
+                        <Text className='flex items-center'>
+                           Image indisponible pour le moment.
+                        </Text>
+                     )}
                   </div>
                   <div className='muscles-img-container'>
                      <div className='title-and-icon'>

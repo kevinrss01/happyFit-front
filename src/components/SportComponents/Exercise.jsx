@@ -48,11 +48,17 @@ const Series = ({ series }) => {
 const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }) => {
    const [muscleGroupImage, setMuscleGroupImage] = useState(null)
    const [musclesList, setMusclesList] = useState('')
-   const [isLoading, setIsLoading] = useState(true)
+   const [isLoading, setIsLoading] = useState(false)
 
    const { push, asPath, query } = useRouter()
 
+   const exerciseData = useMemo(() => {
+      return workout.filter((exercise) => exercise.name === exerciseName)[0] || undefined
+   }, [exerciseName])
+
    useEffect(() => {
+      if (!exerciseData) return
+
       const { primaryMuscleGroups, secondaryMuscleGroups } = muscleGroups.english
       setIsLoading(true)
 
@@ -79,89 +85,106 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }
       fetchData()
    }, [exerciseName])
 
-   const exerciseData = useMemo(() => {
-      return workout.filter((exercise) => exercise.name === exerciseName)[0]
-   }, [exerciseName])
-
-   const { traduction, muscleGroups, gif, video, execution, description } = exerciseData
-
    const basePath = asPath.split('/').slice(0, 5).join('/')
    const nextSportSession = parseInt(query?.sportSession) + 1
    const nextWarmUpPath = `${basePath}/${nextSportSession}?length=${query.length}`
 
+   if (!exerciseData)
+      return (
+         <>
+            <h1 className='width-[100%] text-center text-white text-2xl'>Exercice introuvable</h1>
+         </>
+      )
+
+   const { traduction, muscleGroups, gif, video, execution, description } = exerciseData
+
    return (
       <div className={`details-exo-container ${sportTypeTextsClass}`}>
-         <div className='details-under-container'>
-            <h2 className='title-details'>
-               {muscleGroup && `Séance ${muscleGroup} : `} {exerciseName}
-            </h2>
+         {!isLoading ? (
+            <div className='details-under-container'>
+               <h2 className='title-details'>
+                  {muscleGroup && `Séance ${muscleGroup} : `} {exerciseName}
+               </h2>
 
-            {parseInt(query?.length) !== parseInt(query?.sportSession) + 1 && (
-               <Button
-                  className='mt-5'
-                  icon={AiOutlineArrowRight}
-                  onClick={() => push(nextWarmUpPath)}
-               >
-                  Passer à l'exercice suivant
-               </Button>
-            )}
+               {parseInt(query?.length) !== parseInt(query?.sportSession) + 1 && (
+                  <Button
+                     className='mt-5'
+                     icon={AiOutlineArrowRight}
+                     onClick={() => push(nextWarmUpPath)}
+                  >
+                     Passer à l'exercice suivant
+                  </Button>
+               )}
 
-            <AccordionList className='w-[100%] mt-10'>
-               <Accordion>
-                  <AccordionHeader>Description</AccordionHeader>
-                  <AccordionBody>
-                     {description || 'Description indisponible, veuillez nous contacter'}
-                  </AccordionBody>
-               </Accordion>
-               <Accordion defaultOpen={true}>
-                  <AccordionHeader>Execution</AccordionHeader>
-                  <AccordionBody>
-                     {execution || 'Execution indisponible, veuillez nous contacter.'}
-                  </AccordionBody>
-               </Accordion>
-            </AccordionList>
+               <AccordionList className='w-[100%] mt-10'>
+                  <Accordion>
+                     <AccordionHeader>Description</AccordionHeader>
+                     <AccordionBody>
+                        {description || 'Description indisponible, veuillez nous contacter'}
+                     </AccordionBody>
+                  </Accordion>
+                  <Accordion defaultOpen={true}>
+                     <AccordionHeader>Execution</AccordionHeader>
+                     <AccordionBody>
+                        {execution || 'Execution indisponible, veuillez nous contacter.'}
+                     </AccordionBody>
+                  </Accordion>
+               </AccordionList>
 
-            {series && (
-               <>
-                  <Bold className='mt-10 mb-4'>Séries :</Bold>
-                  <Series series={series} />
-               </>
-            )}
-            {totalTime && <p>Temps total : {totalTime} minutes</p>}
+               {series && (
+                  <>
+                     <Bold className='mt-10 mb-4'>Séries :</Bold>
+                     <Series series={series} />
+                  </>
+               )}
+               {totalTime && <p>Temps total : {totalTime} minutes</p>}
 
-            <div className='gif-and-muscles-img-container'>
-               <div className='gif-container'>
-                  <div className='title'>
-                     <Bold>Démonstration : </Bold>
+               <div className='gif-and-muscles-img-container'>
+                  <div className='gif-container'>
+                     <div className='title'>
+                        <Bold>Démonstration : </Bold>
+                     </div>
+
+                     {gif ? (
+                        <Image src={gif} width={250} height={250} alt="GIF de l'exercice" />
+                     ) : (
+                        <Text className='flex items-center'>
+                           Image indisponible pour le moment.
+                        </Text>
+                     )}
                   </div>
-
-                  <Image
-                     src='https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/ZFTZfpWIemY7ee.gif?alt=media&token=6b2894c6-eb66-4b96-8b9e-72fa74681b77'
-                     width={250}
-                     height={250}
-                     alt="GIF de l'exercice"
-                  />
-               </div>
-               <div className='muscles-img-container'>
-                  <div className='title-and-icon'>
-                     <Bold>Groupe de muscles : </Bold>
-                     <Icon
-                        variant='light'
-                        size='xs'
-                        icon={BsQuestionLg}
-                        className='icon'
-                        tooltip={`Cet exercice sollicite : ${musclesList}`}
-                     />
+                  <div className='muscles-img-container'>
+                     <div className='title-and-icon'>
+                        <Bold>Groupe de muscles : </Bold>
+                        <Icon
+                           variant='light'
+                           size='xs'
+                           icon={BsQuestionLg}
+                           className='icon'
+                           tooltip={`Cet exercice sollicite : ${musclesList}`}
+                        />
+                     </div>
+                     {muscleGroupImage ? (
+                        <Image
+                           src={muscleGroupImage}
+                           width={250}
+                           height={250}
+                           alt='muscles group'
+                        />
+                     ) : (
+                        // eslint-disable-next-line react/jsx-no-undef
+                        <Text className='flex items-center'>
+                           Image indisponible pour le moment.
+                        </Text>
+                     )}
                   </div>
-                  {muscleGroupImage ? (
-                     <Image src={muscleGroupImage} width={250} height={250} alt='muscles group' />
-                  ) : (
-                     // eslint-disable-next-line react/jsx-no-undef
-                     <Text className='flex items-center'>Image indisponible pour le moment.</Text>
-                  )}
                </div>
             </div>
-         </div>
+         ) : (
+            <>
+               <p>Chargement...</p>
+            </>
+         )}
       </div>
    )
 }
