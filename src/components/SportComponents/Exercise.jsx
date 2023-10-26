@@ -20,7 +20,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { exercisesDataList } from '../../constants/exercisesData'
 import fetchMusclesGroupImg from '../../service/API/ExternalAPI'
 import { BsQuestionLg } from 'react-icons/bs'
-const { workout } = exercisesDataList.training
+const { workout, cardio } = exercisesDataList.training
 
 const SetRenderer = ({ weight, seriesNumber, rest, repetition }) => (
    <Card className='exercise-card'>
@@ -49,10 +49,16 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }
    const [muscleGroupImage, setMuscleGroupImage] = useState(null)
    const [musclesList, setMusclesList] = useState('')
    const [isLoading, setIsLoading] = useState(false)
+   const [isTypeTrainingCardio, setIsTypeTrainingCardio] = useState(!muscleGroup)
 
    const { push, asPath, query } = useRouter()
 
    const exerciseData = useMemo(() => {
+      //If there is no muscleGroup so type training is CARDIO
+      if (isTypeTrainingCardio) {
+         return cardio.filter((exercise) => exercise.name === exerciseName)[0] || undefined
+      }
+
       return workout.filter((exercise) => exercise.name === exerciseName)[0] || undefined
    }, [exerciseName])
 
@@ -123,7 +129,25 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }
                         {description || 'Description indisponible, veuillez nous contacter'}
                      </AccordionBody>
                   </Accordion>
-                  <Accordion defaultOpen={true}>
+                  {isTypeTrainingCardio ? (
+                     <Accordion defaultOpen={true}>
+                        <AccordionHeader>Instructions</AccordionHeader>
+                        <AccordionBody>
+                           {instructions || 'Instructions indisponible, veuillez nous contacter'}
+                           {totalTime && (
+                              <p>
+                                 <br />
+                                 <Bold className='text-center'>
+                                    Temps total : {totalTime} minutes
+                                 </Bold>
+                              </p>
+                           )}
+                        </AccordionBody>
+                     </Accordion>
+                  ) : (
+                     <></>
+                  )}
+                  <Accordion defaultOpen={!isTypeTrainingCardio}>
                      <AccordionHeader>Execution</AccordionHeader>
                      <AccordionBody>
                         {execution || 'Execution indisponible, veuillez nous contacter.'}
@@ -137,7 +161,6 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }
                      <Series series={series} />
                   </>
                )}
-               {totalTime && <p>Temps total : {totalTime} minutes</p>}
 
                <div className='gif-and-muscles-img-container'>
                   <div className='gif-container'>

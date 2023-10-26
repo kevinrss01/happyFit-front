@@ -57,6 +57,15 @@ export default function WarmUp({ exerciseNumber, exerciseName, instructions, rep
       return warmUp.filter((exercise) => exercise.name === exerciseName)[0] || undefined
    }, [exerciseName])
 
+   if (!exerciseData)
+      return (
+         <>
+            <h1 className='width-[100%] text-center text-white text-2xl'>Exercice introuvable</h1>
+         </>
+      )
+
+   const { traduction, muscleGroups, gif, video, execution, description } = exerciseData
+
    useEffect(() => {
       if (!exerciseData) return
 
@@ -85,22 +94,13 @@ export default function WarmUp({ exerciseNumber, exerciseName, instructions, rep
       fetchData()
    }, [exerciseName])
 
-   if (!exerciseData)
-      return (
-         <>
-            <h1 className='width-[100%] text-center text-white text-2xl'>Exercice introuvable</h1>
-         </>
-      )
-
-   const { traduction, muscleGroups, gif, video, execution, description } = exerciseData
-
    return (
       <div className={`details-exo-container ${sportTypeTextsClass}`}>
          {isLoading ? (
             <WarmUpLoader />
          ) : (
             <div className='details-under-container'>
-               <h2 className='title-details'>
+               <h2 className='title-details '>
                   Échauffement n°{exerciseNumber} : {exerciseName}
                </h2>
                {isLastWarmUp ? (

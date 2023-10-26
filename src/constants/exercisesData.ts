@@ -224,7 +224,7 @@ export const exercisesDataList = {
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'quadriceps,gluteus',
-                  secondaryMuscleGroups: 'hamstring,calves',
+                  secondaryMuscleGroups: 'hamstring,calfs',
                },
                french: {
                   primaryMuscleGroups: 'Quadriceps, Fessiers',
@@ -350,7 +350,7 @@ export const exercisesDataList = {
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'hamstring',
-                  secondaryMuscleGroups: 'gluteus,calves',
+                  secondaryMuscleGroups: 'gluteus,calfs',
                },
                french: {
                   primaryMuscleGroups: 'Ischios-jambiers',
@@ -367,7 +367,7 @@ export const exercisesDataList = {
                'Positionnez-vous devant la machine, prenez le câble à deux mains. Asseyez-vous avec le dos droit. Tirez la poignée vers vous en pliant les coudes, gardez les coudes près du corps. Ramenez lentement à la position de départ, contrôlez le mouvement, répétez.',
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Frowing-barre.gif?alt=media&token=d6cc8f13-9aa3-40fe-a0b6-d8906404eba5',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'back,latissimus',
@@ -391,8 +391,8 @@ export const exercisesDataList = {
             gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fhammer-curl.gif?alt=media&token=975c2288-2ee2-4bbc-b9ab-f337dcc7f9f3',
             muscleGroups: {
                english: {
-                  primaryMuscleGroups: 'biceps,forearms',
-                  secondaryMuscleGroups: '',
+                  primaryMuscleGroups: 'biceps',
+                  secondaryMuscleGroups: 'forearms',
                },
                french: {
                   primaryMuscleGroups: 'Biceps, Avant-bras',
@@ -409,7 +409,7 @@ export const exercisesDataList = {
                'Prenez une haltère ou un disque, asseyez-vous sur le sol avec les genoux légèrement pliés, penchez-vous en arrière à un angle de 45 degrés tout en gardant votre dos droit. Tenez le poids avec les deux mains. Tournez votre tronc à droite, puis à gauche pour toucher le sol avec le poids chaque côté.',
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Frussian-twist.gif?alt=media&token=abbc9b44-06a6-4830-a05e-a35a637e90e9',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'abs,core',
@@ -475,7 +475,7 @@ export const exercisesDataList = {
             gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fburbee.gif?alt=media&token=691b2e86-11e0-4195-a96c-93730915659c',
             muscleGroups: {
                english: {
-                  primaryMuscleGroups: 'all',
+                  primaryMuscleGroups: 'all_lower,all_upper',
                   secondaryMuscleGroups: 'none',
                },
                french: {
@@ -535,7 +535,7 @@ export const exercisesDataList = {
                'Allongez-vous face contre terre, bras et jambes tendus. Simultanément, levez vos bras et vos jambes aussi haut que possible du sol, en gardant votre visage vers le sol. Maintenez, puis abaissez lentement pour revenir à la position de départ.',
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fsuperman.gif?alt=media&token=a21fcd9b-1c84-4b88-b2f7-c16d35f58b9f',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'back_lower,gluteus,hamstring',
@@ -682,7 +682,7 @@ export const exercisesDataList = {
                'Commencez en position de pompe classique mais avec les poings fermés sous les épaules. Descendez en gardant le corps droit, puis remontez en poussant sur vos poings. Assurez-vous de garder votre dos droit et votre nuque alignée avec votre colonne vertébrale.',
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fpushup-knuckle.gif?alt=media&token=0b60ec82-452b-4675-81a5-18fdeeab7734',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'chest',
@@ -745,7 +745,7 @@ export const exercisesDataList = {
                'Debout avec le dos droit et les jambes légèrement séparées, placez vos mains à la hauteur de la taille. Montez le genou droit vers votre main droite, puis mettez-le de nouveau au sol. Réciproquement, montez le genou gauche vers la main gauche. Continuez à alterner rapidement tout en gardant le tronc bien droit.',
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FHigh%20Knee%20Run.gif?alt=media&token=61dea7a4-e677-412f-8b42-b9ca6fb6ecd6',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'abs,quadriceps',
@@ -792,7 +792,7 @@ export const exercisesDataList = {
             gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FElliptical-bike.gif?alt=media&token=93f4f63c-dd77-4ace-9c14-434717d1e06b',
             muscleGroups: {
                english: {
-                  primaryMuscleGroups: 'quadriceps,hamstring,gluteus,calves',
+                  primaryMuscleGroups: 'quadriceps,hamstring,gluteus',
                   secondaryMuscleGroups: 'abs,back,core',
                },
                french: {
@@ -813,7 +813,7 @@ export const exercisesDataList = {
             gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Frowing-machine.gif?alt=media&token=d7b39e11-3968-4bf3-9033-316272365215',
             muscleGroups: {
                english: {
-                  primaryMuscleGroups: 'back,legs,core,arms',
+                  primaryMuscleGroups: 'back,legs,core',
                   secondaryMuscleGroups: 'gluteus,hamstring,quadriceps,shoulders',
                },
                french: {
@@ -855,7 +855,7 @@ export const exercisesDataList = {
             gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fjump-rope.gif?alt=media&token=6204f14f-c5a0-41d0-a307-339aa6545568',
             muscleGroups: {
                english: {
-                  primaryMuscleGroups: 'calves,quadriceps,hamstring,gluteus,abs',
+                  primaryMuscleGroups: 'quadriceps,hamstring,gluteus,abs',
                   secondaryMuscleGroups: 'all_upper,forearms',
                },
                french: {
@@ -916,7 +916,7 @@ export const exercisesDataList = {
                "Commencez en position de planche, les bras tendus, les épaules alignées avec les poignets, le dos plat, les pieds espacés et le corps formant une ligne droite de la tête aux talons. Ramenez votre genou droit à votre poitrine, remettez-le à sa place et répétez avec le genou gauche tout en gardant la position de planche. Exécutez l'alternance des jambes rapidement et de manière continue tout en conservant une bonne forme. Restez engagé sur le plancher pelvien et le noyau pour stabiliser le corps.",
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fmountain-climber.gif?alt=media&token=d7e3a0d8-d84f-4c2c-bd51-b9b229163192',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'quadriceps, hamstrings, abs, shoulders',
@@ -937,7 +937,7 @@ export const exercisesDataList = {
                "Commencez par vous positionner droit. Levez un genou à hauteur de la hanche, puis abaissez-le rapidement et soulevez l'autre genou comme si vous couriez. Avec vos bras, imitez le mouvement de la course. Le poids du corps doit être sur les boules des pieds. Conservez un rythme soutenu.",
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FrunOnPlace.gif?alt=media&token=127a4b1a-ea8b-4b75-8938-b2c04e8a56ba',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'all_lower',
@@ -958,7 +958,7 @@ export const exercisesDataList = {
                "Start by standing with feet shoulder-width apart, knees slightly bent, and a light bounce in your stance. Close your hands into fists and hold them up in front of your face. Mimic the boxing punches - jab, cross, hook, and uppercut. Make sure you extend your punches fully, but don't lock your elbows. Also, remember to move around as you punch to give it a more realistic feel and to work on your footwork.",
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FShadow-Boxing-Workout.gif?alt=media&token=809e1a17-d567-40f5-b2d5-8c238498f391',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'all_upper',
@@ -979,11 +979,11 @@ export const exercisesDataList = {
                "Commencez en position de fente avec le genou droit devant et le genou gauche derrière. Sauter en l'air et changer les jambes en midair. Atterrir avec le genou gauche devant et le droit derrière. Gardez le torse droit et l'amortissement de l'atterrissage avec les genoux pliés.",
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fjumping-lunges.gif?alt=media&token=3b8e18bd-c510-4219-9876-9808b7ccea0a',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'quadriceps,gluteus',
-                  secondaryMuscleGroups: 'hamstring,calves,core',
+                  secondaryMuscleGroups: 'hamstring,calfs,core',
                },
                french: {
                   primaryMuscleGroups: 'Quadriceps, Fessiers',
@@ -1000,7 +1000,7 @@ export const exercisesDataList = {
                "Commence par un échauffement rapide de 5 à 10 minutes, puis commence à courir à une allure confortable. Concentre-toi sur la respiration régulière et la posture. Garde ton dos droit, regarde devant toi et gardes les épaules détendues. Varie le rythme et l'intensité de ta course pour des bénéfices optimaux.",
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Frun.gif?alt=media&token=490a0566-b6cf-40e8-a577-4206201b9f2d',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'all_lower',
@@ -1021,7 +1021,7 @@ export const exercisesDataList = {
                "Commencez en position de squat traditionnelle, pieds écartés de la largeur des épaules, genoux pliés à environ 90 degrés, dos droit, regard devant. Explosez vers le haut en poussant sur vos jambes, sautez en l'air et retendez vos jambes. En redescendant, pliez de nouveau les genoux pour absorber l'impact et retournez immédiatement en position de squat pour répéter le mouvement.",
             video: '',
             variant: null,
-            gif: '',
+            gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fjump-squat.gif?alt=media&token=20178ede-1c31-4013-8d0e-0c620355c8a3',
             muscleGroups: {
                english: {
                   primaryMuscleGroups: 'gluteus,quadriceps',
@@ -1037,6 +1037,27 @@ export const exercisesDataList = {
    },
    warmUp: [
       {
+         name: 'Montées de genoux',
+         traduction: 'Knee raises',
+         description:
+            "C'est un exercice extrêmement efficace pour renforcer les abdominaux et améliorer l'équilibre, tout en aidant à la stabilisation du tronc.",
+         execution:
+            'Debout avec le dos droit et les jambes légèrement séparées, placez vos mains à la hauteur de la taille. Montez le genou droit vers votre main droite, puis mettez-le de nouveau au sol. Réciproquement, montez le genou gauche vers la main gauche. Continuez à alterner rapidement tout en gardant le tronc bien droit.',
+         video: '',
+         variant: null,
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FHigh%20Knee%20Run.gif?alt=media&token=61dea7a4-e677-412f-8b42-b9ca6fb6ecd6',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'abs,quadriceps',
+               secondaryMuscleGroups: 'gluteus',
+            },
+            french: {
+               primaryMuscleGroups: 'Abdominaux,Quadriceps',
+               secondaryMuscleGroups: 'Fessiers',
+            },
+         },
+      },
+      {
          name: 'Marche sur tapis roulant',
          traduction: 'Treadmill Walking',
          description:
@@ -1045,7 +1066,7 @@ export const exercisesDataList = {
             "1. Commencez par vous tenir debout sur le tapis roulant, pieds écartés. 2. Sélectionnez une vitesse de marche confortable. 3. Commencez à marcher, mains relâchées le long du corps. 4. Maintenez une posture droite, regardez devant vous. 5. Respirez normalement et continuez jusqu'à la fin de votre durée d'entraînement prédéterminée.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fincline-treadmill-walk.gif?alt=media&token=e3e6d168-24f4-4d8f-a82d-f0d021d98370',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'all_lower',
@@ -1058,7 +1079,7 @@ export const exercisesDataList = {
          },
       },
       {
-         name: 'Vélo elliptique (faire résistance)',
+         name: 'Vélo elliptique (faible résistance)',
          traduction: 'Elliptical bike (low resistance)',
          description:
             "Une activité cardio sur un vélo elliptique, réglé sur une faible résistance, pour débuter ou pour une récupération active. Bon pour l'endurance et la tonicité du bas du corps.",
@@ -1066,7 +1087,7 @@ export const exercisesDataList = {
             'Positionnez-vous sur le vélo, pieds dans les pédales, mains sur les poignées. Assurez-vous que votre dos est droit. Commencez à pédaler lentement pour vous échauffer, puis augmentez le rythme pour entrer dans une zone de travail cardio modérée. Vos jambes doivent bouger dans un mouvement fluide, sans jamais être complètement tendues. Pédalez pendant la durée souhaitée.',
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FElliptical-bike.gif?alt=media&token=93f4f63c-dd77-4ace-9c14-434717d1e06b',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'all_lower',
@@ -1087,10 +1108,10 @@ export const exercisesDataList = {
             "Commencez par tenir la corde derrière vous, les pieds groupés. Faites tourner la corde et faites un petit saut au moment où elle s'approche de vos pieds. Atterrissez légèrement sur la pointe de vos pieds. Continuez à un rythme constant. Gardez les coudes près de votre corps, et utilisez vos poignets pour faire tourner la corde, pas vos bras.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fjump-rope.gif?alt=media&token=6204f14f-c5a0-41d0-a307-339aa6545568',
          muscleGroups: {
             english: {
-               primaryMuscleGroups: 'calves,quadriceps,hamstring,gluteus,core',
+               primaryMuscleGroups: 'calfs,quadriceps,hamstring,gluteus,core',
                secondaryMuscleGroups: 'shoulders,forearms',
             },
             french: {
@@ -1109,7 +1130,7 @@ export const exercisesDataList = {
             "Commencez en position debout, les pieds écartés de la largeur des épaules, les orteils légèrement tournés vers l'extérieur. Gardez votre colonne vertébrale neutre et fixez votre regard sur un point devant vous. Poussez vos fesses en arrière et pliez les genoux tout en gardant le torse droit. Accroupissez-vous jusqu'à ce que vos cuisses soient parallèles au sol ou plus bas si vous le pouvez. Poussez à travers vos talons pour revenir en position debout.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fsquat.gif?alt=media&token=dbe58528-c647-4101-8ee9-abe92f13ee06&_gl=1*1k8lu65*_ga*NzQxMTQyMDU5LjE2OTMzOTgzMzk.*_ga_CW55HF8NVT*MTY5NzM4NDM5MC4xNy4xLjE2OTczODU0NDkuMzEuMC4w',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'quadriceps,gluteus',
@@ -1130,7 +1151,7 @@ export const exercisesDataList = {
             "Commencez debout avec les pieds à largeur de hanches. Pliez un genou et amenez le talon à toucher les fesses, revenez à la position de départ et alternez avec l'autre jambe. Faites le mouvement rapidement et continuez à alterner pour l'intervalle requis.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fbut-kick.gif?alt=media&token=09a45423-2d15-460d-9523-996de0d49df4',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'hamstring,quadriceps',
@@ -1151,15 +1172,15 @@ export const exercisesDataList = {
             "Debout, fléchissez les genoux et posez les mains au sol devant les pieds. Poussez les jambes en arrière pour arriver en position de planche, puis avec une poussée dynamique, ramenez rapidement les pieds entre les mains. Ensuite, bondissez en l'air avec les bras au-dessus de la tête. Répétez le mouvement.",
          video: '',
          variant: null,
-         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fburbee.gif?alt=media&token=691b2e86-11e0-4195-a96c-93730915659c',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fburbee.gif?alt=media&token=173f346b-d45f-4460-b010-f196f3666272',
          muscleGroups: {
             english: {
-               primaryMuscleGroups: 'all',
-               secondaryMuscleGroups: 'none',
+               primaryMuscleGroups: 'all_lower',
+               secondaryMuscleGroups: 'all_upper',
             },
             french: {
                primaryMuscleGroups: 'Tous les muscles',
-               secondaryMuscleGroups: 'Aucun',
+               secondaryMuscleGroups: '',
             },
          },
       },
@@ -1193,7 +1214,7 @@ export const exercisesDataList = {
             "Commencez en position de planche, les mains directement sous les épaules. Serrez vos abdominaux et faites rentrer votre genou droit vers votre poitrine. Revenez en position de planche et changez de jambes. Répétez de manière fluide et rapide. Gardez le dos plat durant tout l'exercice.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fmountain-climber.gif?alt=media&token=d7e3a0d8-d84f-4c2c-bd51-b9b229163192',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'abs,quadriceps',
@@ -1214,7 +1235,7 @@ export const exercisesDataList = {
             "Commencez en position haute de la planche, mains légèrement plus larges que les épaules et les pieds à la largeur des hanches. Gardez le corps droit, pliez les coudes pour abaisser votre poitrine jusqu'à ce qu'elle soit juste au-dessus du sol. Poussez pour revenir en position de départ. Gardez le noyau engagé tout au long de l'exercice.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fpush-up.gif?alt=media&token=88759b7d-e2f8-4da7-8e55-770d794a68b6',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'chest',
@@ -1235,7 +1256,7 @@ export const exercisesDataList = {
             "Commencez debout, faites une fente en avançant le pied droit et abaissez le corps jusqu'à ce que le genou droit soit à angle droit. Poussez sur vos pieds pour sauter en l'air tout en changeant la position des jambes en rotation. Atterrissez doucement et répétez.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Fjumping-lunges.gif?alt=media&token=3b8e18bd-c510-4219-9876-9808b7ccea0a',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'quadriceps,gluteus',
@@ -1256,7 +1277,7 @@ export const exercisesDataList = {
             "Commencez en position de planche sur les avant-bras. Assurez-vous que votre corps est aligné, de la tête aux pieds. Montez jusqu'à une position de planche haute en posant une main sur le sol, puis l'autre, pour vous retrouver en appui sur vos mains. Retournez ensuite en position de planche basse en mettant un coude au sol, puis l'autre. Répétez l'exercice plusieurs fois, en alternant le bras qui monte en premier.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FPlank%20(1)..gif?alt=media&token=a5bd30a4-e0d3-4a24-bfea-fae0d151bb06',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'core',
@@ -1277,7 +1298,7 @@ export const exercisesDataList = {
             "Debout, le corps droit, commencez à courir sur place. Veillez à soulever vos genoux le plus haut possible et balancez vos bras en coordination avec le mouvement de vos jambes. Gardez votre dos droit et regardez en avant. Commencez doucement et augmentez progressivement l'intensité.",
          video: '',
          variant: null,
-         gif: '',
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2Frun.gif?alt=media&token=490a0566-b6cf-40e8-a577-4206201b9f2d',
          muscleGroups: {
             english: {
                primaryMuscleGroups: 'all_lower',
@@ -1286,6 +1307,27 @@ export const exercisesDataList = {
             french: {
                primaryMuscleGroups: 'Tous les muscles inférieurs',
                secondaryMuscleGroups: 'Sangle abdominale',
+            },
+         },
+      },
+      {
+         name: 'Vélo elliptique (faible résistance)',
+         traduction: 'Elliptical bike (low resistance)',
+         description:
+            "Une activité cardio sur un vélo elliptique, réglé sur une faible résistance, pour débuter ou pour une récupération active. Bon pour l'endurance et la tonicité du bas du corps.",
+         execution:
+            'Positionnez-vous sur le vélo, pieds dans les pédales, mains sur les poignées. Assurez-vous que votre dos est droit. Commencez à pédaler lentement pour vous échauffer, puis augmentez le rythme pour entrer dans une zone de travail cardio modérée. Vos jambes doivent bouger dans un mouvement fluide, sans jamais être complètement tendues. Pédalez pendant la durée souhaitée.',
+         video: '',
+         variant: null,
+         gif: 'https://firebasestorage.googleapis.com/v0/b/happyfit-app.appspot.com/o/workoutGif%2FElliptical-bike.gif?alt=media&token=93f4f63c-dd77-4ace-9c14-434717d1e06b',
+         muscleGroups: {
+            english: {
+               primaryMuscleGroups: 'all_lower',
+               secondaryMuscleGroups: 'core,abs',
+            },
+            french: {
+               primaryMuscleGroups: 'Tous les muscles inférieurs',
+               secondaryMuscleGroups: 'Sangle abdominale, Abdominaux',
             },
          },
       },
