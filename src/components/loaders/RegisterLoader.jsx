@@ -1,6 +1,6 @@
 import { Bold, Title } from '@tremor/react'
 import { useState, useEffect } from 'react'
-import { sentencesForLoading } from '../../data/sentencesForLoading'
+import { sentencesForLoading } from '../../constants/sentencesForLoading'
 import { RotatingLines } from 'react-loader-spinner'
 import TextStepProgram from '../register/TextStepProgram'
 

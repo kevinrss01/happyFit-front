@@ -29,6 +29,21 @@
   }
 }
 
+.questions-back-and-forward-button {
+  background-color: $bleu;
+  margin: 40px 0;
+  height: 45px;
+  width: 49%;
+  color: inherit;
+  transition: 0.3s ease-in;
+  animation: slideInFromBottom 0.6s ease-out;
+
+  &:hover {
+    background-color: $bleu;
+  }
+}
+
+
 .button-submit {
   width: 525px;
   margin-top: 5px;

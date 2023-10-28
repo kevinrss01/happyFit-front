@@ -4,8 +4,8 @@ import { PiPasswordBold, PiPasswordDuotone } from 'react-icons/pi'
 import { newPasswordVerif } from '../../utils/yupSchema'
 import * as Yup from 'yup'
 import toastMessage from '../../utils/toast'
-import AuthAPI from '../../service/AuthAPI'
-import UserAPI from '../../service/UserAPI'
+import AuthAPI from '../../service/API/AuthAPI'
+import UserAPI from '../../service/API/UserAPI'
 
 export const PasswordContainer = ({ email, userId }) => {
    const [actualPassword, setActualPassword] = useState('')

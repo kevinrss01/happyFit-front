@@ -4,7 +4,7 @@ import { Button, TextInput, Title } from '@tremor/react'
 import FlexContainer from '../Containers/FlexContainer'
 import toastMessage from '../../utils/toast'
 import { useSelector } from 'react-redux'
-import UserAPI from '../../service/UserAPI'
+import UserAPI from '../../service/API/UserAPI'
 
 const defaultObject = {
    title: '',

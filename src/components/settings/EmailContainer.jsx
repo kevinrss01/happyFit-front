@@ -1,7 +1,7 @@
 import { TextInput, Button, Text } from '@tremor/react'
 import React, { useState } from 'react'
 import toastMessage from '../../utils/toast'
-import AuthAPI from '../../service/AuthAPI'
+import AuthAPI from '../../service/API/AuthAPI'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUserEmail } from '../../redux/actions/userActions'
 import axios from 'axios'

@@ -2,11 +2,11 @@ import { Provider } from 'react-redux'
 import store from '../redux/store'
 import '../styles/sass/main.scss'
 import { Fragment } from 'react'
-import { useRouter } from 'next/router'
 import AuthGuard from '../components/AuthGuard'
 import CustomNavbar from '../components/CustomNavbar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function MyApp({ Component, pageProps }) {
    return (

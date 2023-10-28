@@ -11,16 +11,14 @@ export default function WarmUpList({ warmUps, path }) {
       push(`${path}/${index}?length=${warmUps.length}`)
    })
 
+   console.log(warmUps)
+
    const programPath = asPath.split('/').slice(0, 4).join('/') + '/exercise'
 
    if (!Array.isArray(warmUps)) return <></>
 
    return (
       <FlexContainer flexDirection='column'>
-         <Text>Échauffement terminé ?</Text>
-         <Button icon={AiOutlineArrowRight} onClick={() => push(programPath)}>
-            Commencer les exercices
-         </Button>
          {warmUps.map(({ exerciseNumber, exerciseName }, index) => (
             <Card key={`opener-forWarmUp-${index}`} className='warm-up-card'>
                <Title color='white' className='title-card-list'>
@@ -31,6 +29,10 @@ export default function WarmUpList({ warmUps, path }) {
                </Button>
             </Card>
          ))}
+         <Text>Échauffement terminé ?</Text>
+         <Button icon={AiOutlineArrowRight} onClick={() => push(programPath)}>
+            Commencer les exercices
+         </Button>
       </FlexContainer>
    )
 }

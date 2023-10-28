@@ -8,3 +8,14 @@
     opacity: 1;  /* la carte devient pleinement visible */
   }
 }
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);  /* l'élément commence complètement en bas */
+    opacity: 0;  /* l'élément est entièrement transparent */
+  }
+  100% {
+    transform: translateY(0);  /* l'élément se déplace vers sa position d'origine */
+    opacity: 1;  /* l'élément devient pleinement visible */
+  }
+}

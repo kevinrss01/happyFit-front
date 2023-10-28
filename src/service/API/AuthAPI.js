@@ -1,5 +1,5 @@
-import Axios from './axios'
-import { refreshTokenOnLocalStorage, saveTokensOnLocalStorage } from './utils'
+import Axios from '../axios'
+import { refreshTokenOnLocalStorage, saveTokensOnLocalStorage } from '../utils'
 
 const PREFIX = 'auth'
 const formatSuffix = (suffix) => `${PREFIX}/${suffix}`

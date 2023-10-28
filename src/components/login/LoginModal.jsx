@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
 import {
    Accordion,
    AccordionBody,
@@ -11,8 +10,59 @@ import {
 } from '@tremor/react'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { RiMailSendLine } from 'react-icons/ri'
-import UserAPI from '../../service/UserAPI'
+import UserAPI from '../../service/API/UserAPI'
 import toastMessage from '../../utils/toast'
+import { ModalTremor } from '../Modals/ModalTremor'
+
+export const LoginModalContent = ({
+   errorMessage,
+   setEmail,
+   email,
+   isLoading,
+   onSubmit,
+   emailSent,
+}) => {
+   return (
+      <>
+         <Title className='text-center'>Centre d'assistance</Title>
+         <AccordionList className='max-w-md mx-auto m-10'>
+            <Accordion>
+               <AccordionHeader>J'ai oublié mon mot de passe</AccordionHeader>
+               <AccordionBody>
+                  Pour réinitialiser votre mot de passe veuillez rentrer l’e-mail lié à votre
+                  compte, si un compte Happy Fit est associé à cet e-mail vous recevrez les
+                  instructions par mail.
+                  <br />
+                  <TextInput
+                     className='mt-5'
+                     placeholder='Entrez votre e-mail'
+                     icon={MdOutlineAlternateEmail}
+                     onChange={(e) => setEmail(e.target.value)}
+                     error={errorMessage}
+                     errorMessage={errorMessage}
+                  ></TextInput>
+                  <Button
+                     disabled={!email || emailSent}
+                     icon={RiMailSendLine}
+                     onClick={() => onSubmit()}
+                     className={`mt-5`}
+                     loading={isLoading}
+                  >
+                     Envoyer
+                  </Button>
+               </AccordionBody>
+            </Accordion>
+            <Accordion>
+               <AccordionHeader>J'ai un autre problème</AccordionHeader>
+               <AccordionBody>
+                  Si vous avez un autre problème, vous pouvez nous contacter à l'adresse mail
+                  suivante : <b>happyfitapp.pro@gmail.com</b>
+               </AccordionBody>
+            </Accordion>
+         </AccordionList>
+      </>
+   )
+}
 
 const LoginModal = ({ isOpenModal, closeModal }) => {
    const [email, setEmail] = useState('')
@@ -45,83 +95,20 @@ const LoginModal = ({ isOpenModal, closeModal }) => {
 
    return (
       <>
-         <Transition appear show={isOpenModal} as={Fragment}>
-            <Dialog as='div' className='relative z-50' onClose={closeModal}>
-               <Transition.Child
-                  as={Fragment}
-                  enter='ease-out duration-300'
-                  enterFrom='opacity-0'
-                  enterTo='opacity-100'
-                  leave='ease-in duration-200'
-                  leaveFrom='opacity-100'
-                  leaveTo='opacity-0'
-               >
-                  <div className='fixed inset-0 bg-gray-900 bg-opacity-25' />
-               </Transition.Child>
-               <div className='fixed inset-0 overflow-y-auto'>
-                  <div className='flex min-h-full items-center justify-center p-4 text-center'>
-                     <Transition.Child
-                        as={Fragment}
-                        enter='ease-out duration-300'
-                        enterFrom='opacity-0 scale-95'
-                        enterTo='opacity-100 scale-100'
-                        leave='ease-in duration-200'
-                        leaveFrom='opacity-100 scale-100'
-                        leaveTo='opacity-0 scale-95'
-                     >
-                        <Dialog.Panel
-                           className='w-full max-w-xl transform overflow-hidden ring-tremor bg-white
-                                    p-6 text-left align-middle shadow-tremor transition-all rounded-xl'
-                        >
-                           <Title className='text-center'>Centre d'assistance</Title>
-                           <AccordionList className='max-w-md mx-auto m-10'>
-                              <Accordion>
-                                 <AccordionHeader>J'ai oublié mon mot de passe</AccordionHeader>
-                                 <AccordionBody>
-                                    Pour réinitialiser votre mot de passe veuillez rentrer l’e-mail
-                                    lié à votre compte, si un compte Happy Fit est associé à cet
-                                    e-mail vous recevrez les instructions par mail.
-                                    <br />
-                                    <TextInput
-                                       className='mt-5'
-                                       placeholder='Entrez votre e-mail'
-                                       icon={MdOutlineAlternateEmail}
-                                       onChange={(e) => setEmail(e.target.value)}
-                                       error={errorMessage}
-                                       errorMessage={errorMessage}
-                                    ></TextInput>
-                                    <Button
-                                       disabled={!email || emailSent}
-                                       icon={RiMailSendLine}
-                                       onClick={() => onSubmit()}
-                                       className={`mt-5`}
-                                       loading={isLoading}
-                                    >
-                                       Envoyer
-                                    </Button>
-                                 </AccordionBody>
-                              </Accordion>
-                              <Accordion>
-                                 <AccordionHeader>J'ai un autre problème</AccordionHeader>
-                                 <AccordionBody>
-                                    Si vous avez un autre problème, vous pouvez nous contacter à
-                                    l'adresse mail suivante : <b>happyfitapp.pro@gmail.com</b>
-                                 </AccordionBody>
-                              </Accordion>
-                           </AccordionList>
-                           <Button
-                              className='mt-2 w-full bg-white border-gray-200 text-gray-500 hover:bg-gray-50 hover:border-gray-300'
-                              onClick={closeModal}
-                              loading={isLoading}
-                           >
-                              Terminer
-                           </Button>
-                        </Dialog.Panel>
-                     </Transition.Child>
-                  </div>
-               </div>
-            </Dialog>
-         </Transition>
+         <ModalTremor
+            isOpenModalState={isOpenModal}
+            closeModal={closeModal}
+            isLoadingButtonState={isLoading}
+         >
+            <LoginModalContent
+               errorMessage={errorMessage}
+               setEmail={setEmail}
+               emailSent={emailSent}
+               isLoading={isLoading}
+               email={email}
+               onSubmit={onSubmit}
+            />
+         </ModalTremor>
       </>
    )
 }
