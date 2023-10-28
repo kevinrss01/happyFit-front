@@ -1,7 +1,7 @@
 import Skeleton from 'react-loading-skeleton'
 import { useEffect, useState } from 'react'
 
-const WarmUpLoader = () => {
+export const ExerciseLoader = () => {
    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
    useEffect(() => {
@@ -29,7 +29,11 @@ const WarmUpLoader = () => {
          <Skeleton height={35} width={getWidth(25)} count={1} className='mt-5 mb-5' />
          <Skeleton count={1} height={50} width={getWidth(47)} />
          <Skeleton count={1} height={150} width={getWidth(47)} />
-         <Skeleton count={1} height={50} width={getWidth(47)} />
+
+         <div className='w-[100%] flex items-center justify-center flex-col mb-7'>
+            <Skeleton height={20} width={getWidth(15)} className='mt-5 mb-5' />
+            <Skeleton height={210} width={getWidth(32)} />
+         </div>
 
          <div className='flex items-center justify-between'>
             <div className='m-5 flex flex-col items-center justify-center'>
@@ -44,5 +48,3 @@ const WarmUpLoader = () => {
       </>
    )
 }
-
-export default WarmUpLoader

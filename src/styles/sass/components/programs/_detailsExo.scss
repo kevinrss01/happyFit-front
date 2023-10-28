@@ -27,6 +27,7 @@
       .exercise-card {
          display: flex;
          justify-content: space-between;
+         align-items: center;
          flex-direction: column;
          height: 200px;
          width: 400px;
@@ -34,11 +35,17 @@
 
          .title-card {
             text-align: center;
+            font-size: 22px;
+         }
+
+         .text-card {
+            text-align: center;
             font-size: 20px;
          }
 
-         p {
-            padding-bottom: 40px;
+         .text-cardio{
+            text-align: center;
+            font-size: 18px;
          }
       }
 

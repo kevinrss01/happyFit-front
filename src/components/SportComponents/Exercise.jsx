@@ -1,3 +1,9 @@
+//ICONS
+import { AiOutlineArrowRight } from 'react-icons/ai'
+import { BsQuestionLg } from 'react-icons/bs'
+import { FcClock } from 'react-icons/fc'
+//
+
 import { sportTypeTextsClass } from '../../service/StringClasses'
 import { computeInMinutes, handlePlural } from '../../service/utils'
 import {
@@ -10,38 +16,56 @@ import {
    AccordionList,
    Text,
    Icon,
+   Title,
 } from '@tremor/react'
 import Image from 'next/image'
 import Carousel from '../Containers/Carousel'
 import { useRouter } from 'next/router'
-import { AiOutlineArrowRight } from 'react-icons/ai'
 import { useEffect, useMemo, useState } from 'react'
-
 import { exercisesDataList } from '../../constants/exercisesData'
 import fetchMusclesGroupImg from '../../service/API/ExternalAPI'
-import { BsQuestionLg } from 'react-icons/bs'
-const { workout, cardio } = exercisesDataList.training
+import { ExerciseLoader } from '../loaders/SportPages/ExerciseLoader'
 
-const SetRenderer = ({ weight, seriesNumber, rest, repetition }) => (
-   <Card className='exercise-card'>
-      <h2 className='title-card'>Serie n°{seriesNumber}</h2>
-      <p>
-         {handlePlural(repetition, 'répétition', true)} à{' '}
-         {handlePlural(parseInt(weight), 'kilo', true)} avec {computeInMinutes(rest)} de
-         récupération.
-      </p>
-   </Card>
-)
+const { workout, cardio } = exercisesDataList.training
+const SetRenderer = ({ weight, seriesNumber, rest, repetition }) => {
+   return (
+      <Card className='exercise-card'>
+         <Title color='white' className='title-card'>
+            Série n°{seriesNumber}
+         </Title>
+         <Text color='white' className='text-card'>
+            {handlePlural(repetition, 'répétition', true)}
+            {weight.toString() === '0' ? <></> : <> à </>}
+            {handlePlural(parseInt(weight), 'kilo', true)} avec {computeInMinutes(rest)} de
+            récupération.
+         </Text>
+         <p></p>
+      </Card>
+   )
+}
 
 const Series = ({ series }) => {
    if (!series) return <></>
    const sortedSeries = [...series].sort((a, b) => a.seriesNumber - b.seriesNumber)
    return (
-      <Carousel arrowTopPosition='20%' carouselHeight={260} carouselWidth={400}>
+      <Carousel arrowTopPosition='30%' carouselHeight={260} carouselWidth={400}>
          {sortedSeries.map((set, index) => (
             <SetRenderer key={`set n°${index}`} {...set} />
          ))}
       </Carousel>
+   )
+}
+
+const CardioInstructionCard = ({ instructions, totalTime }) => {
+   return (
+      <Card className='exercise-card'>
+         <Text className='text-white text-cardio'>{instructions}</Text>
+         <Text className='text-white text-cardio flex'>
+            <FcClock className='mr-1 scale-125' />
+            Temps total : {handlePlural(parseInt(totalTime), 'minute', true)}
+         </Text>
+         <p></p>
+      </Card>
    )
 }
 
@@ -129,36 +153,27 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }
                         {description || 'Description indisponible, veuillez nous contacter'}
                      </AccordionBody>
                   </Accordion>
-                  {isTypeTrainingCardio ? (
-                     <Accordion defaultOpen={true}>
-                        <AccordionHeader>Instructions</AccordionHeader>
-                        <AccordionBody>
-                           {instructions || 'Instructions indisponible, veuillez nous contacter'}
-                           {totalTime && (
-                              <p>
-                                 <br />
-                                 <Bold className='text-center'>
-                                    Temps total : {totalTime} minutes
-                                 </Bold>
-                              </p>
-                           )}
-                        </AccordionBody>
-                     </Accordion>
-                  ) : (
-                     <></>
-                  )}
-                  <Accordion defaultOpen={!isTypeTrainingCardio}>
-                     <AccordionHeader>Execution</AccordionHeader>
+                  <Accordion defaultOpen={true}>
+                     <AccordionHeader>Conseils</AccordionHeader>
                      <AccordionBody>
                         {execution || 'Execution indisponible, veuillez nous contacter.'}
                      </AccordionBody>
                   </Accordion>
                </AccordionList>
 
-               {series && (
+               {!isTypeTrainingCardio ? (
                   <>
-                     <Bold className='mt-10 mb-4'>Séries :</Bold>
+                     <Title className='mt-10 mb-4 text-xl text-white'>Séries :</Title>
                      <Series series={series} />
+                  </>
+               ) : (
+                  <>
+                     <Title className='mt-10 mb-4 text-white text-xl'>
+                        Instruction pour cet exercice :
+                     </Title>
+                     <div>
+                        <CardioInstructionCard instructions={instructions} totalTime={totalTime} />
+                     </div>
                   </>
                )}
 
@@ -204,9 +219,7 @@ const Exercise = ({ exerciseName, instructions, muscleGroup, series, totalTime }
                </div>
             </div>
          ) : (
-            <>
-               <p>Chargement...</p>
-            </>
+            <ExerciseLoader />
          )}
       </div>
    )
