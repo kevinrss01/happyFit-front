@@ -22,7 +22,6 @@ export const SecondSection = ({
          setNumberOfSessionPerWeek(sessionStorage.getItem('sessionsPerWeek'))
       }
       if (sessionStorage.getItem('exoPerformances')) {
-         console.log(JSON.parse(sessionStorage.getItem('exoPerformances')))
          setUserExoPerf(JSON.parse(sessionStorage.getItem('exoPerformances')))
       }
    }, [])

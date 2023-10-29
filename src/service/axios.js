@@ -34,12 +34,13 @@ class Axios {
       return Boolean(axios.defaults.headers.common.Authorization)
    }
 
-   static getToken() {
+   static getTokenAxiosOrLocalStorage() {
       if (this.tokenSaved()) {
          const token = axios.defaults.headers.common.Authorization
          return token.replace('Bearer ', '')
       } else {
          const savedToken = getItemFromLocalStorage(TOKEN_ACCESSOR)
+         if (savedToken) this.saveToken(savedToken.token)
          return savedToken ? savedToken.token : ''
       }
    }

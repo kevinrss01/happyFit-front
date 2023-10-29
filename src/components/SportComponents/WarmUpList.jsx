@@ -11,8 +11,6 @@ export default function WarmUpList({ warmUps, path }) {
       push(`${path}/${index}?length=${warmUps.length}`)
    })
 
-   console.log(warmUps)
-
    const programPath = asPath.split('/').slice(0, 4).join('/') + '/exercise'
 
    if (!Array.isArray(warmUps)) return <></>

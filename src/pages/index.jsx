@@ -20,7 +20,7 @@ export default function Home() {
          })
          .catch((err) => {
             toastMessage('Une erreur est survenue, veuillez réessayer plus tard', 'error')
-            console.error(err)
+            console.error('Error while fetching articles', err)
          })
    }, [])
 

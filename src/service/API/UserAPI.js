@@ -1,5 +1,4 @@
 import Axios from '../axios'
-
 const PREFIX = 'users'
 const formatSuffix = (suffix) => `${PREFIX}/${suffix}`
 
