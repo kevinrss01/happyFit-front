@@ -117,7 +117,6 @@ export const FirstSection = ({
    )
 
    const handleOpenModal = () => {
-      console.log('open modal')
       dispatch({
          type: 'SET_MODAL_CHILD',
          payload: <HowToChooseGoalComponent />,

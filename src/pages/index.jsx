@@ -20,33 +20,31 @@ export default function Home() {
          })
          .catch((err) => {
             toastMessage('Une erreur est survenue, veuillez réessayer plus tard', 'error')
-            console.error(err)
+            console.error('Error while fetching articles', err)
          })
    }, [])
 
    return (
       <div className='general-main-container'>
-         <Title className='title-container text-white text-[35px] m-4 text-center'>
-            Les derniers articles
-         </Title>
+         <Title className='title-container text-white text-[35px] m-4 text-center'>Accueil</Title>
          {!isLoading && articles.length > 0 ? (
             <>
                <TabGroup className='tab-group'>
                   <TabList className='mt-8 tab-list' variant='solid'>
-                     <Tab icon={GrArticle}>Articles</Tab>
                      <Tab icon={ImStatsDots}>Statistiques</Tab>
+                     <Tab icon={GrArticle}>Articles</Tab>
                   </TabList>
                   <TabPanels>
+                     <TabPanel>
+                        <div className='stats-tab-container'>
+                           <h2 className='text-white'>Page des statistiques</h2>
+                        </div>
+                     </TabPanel>
                      <TabPanel>
                         <div className='article-tab-container'>
                            {articles.map((article, index) => {
                               return <ArticleCard key={index} data={article} />
                            })}
-                        </div>
-                     </TabPanel>
-                     <TabPanel>
-                        <div className='stats-tab-container'>
-                           <h2 className='text-white'>Page des statistiques</h2>
                         </div>
                      </TabPanel>
                   </TabPanels>

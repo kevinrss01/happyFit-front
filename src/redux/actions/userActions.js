@@ -25,7 +25,6 @@ import {
    UPDATE_USER_INFO_SUCCESS,
 } from './actions'
 import { getProgramRequest, getProgramSuccess } from './sportActions'
-// import { toast } from 'react-toastify'
 import toast from '../../utils/toast'
 import toastMessage from '../../utils/toast'
 
@@ -148,13 +147,14 @@ export const getUser = () => async (dispatch) => {
 export const getUserInfo = (userId) => async (dispatch) => {
    dispatch(getProgramRequest())
    dispatch(getUserInfoRequest())
+
    try {
       const res = await UserAPI.getUserInfo(userId)
       dispatch(getUserInfoSuccess(res.data))
       dispatch(getProgramSuccess(res.data))
    } catch (err) {
+      console.error('Error when getting userInfo' + err)
       dispatch(getUserInfoError(err))
-      console.error(err)
    }
 }
 
@@ -176,12 +176,13 @@ export const refreshToken = (token) => async (dispatch) => {
 export const updateUserInfo = (data, id) => async (dispatch) => {
    dispatch(updateUserInfoRequest())
    try {
-      const res = await UserAPI.updatePersonalUserInfo(data, id)
+      await UserAPI.updatePersonalUserInfo(data, id)
       dispatch(updateUserInfoSuccess(data))
       toast('La mise à jour de vos données a été faite !', 'success')
    } catch (err) {
       dispatch(updateUserInfoError(err))
       toast('Une erreur est survenu, veuillez réessayer plus tard.', 'error')
+
       throw new Error(err)
    }
 }

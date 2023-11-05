@@ -116,8 +116,6 @@ export default function ParamsForm({ validate, goBack }) {
             return
          }
 
-         console.log(formValue)
-
          if (Object.keys(formValue).every((key) => !!formValue[key])) {
             sessionStorage.setItem('metrics', JSON.stringify(formValue))
             validate('params', formValue)

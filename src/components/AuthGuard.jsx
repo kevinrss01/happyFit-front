@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import jwtDecode from 'jwt-decode'
 import Axios from '../service/axios'
@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 const allowedPaths = ['/login', '/registration']
 
 export default function AuthGuard({ children }) {
+   const [loadingAuthentication, setLoadingAuthentication] = useState(true)
    const dispatch = useSecuredDispatch()
    const userId = useSelector((state) => state.user.userInfo.id)
    const { push, pathname } = useRouter()
@@ -18,23 +19,23 @@ export default function AuthGuard({ children }) {
          if (userId) {
             dispatch(getUserInfo(userId))
          } else {
-            const token = Axios.getToken()
+            const token = Axios.getTokenAxiosOrLocalStorage()
             if (token) {
                const { sub: id } = jwtDecode(token)
                dispatch(getUserInfo(id))
             } else {
-               console.error('no token')
                if (allowedPaths.includes(pathname)) return
                throw new Error('No token found')
             }
          }
       } catch (error) {
          console.error(error)
-         localStorage.clear('token')
-         localStorage.clear('userTokens')
+         localStorage.removeItem('userTokens')
          push('login')
+      } finally {
+         setLoadingAuthentication(false)
       }
    }, [])
 
-   return <>{children}</>
+   return loadingAuthentication ? <></> : <>{children}</>
 }

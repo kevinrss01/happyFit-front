@@ -31,22 +31,22 @@ function MyApp({ Component, pageProps }) {
             href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
          />
          <Provider store={store}>
+            <ToastContainer
+               position='top-right'
+               autoClose={3000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               theme='light'
+               zIndex={9999}
+            />
             <AuthGuard>
                <CustomNavbar component={Component}>
                   <Component {...pageProps} />
-                  <ToastContainer
-                     position='top-right'
-                     autoClose={3000}
-                     hideProgressBar={false}
-                     newestOnTop={false}
-                     closeOnClick
-                     rtl={false}
-                     pauseOnFocusLoss
-                     draggable
-                     pauseOnHover
-                     theme='light'
-                     zIndex={9999}
-                  />
                   <ToastContainer />
                </CustomNavbar>
             </AuthGuard>
