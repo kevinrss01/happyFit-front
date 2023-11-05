@@ -97,7 +97,7 @@ export const PersonalInfoContainer = ({ userData }) => {
          }
 
          const userId = getUserId()
-         const { birthday, id, email, sexe, ...rest } = updatedData
+         const { birthday, id, email, sexe, exoPerformances, ...rest } = updatedData
          const convertedObject = convertStringsToInts(rest)
 
          await verifyInputs(convertedObject)

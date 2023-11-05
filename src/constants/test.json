@@ -1,0 +1,197 @@
+{
+   "trainingType": "fullBody",
+   "exercises": [
+      {
+         "exerciseName": "Squat sumo",
+         "muscleGroup": "Jambes",
+         "instructions": "Gardez le dos droit et descendez jusqu'à ce que vos cuisses soient parallèles au sol.",
+         "numberOfSeries": 4,
+         "series": [
+            {
+               "repetition": 12,
+               "seriesNumber": 1,
+               "rest": 60,
+               "weight": "45"
+            },
+            {
+               "repetition": 10,
+               "seriesNumber": 2,
+               "rest": 90,
+               "weight": "50"
+            },
+            {
+               "repetition": 8,
+               "seriesNumber": 3,
+               "rest": 90,
+               "weight": "55"
+            },
+            {
+               "repetition": 6,
+               "seriesNumber": 4,
+               "rest": 90,
+               "weight": "60"
+            }
+         ]
+      },
+      {
+         "exerciseName": "Développé militaire",
+         "muscleGroup": "Épaules",
+         "instructions": "Gardez les coudes près du corps et descendez la barre jusqu'à toucher la poitrine.",
+         "numberOfSeries": 4,
+         "series": [
+            {
+               "repetition": 12,
+               "seriesNumber": 1,
+               "rest": 60,
+               "weight": "35"
+            },
+            {
+               "repetition": 10,
+               "seriesNumber": 2,
+               "rest": 90,
+               "weight": "40"
+            },
+            {
+               "repetition": 8,
+               "seriesNumber": 3,
+               "rest": 90,
+               "weight": "45"
+            },
+            {
+               "repetition": 6,
+               "seriesNumber": 4,
+               "rest": 90,
+               "weight": "50"
+            }
+         ]
+      },
+      {
+         "exerciseName": "Rowing à la poulie basse",
+         "muscleGroup": "Dos",
+         "instructions": "Tirez la barre vers votre poitrine en gardant le dos droit.",
+         "numberOfSeries": 4,
+         "series": [
+            {
+               "repetition": 12,
+               "seriesNumber": 1,
+               "rest": 60,
+               "weight": "35"
+            },
+            {
+               "repetition": 10,
+               "seriesNumber": 2,
+               "rest": 90,
+               "weight": "40"
+            },
+            {
+               "repetition": 8,
+               "seriesNumber": 3,
+               "rest": 90,
+               "weight": "45"
+            },
+            {
+               "repetition": 6,
+               "seriesNumber": 4,
+               "rest": 90,
+               "weight": "50"
+            }
+         ]
+      },
+      {
+         "exerciseName": "Fentes avec haltères",
+         "muscleGroup": "Jambes",
+         "instructions": "Gardez le dos droit et descendez jusqu'à ce que votre genou arrière touche presque le sol.",
+         "numberOfSeries": 4,
+         "series": [
+            {
+               "repetition": 12,
+               "seriesNumber": 1,
+               "rest": 60,
+               "weight": "45"
+            },
+            {
+               "repetition": 10,
+               "seriesNumber": 2,
+               "rest": 90,
+               "weight": "50"
+            },
+            {
+               "repetition": 8,
+               "seriesNumber": 3,
+               "rest": 90,
+               "weight": "55"
+            },
+            {
+               "repetition": 6,
+               "seriesNumber": 4,
+               "rest": 90,
+               "weight": "60"
+            }
+         ]
+      },
+      {
+         "exerciseName": "Curl marteau",
+         "muscleGroup": "Biceps",
+         "instructions": "Gardez les coudes près du corps et montez la barre jusqu'à vos épaules.",
+         "numberOfSeries": 4,
+         "series": [
+            {
+               "repetition": 12,
+               "seriesNumber": 1,
+               "rest": 60,
+               "weight": "15"
+            },
+            {
+               "repetition": 10,
+               "seriesNumber": 2,
+               "rest": 90,
+               "weight": "20"
+            },
+            {
+               "repetition": 8,
+               "seriesNumber": 3,
+               "rest": 90,
+               "weight": "25"
+            },
+            {
+               "repetition": 6,
+               "seriesNumber": 4,
+               "rest": 90,
+               "weight": "30"
+            }
+         ]
+      },
+      {
+         "exerciseName": "Dips",
+         "muscleGroup": "Triceps",
+         "instructions": "Gardez les coudes près du corps et descendez jusqu'à ce que vos bras soient parallèles au sol.",
+         "numberOfSeries": 4,
+         "series": [
+            {
+               "repetition": 12,
+               "seriesNumber": 1,
+               "rest": 60,
+               "weight": "0"
+            },
+            {
+               "repetition": 10,
+               "seriesNumber": 2,
+               "rest": 90,
+               "weight": "0"
+            },
+            {
+               "repetition": 8,
+               "seriesNumber": 3,
+               "rest": 90,
+               "weight": "0"
+            },
+            {
+               "repetition": 6,
+               "seriesNumber": 4,
+               "rest": 90,
+               "weight": "0"
+            }
+         ]
+      }
+   ]
+}

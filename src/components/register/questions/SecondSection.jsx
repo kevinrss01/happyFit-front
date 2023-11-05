@@ -73,6 +73,7 @@ export const SecondSection = ({
                <NumberInput
                   placeholder='Développé couché (10 répétitions en kg)'
                   className='input'
+                  min={0}
                   max={150}
                   step={5}
                   onValueChange={(value) => handleNumberInputChange('benchPress', value)}
@@ -81,6 +82,7 @@ export const SecondSection = ({
                <NumberInput
                   placeholder={'Squat (10 répétitions en kg)'}
                   className='input'
+                  min={0}
                   max={200}
                   step={5}
                   onValueChange={(value) =>
