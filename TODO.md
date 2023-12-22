@@ -4,10 +4,10 @@
 - [x] - Finir la page article et le début de la page statistique
 - [x] - Mettre à jour le errorCallout dans l'inscription
 - [x] - Changer la syntax des typages des props
-- [ ] - Finir la page Statistiques
+- [ ] - Finir la page Statistiques, calories, poids, exo, rep, series, etc (Utiliser tremor)
 - [ ] - Finir le responsive
 - [ ] - Finir la page Boxe
-- [ ] - Ajouter montee de genoux dans cardio 
-- [ ] - Mettre les instructions pour le warmup comme pour le cardioe
+- [ ] - Ajouter montee de genoux dans cardio (exercises manquant dans les contantes)
+- [ ] - Mettre les instructions pour le warmup comme pour le cardio
 - [ ] - Finir la modal d'ajout d'article
 - [ ] - ReFaire le loader pour la page Warmup.tsx et Exercise.tsx
