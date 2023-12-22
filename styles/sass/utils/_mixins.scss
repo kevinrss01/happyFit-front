@@ -1,0 +1,43 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-col-center-justify {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-col-center-justify-between {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin blue-button($width, $height) {
+  @include flex-center;
+  background-color: darken($bleu, 30%);
+  color: inherit;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  width: $width;
+  font-size: 17px;
+  cursor: pointer;
+  transition: $primary-transition;
+  height: $height;
+
+  &:hover {
+    background-color: $bleu;
+  }
+}

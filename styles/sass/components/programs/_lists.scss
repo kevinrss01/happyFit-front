@@ -1,0 +1,25 @@
+.sport-type-container {
+  .title-list {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .flex-container {
+    @include flex-col-center-justify-between;
+    gap: 20px;
+    padding: 20px;
+
+    .warm-up-card,
+    .exo-card {
+      @include flex-col-center-justify;
+      width: 330px;
+      background-image: $gradient-background-left;
+
+      .title-card-list {
+        text-align: center;
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+}
