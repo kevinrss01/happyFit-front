@@ -1,0 +1,78 @@
+.details-exo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .details-under-container {
+    @include flex-col-center-justify;
+    width: 50%;
+
+    p {
+      text-align: center;
+    }
+
+    .title-details {
+      font-size: 35px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      font-size: 25px;
+      margin: 10px 0;
+    }
+
+    img {
+      padding: 20px !important;
+      border-radius: 40px;
+    }
+
+    .exercise-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      height: 200px;
+      width: 400px;
+      background-image: $gradient-background-left;
+
+      .title-card {
+        text-align: center;
+        font-size: 22px;
+      }
+
+      .text-card {
+        text-align: center;
+        font-size: 20px;
+      }
+
+      .text-cardio {
+        text-align: center;
+        font-size: 18px;
+      }
+    }
+
+    .gif-and-muscles-img-container {
+      margin-top: 20px;
+      display: flex;
+
+      .gif-container,
+      .muscles-img-container {
+        @include flex-col-center-justify;
+
+        .title-and-icon {
+          @include flex-center;
+
+          .icon {
+            margin-left: 3px;
+          }
+        }
+
+        .title {
+          @include flex-col-center-justify;
+          height: 45px;
+        }
+      }
+    }
+  }
+}

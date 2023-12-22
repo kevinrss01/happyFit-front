@@ -1,1 +1,13 @@
-- Change the image of the login page and the programme page with DALL.E. The goal is to keep the same minimalist and dark design for each images.  
+- [x] Gérer l'envoi de token dans le front et l'envoi de la donnée dans redux (login et register)
+- [x] Finir la création du AuthGuard
+- [x] - Voir pourquoi l'état redux n'est pas mis à jour à la connexion
+- [x] - Finir la page article et le début de la page statistique
+- [x] - Mettre à jour le errorCallout dans l'inscription
+- [x] - Changer la syntax des typages des props
+- [ ] - Finir la page Statistiques
+- [ ] - Finir le responsive
+- [ ] - Finir la page Boxe
+- [ ] - Ajouter montee de genoux dans cardio 
+- [ ] - Mettre les instructions pour le warmup comme pour le cardioe
+- [ ] - Finir la modal d'ajout d'article
+- [ ] - ReFaire le loader pour la page Warmup.tsx et Exercise.tsx

@@ -1,0 +1,67 @@
+.bilan-main-container {
+  height: 100%;
+  width: 100%;
+
+  .question-container {
+    height: 100%;
+    width: 100%;
+    @include flex-col-center-justify;
+    gap: 30px;
+
+    .title {
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+    }
+  }
+
+  .bilan-container {
+    height: 100%;
+    width: 100%;
+    @include flex-col-center-justify;
+
+    .title,
+    .title-2 {
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      padding: 10px;
+
+      i {
+        color: white;
+      }
+    }
+
+    .title-2 {
+      margin-top: 30px;
+    }
+
+    .questions-container {
+      @include flex-col-center-justify;
+
+      .question {
+        margin-top: 20px;
+        label {
+          color: white;
+        }
+      }
+
+      .button {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .bilan-loader-container {
+    height: 100%;
+    width: 100%;
+    @include flex-col-center-justify;
+
+    .error-container {
+      height: 100%;
+      width: 100%;
+      @include flex-col-center-justify;
+    }
+  }
+}

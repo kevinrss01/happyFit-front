@@ -1,0 +1,10 @@
+.topBarContainer {
+  @include flex-center;
+  width: 100%;
+
+  h2 {
+    @include flex-center;
+    margin: 0;
+    color: white;
+  }
+}

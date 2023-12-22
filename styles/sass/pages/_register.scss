@@ -1,0 +1,77 @@
+.register-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+
+  .button-next-previous {
+    display: flex;
+    margin: 20px;
+    gap: 20px;
+  }
+
+  .main-form-container {
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .register-container-form {
+    @include flex-col-center-justify;
+    width: 100%;
+    padding-top: 10px;
+    animation: slideInFromRight 0.6s ease-in-out;
+
+    .form {
+      width: 50%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+
+      .tabs {
+        p {
+          text-align: center;
+        }
+      }
+
+      label {
+        padding: 5px;
+      }
+
+      .select {
+        margin-top: 20px;
+      }
+
+      .input {
+        margin-top: 40px;
+      }
+    }
+
+    .title-form {
+      color: white;
+      font-size: 22px;
+    }
+  }
+
+  .next-button,
+  .previous-button {
+    margin-top: 20px;
+  }
+
+  .progress-bar {
+    width: 40%;
+    max-width: 500px;
+    margin-bottom: 30px;
+  }
+
+  .components {
+    animation: slideInFromRight 0.6s ease-in-out;
+  }
+}
