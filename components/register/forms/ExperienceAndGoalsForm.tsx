@@ -4,14 +4,14 @@ import { Title } from "@tremor/react";
 import { Divider } from "@nextui-org/react";
 import React, { useContext } from "react";
 import { FormContext } from "@/context/FormContext";
-import CustomTabs from "@/components/Customs/CustomTabs";
+import CustomTabs from "@/components/customs/CustomTabs";
 import {
   tabs,
   goalsTabs,
   placeTabs,
   timeAvailableTabs,
 } from "@/components/register/data/CustomDataTabs";
-import CustomNavigationBtns from "@/components/Customs/CustomNavigationBtns";
+import CustomNavigationBtns from "@/components/customs/CustomNavigationBtns";
 
 const ExperienceAndGoalsForm = () => {
   const { handlePreviousForm, handleNextForm, userData, setUserData } =

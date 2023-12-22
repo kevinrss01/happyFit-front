@@ -19,7 +19,7 @@ import {
   Title,
 } from "@tremor/react";
 import Image from "next/image";
-import Carousel from "@/components/Customs/Carousel";
+import Carousel from "@/components/customs/Carousel";
 
 import { exercisesDataList } from "@/constants/exercisesData";
 import fetchMusclesGroupImg from "@/services/API/ExternalAPI";
@@ -34,7 +34,7 @@ import {
   SetRendererProps,
 } from "@/types/propsTypes";
 import BreadcrumbsNavigation from "@/components/programs/BreadcrumbsNavigation";
-import CustomNavigationBtns from "@/components/Customs/CustomNavigationBtns";
+import CustomNavigationBtns from "@/components/customs/CustomNavigationBtns";
 
 const { workout, cardio } = exercisesDataList.training;
 const SetRenderer = ({

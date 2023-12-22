@@ -9,7 +9,7 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { verifNewEmail } from "@/utils/yupShema";
 import { EmailContainerProps } from "@/types/propsTypes";
 import { selectUser, updateUserState } from "@/redux/slices/userSlice";
-import UserAPI from "@/services/API/userAPI";
+import UserAPI from "@/services/API/UserAPI";
 
 export const EmailContainer = ({ email, userId }: EmailContainerProps) => {
   const [password, setPassword] = useState<string>("");

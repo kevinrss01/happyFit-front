@@ -7,7 +7,7 @@ import { FormContext } from "@/context/FormContext";
 import { verifyUserPerformanceSchema } from "@/utils/yupShema";
 import * as Yup from "yup";
 import { numberSessionsAvailable } from "@/components/register/data/selectInputData";
-import CustomNavigationBtns from "@/components/Customs/CustomNavigationBtns";
+import CustomNavigationBtns from "@/components/customs/CustomNavigationBtns";
 
 const verifyInputs = async (userPerformances: {
   benchPress: number;

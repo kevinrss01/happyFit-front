@@ -7,14 +7,12 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { useRouter, usePathname } from "next/navigation";
 import logo from "../public/images/HappyFit-logo.png";
 import Image from "next/image";
-import ArticlesDataModal from "./Modals/ArticlesDataModal";
 import { useSelector } from "react-redux";
 import React, { useCallback, useEffect, useState } from "react";
 import { Icon, Bold } from "@tremor/react";
 import { BiLogOutCircle } from "react-icons/bi";
 import { MdGeneratingTokens } from "react-icons/md";
 import { selectUser } from "@/redux/slices/userSlice";
-import { useDispatch } from "react-redux";
 
 const links = [
   {

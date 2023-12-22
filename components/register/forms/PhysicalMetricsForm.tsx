@@ -3,7 +3,7 @@ import { Title, Callout } from "@tremor/react";
 import { Select, SelectItem, Input, Divider } from "@nextui-org/react";
 import React, { useContext, useState } from "react";
 import { FormContext } from "@/context/FormContext";
-import CustomNavigationBtns from "@/components/Customs/CustomNavigationBtns";
+import CustomNavigationBtns from "@/components/customs/CustomNavigationBtns";
 import { metricSchema } from "@/utils/yupShema";
 import { typeOfReferenceSource } from "@/components/register/data/selectInputData";
 import { IoShareSocialOutline } from "react-icons/io5";

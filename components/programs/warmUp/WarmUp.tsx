@@ -21,7 +21,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "@/redux/slices/userSlice";
 import { useParams, useRouter } from "next/navigation";
 import { WarmUpExercise } from "@/types/programTypes";
-import CustomNavigationBtns from "@/components/Customs/CustomNavigationBtns";
+import CustomNavigationBtns from "@/components/customs/CustomNavigationBtns";
 import BreadcrumbsNavigation from "@/components/programs/BreadcrumbsNavigation";
 
 const { warmUp } = exercisesDataList;

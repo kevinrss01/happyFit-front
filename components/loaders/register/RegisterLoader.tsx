@@ -8,7 +8,7 @@ import { RegisterLoaderProps } from "@/types/propsTypes";
 import { Button } from "@nextui-org/react";
 import { GrPrevious } from "react-icons/gr";
 import { FormContext } from "@/context/FormContext";
-import ErrorCallout from "@/components/Errors/ErrorCallout";
+import ErrorCallout from "@/components/errors/ErrorCallout";
 
 export const RotatingLoader = () => {
   return <RotatingLines strokeColor="#3e8bd0" width="25" />;

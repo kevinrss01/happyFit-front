@@ -13,7 +13,7 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { RiMailSendLine } from "react-icons/ri";
 import UserAPI from "@/services/API/UserAPI";
 import toastMessage from "@/utils/toastMessage";
-import { ModalTremor } from "../Modals/ModalTremor";
+import { ModalTremor } from "../modals/ModalTremor";
 import { LoginModalContentProps, LoginModalProps } from "@/types/propsTypes";
 
 export const LoginModalContent: React.FC<LoginModalContentProps> = ({
@@ -90,7 +90,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpenModal, closeModal }) => {
       } else {
         toastMessage(
           "Une erreur est survenue, veuillez réessayer plus tard",
-          "error",
+          "error"
         );
       }
     } finally {

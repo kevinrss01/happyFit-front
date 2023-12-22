@@ -5,7 +5,7 @@ import { newPasswordVerif } from "@/utils/yupShema";
 import * as Yup from "yup";
 import toastMessage from "@/utils/toastMessage";
 import AuthAPI from "../../services/API/AuthAPI";
-import UserAPI from "../../services/API/userAPI";
+import UserAPI from "../../services/API/UserAPI";
 import { PasswordContainerProps } from "@/types/propsTypes";
 
 export const PasswordContainer = ({

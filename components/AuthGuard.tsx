@@ -3,13 +3,13 @@
 
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import AuthAPI from "@/services/API/authAPI";
+import AuthAPI from "@/services/API/AuthAPI";
 import { Tokens, VerifyTokenResponse } from "@/types/authTypes";
 import AxiosCallApi from "@/services/API/axios";
 import { RotatingLines } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeUserState, setAuth } from "@/redux/slices/userSlice";
-import UserAPI from "@/services/API/userAPI";
+import UserAPI from "@/services/API/UserAPI";
 import toastMessage from "@/utils/toastMessage";
 import { initializeArticles } from "@/redux/slices/articlesSlice";
 import { ReduxUserState, ServerResponseLogin } from "@/types/userDataTypes";

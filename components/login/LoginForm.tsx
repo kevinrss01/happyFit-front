@@ -15,7 +15,7 @@ import { LoginFormProps } from "@/types/propsTypes";
 import { LoginDefaultFormValue } from "@/types/types";
 import { initializeUserState, setAuth } from "@/redux/slices/userSlice";
 import { useRouter } from "next/navigation";
-import AuthAPI from "@/services/API/authAPI";
+import AuthAPI from "@/services/API/AuthAPI";
 import toastMessage from "@/utils/toastMessage";
 import AxiosCallApi from "@/services/API/axios";
 

@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PersonalInfoContainerProps } from "@/types/propsTypes";
 import { ReduxUserState, PersonalInfoSettings } from "@/types/userDataTypes";
 import { selectUser } from "@/redux/slices/userSlice";
-import UserAPI from "../../services/API/userAPI";
+import UserAPI from "../../services/API/UserAPI";
 
 function convertStringsToInts(obj: { [key: string]: any }) {
   let newObj: { [key: string]: number | string } = {};
