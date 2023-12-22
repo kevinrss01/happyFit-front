@@ -1,5 +1,4 @@
 "use client";
-
 import { Title } from "@tremor/react";
 import ArticleCard from "@/components/home/ArticleCard";
 import GeneralLoader from "@/components/loaders/Home/GeneralLoader";
