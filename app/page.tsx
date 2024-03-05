@@ -21,6 +21,7 @@ const Home = () => {
         color="primary"
         variant="bordered"
         className="tabs"
+        defaultSelectedKey={"article"}
       >
         <Tab
           key="stats"
@@ -30,7 +31,11 @@ const Home = () => {
               <span>Mes statistiques</span>
             </div>
           }
-        ></Tab>
+        >
+          <div>
+            <span>Pas encore disponible.</span>
+          </div>
+        </Tab>
         <Tab
           key="article"
           title={

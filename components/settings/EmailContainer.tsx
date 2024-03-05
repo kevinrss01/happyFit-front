@@ -42,7 +42,7 @@ export const EmailContainer = ({ email, userId }: EmailContainerProps) => {
     setIsLoading(true);
 
     const valideEmail = await axios.get(
-      `http://localhost:4000/users/verifyEmail/${newEmail}`
+      `${process.env.NEXT_PUBLIC_BASE_URL_BACKEND}/users/verifyEmail/${newEmail}`
     );
     if (valideEmail.data === true) {
       setIsError(true);

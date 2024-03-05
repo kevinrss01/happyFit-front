@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 function Login() {
   const [randomDivNumber, setRandomDivNumber] = useState<number>(
-    () => Math.floor(Math.random() * 3) + 1,
+    () => Math.floor(Math.random() * 3) + 1
   );
   const [windowWidth, setWindowWidth] = useState<number>(0);
 

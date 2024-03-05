@@ -4,14 +4,7 @@ import { PersonalInfoContainer } from "@/components/settings/PersonalInfoContain
 import { EmailContainer } from "@/components/settings/EmailContainer";
 import { PasswordContainer } from "@/components/settings/PasswordContainer";
 import { useSelector } from "react-redux";
-import {
-  TabList,
-  Tab,
-  TabGroup,
-  TabPanels,
-  TabPanel,
-  Title,
-} from "@tremor/react";
+import { TabList, Tab, TabGroup, TabPanels, TabPanel } from "@tremor/react";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { MdOutlineAlternateEmail, MdPassword } from "react-icons/md";
 import { useState } from "react";
@@ -55,7 +48,7 @@ export default function Settings() {
 
           {isClickedSettingsPage === "Facturation" ? (
             <>
-              <Title>Cette page n'est pas encore disponible.</Title>
+              <span>Cette page n'est pas encore disponible.</span>
             </>
           ) : (
             <>
